@@ -32,7 +32,7 @@ export default defineConfig({
             {
               label: 'Hranjive podloge',
               items: [
-                { label: 'Sastav i vrste', slug: 'hranjive-podloge' },
+                { label: 'Sastav i vrste', slug: 'hranjivi-mediji' },
                 { label: 'Ekstrakti', slug: 'ekstrakti' },
               ]
             },
