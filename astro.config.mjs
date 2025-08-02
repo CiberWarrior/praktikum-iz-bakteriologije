@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   site: 'https://ciberwarrior.github.io',
-  base: '/praktikum-iz-bakteriologije',
+  base: process.env.NODE_ENV === 'production' ? '/praktikum-iz-bakteriologije' : '/',
   integrations: [
     starlight({
       title: 'Mrežni udžbenik iz bakteriologije',
@@ -12,7 +12,7 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/withastro/starlight',
+          href: 'https://github.com/CiberWarrior/praktikum-iz-bakteriologije',
         },
       ],
       sidebar: [
