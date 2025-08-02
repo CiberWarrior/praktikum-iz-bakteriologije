@@ -8,14 +8,6 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Mrežni udžbenik iz bakteriologije',
-      defaultLocale: 'hr',
-      locales: {
-        hr: {
-          label: 'Hrvatski',
-          lang: 'hr',
-        },
-      },
-
       customCss: [
         './src/styles/global.css',
       ],
@@ -29,7 +21,7 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Predgovor',
-          items: [{ label: 'Predgovor', slug: 'poglavlje-1/predgovor' }],
+          items: [{ label: 'Predgovor', slug: 'predgovor' }],
         },
         {
           label: 'Poglavlje 1: Uvod u bakteriološki praktikum',
