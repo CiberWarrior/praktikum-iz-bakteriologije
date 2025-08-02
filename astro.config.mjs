@@ -8,6 +8,17 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Mrežni udžbenik iz bakteriologije',
+      defaultLocale: 'hr',
+      locales: {
+        hr: {
+          label: 'Hrvatski',
+          lang: 'hr',
+        },
+      },
+
+      customCss: [
+        './src/styles/global.css',
+      ],
       social: [
         {
           icon: 'github',
