@@ -119,6 +119,13 @@ export default defineConfig({
               ]
             }
           ]
+        },
+        {
+          label: 'Poglavlje 4: Pokretljivost bakterija',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-4' },
+            { label: 'Vježbe 4', slug: 'poglavlje-4/vjezbe-4' }
+          ]
         }
       ],
       customCss: ['@/styles/global.css'],
