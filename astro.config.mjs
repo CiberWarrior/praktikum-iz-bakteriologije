@@ -8,9 +8,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Mrežni udžbenik iz bakteriologije',
-      customCss: [
-        './src/styles/global.css',
-      ],
+
       social: [
         {
           icon: 'github',
@@ -125,6 +123,27 @@ export default defineConfig({
           items: [
             { label: 'Uvod u poglavlje', slug: 'poglavlje-4' },
             { label: 'Vježbe 4', slug: 'poglavlje-4/vjezbe-4' }
+          ]
+        },
+        {
+          label: 'Poglavlje 5: Biokemijska svojstva bakterija',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-5' },
+            { label: 'Biokemijska svojstva bakterija', slug: 'poglavlje-5/biokemijska-svojstva-bakterija' },
+            { label: 'Razgradnja ugljikohidrata', slug: 'poglavlje-5/razgradnja-ugljikohidrata' },
+            { label: 'Razgradnja ureje', slug: 'poglavlje-5/razgradnja-ureje' },
+            { label: 'Stvaranje amonijaka', slug: 'poglavlje-5/stvaranje-amonijaka' },
+            { label: 'Stvaranje indola', slug: 'poglavlje-5/stvaranje-indola' },
+            { label: 'Stvaranje sumporovodika', slug: 'poglavlje-5/stvaranje-sumporovodika' },
+            { label: 'Redukcija nitrata do nitrita', slug: 'poglavlje-5/redukcija-nitrata-do-nitrita' },
+            { label: 'Metilno crvenilo i VP test', slug: 'poglavlje-5/metilno-crvenilo-i-voges-proskauerov-test' },
+            { label: 'Uporaba citrata', slug: 'poglavlje-5/uporaba-citrata' },
+            { label: 'Test na Kliglerovu dvostrukom šećeru', slug: 'poglavlje-5/test-na-kliglerovu-dvostrukom-seceru' },
+            { label: 'Katalaza test', slug: 'poglavlje-5/katalaza-test' },
+            { label: 'Oksidaza test', slug: 'poglavlje-5/oksidaza-test' },
+            { label: 'Testovi za koliformne bakterije', slug: 'poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija' },
+            { label: 'API® 20 E sustav', slug: 'poglavlje-5/api-20-e-komercijalni-sustav-za-identifikaciju-enterobakterija' },
+            { label: 'Vježbe 5', slug: 'poglavlje-5/vjezbe-5' }
           ]
         }
       ],
