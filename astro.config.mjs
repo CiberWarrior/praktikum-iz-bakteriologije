@@ -3,6 +3,8 @@ import starlight from '@astrojs/starlight';
 import path from 'path';
 
 export default defineConfig({
+  site: 'https://ciberwarrior.github.io',
+  base: '/praktikum-iz-bakteriologije',
   integrations: [
     starlight({
       title: 'Mrežni udžbenik iz bakteriologije',
