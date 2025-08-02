@@ -204,3 +204,159 @@ th {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   position: relative;
 }
+
+/* === JEDNOSTAVNA MODERNA NASLOVNICA === */
+
+/* Hero sekcija s clean gradijentom i okvirom */
+.hero {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 25%, #475569 50%, #1e293b 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Lagani ambient efekt */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Starlight hero title styling */
+.hero h1, .hero .tagline {
+  color: white !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  position: relative;
+  z-index: 10;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 6rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 20px !important;
+  letter-spacing: -0.02em;
+  color: white !important;
+}
+
+.hero .tagline {
+  font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+  font-weight: 300 !important;
+  color: white !important;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 60px !important;
+}
+
+/* Stiliziran container za gumbove */
+.sl-flex.actions {
+  gap: 20px !important;
+  margin-top: 20px !important;
+  position: relative;
+  z-index: 10;
+  justify-content: center !important;
+}
+
+.sl-flex.actions a {
+  text-decoration: none !important;
+  padding: 16px 32px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 2px solid transparent !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}
+
+/* Gumb za predgovor - gradient zeleno-plavo */
+.sl-flex.actions a:nth-child(1) {
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%) !important;
+  color: white !important;
+}
+
+.sl-flex.actions a:nth-child(1):hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4) !important;
+  border-color: rgba(0, 210, 255, 0.5) !important;
+}
+
+/* Poglavlje 1 - gradient ljubičasto-roza */
+.sl-flex.actions a:nth-child(2) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+}
+
+.sl-flex.actions a:nth-child(2):hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+  border-color: rgba(102, 126, 234, 0.5) !important;
+}
+
+/* Poglavlje 2 - gradient narančasto-crveno */
+.sl-flex.actions a:nth-child(3) {
+  background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%) !important;
+  color: white !important;
+}
+
+.sl-flex.actions a:nth-child(3):hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(255, 154, 86, 0.4) !important;
+  border-color: rgba(255, 154, 86, 0.5) !important;
+}
+
+/* Animacija za sve gumbove */
+.sl-flex.actions a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.sl-flex.actions a:hover::before {
+  left: 100%;
+}
+
+/* Responzivni dizajn */
+@media (max-width: 768px) {
+  .sl-flex.actions {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+  
+  .sl-flex.actions a {
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+}
+
+/* Clean stil za O udžbeniku sekciju */
+main .content-panel {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 16px !important;
+  padding: 30px !important;
+  margin: 40px 0 !important;
+  backdrop-filter: blur(10px) !important;
+}
