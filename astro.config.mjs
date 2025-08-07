@@ -142,8 +142,90 @@ export default defineConfig({
             { label: 'Katalaza test', slug: 'poglavlje-5/katalaza-test' },
             { label: 'Oksidaza test', slug: 'poglavlje-5/oksidaza-test' },
             { label: 'Testovi za koliformne bakterije', slug: 'poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija' },
-            { label: 'API® 20 E sustav', slug: 'poglavlje-5/api-20-e-komercijalni-sustav-za-identifikaciju-enterobakterija' },
             { label: 'Vježbe 5', slug: 'poglavlje-5/vjezbe-5' }
+          ]
+        },
+        {
+          label: 'Poglavlje 6: Određivanje broja bakterija u suspenziji',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-6' },
+            { label: 'Titar bakterija', slug: 'poglavlje-6/titar-bakterija' },
+            { label: 'Broj kolonija bakterija', slug: 'poglavlje-6/broj-kolonija-bakterija' },
+            { label: 'Vježbe 6', slug: 'poglavlje-6/vjezbe-6' }
+          ]
+        },
+        {
+          label: 'Poglavlje 7: Određivanje broja bakterija direktnim metodama',
+          items: [
+            { label: 'Direktne metode', slug: 'poglavlje-7' },
+            { label: 'Vježbe 7', slug: 'poglavlje-7/vjezbe-7' }
+          ]
+        },
+        {
+          label: 'Poglavlje 8: Bakterije indikatori sanitarnog stanja sredine',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-8' },
+            { label: 'Koliformne bakterije', slug: 'poglavlje-8/koliformne-bakterije' },
+            { label: 'Fekalni streptokoki', slug: 'poglavlje-8/fekalni-streptokoki' },
+            {
+              label: 'Vježbe 8',
+              items: [
+                { label: 'Pregled vježbi', slug: 'poglavlje-8/vjezbe-8' },
+                { label: '1. Koliformne bakterije na selektivnim podlogama', slug: 'poglavlje-8/vjezbe/vjezba-8-1' },
+                { label: '2. Titar koliformnih bakterija u EC-bujonu', slug: 'poglavlje-8/vjezbe/vjezba-8-2' },
+                { label: '3. Broj fekalnih streptokoka', slug: 'poglavlje-8/vjezbe/vjezba-8-3' }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Poglavlje 9: Sanitarna bakteriološka analiza vode',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-9' },
+            { label: 'Saprofitske bakterije', slug: 'poglavlje-9/saprofitske-bakterije' },
+            { label: 'Koliformne bakterije u sanitarnoj analizi', slug: 'poglavlje-9/koliformne-bakterije' },
+            { label: 'Prethodni test', slug: 'poglavlje-9/prethodni-test' },
+            { label: 'Izračunavanje MPN koliformnih bakterija', slug: 'poglavlje-9/izracunavanje-najvjerojatnijeg-broja-ukupnih-i-fekalnih-koliformnih-bakterija' },
+            { label: 'Potvrdni test', slug: 'poglavlje-9/potvrdni-test' },
+            { label: 'Završni test', slug: 'poglavlje-9/zavrsni-test' },
+            {
+              label: 'Vježbe 9',
+              items: [
+                { label: 'Pregled vježbi', slug: 'poglavlje-9/vjezbe-9' },
+                { label: '1. Prethodni test u sanitarnoj analizi vode', slug: 'poglavlje-9/vjezbe/vjezba-9-1' },
+                { label: '2. Potvrdni test u sanitarnoj analizi vode', slug: 'poglavlje-9/vjezbe/vjezba-9-2' },
+                { label: '3. Završni test u sanitarnoj analizi vode', slug: 'poglavlje-9/vjezbe/vjezba-9-3' }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Poglavlje 10: Termofilne bakterije',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-10' },
+            { label: 'Termofilne bakterije', slug: 'poglavlje-10/termofilne-bakterije' },
+            {
+              label: 'Vježbe 10',
+              items: [
+                { label: 'Pregled vježbi', slug: 'poglavlje-10/vjezbe-10' },
+                { label: '1. Određivanje broja kolonija termofilnih bakterija', slug: 'poglavlje-10/vjezbe/vjezba-10-1' },
+                { label: '2. Određivanje gnojenja tala stajskim gnojem', slug: 'poglavlje-10/vjezbe/vjezba-10-2' }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Poglavlje 11: Aerobne sporogene bakterije',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-11' },
+            {
+              label: 'Vježbe 11',
+              items: [
+                { label: 'Pregled vježbi', slug: 'poglavlje-11/vjezbe-11' },
+                { label: '1. Izolacija sporogenih bakterija iz površinskih voda', slug: 'poglavlje-11/vjezbe/vjezba-11-1' },
+                { label: '2. Izolacija sporogenih bakterija iz tla', slug: 'poglavlje-11/vjezbe/vjezba-11-2' }
+              ]
+            }
           ]
         }
       ],
