@@ -165,16 +165,14 @@
 }
 
 /* Print */
-@media print {
+@media (print) {
   .sl-markdown-content {
     color: #000;
     background-color: #fff;
   }
-
   .sl-markdown-content img {
     box-shadow: none;
   }
-
   .sl-markdown-content .note {
     background-color: #f0f0f0;
     border-left: 3px solid #999;
@@ -232,7 +230,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
   pointer-events: none;
@@ -373,7 +371,7 @@ main .content-panel {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
+  background-image:
     radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0),
     linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
   background-size: 20px 20px, 100% 100%;
@@ -489,17 +487,14 @@ main .content-panel {
   .hero-container {
     padding: 48px 20px;
   }
-  
   .hero-actions {
     flex-direction: column;
     align-items: center;
   }
-  
   .btn {
     width: 100%;
     max-width: 280px;
   }
-
   .hero-decoration {
     top: 10px;
     right: 10px;
@@ -522,14 +517,11 @@ main .content-panel {
 
 /* Prefers-reduced-motion za hero */
 @media (prefers-reduced-motion: reduce) {
-  .btn {
-    transition: none;
-  }
-  
-  .btn:hover {
-    transform: none;
-  }
+  .btn { transition: none; }
+  .btn:hover { transform: none; }
 }
+
+
 
 /* =====================================================
    WATER QUALITY TABLE STYLES (unutar sadržaja)
@@ -621,12 +613,125 @@ main .content-panel {
 
 /* Responsive design za water quality table */
 @media (max-width: 768px) {
-  .sl-markdown-content .water-quality-table {
-    font-size: 0.8rem;
-  }
-  
+  .sl-markdown-content .water-quality-table { font-size: 0.8rem; }
   .sl-markdown-content .water-quality-table th,
-  .sl-markdown-content .water-quality-table td {
-    padding: 0.5rem;
-  }
+  .sl-markdown-content .water-quality-table td { padding: 0.5rem; }
 }
+
+/* =========================================================
+   Predgovor – Chapters grid i UX poboljšanja
+   ========================================================= */
+
+/* Paleta za ovaj blok (safe default vrijednosti) */
+:root {
+  --brand: #138d75;
+  --brand-600: #0f7b67;
+  --ink: #0f2d2a;
+  --paper: #ffffff;
+  --paper-tint: #f7f9f8;
+  --paper-tint-hover: #eef6f4;
+  --border: rgba(0, 0, 0, 0.06);
+  --border-strong: rgba(0, 0, 0, 0.12);
+}
+
+html[data-theme="dark"] {
+  --paper: #0f1617;
+  --paper-tint: #121c1d;
+  --paper-tint-hover: #152223;
+  --ink: #e6f2f0;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+}
+
+/* Smanjene animacije – respektiraj OS postavke */
+@media (prefers-reduced-motion: reduce) {
+  .chapters__item { transition: none !important; }
+}
+
+/* ===== Grid kontejner ===== */
+.chapters {
+  margin: 2rem 0 3rem;
+}
+
+.chapters__grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .chapters__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .chapters__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== Kartice poglavlja ===== */
+.chapters__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--paper-tint);
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: transform .12s ease, background-color .12s ease, border-color .12s ease;
+}
+
+.chapters__item:hover {
+  transform: translateY(-1px);
+  background: var(--paper-tint-hover);
+  border-color: var(--border-strong);
+}
+
+.chapters__item:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Istaknuta (primarna) kartica */
+.chapters__item.is-primary {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+.chapters__item.is-primary:hover {
+  background: var(--brand-600);
+  border-color: var(--brand-600);
+}
+
+.chapters__text {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Ikonica strelice na desnoj strani */
+.chapters__icon {
+  width: 22px;
+  height: 22px;
+  opacity: 0.85;
+}
+
+/* ===== Intro panel (opcionalno, za “O udžbeniku”) ===== */
+.predgovor-intro {
+  background: var(--paper-tint);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+html[data-theme="dark"] .predgovor-intro {
+  background: var(--paper-tint);
+}
+
+/* Mali utility razmaci (ako zatrebaju) */
+.mt-2 { margin-top: .5rem; }
+.mt-3 { margin-top: .75rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-2 { margin-bottom: .5rem; }
+.mb-3 { margin-bottom: .75rem; }
+.mb-4 { margin-bottom: 1rem; }
