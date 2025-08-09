@@ -521,6 +521,23 @@ main .content-panel {
   .btn:hover { transform: none; }
 }
 
+/* =====================================================
+   PREDGOVOR STRANICA - LIJEVO PORAVNAVANJE
+   ===================================================== */
+/* Poravnavanje teksta na lijevu stranu za predgovor stranicu */
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content p,
+.sl-markdown-content ul,
+.sl-markdown-content li {
+  text-align: left !important;
+}
+
+/* Osiguraj da se tekst u markdown sadržaju poravna lijevo */
+.sl-markdown-content {
+  text-align: left !important;
+}
+
 
 
 /* =====================================================
