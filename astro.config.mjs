@@ -2,9 +2,15 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import path from 'path';
 
+// Detect deploy target to set correct site/base
+const isVercel = !!process.env.VERCEL;
+const siteUrl = isVercel && process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : 'https://ciberwarrior.github.io';
+
 export default defineConfig({
-  site: 'https://ciberwarrior.github.io',
-  base: process.env.NODE_ENV === 'production' ? '/praktikum-iz-bakteriologije' : '/',
+  site: siteUrl,
+  base: isVercel ? '/' : (process.env.NODE_ENV === 'production' ? '/praktikum-iz-bakteriologije' : '/'),
   integrations: [
     starlight({
       title: 'Mrežni udžbenik iz bakteriologije',
