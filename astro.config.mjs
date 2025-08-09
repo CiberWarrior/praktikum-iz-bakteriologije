@@ -227,7 +227,191 @@ export default defineConfig({
               ]
             }
           ]
-        }
+        },
+        {
+          label: 'Poglavlje 12: Anaerobne bakterije',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-12' },
+            {
+              label: 'Vježbe 12',
+              items: [
+                { label: 'Pregled vježbi', slug: 'poglavlje-12/vjezbe-12' },
+                { label: '1. Izolacija anaerobnih bakterija iz površinskih voda', slug: 'poglavlje-12/vjezbe/vjezba-12-1' }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Poglavlje 13: Izrada antibiograma i aromatograma',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-13' },
+            { label: 'Antibiogram', slug: 'poglavlje-13/antibiogram' },
+            { label: 'Aromatogram', slug: 'poglavlje-13/aromatogram' },
+            {
+              label: 'Vježbe 13',
+              items: [
+                { label: 'Pregled vježbi', slug: 'poglavlje-13/vjezbe-13' },
+                { label: '1. Izrada antibiograma s komercijalnim antibioticima', slug: 'poglavlje-13/vjezbe/vjezba-13-1' },
+                { label: '2. Izrada aromatograma s različitim eteričnim uljima', slug: 'poglavlje-13/vjezbe/vjezba-13-2' }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Poglavlje 14: Test toksičnosti s kvascem',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-14' },
+            { label: 'Vježbe 14', slug: 'poglavlje-14/vjezbe-14' }
+          ]
+        },
+        {
+          label: 'Poglavlje 15: Bakteriološko ispitivanje kvalitete namirnica',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-15' },
+            { label: 'Test s metilenskim modrilom', slug: 'poglavlje-15/test-s-metilenskim-modrilom' },
+            { label: 'TTC test', slug: 'poglavlje-15/ttc-test' },
+            { label: 'HIL test', slug: 'poglavlje-15/hil-test' },
+            {
+              label: 'Vježbe 15',
+              items: [
+                { label: 'Pregled vježbi', slug: 'poglavlje-15/vjezbe-15' },
+                { label: '1. Izvedba testa s metilenskim modrilom', slug: 'poglavlje-15/vjezbe/vjezba-15-1' },
+                { label: '2. Izvedba TTC-testa', slug: 'poglavlje-15/vjezbe/vjezba-15-2' },
+                { label: '3. Izvedba HIL-testa', slug: 'poglavlje-15/vjezbe/vjezba-15-3' }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Poglavlje 16: Bakterije mliječne fermentacije',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-16' },
+            { label: 'Bakterije mliječne fermentacije', slug: 'poglavlje-16/bakterije-mlijecne-fermentacije' },
+            {
+              label: 'Vježbe 16',
+              items: [
+                { label: 'Pregled vježbi', slug: 'poglavlje-16/vjezbe-16' },
+                { label: '1. Dokazivanje bakterija mliječne fermentacije u acidofilnom jogurtu', slug: 'poglavlje-16/vjezbe/vjezba-16-1' }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Poglavlje 17: Određivanje broja kolonija oligokarbofilnih i polikarbofilnih saprofitskih bakterija',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-17' },
+            {
+              label: 'Vježbe 17',
+              items: [
+                { label: '1. Određivanje broja kolonija oligokarbofilnih i polikarbofilnih saprofitskih bakterija', slug: 'poglavlje-17/vjezba-17-1' },
+                { label: '2. Određivanje postotka fiziološke skupine amilolitičkih bakterija unutar populacije ukupnih saprofitskih bakterija', slug: 'poglavlje-17/vjezba-17-2' }
+              ]
+            }
+          ]
+        },
+        {
+          label: 'Poglavlje 18: Biogeokemijski ciklus dušika',
+          items: [
+            { label: 'Uvod u poglavlje', slug: 'poglavlje-18' },
+            { label: 'Biogeokemijski ciklus dušika', slug: 'poglavlje-18/biogeokemijski-ciklus-dusika' },
+            { label: 'Nesimbiotski fiksatori dušika', slug: 'poglavlje-18/nesimbiotski-fiksatori-dusika' },
+            { label: 'Proteolitičke želatinolitičke bakterije', slug: 'poglavlje-18/proteoliticke-zelatinolitiske-bakterije' },
+            { label: 'Amonifikatori', slug: 'poglavlje-18/amonifikatori' },
+            { label: 'Nitrifikatori', slug: 'poglavlje-18/nitrifikatori' },
+            { label: 'Denitrifikatori', slug: 'poglavlje-18/denitrifikatori' },
+            { label: 'Razgradnja ureje', slug: 'poglavlje-18/razgradnja-ureje' },
+            {
+              label: 'Vježbe 18',
+              items: [
+                { label: 'Pregled vježbi', slug: 'poglavlje-18/vjezbe-18' },
+                { label: '1. Određivanje broja fertilnih zrnaca tla', slug: 'poglavlje-18/vjezbe/vjezba-18-1' },
+                { label: '2. Određivanje broja kolonija Azotobacter chroococcum u tlu', slug: 'poglavlje-18/vjezbe/vjezba-18-2' },
+                { label: '3. Određivanje titra Clostridium pasteurianum u tlu', slug: 'poglavlje-18/vjezbe/vjezba-18-3' },
+                { label: '4. Negativno bojenje kapsula Azotobacter chroococcum', slug: 'poglavlje-18/vjezbe/vjezba-18-4' },
+                { label: '5. Bojenje spora Clostridium pasteurianum', slug: 'poglavlje-18/vjezbe/vjezba-18-5' },
+                { label: '6. Određivanje postotka želatinolitičkih bakterija', slug: 'poglavlje-18/vjezbe/vjezba-18-6' },
+                { label: '7. Izolacija amonifikatora', slug: 'poglavlje-18/vjezbe/vjezba-18-7' },
+                { label: '8. Amonifikacijska aktivnost', slug: 'poglavlje-18/vjezbe/vjezba-18-8' },
+                { label: '9. Određivanje aktivnosti nitrifikatora prve faze', slug: 'poglavlje-18/vjezbe/vjezba-18-9' },
+                { label: '10. Određivanje aktivnosti nitrifikatora druge faze', slug: 'poglavlje-18/vjezbe/vjezba-18-10' },
+                { label: '11. Određivanje najvjerojatnijeg broja denitrifikatora', slug: 'poglavlje-18/vjezbe/vjezba-18-11' }
+              ]
+            }
+          ]
+        },
+          {
+            label: 'Poglavlje 19: Biogeokemijski ciklus sumpora',
+            items: [
+              { label: 'Uvod u poglavlje', slug: 'poglavlje-19' },
+              { label: 'Biogeokemijski ciklus sumpora', slug: 'poglavlje-19/biogeokemijski-ciklus-sumpora' },
+              { label: 'Proizvođači sumporovodika iz proteina', slug: 'poglavlje-19/proizvodaci-sumporovodika-iz-proteina' },
+              { label: 'Sulfat/tiosulfat reducirajuće bakterije', slug: 'poglavlje-19/sulfat-i-tiosulfat-reducirajuce-bakterije' },
+              { label: 'Sulfit reducirajuće klostridije', slug: 'poglavlje-19/sulfit-reducirajuce-klostridije' },
+              {
+                label: 'Vježbe 19',
+                items: [
+                  { label: 'Pregled vježbi', slug: 'poglavlje-19/vjezbe-19' },
+                  { label: '1. Određivanje broja kolonija proizvođača H2S iz proteina', slug: 'poglavlje-19/vjezbe/vjezba-19-1' },
+                  { label: '2. Određivanje broja kolonija sulfit reducirajućih klostridija', slug: 'poglavlje-19/vjezbe/vjezba-19-2' },
+                  { label: '3. MPN sulfat/tiosulfat reducirajućih bakterija', slug: 'poglavlje-19/vjezbe/vjezba-19-3' },
+                  { label: '4. Bojenje SRB skupine po Gramu', slug: 'poglavlje-19/vjezbe/vjezba-19-4' }
+                ]
+              }
+            ]
+          }
+          ,
+          {
+            label: 'Poglavlje 20: Biogeokemijski ciklus fosfora',
+            items: [
+              { label: 'Uvod u poglavlje', slug: 'poglavlje-20' },
+              { label: 'Biogeokemijski ciklus fosfora', slug: 'poglavlje-20/biogeokemijski-ciklus-fosfora' },
+              { label: 'Fosfomobilizatori', slug: 'poglavlje-20/fosfomobilizatori' },
+              { label: 'Fosfat-akumulirajuće bakterije', slug: 'poglavlje-20/fosfat-akumulirajuce-bakterije' }
+            ]
+          }
+          ,
+          {
+            label: 'Poglavlje 21: Metoda otiska',
+            items: [
+              { label: 'Uvod u poglavlje', slug: 'poglavlje-21' },
+              { label: 'Metoda otiska', slug: 'poglavlje-21/metoda-otiska' },
+              { label: 'Vježbe 21', slug: 'poglavlje-21/vjezbe-21' },
+              {
+                label: 'Vježbe',
+                items: [
+                  { label: '1. Temperaturni optimum i temperaturna valencija', slug: 'poglavlje-21/vjezbe/vjezba-21-1' },
+                  { label: '2. Zastupljenost fizioloških skupina', slug: 'poglavlje-21/vjezbe/vjezba-21-2' }
+                ]
+              }
+            ]
+          },
+          {
+            label: 'Poglavlje 22: Streptomiceti',
+            items: [
+              { label: 'Uvod u poglavlje', slug: 'poglavlje-22' },
+              { label: 'Streptomiceti', slug: 'poglavlje-22/streptomiceti' },
+              { label: 'Razgradnja celuloze', slug: 'poglavlje-22/razgradnja-celuloze' },
+              { label: 'Određivanje antibiotskih svojstava streptomiceta', slug: 'poglavlje-22/antibiotska-svojstva-streptomiceta' },
+              {
+                label: 'Vježbe 22',
+                items: [
+                  { label: '1. Izolacija iz tla na Czapekovom agaru', slug: 'poglavlje-22/vjezbe/vjezba-22-1' },
+                  { label: '2. Izolacija u čistoj kulturi', slug: 'poglavlje-22/vjezbe/vjezba-22-2' },
+                  { label: '3. Mikroskopiranje streptomiceta', slug: 'poglavlje-22/vjezbe/vjezba-22-3' },
+                  { label: '4. Antibiogram s antibioticima iz streptomiceta', slug: 'poglavlje-22/vjezbe/vjezba-22-4' },
+                  { label: '5. Razgradnja celuloze', slug: 'poglavlje-22/vjezbe/vjezba-22-5' }
+                ]
+              }
+            ]
+          },
+          {
+            label: 'Poglavlje 23: Izolacija anaerobnih fototrofnih bakterija u stupcu po Vinogradskom',
+            items: [
+              { label: 'Uvod u poglavlje', slug: 'poglavlje-23' },
+              { label: 'Purpurne sumporne bakterije', slug: 'poglavlje-23/purpurne-sumporne-bakterije' },
+              { label: 'Vježbe 23', slug: 'poglavlje-23/vjezbe-23' }
+            ]
+          }
       ],
       customCss: ['@/styles/global.css'],
     }),
