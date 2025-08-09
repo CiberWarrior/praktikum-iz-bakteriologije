@@ -354,6 +354,184 @@ main .content-panel {
 }
 
 /* =====================================================
+   CUSTOM HERO COMPONENT STYLES (dodano za Hero.astro)
+   ===================================================== */
+.hero {
+  position: relative;
+  min-height: 60vh;
+  background: linear-gradient(135deg, #138d75 0%, #0e6b5c 50%, #0a5449 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0),
+    linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
+  background-size: 20px 20px, 100% 100%;
+  pointer-events: none;
+}
+
+.hero-decoration {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 64px 32px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+  color: white;
+}
+
+.hero-subtitle {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 2.5rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 32px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: white;
+  color: #138d75;
+  border-color: white;
+}
+
+.btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0);
+}
+
+/* Responzivni dizajn za hero */
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 48px 20px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .hero-decoration {
+    top: 10px;
+    right: 10px;
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-container {
+    padding: 32px 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-bg-pattern {
+    background-image: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
+    background-size: 100% 100%;
+  }
+}
+
+/* Prefers-reduced-motion za hero */
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* =====================================================
    WATER QUALITY TABLE STYLES (unutar sadržaja)
    ===================================================== */
 .sl-markdown-content .water-quality-table {
