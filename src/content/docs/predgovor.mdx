@@ -16,23 +16,9 @@ hero:
       overflow: hidden;
     }
     
-    /* Pozadinska slika */
-    .sl-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('https://praktikum-iz-bakteriologije.vercel.app/Images/slika1.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.4;
-      z-index: 1;
-    }
+
     
-    /* Overlay za bolji kontrast */
+    /* Glavna pozadina */
     .sl-hero::after {
       content: '';
       position: absolute;
@@ -40,8 +26,8 @@ hero:
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(19, 141, 117, 0.7) 0%, rgba(14, 102, 85, 0.7) 100%);
-      z-index: 2;
+      background: linear-gradient(135deg, #138d75 0%, #0e6655 100%);
+      z-index: 1;
     }
     
     /* Tekst iznad pozadine */
@@ -49,7 +35,7 @@ hero:
     .sl-hero .sl-hero__tagline,
     .sl-hero .sl-hero__actions {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       color: #ffffff;
     }
     
