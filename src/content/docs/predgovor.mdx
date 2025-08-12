@@ -3,8 +3,8 @@ title: Praktikum iz bakteriologije
 description: Priručnik za studente s detaljnim uputama za bakteriološki praktikum
 template: splash
 hero:
-  title: "Uvod"
-  tagline: ""
+  title: "Praktikum iz bakteriologije"
+  tagline: "Priručnik za studente s detaljnim uputama za bakteriološki praktikum"
 ---
 
 <style dangerouslySetInnerHTML={{
@@ -16,7 +16,21 @@ hero:
       overflow: hidden;
     }
     
-
+    /* Pozadinski uzorak kao u Hero.astro */
+    .sl-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0),
+        linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
+      background-size: 20px 20px, 100% 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
     
     /* Glavna pozadina */
     .sl-hero::after {
@@ -43,6 +57,14 @@ hero:
     .sl-hero .sl-hero__title {
       color: #ffffff !important;
       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    /* Responzivni dizajn */
+    @media (max-width: 1024px) {
+      .sl-hero::before {
+        background-image: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
+        background-size: 100% 100%;
+      }
     }
   `
 }} />
