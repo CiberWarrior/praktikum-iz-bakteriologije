@@ -1,6 +1,6 @@
 /* Globalni stil za Mrežni udžbenik iz bakteriologije */
 
-/* ===== OSNOVNI SADRŽAJ (samo unutar markdown/doks sekcije) ===== */
+/* ===== OSNOVNI SADRŽAJ ===== */
 .sl-markdown-content {
   line-height: 1.6;
   color: #222;
@@ -8,30 +8,26 @@
   max-width: 100%;
 }
 
-/* Glavni sadržaj */
 .sl-markdown-content main {
   padding: 2rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* Naslovi */
 .sl-markdown-content h1,
 .sl-markdown-content h2,
 .sl-markdown-content h3,
 .sl-markdown-content h4 {
   font-weight: 700;
-  color: #138d75; /* tamnozelena */
+  color: #138d75;
   margin-top: 2rem;
 }
 
-/* Paragraf */
 .sl-markdown-content p {
   margin: 1rem 0;
   font-size: 1.05rem;
 }
 
-/* Slike */
 .sl-markdown-content img {
   max-width: 100%;
   border-radius: 0.5rem;
@@ -39,7 +35,6 @@
   margin: 1rem 0;
 }
 
-/* Tablice */
 .sl-markdown-content table {
   width: 100%;
   border-collapse: collapse;
@@ -58,7 +53,7 @@
   background-color: #f4f4f4;
 }
 
-/* Napomene (Starlight :::note) */
+/* Napomene */
 .sl-markdown-content .note {
   padding: 1rem 1.25rem;
   margin: 2rem 0;
@@ -68,7 +63,6 @@
   font-style: normal;
 }
 
-/* 🧪 Eksperimenti i sastav podloga */
 .sl-markdown-content .note-lab {
   background-color: #eafaf7;
   border-left: 4px solid #138d75;
@@ -84,7 +78,6 @@
   margin-left: 2rem;
 }
 
-/* 💡 Savjeti i trikovi */
 .sl-markdown-content .note-tip {
   background-color: #fffbea;
   border-left: 4px solid #f0c000;
@@ -100,7 +93,6 @@
   margin-left: 2rem;
 }
 
-/* ⚠️ Upozorenja i opasnosti */
 .sl-markdown-content .note-warning {
   background-color: #fff0f0;
   border-left: 4px solid #e72227;
@@ -116,7 +108,6 @@
   margin-left: 2rem;
 }
 
-/* 📘 Informativne napomene */
 .sl-markdown-content .note-info {
   background-color: #edf4ff;
   border-left: 4px solid #3a78c9;
@@ -132,7 +123,6 @@
   margin-left: 2rem;
 }
 
-/* ❓ Pitanja */
 .sl-markdown-content .note-question {
   background-color: #f0faff;
   border-left: 4px solid #00bcd4;
@@ -148,7 +138,6 @@
   margin-left: 2rem;
 }
 
-/* 📎 Reference */
 .sl-markdown-content .note-reference {
   background-color: #f9f9f9;
   border-left: 4px solid #999;
@@ -164,22 +153,7 @@
   margin-left: 2rem;
 }
 
-/* Print */
-@media (print) {
-  .sl-markdown-content {
-    color: #000;
-    background-color: #fff;
-  }
-  .sl-markdown-content img {
-    box-shadow: none;
-  }
-  .sl-markdown-content .note {
-    background-color: #f0f0f0;
-    border-left: 3px solid #999;
-  }
-}
-
-/* Galerija u dva reda za slike s hover efektom */
+/* Galerija slika */
 .sl-markdown-content .image-grid {
   display: flex;
   flex-wrap: wrap;
@@ -204,156 +178,7 @@
   position: relative;
 }
 
-/* =====================================================
-   HERO / NASLOVNICA (ostaje globalno jer se koristi izvan markdowna)
-   ===================================================== */
-.hero {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 25%, #475569 50%, #1e293b 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3) !important;
-  color: white !important;
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-}
-
-/* Lagani ambient efekt */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-/* Starlight hero title styling */
-.hero h1, .hero .tagline {
-  color: white !important;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
-  position: relative;
-  z-index: 10;
-}
-
-.hero h1 {
-  font-size: clamp(3rem, 8vw, 6rem) !important;
-  font-weight: 700 !important;
-  line-height: 1.1 !important;
-  margin-bottom: 20px !important;
-  letter-spacing: -0.02em;
-}
-
-.hero .tagline {
-  font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
-  font-weight: 300 !important;
-  text-transform: lowercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 60px !important;
-}
-
-/* Stiliziran container za gumbove */
-.sl-flex.actions {
-  gap: 20px !important;
-  margin-top: 20px !important;
-  position: relative;
-  z-index: 10;
-  justify-content: center !important;
-}
-
-.sl-flex.actions a {
-  text-decoration: none !important;
-  padding: 16px 32px !important;
-  border-radius: 12px !important;
-  font-weight: 600 !important;
-  font-size: 16px !important;
-  transition: all 0.3s ease !important;
-  position: relative !important;
-  overflow: hidden !important;
-  border: 2px solid transparent !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
-}
-
-/* Gradijenti za gumbe */
-.sl-flex.actions a:nth-child(1) {
-  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%) !important;
-  color: white !important;
-}
-.sl-flex.actions a:nth-child(1):hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4) !important;
-  border-color: rgba(0, 210, 255, 0.5) !important;
-}
-
-.sl-flex.actions a:nth-child(2) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-  color: white !important;
-}
-.sl-flex.actions a:nth-child(2):hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
-  border-color: rgba(102, 126, 234, 0.5) !important;
-}
-
-.sl-flex.actions a:nth-child(3) {
-  background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%) !important;
-  color: white !important;
-}
-.sl-flex.actions a:nth-child(3):hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 8px 25px rgba(255, 154, 86, 0.4) !important;
-  border-color: rgba(255, 154, 86, 0.5) !important;
-}
-
-/* Animacija za sve gumbove */
-.sl-flex.actions a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s;
-}
-.sl-flex.actions a:hover::before {
-  left: 100%;
-}
-
-/* Responzivni dizajn */
-@media (max-width: 768px) {
-  .sl-flex.actions {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 16px !important;
-  }
-  .sl-flex.actions a {
-    width: 100% !important;
-    max-width: 280px !important;
-  }
-}
-
-/* Clean stil za O udžbeniku sekciju */
-main .content-panel {
-  background: rgba(255, 255, 255, 0.02) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  border-radius: 16px !important;
-  padding: 30px !important;
-  margin: 40px 0 !important;
-  backdrop-filter: blur(10px) !important;
-}
-
-/* =====================================================
-   CUSTOM HERO COMPONENT STYLES (dodano za Hero.astro)
-   ===================================================== */
+/* Hero komponenta */
 .hero {
   position: relative;
   min-height: 60vh;
@@ -367,22 +192,11 @@ main .content-panel {
 
 .hero-bg-pattern {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background-image:
     radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0),
     linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
   background-size: 20px 20px, 100% 100%;
-  pointer-events: none;
-}
-
-.hero-decoration {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: rgba(255, 255, 255, 0.3);
   pointer-events: none;
 }
 
@@ -482,49 +296,7 @@ main .content-panel {
   transform: translateY(0);
 }
 
-/* Responzivni dizajn za hero */
-@media (max-width: 768px) {
-  .hero-container {
-    padding: 48px 20px;
-  }
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-  .btn {
-    width: 100%;
-    max-width: 280px;
-  }
-  .hero-decoration {
-    top: 10px;
-    right: 10px;
-    transform: scale(0.7);
-  }
-}
-
-@media (max-width: 375px) {
-  .hero-container {
-    padding: 32px 16px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .hero-bg-pattern {
-    background-image: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
-    background-size: 100% 100%;
-  }
-}
-
-/* Prefers-reduced-motion za hero */
-@media (prefers-reduced-motion: reduce) {
-  .btn { transition: none; }
-  .btn:hover { transform: none; }
-}
-
-/* =====================================================
-   PREDGOVOR STRANICA - LIJEVO PORAVNAVANJE
-   ===================================================== */
-/* Poravnavanje teksta na lijevu stranu za predgovor stranicu */
+/* Predgovor - lijevo poravnavanje */
 .sl-markdown-content h2,
 .sl-markdown-content h3,
 .sl-markdown-content p,
@@ -532,140 +304,9 @@ main .content-panel {
 .sl-markdown-content li {
   text-align: left !important;
 }
+.sl-markdown-content { text-align: left !important; }
 
-/* Osiguraj da se tekst u markdown sadržaju poravna lijevo */
-.sl-markdown-content {
-  text-align: left !important;
-}
-
-
-
-/* =====================================================
-   WATER QUALITY TABLE STYLES (unutar sadržaja)
-   ===================================================== */
-.sl-markdown-content .water-quality-table {
-  margin: 2rem 0;
-  overflow-x: auto;
-}
-
-.sl-markdown-content .water-quality-table table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.sl-markdown-content .water-quality-table th {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.9rem;
-  border: none;
-}
-
-.sl-markdown-content .water-quality-table td {
-  padding: 1rem;
-  text-align: center;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 0.85rem;
-}
-
-.sl-markdown-content .water-quality-table tr:nth-child(even) {
-  background-color: #f9fafb;
-}
-
-.sl-markdown-content .water-quality-table tr:hover {
-  background-color: #f3f4f6;
-}
-
-/* Kvaliteta vode - boje */
-.sl-markdown-content .excellent {
-  color: #059669;
-  font-weight: 600;
-  background: #d1fae5;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-.sl-markdown-content .good {
-  color: #047857;
-  font-weight: 600;
-  background: #a7f3d0;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-.sl-markdown-content .moderate {
-  color: #d97706;
-  font-weight: 600;
-  background: #fed7aa;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-.sl-markdown-content .poor {
-  color: #dc2626;
-  font-weight: 600;
-  background: #fecaca;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-.sl-markdown-content .very-poor {
-  color: #991b1b;
-  font-weight: 600;
-  background: #fca5a5;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-/* Responsive design za water quality table */
-@media (max-width: 768px) {
-  .sl-markdown-content .water-quality-table { font-size: 0.8rem; }
-  .sl-markdown-content .water-quality-table th,
-  .sl-markdown-content .water-quality-table td { padding: 0.5rem; }
-}
-
-/* =========================================================
-   Predgovor – Chapters grid i UX poboljšanja
-   ========================================================= */
-
-/* Paleta za ovaj blok (safe default vrijednosti) */
-:root {
-  --brand: #138d75;
-  --brand-600: #0f7b67;
-  --ink: #0f2d2a;
-  --paper: #ffffff;
-  --paper-tint: #f7f9f8;
-  --paper-tint-hover: #eef6f4;
-  --border: rgba(0, 0, 0, 0.06);
-  --border-strong: rgba(0, 0, 0, 0.12);
-}
-
-html[data-theme="dark"] {
-  --paper: #0f1617;
-  --paper-tint: #121c1d;
-  --paper-tint-hover: #152223;
-  --ink: #e6f2f0;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
-}
-
-/* Smanjene animacije – respektiraj OS postavke */
-@media (prefers-reduced-motion: reduce) {
-  .chapters__item { transition: none !important; }
-}
-
-/* ===== Grid kontejner ===== */
+/* Chapters grid */
 .chapters {
   margin: 2rem 0 3rem;
 }
@@ -679,11 +320,7 @@ html[data-theme="dark"] {
 @media (min-width: 640px) {
   .chapters__grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (min-width: 1024px) {
-  .chapters__grid { grid-template-columns: repeat(3, 1fr); }
-}
 
-/* ===== Kartice poglavlja ===== */
 .chapters__item {
   display: flex;
   align-items: center;
@@ -691,33 +328,32 @@ html[data-theme="dark"] {
   gap: 0.75rem;
   padding: 0.9rem 1rem;
   border-radius: 0.75rem;
-  background: var(--paper-tint);
-  color: var(--ink);
+  background: #f7f9f8;
+  color: #0f2d2a;
   text-decoration: none;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   transition: transform .12s ease, background-color .12s ease, border-color .12s ease;
 }
 
 .chapters__item:hover {
   transform: translateY(-1px);
-  background: var(--paper-tint-hover);
-  border-color: var(--border-strong);
+  background: #eef6f4;
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .chapters__item:focus-visible {
-  outline: 3px solid var(--brand);
+  outline: 3px solid #138d75;
   outline-offset: 2px;
 }
 
-/* Istaknuta (primarna) kartica */
 .chapters__item.is-primary {
-  background: var(--brand);
+  background: #138d75;
   color: #fff;
-  border-color: var(--brand);
+  border-color: #138d75;
 }
 .chapters__item.is-primary:hover {
-  background: var(--brand-600);
-  border-color: var(--brand-600);
+  background: #0f7b67;
+  border-color: #0f7b67;
 }
 
 .chapters__text {
@@ -725,30 +361,41 @@ html[data-theme="dark"] {
   line-height: 1.2;
 }
 
-/* Ikonica strelice na desnoj strani */
 .chapters__icon {
   width: 22px;
   height: 22px;
   opacity: 0.85;
 }
 
-/* ===== Intro panel (opcionalno, za “O udžbeniku”) ===== */
-.predgovor-intro {
-  background: var(--paper-tint);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.25rem 1.25rem;
-  margin: 1.5rem 0 2rem;
+.chapters__heading {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #138d75;
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
 }
 
-html[data-theme="dark"] .predgovor-intro {
-  background: var(--paper-tint);
+.chapters__heading,
+.chapters__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
-/* Mali utility razmaci (ako zatrebaju) */
-.mt-2 { margin-top: .5rem; }
-.mt-3 { margin-top: .75rem; }
-.mt-4 { margin-top: 1rem; }
-.mb-2 { margin-bottom: .5rem; }
-.mb-3 { margin-bottom: .75rem; }
-.mb-4 { margin-bottom: 1rem; }
+/* Responzivni dizajn */
+@media (max-width: 768px) {
+  .hero-container { padding: 48px 20px; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .btn { width: 100%; max-width: 280px; }
+}
+
+@media (max-width: 375px) {
+  .hero-container { padding: 32px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+  .btn:hover { transform: none; }
+  .chapters__item { transition: none !important; }
+}

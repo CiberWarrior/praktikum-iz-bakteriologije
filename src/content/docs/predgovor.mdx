@@ -3,11 +3,65 @@ title: Praktikum iz bakteriologije
 description: Priručnik za studente s detaljnim uputama za bakteriološki praktikum
 template: splash
 hero:
-  title: "Predgovor"
-  tagline: "praktikum iz bakteriologije"
+  title: "Uvod"
+  tagline: ""
 ---
 
-## O udžbeniku
+<style dangerouslySetInnerHTML={{
+  __html: `
+    /* Osnovni stilovi za hero sekciju */
+    .sl-hero {
+      background: linear-gradient(135deg, #138d75 0%, #0e6655 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Pozadinska slika */
+    .sl-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('/Images/slika1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.4;
+      z-index: 1;
+    }
+    
+    /* Overlay za bolji kontrast */
+    .sl-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(19, 141, 117, 0.7) 0%, rgba(14, 102, 85, 0.7) 100%);
+      z-index: 2;
+    }
+    
+    /* Tekst iznad pozadine */
+    .sl-hero .sl-hero__title,
+    .sl-hero .sl-hero__tagline,
+    .sl-hero .sl-hero__actions {
+      position: relative;
+      z-index: 3;
+      color: #ffffff;
+    }
+    
+    /* Bijeli tekst za naslov */
+    .sl-hero .sl-hero__title {
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+  `
+}} />
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">O udžbeniku</h3>
 
 Unutar znanosti mikrobiologije, koja proučava razne mikroorganizme, velik dio pripada bakteriologiji. U ovom priručniku za studente biologije dana su pravila rada i ponašanja u bakteriološkom praktikumu, s detaljnim uputama i originalnim ilustracijama za praktičan rad s različitim fiziološkim skupinama bakterija. Prihvaćanjem predočene metodologije diplomirani biolozi stječu kvalifikaciju za uključenje u uspješan rutinski rad unutar disciplina sanitarne bakteriologije, te posebno znanstvenoistraživački rad na području ekologije bakterija u vodenim i terestričkim biotopima.
 
@@ -17,7 +71,7 @@ Rad u bakteriološkom laboratoriju razlikuje se od rada u mnogim drugim laborato
 
 Ova knjiga sadrži različite opisane vježbe, od kojih u nastavi može biti izabran dio, ovisno o smjeru studija. Svako je poglavlje u knjizi podijeljeno u uvodni dio, vježbu s postavljenim zadacima, opisanim postupkom rada za svaki zadatak i materijalom (bakterijske kulture, podloge, kemikalije i pribor) potrebnim za izvođenje vježbe u studentskom praktikumu. Svaka je vježba potkrijepljena slikovnim materijalom kako bi se pokazao izgled rezultata pojedinog zadatka.
 
-### Što ćeš naučiti
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">Što ćeš naučiti</h4>
 - Sigurno postavljanje i čišćenje radnog mjesta
 - Aseptične tehnike i rukovanje kulturama
 - Osnove izolacije, inkubacije i identifikacije
@@ -25,23 +79,12 @@ Ova knjiga sadrži različite opisane vježbe, od kojih u nastavi može biti iza
 
 ---
 
-## Pregled poglavlja
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Pregled poglavlja</h3>
 
 <section class="chapters">
   <div class="chapters__grid" role="list">
 
-    {/* Predgovor (istaknut) */}
-    <a class="chapters__item is-primary" href="/predgovor/" role="listitem" aria-label="Predgovor — Započni ovdje">
-      <div>
-        <div class="chapters__heading">Započni ovdje</div>
-        <span class="chapters__text">Predgovor</span>
-      </div>
-      <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-
-    {/* Poglavlja 1–23 s punim nazivima */}
+    {/* Prvi red - Poglavlja 1-12 */}
     <a class="chapters__item" href="/poglavlje-1/" role="listitem" aria-label="Poglavlje 1 — Bakteriološki praktikum">
       <div>
         <div class="chapters__heading">Bakteriološki praktikum</div>
@@ -138,6 +181,7 @@ Ova knjiga sadrži različite opisane vježbe, od kojih u nastavi može biti iza
       <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
     </a>
 
+    {/* Drugi red - Poglavlja 13-23 */}
     <a class="chapters__item" href="/poglavlje-13/" role="listitem" aria-label="Poglavlje 13 — Izrada antibiograma i aromatograma">
       <div>
         <div class="chapters__heading">Izrada antibiograma i aromatograma</div>

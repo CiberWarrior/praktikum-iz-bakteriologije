@@ -47,7 +47,6 @@ export default defineConfig({
               ]
             },
             { label: 'Opće tehnike rada', slug: 'poglavlje-1/opce-tehnike-rada' },
-            { label: 'Bakteriološke tehnike rada', slug: 'poglavlje-1/bakterioloske-tehnike-rada' },
             {
               label: 'Vježbe',
               items: [
@@ -64,7 +63,6 @@ export default defineConfig({
           label: 'Poglavlje 2: Sterilizacija',
           items: [
             { label: 'Uvod u poglavlje', slug: 'poglavlje-2' },
-            { label: 'Sterilizacija - osnovni pojmovi', slug: 'poglavlje-2/sterilizacija' },
             {
               label: 'Fizička sterilizacija',
               items: [
@@ -364,8 +362,7 @@ export default defineConfig({
                 ]
               }
             ]
-          }
-          ,
+          },
           {
             label: 'Poglavlje 20: Biogeokemijski ciklus fosfora',
             items: [
@@ -374,8 +371,7 @@ export default defineConfig({
               { label: 'Fosfomobilizatori', slug: 'poglavlje-20/fosfomobilizatori' },
               { label: 'Fosfat-akumulirajuće bakterije', slug: 'poglavlje-20/fosfat-akumulirajuce-bakterije' }
             ]
-          }
-          ,
+          },
           {
             label: 'Poglavlje 21: Metoda otiska',
             items: [
