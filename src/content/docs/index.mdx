@@ -1,22 +1,77 @@
 ---
 title: Praktikum iz bakteriologije
-description: mrežno izdanje
+description: Priručnik za studente s detaljnim uputama za bakteriološki praktikum
 template: splash
 hero:
-  title: "Mrežni udžbenik iz bakteriologije"
-  tagline: "Praktične vježbe, jasni protokoli i ilustrirani rezultati."
+  title: "Praktikum iz bakteriologije"
+  tagline: "Priručnik za studente s detaljnim uputama za bakteriološki praktikum"
   actions:
-    - text: Započni s predgovorom
+    - text: Sadržaj udžbenika
       link: /predgovor/
-      icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/></svg>'
       variant: primary
-    - text: Pregled poglavlja
-      link: /predgovor/#pregled-poglavlja
-      icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>'
-    - text: Sadržaj
-      link: /
-      icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>'
 ---
+
+<style dangerouslySetInnerHTML={{
+  __html: `
+    /* Osnovni stilovi za hero sekciju */
+    .sl-hero {
+      background: linear-gradient(135deg, #138d75 0%, #0e6655 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Pozadinski uzorak kao u Hero.astro */
+    .sl-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0),
+        linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
+      background-size: 20px 20px, 100% 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    /* Glavna pozadina */
+    .sl-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #138d75 0%, #0e6655 100%);
+      z-index: 1;
+    }
+    
+    /* Tekst iznad pozadine */
+    .sl-hero .sl-hero__title,
+    .sl-hero .sl-hero__tagline,
+    .sl-hero .sl-hero__actions {
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+    }
+    
+    /* Bijeli tekst za naslov */
+    .sl-hero .sl-hero__title {
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    /* Responzivni dizajn */
+    @media (max-width: 1024px) {
+      .sl-hero::before {
+        background-image: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
+        background-size: 100% 100%;
+      }
+    }
+  `
+}} />
 
 <section class="home-intro">
   <p><strong>Dobrodošli!</strong> Ovo mrežno izdanje vodi vas kroz ključne tehnike bakteriologije – od sigurnog rada i aseptike do identifikacije i interpretacije rezultata. Sve je organizirano tako da brzo prijeđete s teorije na praksu.</p>
