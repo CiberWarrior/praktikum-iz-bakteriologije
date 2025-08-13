@@ -10,7 +10,8 @@ const siteUrl = isVercel && process.env.VERCEL_URL
 
 export default defineConfig({
   site: siteUrl,
-  base: isVercel ? '/' : (process.env.NODE_ENV === 'production' ? '/praktikum-iz-bakteriologije' : '/'),
+  base: '/',
+  output: 'static',
   integrations: [
     starlight({
       title: 'Mrežni udžbenik iz bakteriologije',
