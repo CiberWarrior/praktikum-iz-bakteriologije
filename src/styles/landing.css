@@ -112,7 +112,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: var(--spacing-md);
   margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
 }
 
 .btn-primary {
@@ -148,6 +150,29 @@ body {
 .btn-secondary:hover {
   background: var(--color-white);
   color: var(--color-primary);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-white);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  display: inline-block;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0);
 }
 
 /* ===== ABOUT SECTION ===== */
