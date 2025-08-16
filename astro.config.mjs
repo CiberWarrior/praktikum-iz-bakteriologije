@@ -416,7 +416,7 @@ export default defineConfig({
             ]
           }
       ],
-      customCss: ['@/styles/global.css'],
+      customCss: ['@/styles/global.css', '@/styles/exercise.css'],
     }),
   ],
   vite: {
