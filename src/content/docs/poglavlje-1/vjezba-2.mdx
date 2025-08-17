@@ -1,80 +1,19 @@
 ---
+layout: "@/layouts/ExerciseLayout.astro"
 title: Vježba 2 - Izolacija čiste kulture iz bakterijske suspenzije
-description: Standardni postupci za dobivanje čiste bakterijske kulture na kosom agaru
+description: Druga vježba iz bakteriološkog praktikuma – izolacija čiste kulture iz bakterijske suspenzije
 ---
 
-<div class="page-lively">
-  <section class="hero-edu">
-    <div class="hero-edu__eyebrow">Laboratorijske vježbe</div>
-    <h1 class="hero-edu__title">Vježba 2 - Izolacija čiste kulture iz bakterijske suspenzije</h1>
-    <p class="hero-edu__tagline">Standardni postupci za dobivanje čiste bakterijske kulture na kosom agaru</p>
-    <div class="hero-edu__meta">
-      <span class="pill">⏱ 60–90 min</span>
-      <span class="pill">👥 Parovi</span>
-      <span class="pill pill--accent">🎯 Izolacija • čista kultura</span>
-    </div>
-    <div class="progress" aria-label="Napredak">
-      <div class="progress__bar" style="--v:45%"></div>
-      <span class="progress__label">45%</span>
-    </div>
-  </section>
-
-  <section class="cards-grid">
+<section class="cards-grid">
     <article class="card-sheen">
-      <h3 class="card-sheen__title">Cilj vježbe</h3>
-      <p>Izolacija čiste kulture bakterija obuhvaća standardne postupke u bakteriologiji, s konačnim ciljem dobivanja bakterijske kulture na kosom agaru, koja služi kao inokulum za sva daljnja istraživanja njezinih morfoloških, genetičkih i biokemijskih svojstava.</p>
+      <h3 class="card-sheen__title">Opis vježbe</h3>
+      <p>Izolacija čiste kulture bakterija obuhvaća standardne postupke u bakteriologiji, s konačnim ciljem dobivanja bakterijske kulture na kosom agaru, koja služi kao inokulum za sva daljnja istraživanja njezinih morfoloških, genetičkih i biokemijskih svojstava. Osnovno je pravilo da se bakterije mogu izolirati iz tekuće faze – suspenzije, a to su: krv, slina, urin, likvor, voda, mlijeko, suspenzija tla i dr.</p>
+      <p>U epruveti sa sterilnom destiliranom vodom uz dodatak 0,3% NaCl homogenizirati bakteriološkom ušicom nekoliko čistih bakterijskih kultura s kosog agara te tako pripremiti mješovitu kulturu. U suspenziju uroniti sterilnu ušicu pa razmazati metodom iscrpljivanja bakterijskog materijala po krutoj podlozi s hranjivim agarom i inkubirati na 22°C/72 h. Metodom iscrpljivanja materijala dobiva se porast pojedinačnih kolonija na krutoj hranjivoj podlozi (slika 11).</p>
     </article>
-    
-    <article class="card-sheen">
-      <h3 class="card-sheen__title">Izvori bakterija</h3>
-      <p>Osnovno je pravilo da se bakterije mogu izolirati iz tekuće faze – suspenzije, a to su: krv, slina, urin, likvor, voda, mlijeko, suspenzija tla i dr.</p>
-    </article>
-  </section>
-
-  <section class="timeline">
-    <h2>Koraci</h2>
-    
-    <details class="t-step" open>
-      <summary>
-        <span class="t-step__num">1</span>
-        Priprema mješovite kulture
-      </summary>
-      <div class="t-step__body">
-        <p>U epruveti sa sterilnom destiliranom vodom uz dodatak 0,3% NaCl homogenizirati bakteriološkom ušicom nekoliko čistih bakterijskih kultura s kosog agara te tako pripremiti mješovitu kulturu.</p>
-      </div>
-    </details>
-
-    <details class="t-step" open>
-      <summary>
-        <span class="t-step__num">2</span>
-        Razmazivanje metodom iscrpljivanja
-      </summary>
-      <div class="t-step__body">
-        <p>U suspenziju uroniti sterilnu ušicu pa razmazati metodom iscrpljivanja bakterijskog materijala po krutoj podlozi s hranjivim agarom i inkubirati na 22 °C / 72h.</p>
-        <p>Metodom iscrpljivanja materijala dobiva se porast pojedinačnih kolonija na krutoj hranjivoj podlozi.</p>
-      </div>
-    </details>
   </section>
 
   <figure class="image-figure">
     <img src="/images/slika11.jpg" alt="Izolacija čiste kulture – kolonije na hranjivom agaru" />
-    <figcaption>
-      <span class="chip">Slika 11</span> Izolacija čiste kulture – kolonije na hranjivom agaru
-    </figcaption>
+    <figcaption><span class="chip">Slika 11</span> Izolacija čiste kulture – kolonije na hranjivom agaru</figcaption>
   </figure>
 
-  <section class="quiz-lite">
-    <h3>Mini kviz</h3>
-    <p>Što je glavni cilj izolacije čiste kulture?</p>
-    <label class="quiz-opt">
-      <input type="radio" name="q2"> Dobivanje mješovite kulture
-    </label>
-    <label class="quiz-opt is-correct">
-      <input type="radio" name="q2"> Dobivanje pojedinačnih kolonija
-    </label>
-    <label class="quiz-opt">
-      <input type="radio" name="q2"> Uništavanje bakterija
-    </label>
-    <div class="quiz-reveal">✅ Točno: cilj je dobivanje pojedinačnih kolonija za daljnja istraživanja.</div>
-  </section>
-</div>

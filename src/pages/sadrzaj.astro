@@ -2,15 +2,8 @@
 import PredgovorLayout from '../layouts/PredgovorLayout.astro';
 ---
 
-<PredgovorLayout title="Sadržaj udžbenika" description="Pregled svih poglavlja praktikuma iz bakteriologije">
-  
-  {/* Custom header s pozadinskom fotografijom */}
-  <section class="page-hero" role="img" aria-label="Mikroskop u laboratoriju">
-    <div class="page-hero__inner">
-      <div class="h1" role="heading" aria-level="1">Sadržaj udžbenika</div>
-      <p class="page-hero__tagline">Pregled svih poglavlja praktikuma iz bakteriologije</p>
-    </div>
-  </section>
+<PredgovorLayout title="Pregled poglavlja" description="Pregled svih poglavlja praktikuma iz bakteriologije">
+  {/* ...hero ostaje isti... */}
 
   <div class="content-wrapper">
     <h3 class="section-title">Pregled poglavlja</h3>
@@ -24,6 +17,12 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Bakteriološki praktikum</div>
             <span class="chapters__text">Poglavlje 1</span>
           </div>
+          <span class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -32,6 +31,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Sterilizacija</div>
             <span class="chapters__text">Poglavlje 2</span>
           </div>
+          <span class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1.5-2.5S8 8.5 8 9c0 1.5.5 2.5 1.5 3.5Z"/>
+              <path d="M12 2c0 0-1.5 2-1.5 4.5S12 9 12 9s1.5-1.5 1.5-4.5S12 2 12 2Z"/>
+              <path d="M12 9c0 0-1.5 2-1.5 4.5S12 16 12 16s1.5-2.5 1.5-4.5S12 9 12 9Z"/>
+            </svg>
+          </span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -40,6 +46,15 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Metode bojenja bakterija</div>
             <span class="chapters__text">Poglavlje 3</span>
           </div>
+          <span class="card-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="13.5" cy="6.5" r=".5"/>
+              <circle cx="17.5" cy="10.5" r=".5"/>
+              <circle cx="8.5" cy="7.5" r=".5"/>
+              <circle cx="6.5" cy="12.5" r=".5"/>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+            </svg>
+          </span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -48,6 +63,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Pokretljivost bakterija</div>
             <span class="chapters__text">Poglavlje 4</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -56,6 +78,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Biokemijska svojstva bakterija</div>
             <span class="chapters__text">Poglavlje 5</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -64,6 +93,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Određivanje broja bakterija u suspenziji indirektnim metodama</div>
             <span class="chapters__text">Poglavlje 6</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -72,6 +108,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Određivanje broja bakterija u suspenziji direktnim metodama</div>
             <span class="chapters__text">Poglavlje 7</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -80,6 +123,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Bakterije indikatori sanitarnog stanja sredine</div>
             <span class="chapters__text">Poglavlje 8</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -88,6 +138,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Sanitarna bakteriološka analiza vode</div>
             <span class="chapters__text">Poglavlje 9</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -96,6 +153,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Termofilne bakterije</div>
             <span class="chapters__text">Poglavlje 10</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -104,6 +168,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Aerobne sporogene bakterije</div>
             <span class="chapters__text">Poglavlje 11</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -112,6 +183,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Anaerobne bakterije</div>
             <span class="chapters__text">Poglavlje 12</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -121,6 +199,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Izrada antibiograma i aromatograma</div>
             <span class="chapters__text">Poglavlje 13</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -129,6 +214,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Test toksičnosti s kvascem</div>
             <span class="chapters__text">Poglavlje 14</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -137,6 +229,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Bakteriološko ispitivanje kvalitete namirnica</div>
             <span class="chapters__text">Poglavlje 15</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -145,6 +244,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Bakterije mliječne fermentacije</div>
             <span class="chapters__text">Poglavlje 16</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -153,6 +259,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Biogeokemijski ciklus ugljika</div>
             <span class="chapters__text">Poglavlje 17</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -161,6 +274,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Biogeokemijski ciklus dušika</div>
             <span class="chapters__text">Poglavlje 18</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -169,6 +289,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Biogeokemijski ciklus sumpora</div>
             <span class="chapters__text">Poglavlje 19</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -177,6 +304,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Biogeokemijski ciklus fosfora</div>
             <span class="chapters__text">Poglavlje 20</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -185,6 +319,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Metoda otiska</div>
             <span class="chapters__text">Poglavlje 21</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -193,6 +334,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Streptomiceti</div>
             <span class="chapters__text">Poglavlje 22</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -201,6 +349,13 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
             <div class="chapters__heading">Izolacija anaerobnih fototrofnih bakterija u stupcu po Vinogradskom</div>
             <span class="chapters__text">Poglavlje 23</span>
           </div>
+          <span class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M9 3l6 6-6 6"/>
+  <path d="M3 12h12"/>
+  <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+  <path d="M12 3v18"/>
+  <path d="M3 12h18"/>
+</svg></span>
           <svg class="chapters__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7M5 12h14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
@@ -209,132 +364,428 @@ import PredgovorLayout from '../layouts/PredgovorLayout.astro';
   </div>
 
   <style>
-    /* Header s pozadinskom fotografijom */
-    .page-hero {
-      min-height: 38vh;
-      display: flex;
-      align-items: end;
-      position: relative;
+    /* ...ostaje tvoj postojeći CSS iz <style> bloka... */
+
+    /* DODAJ NA KRAJ: gradient stranice + “šarene” kartice + ikonice */
+    /* === Grid Layout for Chapters === */
+.chapters__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+@media (min-width: 640px) {
+  .chapters__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .chapters__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === Chapter Card === */
+.chapters__item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: 1rem;
+  text-decoration: none;
+
+  /* Jedinstveni gradient */
+  background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+  color: #bfa527; /* tamni tekst */
+
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  transition: transform .18s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.chapters__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+  filter: saturate(1.03) brightness(1.02);
+}
+
+.chapters__item:focus-visible {
+  outline: 3px solid #0ea5a4; /* teal ring */
+  outline-offset: 3px;
+}
+
+/* === Text Styling === */
+.chapters__heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 .25rem 0;
+  white-space: normal;
+  word-break: break-word;
+  color: #0f172a; /* tamni naslov */
+}
+
+.chapters__text {
+  font-size: .85rem;
+  font-weight: 600;
+  margin: 0;
+  color: #334155; /* diskretni podnaslov */
+  opacity: 0.9;
+}
+
+/* === Arrow Icon === */
+.chapters__icon {
+  width: 22px;
+  height: 22px;
+  opacity: .7;
+  fill: currentColor;
+  transition: opacity .2s;
+}
+.chapters__item:hover .chapters__icon {
+  opacity: 1;
+}
+
+/* === Dark Mode Support === */
+@media (prefers-color-scheme: dark) {
+  body { background:#0e0e0e; color:#e5e7eb; }
+  .chapters__item {
+    background: linear-gradient(to top, #2a2a2a 0%, #3a3a3a 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45);
+  }
+  .chapters__heading { color: #fff; }
+  .chapters__text { color: #d1d5db; }
+  .chapters__icon { fill: #fff; }
+}
+
+
+    /* Mala “pill” ikonica */
+    .card-icon{
+      margin-left: auto;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 9px;
+      background: hsl(var(--h) var(--sat) calc(var(--l) + 28%)/ .25);
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .card-icon svg{ display: block; }
+
+    @media (max-width: 640px){
+      .chapters__grid { gap: 1rem; }
+      .chapters__item { padding: 1rem; }
+    }
+
+    /* Clamp long titles for better UX */
+    .chapters__heading {
+      white-space: nowrap;
       overflow: hidden;
-      background: linear-gradient(135deg, #138d75 0%, #0e6655 100%);
-      background-image:
-        linear-gradient(135deg, #138d75 0%, #0e6655 100%),
-        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
-      background-size: cover, 300px 300px, 200px 200px;
-      background-position: center;
-    }
-    .page-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.5));
-    }
-    .page-hero__inner {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3.5rem 1.25rem;
-      color: #fff;
-      text-align: left;
-    }
-    .h1 {
-      margin: 0 0 .5rem 0;
-      font-weight: 800;
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      text-shadow: 0 2px 16px rgba(0,0,0,.35);
-    }
-    .page-hero__tagline {
-      margin: 0;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      opacity: .95;
-      text-shadow: 0 1px 12px rgba(0,0,0,.3);
-    }
-    @media (max-width: 560px){
-      .page-hero{ min-height: 30vh; }
-      .page-hero__inner{ padding: 2.25rem 1rem; }
+      text-overflow: ellipsis;
     }
 
-    .content-wrapper {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.25rem;
+    .chapters__text {
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* show max 2 lines */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      white-space: normal;
     }
 
-    .section-title {
-      color: #096279;
-      font-size: 1.4rem;
+    /* 1) Reset/clean surface */
+    .chapters__item{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:0 6px 20px rgba(0,0,0,.06);
+      transition:transform .18s ease, box-shadow .22s ease, border-color .22s ease, background-color .22s ease;
+    }
+    .chapters__item:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 28px rgba(0,0,0,.10);
+      border-color:rgba(0,0,0,.12);
+      background:#fff;
+    }
+    /* kill the big center bubble */
+    .chapters__item::after{ display:none !important; }
+
+    /* 2) Grid layout: icon – text – chevron */
+    .chapters__item{
+      display:grid;
+      grid-template-columns: auto 1fr auto;
+      align-items:center;
+      gap:0.9rem;
+      padding:1rem 1rem;
+    }
+
+    /* 3) Icon pill left (consistent) */
+    .card-icon{
+      display:inline-grid;
+      place-items:center;
+      width:36px; height:36px; border-radius:50%;
+      background:rgba(19,141,117,.10); /* brand tint */
+      border:1px solid rgba(19,141,117,.18);
+      box-shadow:none;
+      margin:0; /* remove previous right margin */
+      color:#0e5e51; /* icon color */
+    }
+    .card-icon svg{ width:20px; height:20px; }
+
+    /* 4) Text block: better hierarchy + clamping */
+    .chapters__heading{
+      font-size:.82rem; font-weight:700; color:#138d75; margin:0 0 .15rem 0;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .chapters__text{
+      font-size:1.05rem; font-weight:700; color:#142027; line-height:1.25;
+      display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+      overflow:hidden; white-space:normal;
+    }
+    /* make the inner <div> (that wraps heading+text) expand */
+    .chapters__item > div{ min-width:0; }
+
+    /* 5) Chevron on the right */
+    .chapters__icon{ opacity:.6; width:22px; height:22px; }
+    .chapters__item:hover .chapters__icon{ opacity:.85; }
+
+    /* 6) Focus ring – accessible */
+    .chapters__item:focus-visible{
+      outline:3px solid #1abc9c; outline-offset:3px; border-color:#1abc9c;
+    }
+
+    /* 7) Subtle per-card accent (optional, not flashy) */
+    .chapters__item{ --h:164; --sat:55%; --l:38%; }
+    .chapters__item:nth-child(2){ --h:200 } .chapters__item:nth-child(3){ --h:28 }
+    .chapters__item:nth-child(4){ --h:270 } .chapters__item:nth-child(5){ --h:340 }
+    .chapters__item:nth-child(6){ --h:120 } .chapters__item:nth-child(7){ --h:205 }
+    .chapters__item:nth-child(8){ --h:45 }  .chapters__item:nth-child(9){ --h:12 }
+    .chapters__item:nth-child(10){ --h:320 } .chapters__item:nth-child(11){ --h:255 }
+    .chapters__item:nth-child(12){ --h:90 }  .chapters__item:nth-child(13){ --h:150 }
+    .chapters__item:nth-child(14){ --h:15 }  .chapters__item:nth-child(15){ --h:30 }
+    .chapters__item:nth-child(16){ --h:180 } .chapters__item:nth-child(17){ --h:140 }
+    .chapters__item:nth-child(18){ --h:200 } .chapters__item:nth-child(19){ --h:50 }
+    .chapters__item:nth-child(20){ --h:300 } .chapters__item:nth-child(21){ --h:230 }
+    .chapters__item:nth-child(22){ --h:10 }  .chapters__item:nth-child(23){ --h:70 }
+
+    /* use the hue only to tint the left icon softly */
+    .chapters__item:nth-child(n) .card-icon{
+      background: hsl(var(--h) var(--sat) 92% / .40);
+      border-color: hsl(var(--h) var(--sat) 70% / .35);
+      color: hsl(var(--h) var(--sat) 30%);
+    }
+
+    /* 8) Mobile tweaks */
+    @media (max-width:640px){
+      .chapters__item{ padding:1rem .9rem; gap:.75rem; }
+      .card-icon{ width:34px; height:34px; }
+    }
+
+    /* --- SIMPLE TEXT WRAP FIX --- */
+    .chapters__heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #142027;
+      line-height: 1.3;
+      margin: 0 0 .2rem 0;
+      white-space: normal !important;     /* allow wrapping */
+      overflow: visible !important;
+      text-overflow: initial !important;
+      -webkit-line-clamp: unset !important;
+      display: block !important;
+      word-break: break-word;
+    }
+
+    .chapters__text {
+      font-size: .85rem;
       font-weight: 600;
-      margin: 1.5rem 0 1rem 0;
+      color: #138d75;
+      margin: 0;
+      white-space: nowrap;                /* one line for "Poglavlje X" */
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    /* Chapters grid styles */
-    .chapters {
-      margin: 2rem 0 3rem;
-    }
+    /* OPTIONAL: keep icons hidden if present */
+    .card-icon { display: none !important; }
 
+    /* --- Responsive Grid Layout for Chapters --- */
     .chapters__grid {
       display: grid;
-      gap: 0.75rem;
-      grid-template-columns: repeat(1, minmax(0, 1fr));
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
     }
 
     @media (min-width: 640px) {
-      .chapters__grid { grid-template-columns: repeat(2, 1fr); }
+      .chapters__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    .chapters__item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding: 0.9rem 1rem;
-      border-radius: 0.75rem;
-      background: #f7f9f8;
-      color: #0f2d2a;
-      text-decoration: none;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      transition: transform .12s ease, background-color .12s ease, border-color .12s ease;
+    @media (min-width: 1024px) {
+      .chapters__grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
+
+    /* --- Gradient Card Design --- */
+    .chapters__item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      border-radius: 1rem;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+      transition: transform .18s ease, box-shadow .22s ease;
+    }
+
+    /* Different gradient for each card - REMOVED */
 
     .chapters__item:hover {
-      transform: translateY(-1px);
-      background: #eef6f4;
-      border-color: rgba(0, 0, 0, 0.12);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
     }
 
-    .chapters__item:focus-visible {
-      outline: 3px solid #138d75;
-      outline-offset: 2px;
+    /* Heading (chapter title) */
+    .chapters__heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0 0 .25rem 0;
+      white-space: normal;
+      word-break: break-word;
+      color: #fff;
     }
 
+    /* Subheading (Poglavlje X) */
     .chapters__text {
+      font-size: .85rem;
       font-weight: 600;
-      line-height: 1.2;
+      opacity: 0.9;
+      color: #f0f0f0;
+      margin: 0;
     }
 
+    /* Arrow icon styling */
     .chapters__icon {
       width: 22px;
       height: 22px;
-      opacity: 0.85;
+      opacity: 0.9;
+      fill: #fff;
+      transition: opacity .2s;
+    }
+    .chapters__item:hover .chapters__icon { opacity: 1; }
+
+    /* --- Dark Mode Support --- */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0e0e0e;
+        color: #e0e0e0;
+      }
+
+      .chapters__item {
+        box-shadow: 0 6px 20px rgba(0,0,0,.5);
+      }
+
+      .chapters__item:hover {
+        box-shadow: 0 12px 28px rgba(0,0,0,.65);
+      }
+
+      .chapters__heading {
+        color: #fff;
+      }
+
+      .chapters__text {
+        color: #f8f8f8;
+        opacity: 0.95;
+      }
+
+      .chapters__icon {
+        fill: #fff;
+      }
     }
 
-    .chapters__heading {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #138d75;
-      margin-bottom: 0.2rem;
-      line-height: 1.3;
-    }
-
+    /* --- Smooth Transition for Dark Mode --- */
+    body,
+    .chapters__item,
     .chapters__heading,
-    .chapters__text {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 100%;
+    .chapters__text,
+    .chapters__icon {
+      transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        fill 0.3s ease;
+    }
+
+    /* --- Previous gradients removed --- */
+
+    /* === 23 pastel gradients (light & modern) === */
+    :root{
+      --pgrad-1:  linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);      /* lila → aqua */
+      --pgrad-2:  linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);      /* pink → lavender-blue */
+      --pgrad-3:  linear-gradient(to top, #ffecd2 0%, #fcb69f 100%);      /* peach → soft orange */
+      --pgrad-4:  linear-gradient(to top, #a1c4fd 0%, #c2e9fb 100%);      /* light blue → sky */
+      --pgrad-5:  linear-gradient(to top, #fddb92 0%, #d1fdff 100%);      /* yellow → mint */
+      --pgrad-6:  linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);      /* soft white → gray */
+      --pgrad-7:  linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); /* coral pink */
+      --pgrad-8:  linear-gradient(to top, #f6d365 0%, #fda085 100%);      /* gold → peach */
+      --pgrad-9:  linear-gradient(to top, #fbc2eb 0%, #fbc2eb 100%);      /* soft pink mono */
+      --pgrad-10: linear-gradient(to top, #e0c3fc 0%, #8ec5fc 100%);      /* lilac → baby blue */
+      --pgrad-11: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);      /* silver gray */
+      --pgrad-12: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);      /* violet → rose */
+      --pgrad-13: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);      /* peach → candy pink */
+      --pgrad-14: linear-gradient(to top, #84fab0 0%, #8fd3f4 100%);      /* mint → light blue */
+      --pgrad-15: linear-gradient(to top, #ffecd2 0%, #fcb69f 100%);      /* cream → peach */
+      --pgrad-16: linear-gradient(to top, #a1c4fd 0%, #c2e9fb 100%);      /* light cyan */
+      --pgrad-17: linear-gradient(to top, #d4fc79 0%, #96e6a1 100%);      /* lime → mint */
+      --pgrad-18: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);      /* ivory → sky */
+      --pgrad-19: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);      /* foggy morning */
+      --pgrad-20: linear-gradient(to top, #fdfcfb 0%, #e2d1c3 100%);      /* cream → beige */
+      --pgrad-21: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);      /* pastel pink-violet */
+      --pgrad-22: linear-gradient(to top, #e6dee9 0%, #edeef3 100%);      /* pearl gray */
+      --pgrad-23: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);      /* soft violet → cream */
+
+      --ink: #0f172a;   /* slate-900 for headings on light cards */
+      --ink-sub: #334155; /* slate-700 for sub text */
+      --ring: #0ea5a4;  /* focus ring (teal) */
+    }
+
+    /* Unified background for all chapter cards */
+    .chapters__item { background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%); }
+
+    /* Dark text on light pastels + arrow color via currentColor */
+    .chapters__item { color: var(--ink); }
+    .chapters__heading { color: var(--ink); }
+    .chapters__text { color: var(--ink-sub); }
+    .chapters__icon { opacity:.7; }             /* svg path uses stroke="currentColor" in markup */
+    .chapters__item:hover .chapters__icon{ opacity:1; }
+
+    /* Hover/focus polish kept subtle for pastels */
+    .chapters__item{
+      box-shadow: 0 6px 16px rgba(0,0,0,.08);
+      transition: transform .18s ease, box-shadow .22s ease, filter .22s ease;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .chapters__item:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.12);
+      filter: saturate(1.03) brightness(1.02);
+    }
+    .chapters__item:focus-visible{
+      outline: 3px solid var(--ring);
+      outline-offset: 3px;
+    }
+
+    /* Optional – in dark mode, keep cards light (good contrast) */
+    @media (prefers-color-scheme: dark){
+      body { background:#0e0e0e; color:#e5e7eb; }
+      .chapters__item{ box-shadow: 0 8px 24px rgba(0,0,0,.45); }
+    }
+
+    /* Smooth transition between themes */
+    body, .chapters__item, .chapters__heading, .chapters__text, .chapters__icon{
+      transition: background-color .3s ease, color .3s ease, box-shadow .3s ease, filter .22s ease;
     }
   </style>
 </PredgovorLayout>
-

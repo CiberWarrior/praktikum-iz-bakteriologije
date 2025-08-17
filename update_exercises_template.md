@@ -32,13 +32,16 @@ description: [POSTOJEĆI OPIS]
     <h3>Mini kviz</h3>
     <p>[PITANJE]</p>
     <label class="quiz-opt">
-      <input type="radio" name="q[ID]"> [ODGOVOR 1]
+      <input type="radio" name="q[ID]" />
+      [ODGOVOR 1]
     </label>
     <label class="quiz-opt">
-      <input type="radio" name="q[ID]"> [ODGOVOR 2]
+      <input type="radio" name="q[ID]" />
+      [ODGOVOR 2]
     </label>
     <label class="quiz-opt is-correct">
-      <input type="radio" name="q[ID]"> [TOČAN ODGOVOR]
+      <input type="radio" name="q[ID]" />
+      [TOČAN ODGOVOR]
     </label>
     <div class="quiz-reveal">✅ Točno: [OBJAŠNJENJE]</div>
   </section>
@@ -105,6 +108,27 @@ description: [POSTOJEĆI OPIS]
 </article>
 ```
 
+## Važne napomene za MDX sintaksu
+
+### Input elementi
+U MDX-u svi `<input>` elementi moraju biti self-closing:
+```mdx
+<!-- ISPRAVNO -->
+<input type="radio" name="q1" />
+
+<!-- POGREŠNO -->
+<input type="radio" name="q1">
+```
+
+### Slike
+```mdx
+<!-- ISPRAVNO -->
+<img src="/path/to/image.jpg" alt="Opis" />
+
+<!-- POGREŠNO -->
+<img src="/path/to/image.jpg" alt="Opis">
+```
+
 ## Postupak za masovnu konverziju
 
 1. **Pronađi sve vježbe:**
@@ -152,3 +176,4 @@ description: [POSTOJEĆI OPIS]
 - **Prilagodi pill bedževe** prema sadržaju vježbe
 - **Koristi odgovarajuće ikone** u pill bedževima
 - **Dodaj relevantne quizove** vezane za sadržaj vježbe
+- **Koristi self-closing tagove** za input i img elemente

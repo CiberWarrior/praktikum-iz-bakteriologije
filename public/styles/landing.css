@@ -54,7 +54,7 @@ body {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   text-align: center;
@@ -182,7 +182,7 @@ body {
 .features-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xl);
   margin-top: var(--spacing-xl);
 }
 
@@ -194,7 +194,7 @@ body {
 
 .feature-card {
   background: var(--color-white);
-  padding: var(--spacing-lg);
+  padding: calc(var(--spacing-lg) + 2px);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   text-align: center;
@@ -272,7 +272,12 @@ body {
   text-decoration: underline;
 }
 
-/* ===== UTILITY CLASSES ===== */
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--color-primary) 60%, #fff);
+  outline-offset: 3px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -285,10 +290,25 @@ body {
   border: 0;
 }
 
+.sr-only.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: .5rem;
+  padding: .5rem .75rem;
+  background: #fff;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  clip: auto;
+  white-space: normal;
+}
+
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 640px) {
   .hero {
-    min-height: 80vh;
+    min-height: 60vh;
   }
   
   .hero-content {

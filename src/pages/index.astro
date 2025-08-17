@@ -1,6 +1,7 @@
 ---
 // Custom landing page for "Mrežni udžbenik iz bakteriologije"
 // This page is outside the Starlight docs layout
+import AccessibleLink from '@/components/AccessibleLink.astro';
 ---
 
 <!DOCTYPE html>
@@ -24,9 +25,12 @@
         
         <div class="hero-actions">
           <!-- Primary CTA - links to sadrzaj -->
-          <a href="/sadrzaj" class="btn-primary">
-            Pregledaj sadržaj
-          </a>
+          <AccessibleLink 
+            href="/sadrzaj" 
+            text="klikni na poglavlja"
+            class="btn-primary"
+            ariaLabel="Otvori stranicu sa sadržajem udžbenika"
+          />
         </div>
       </div>
     </div>
@@ -48,7 +52,7 @@
   <!-- ===== FEATURES SECTION ===== -->
   <section class="features">
     <div class="container">
-      <h2 class="section-title">Što ćete naučiti</h2>
+      <h2 class="section-title">Što ćete naučiti?</h2>
       
       <div class="features-grid">
         <!-- Feature Card 1: Basic Laboratory Techniques -->
@@ -103,7 +107,7 @@
   <!-- ===== AUDIENCE SECTION ===== -->
   <section class="audience">
     <div class="container">
-      <h2 class="section-title">Za koga je udžbenik?</h2>
+      <h2 class="section-title">Kome je e-book namjenjen?</h2>
       
       <ul class="audience-list">
         <li>Studenti biologije i srodnih studija</li>
@@ -119,7 +123,7 @@
     <div class="container">
       <p>
         © 2025 Biološki odsjek PMF-a · 
-        <a href="mailto:biologija@pmf.unizg.hr">Kontakt: biologija@pmf.unizg.hr</a>
+        <a href="mailto:biologija@pmf.unizg.hr">Kontakt: bakteriologija@pmf.biol.hr</a>
       </p>
     </div>
   </footer>

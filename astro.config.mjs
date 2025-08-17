@@ -1,5 +1,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import icon from 'astro-icon';
+import accessibility from './src/integrations/accessibility.js';
 import path from 'path';
 
 // Detect deploy target to set correct site/base
@@ -12,7 +14,35 @@ export default defineConfig({
   site: siteUrl,
   base: '/',
   output: 'static',
+  redirects: {
+    '/poglavlje-1/vjezbe-1/': '/poglavlje-1/vjezba-1/',
+    '/poglavlje-1/vjezbe-2/': '/poglavlje-1/vjezba-2/',
+    '/poglavlje-1/vjezbe-3/': '/poglavlje-1/vjezba-3/',
+    '/poglavlje-1/vjezbe-4/': '/poglavlje-1/vjezba-4/',
+    '/poglavlje-1/vjezbe-5/': '/poglavlje-1/vjezba-5/',
+    '/poglavlje-2/vjezbe-2/': '/poglavlje-2/vjezba-2/',
+    '/poglavlje-3/vjezbe-3/': '/poglavlje-3/vjezba-3/',
+    '/poglavlje-4/vjezbe-4/': '/poglavlje-4/vjezba-4/',
+    '/poglavlje-5/vjezbe-5/': '/poglavlje-5/vjezba-5/',
+    '/poglavlje-6/vjezbe-6/': '/poglavlje-6/vjezba-6/',
+    '/poglavlje-7/vjezbe-7/': '/poglavlje-7/vjezba-7/',
+    '/poglavlje-8/vjezbe-8/': '/poglavlje-8/vjezba-8/',
+    '/poglavlje-9/vjezbe-9/': '/poglavlje-9/vjezba-9/',
+    '/poglavlje-10/vjezbe-10/': '/poglavlje-10/vjezba-10/',
+    '/poglavlje-11/vjezbe-11/': '/poglavlje-11/vjezba-11/',
+    '/poglavlje-12/vjezbe-12/': '/poglavlje-12/vjezba-12/',
+    '/poglavlje-13/vjezbe-13/': '/poglavlje-13/vjezba-13/',
+    '/poglavlje-14/vjezbe-14/': '/poglavlje-14/vjezba-14/',
+    '/poglavlje-15/vjezbe-15/': '/poglavlje-15/vjezba-15/',
+    '/poglavlje-16/vjezbe-16/': '/poglavlje-16/vjezba-16/',
+    '/poglavlje-18/vjezbe-18/': '/poglavlje-18/vjezba-18/',
+    '/poglavlje-19/vjezbe-19/': '/poglavlje-19/vjezba-19/',
+    '/poglavlje-21/vjezbe-21/': '/poglavlje-21/vjezba-21/',
+    '/poglavlje-22/vjezbe-22/': '/poglavlje-22/vjezba-22/',
+    '/poglavlje-23/vjezbe-23/': '/poglavlje-23/vjezba-23/',
+  },
   integrations: [
+    accessibility(),
     starlight({
       title: 'Mrežni udžbenik iz bakteriologije',
 
@@ -51,7 +81,7 @@ export default defineConfig({
             {
               label: 'Vježbe',
               items: [
-                { label: '1. Sveprisutnost mikroba', slug: 'poglavlje-1/vjezbe-1' },
+                { label: '1. Sveprisutnost mikroba', slug: 'poglavlje-1/vjezba-1' },
                 { label: '2. Izolacija iz suspenzije', slug: 'poglavlje-1/vjezba-2' },
                 { label: '3. Izolacija iz Petrijeve zdjelice', slug: 'poglavlje-1/vjezba-3' },
                 { label: '4. Precjepljivanje na kosi agar', slug: 'poglavlje-1/vjezba-4' },
@@ -86,7 +116,7 @@ export default defineConfig({
             {
               label: 'Vježbe 2',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-2/vjezbe-2' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-2/vjezba-2' },
                 { label: '1. Učinak vremena kuhanja na bakterije', slug: 'poglavlje-2/vjezba-2-1' },
                 { label: '2. Učinak dezinficijensa na bakterije', slug: 'poglavlje-2/vjezba-2-2' },
                 { label: '3. Učinak antiseptika na bakterije', slug: 'poglavlje-2/vjezba-2-3' },
@@ -110,7 +140,7 @@ export default defineConfig({
             {
               label: 'Vježbe 3',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-3/vjezbe-3' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-3/vjezba-3' },
                 { label: '1. Bojenje bakterija karbolfuksinom', slug: 'poglavlje-3/vjezba-3-1' },
                 { label: '2. Bojenje bakterija gencijanom violet', slug: 'poglavlje-3/vjezba-3-2' },
                 { label: '3. Bojenje bakterija metilenskim plavim', slug: 'poglavlje-3/vjezba-3-3' },
@@ -127,7 +157,7 @@ export default defineConfig({
           label: 'Poglavlje 4: Pokretljivost bakterija',
           items: [
             { label: 'Uvod u poglavlje', slug: 'poglavlje-4' },
-            { label: 'Vježbe 4', slug: 'poglavlje-4/vjezbe-4' }
+            { label: 'Vježbe 4', slug: 'poglavlje-4/vjezba-4' }
           ]
         },
         {
@@ -147,7 +177,7 @@ export default defineConfig({
             { label: 'Katalaza test', slug: 'poglavlje-5/katalaza-test' },
             { label: 'Oksidaza test', slug: 'poglavlje-5/oksidaza-test' },
             { label: 'Testovi za koliformne bakterije', slug: 'poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija' },
-            { label: 'Vježbe 5', slug: 'poglavlje-5/vjezbe-5' }
+            { label: 'Vježbe 5', slug: 'poglavlje-5/vjezba-5' }
           ]
         },
         {
@@ -156,14 +186,14 @@ export default defineConfig({
             { label: 'Uvod u poglavlje', slug: 'poglavlje-6' },
             { label: 'Titar bakterija', slug: 'poglavlje-6/titar-bakterija' },
             { label: 'Broj kolonija bakterija', slug: 'poglavlje-6/broj-kolonija-bakterija' },
-            { label: 'Vježbe 6', slug: 'poglavlje-6/vjezbe-6' }
+            { label: 'Vježbe 6', slug: 'poglavlje-6/vjezba-6' }
           ]
         },
         {
           label: 'Poglavlje 7: Određivanje broja bakterija direktnim metodama',
           items: [
             { label: 'Direktne metode', slug: 'poglavlje-7' },
-            { label: 'Vježbe 7', slug: 'poglavlje-7/vjezbe-7' }
+            { label: 'Vježbe 7', slug: 'poglavlje-7/vjezba-7' }
           ]
         },
         {
@@ -175,7 +205,7 @@ export default defineConfig({
             {
               label: 'Vježbe 8',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-8/vjezbe-8' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-8/vjezba-8' },
                 { label: '1. Koliformne bakterije na selektivnim podlogama', slug: 'poglavlje-8/vjezbe/vjezba-8-1' },
                 { label: '2. Titar koliformnih bakterija u EC-bujonu', slug: 'poglavlje-8/vjezbe/vjezba-8-2' },
                 { label: '3. Broj fekalnih streptokoka', slug: 'poglavlje-8/vjezbe/vjezba-8-3' }
@@ -196,7 +226,7 @@ export default defineConfig({
             {
               label: 'Vježbe 9',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-9/vjezbe-9' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-9/vjezba-9' },
                 { label: '1. Prethodni test u sanitarnoj analizi vode', slug: 'poglavlje-9/vjezbe/vjezba-9-1' },
                 { label: '2. Potvrdni test u sanitarnoj analizi vode', slug: 'poglavlje-9/vjezbe/vjezba-9-2' },
                 { label: '3. Završni test u sanitarnoj analizi vode', slug: 'poglavlje-9/vjezbe/vjezba-9-3' }
@@ -212,7 +242,7 @@ export default defineConfig({
             {
               label: 'Vježbe 10',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-10/vjezbe-10' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-10/vjezba-10' },
                 { label: '1. Određivanje broja kolonija termofilnih bakterija', slug: 'poglavlje-10/vjezbe/vjezba-10-1' },
                 { label: '2. Određivanje gnojenja tala stajskim gnojem', slug: 'poglavlje-10/vjezbe/vjezba-10-2' }
               ]
@@ -226,7 +256,7 @@ export default defineConfig({
             {
               label: 'Vježbe 11',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-11/vjezbe-11' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-11/vjezba-11' },
                 { label: '1. Izolacija sporogenih bakterija iz površinskih voda', slug: 'poglavlje-11/vjezbe/vjezba-11-1' },
                 { label: '2. Izolacija sporogenih bakterija iz tla', slug: 'poglavlje-11/vjezbe/vjezba-11-2' }
               ]
@@ -240,7 +270,7 @@ export default defineConfig({
             {
               label: 'Vježbe 12',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-12/vjezbe-12' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-12/vjezba-12' },
                 { label: '1. Izolacija anaerobnih bakterija iz površinskih voda', slug: 'poglavlje-12/vjezbe/vjezba-12-1' }
               ]
             }
@@ -255,7 +285,7 @@ export default defineConfig({
             {
               label: 'Vježbe 13',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-13/vjezbe-13' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-13/vjezba-13' },
                 { label: '1. Izrada antibiograma s komercijalnim antibioticima', slug: 'poglavlje-13/vjezbe/vjezba-13-1' },
                 { label: '2. Izrada aromatograma s različitim eteričnim uljima', slug: 'poglavlje-13/vjezbe/vjezba-13-2' }
               ]
@@ -266,7 +296,7 @@ export default defineConfig({
           label: 'Poglavlje 14: Test toksičnosti s kvascem',
           items: [
             { label: 'Uvod u poglavlje', slug: 'poglavlje-14' },
-            { label: 'Vježbe 14', slug: 'poglavlje-14/vjezbe-14' }
+            { label: 'Vježbe 14', slug: 'poglavlje-14/vjezba-14' }
           ]
         },
         {
@@ -279,7 +309,7 @@ export default defineConfig({
             {
               label: 'Vježbe 15',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-15/vjezbe-15' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-15/vjezba-15' },
                 { label: '1. Izvedba testa s metilenskim modrilom', slug: 'poglavlje-15/vjezbe/vjezba-15-1' },
                 { label: '2. Izvedba TTC-testa', slug: 'poglavlje-15/vjezbe/vjezba-15-2' },
                 { label: '3. Izvedba HIL-testa', slug: 'poglavlje-15/vjezbe/vjezba-15-3' }
@@ -295,7 +325,7 @@ export default defineConfig({
             {
               label: 'Vježbe 16',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-16/vjezbe-16' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-16/vjezba-16' },
                 { label: '1. Dokazivanje bakterija mliječne fermentacije u acidofilnom jogurtu', slug: 'poglavlje-16/vjezbe/vjezba-16-1' }
               ]
             }
@@ -328,7 +358,7 @@ export default defineConfig({
             {
               label: 'Vježbe 18',
               items: [
-                { label: 'Pregled vježbi', slug: 'poglavlje-18/vjezbe-18' },
+                { label: 'Pregled vježbi', slug: 'poglavlje-18/vjezba-18' },
                 { label: '1. Određivanje broja fertilnih zrnaca tla', slug: 'poglavlje-18/vjezbe/vjezba-18-1' },
                 { label: '2. Određivanje broja kolonija Azotobacter chroococcum u tlu', slug: 'poglavlje-18/vjezbe/vjezba-18-2' },
                 { label: '3. Određivanje titra Clostridium pasteurianum u tlu', slug: 'poglavlje-18/vjezbe/vjezba-18-3' },
@@ -355,7 +385,7 @@ export default defineConfig({
               {
                 label: 'Vježbe 19',
                 items: [
-                  { label: 'Pregled vježbi', slug: 'poglavlje-19/vjezbe-19' },
+                  { label: 'Pregled vježbi', slug: 'poglavlje-19/vjezba-19' },
                   { label: '1. Određivanje broja kolonija proizvođača H2S iz proteina', slug: 'poglavlje-19/vjezbe/vjezba-19-1' },
                   { label: '2. Određivanje broja kolonija sulfit reducirajućih klostridija', slug: 'poglavlje-19/vjezbe/vjezba-19-2' },
                   { label: '3. MPN sulfat/tiosulfat reducirajućih bakterija', slug: 'poglavlje-19/vjezbe/vjezba-19-3' },
@@ -378,7 +408,7 @@ export default defineConfig({
             items: [
               { label: 'Uvod u poglavlje', slug: 'poglavlje-21' },
               { label: 'Metoda otiska', slug: 'poglavlje-21/metoda-otiska' },
-              { label: 'Vježbe 21', slug: 'poglavlje-21/vjezbe-21' },
+              { label: 'Vježbe 21', slug: 'poglavlje-21/vjezba-21' },
               {
                 label: 'Vježbe',
                 items: [
@@ -412,11 +442,11 @@ export default defineConfig({
             items: [
               { label: 'Uvod u poglavlje', slug: 'poglavlje-23' },
               { label: 'Purpurne sumporne bakterije', slug: 'poglavlje-23/purpurne-sumporne-bakterije' },
-              { label: 'Vježbe 23', slug: 'poglavlje-23/vjezbe-23' }
+              { label: 'Vježbe 23', slug: 'poglavlje-23/vjezba-23' }
             ]
           }
       ],
-      customCss: ['@/styles/global.css', '@/styles/exercise.css'],
+      customCss: ['@/styles/global.css'],
     }),
   ],
   vite: {
