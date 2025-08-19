@@ -1,38 +1,92 @@
 ---
+layout: ../../../components/ChapterLayout.astro
 title: Bakteriološki praktikum
 description: Osnovna pravila, tehnike i oprema u bakteriološkom praktikumu
+chapterNumber: 1
+primaryColor: green
+prevLink: "/predgovor/"
+nextLink: "/sadrzaj/"
+prevText: "← Predgovor"
+nextText: "Sadržaj →"
+heroImage: "/images/slika1.jpg"
+heroImageAlt: "Bakteriološki praktikum"
+breadcrumbPath: []
 ---
 
-<div style="text-align: center; margin: 2rem 0;">
-  <img src="/images/slika1.jpg" alt="Bakteriološki praktikum" style="max-width: 800px; width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
-</div>
+{/* Glavna slika je sada u layout-u */}
 
-<div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; padding: 25px; margin: 25px 0; border-left: 5px solid #138d75;">
-  <p style="font-size: 1.1rem; line-height: 1.7; margin: 0; color: #2c3e50;">
-    Bakteriološki praktikum (slika 1) namijenjen je isključivo praktičnoj nastavi iz bakteriologije. 
-    Specifičnosti bakteriološke prakse zahtijevaju strogo pridržavanje propisa antisepse i higijene zajedničkih za sve bakteriološke laboratorije i praktikume u svijetu.
-  </p>
-</div>
+    {/* Uvodni tekst */}
+    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 border border-green-200 mb-8">
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-green-900 mb-3">O bakteriološkom praktikumu</h3>
+          <p class="text-green-800 text-lg leading-relaxed">
+            Bakteriološki praktikum (slika 1) namijenjen je isključivo praktičnoj nastavi iz bakteriologije. 
+            Specifičnosti bakteriološke prakse zahtijevaju strogo pridržavanje propisa antisepse i higijene zajedničkih za sve bakteriološke laboratorije i praktikume u svijetu.
+          </p>
+        </div>
+      </div>
+    </div>
 
-<div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-radius: 10px; padding: 20px; margin: 20px 0; border: 1px solid #e17055;">
-  <div style="display: flex; align-items: center; margin-bottom: 15px;">
-    <span style="font-size: 24px; margin-right: 10px;">⚠️</span>
-    <h3 style="margin: 0; color: #d63031; font-weight: 600;">Važno</h3>
-  </div>
-  <p style="margin: 0; color: #2d3436; line-height: 1.6;">
-    Svi uzorci mikrobioloških kultura i inokuliranih hranjivih podloga potencijalno su zarazni te se stoga preporučuje rukovati njima uza stroge mjere opreza.
-  </p>
-</div>
+    {/* Važna napomena */}
+    <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8 border border-red-200 mb-8">
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-red-900 mb-3">Važna napomena o sigurnosti</h3>
+          <p class="text-red-800 text-lg leading-relaxed">
+            Svi uzorci mikrobioloških kultura i inokuliranih hranjivih podloga potencijalno su zarazni te se stoga preporučuje rukovati njima uza stroge mjere opreza.
+          </p>
+        </div>
+      </div>
+    </div>
 
-<div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 10px; padding: 20px; margin: 20px 0;">
-  <p style="margin: 0; color: #1565c0; line-height: 1.6; font-weight: 500;">
-    U radu je potrebno rukovoditi se aseptičkim tehnikama i strogim mjerama rukovanja bakterijama prema <strong>"NCCLS M29-A, Protection of Laboratory Workers from Instrument Biohazards and Infectious Disease Transmitted By Blood, Body Fluids, and Tissue; Approved Guideline – December 1997"</strong>.
-  </p>
-</div>
+    {/* Aseptičke tehnike */}
+    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200 mb-8">
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-blue-900 mb-3">Aseptičke tehnike</h3>
+          <p class="text-blue-800 text-lg leading-relaxed">
+            U radu je potrebno rukovoditi se aseptičkim tehnikama i strogim mjerama rukovanja bakterijama prema 
+            <strong>"NCCLS M29-A, Protection of Laboratory Workers from Instrument Biohazards and Infectious Disease Transmitted By Blood, Body Fluids, and Tissue; Approved Guideline – December 1997"</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
 
-<div style="background: #f8f9fa; border-radius: 10px; padding: 15px; margin: 20px 0; border-left: 4px solid #6c757d;">
-  <p style="margin: 0; color: #495057; font-style: italic; line-height: 1.5;">
-    U nastavku pročitajte pravila reda i ponašanja propisana u bakteriološkom laboratoriju <strong>Instituta za primijenjenu mikrobiologiju Sveučilišta u Beču</strong><br/>
-    <small>(<em>Institute of Applied Microbiology, University of Natural Resources and Applied Life Sciences, Vienna – Übungslabors Richtlinien, 01/06, 01/14</em>)</small>
-  </p>
-</div>
+    {/* Napomena */}
+    <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200 mb-8">
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center mr-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Napomena</h3>
+          <p class="text-gray-800 text-lg leading-relaxed">
+            U nastavku pročitajte pravila reda i ponašanja propisana u bakteriološkom laboratoriju 
+            <strong>Instituta za primijenjenu mikrobiologiju Sveučilišta u Beču</strong>
+          </p>
+          <p class="text-gray-600 text-sm mt-2">
+            <em>Institute of Applied Microbiology, University of Natural Resources and Applied Life Sciences, Vienna – Übungslabors Richtlinien, 01/06, 01/14</em>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Navigacija je sada u layout-u */}

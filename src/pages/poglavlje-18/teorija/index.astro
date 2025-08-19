@@ -1,0 +1,102 @@
+---
+import ChapterLayout from '../../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Teorija - Biogeokemijski ciklus dušika',
+  description = 'Detaljna teorija o biogeokemijskom ciklusu dušika'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(18);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={18}
+  primaryColor="blue"
+  prevLink="/poglavlje-18/" 
+  nextLink="/poglavlje-18/vjezbe/" 
+  prevText="← Pregled poglavlja" 
+  nextText="Vježbe →" 
+  ctaTitle="Spreman za praktične vježbe?" 
+  ctaDescription="Primijenite stečeno znanje u praktičnim laboratorijskim vježbama." 
+  ctaPrimaryText="Praktične vježbe" 
+  ctaPrimaryLink="/poglavlje-18/vjezbe/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-18/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 18', url: '/poglavlje-18/' },
+    { name: 'Teorija', url: '/poglavlje-18/teorija/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={18} 
+    currentSection="theory" 
+    chapterTitle="Biogeokemijski ciklus dušika"
+  />
+
+  <!-- Glavni teorijski sadržaj -->
+  <div class="space-y-8">
+    
+    <!-- Uvod u teoriju -->
+    <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+        <span class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+          <span class="text-white font-bold">1</span>
+        </span>
+        Uvod u Biogeokemijski ciklus dušika
+      </h2>
+      
+      <div class="prose prose-lg max-w-none">
+        <p class="text-gray-700 mb-4">
+          Ova sekcija sadrži detaljnu teoriju o biogeokemijski ciklus dušika. 
+          Naučit ćete o temeljnim principima, metodama i praktičnim primjenama.
+        </p>
+        
+        <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+          <h4 class="font-semibold text-blue-800 mb-2">💡 Ključni koncepti:</h4>
+          <ul class="list-disc list-inside space-y-1 text-blue-700">
+            <li>Temeljni principi</li>
+            <li>Metode istraživanja</li>
+            <li>Praktične primjene</li>
+            <li>Važnost u prirodi</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dodatni sadržaj -->
+    <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+        <span class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center mr-3">
+          <span class="text-white font-bold">2</span>
+        </span>
+        Dodatni teorijski sadržaj
+      </h2>
+      
+      <div class="prose prose-lg max-w-none">
+        <p class="text-gray-700 mb-4">
+          Ovdje će biti dodan detaljniji teorijski sadržaj specifičan za biogeokemijski ciklus dušika.
+        </p>
+        
+        <div class="bg-gray-50 rounded-lg p-4 border-l-4 border-gray-500">
+          <h4 class="font-semibold text-gray-800 mb-2">📚 Literatura:</h4>
+          <p class="text-gray-700">
+            Preporučena literatura za dodatno proučavanje ove teme.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</ChapterLayout>

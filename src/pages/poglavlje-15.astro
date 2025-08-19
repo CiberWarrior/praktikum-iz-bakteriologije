@@ -1,0 +1,382 @@
+---
+import ChapterLayout from '../components/ChapterLayout.astro';
+import { getChapterConfig } from '../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Bakteriološko ispitivanje kvalitete namirnica',
+  description = 'Specijalizirani testovi i metode u bakteriološkom laboratoriju za identifikaciju i karakterizaciju bakterija'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(15);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={15}
+  primaryColor="amber"
+  prevLink="/poglavlje-14/" 
+  nextLink="/poglavlje-16/" 
+  prevText="← Poglavlje 14" 
+  nextText="Poglavlje 16 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte specijalizirane testove bakteriologije." 
+  ctaPrimaryText="Poglavlje 16" 
+  ctaPrimaryLink="/poglavlje-16/" 
+  ctaSecondaryText="Povratak na sadržaj" 
+  ctaSecondaryLink="/sadrzaj/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 15', url: '/poglavlje-15/' }
+  ]}
+>
+  <!-- Uvod u poglavlje -->
+  <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-8 border border-amber-200 mb-8 hover:shadow-lg transition-all duration-300">
+<div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-amber-600 rounded-lg flex items-center justify-center mr-4">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+</svg>
+</div>
+<div>
+        <h3 class="text-xl font-bold text-amber-900 mb-3 font-heading">Dobrodošli u Poglavlje 15</h3>
+        <p class="text-amber-800 text-lg leading-relaxed font-body">
+          Ovo poglavlje vodi vas kroz specijalizirane testove u bakteriološkom laboratoriju. 
+          Naučit ćete o različitim testovima za identifikaciju i karakterizaciju bakterija.
+        </p>
+</div>
+</div>
+</div>
+
+  <!-- Teorijski sadržaj -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Teorijski sadržaj</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- HIL test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-amber-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">HIL test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">HIL test za identifikaciju bakterija.</p>
+        <a href="/hil-test/" class="text-amber-600 font-semibold hover:text-amber-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- TTC test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">TTC test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">TTC test za dokazivanje reduktaza.</p>
+        <a href="/ttc-test/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Test s metilenskim modrilom -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Test s metilenskim modrilom</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Test s metilenskim modrilom za dokazivanje reduktaza.</p>
+        <a href="/test-s-metilenskim-modrilom/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Katalaza test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Katalaza test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Katalaza test za dokazivanje katalaze.</p>
+        <a href="/katalaza-test/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Oksidaza test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Oksidaza test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Oksidaza test za dokazivanje citohrom oksidaze.</p>
+        <a href="/oksidaza-test/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Koagulaza test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Koagulaza test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Koagulaza test za identifikaciju stafilokoka.</p>
+        <a href="/koagulaza-test/" class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- DNaza test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">DNaza test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">DNaza test za dokazivanje deoksiribonukleaze.</p>
+        <a href="/dnaza-test/" class="text-pink-600 font-semibold hover:text-pink-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Ureaza test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Ureaza test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Ureaza test za dokazivanje ureaze.</p>
+        <a href="/ureaza-test/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Indol test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Indol test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Indol test za dokazivanje triptofanaze.</p>
+        <a href="/indol-test/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Voges-Proskauer test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Voges-Proskauer test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">VP test za dokazivanje acetoin produkcije.</p>
+        <a href="/voges-proskauer-test/" class="text-gray-600 font-semibold hover:text-gray-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Metil crveni test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Metil crveni test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">MR test za dokazivanje miješane kiseline fermentacije.</p>
+        <a href="/metil-crveni-test/" class="text-teal-600 font-semibold hover:text-teal-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+
+      <!-- Praktični značaj -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-lime-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Praktični značaj</h3>
+</div>
+        <p class="text-gray-600 mb-4">Praktični značaj specijaliziranih testova u medicini.</p>
+        <a href="/prakticni-znacaj-testova/" class="text-lime-600 font-semibold hover:text-lime-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+</div>
+</div>
+
+  <!-- Praktične vježbe -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Praktične vježbe</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Vježba 15 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-amber-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+</svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 15</h3>
+</div>
+        <p class="text-gray-600 mb-4">Glavna vježba iz specijaliziranih testova.</p>
+        <a href="/vjezba-15/" class="text-amber-600 font-semibold hover:text-amber-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 15-1 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 15-1</h3>
+</div>
+        <p class="text-gray-600 mb-4">HIL test i TTC test.</p>
+        <a href="/vjezbe/vjezba-15-1/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 15-2 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 15-2</h3>
+</div>
+        <p class="text-gray-600 mb-4">Test s metilenskim modrilom i katalaza test.</p>
+        <a href="/vjezbe/vjezba-15-2/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+          Pročitaj više →
+</a>
+</div>
+
+      <!-- Vježba 15-3 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+</svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 15-3</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Oksidaza test i koagulaza test.</p>
+        <a href="/vjezbe/vjezba-15-3/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
+          Pročitaj više →
+</a>
+</div>
+    </div>
+  </div>
+
+  <!-- Ciljevi učenja -->
+  <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-8 border border-amber-200 mb-8 hover:shadow-lg transition-all duration-300">
+    <h3 class="text-2xl font-bold text-amber-900 mb-6">Ciljevi učenja</h3>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-amber-800">Razumijevanje specijaliziranih testova u bakteriologiji</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-amber-800">Poznavanje različitih enzimskih testova</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-amber-800">Praktično izvođenje specijaliziranih testova</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-amber-800">Interpretacija rezultata i praktični značaj</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preporuka za učenje -->
+  <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200 hover:shadow-lg transition-all duration-300">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 text-2xl mr-4">💡</div>
+      <div>
+        <h3 class="text-xl font-bold text-yellow-900 mb-4">Preporuka za učenje</h3>
+        <p class="text-yellow-800 text-lg leading-relaxed">
+          Preporučujemo da prvo proučite teorijski dio o specijaliziranim testovima, 
+          a zatim izvršite praktične vježbe kako biste stekli potrebne vještine. 
+          Posebnu pozornost obratite na aseptične tehnike rada, pravilno korištenje reagensa 
+          te interpretaciju rezultata prema standardnim kriterijima.
+        </p>
+</div>
+</div>
+</div>
+</ChapterLayout>

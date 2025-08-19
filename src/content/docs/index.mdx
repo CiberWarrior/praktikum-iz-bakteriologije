@@ -1,98 +1,70 @@
 ---
 title: Praktikum iz bakteriologije
 description: Priručnik za studente s detaljnim uputama za bakteriološki praktikum
-template: splash
-hero:
-  title: "Praktikum iz bakteriologije"
-  tagline: "Priručnik za studente s detaljnim uputama za bakteriološki praktikum"
-  actions:
-    - text: Sadržaj udžbenika
-      link: /predgovor/
-      variant: primary
 ---
 
-<style dangerouslySetInnerHTML={{
-  __html: `
-    /* Osnovni stilovi za hero sekciju */
-    .sl-hero {
-      background: linear-gradient(135deg, #138d75 0%, #0e6655 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    /* Pozadinski uzorak kao u Hero.astro */
-    .sl-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: 
-        radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0),
-        linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
-      background-size: 20px 20px, 100% 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-    
-    /* Glavna pozadina */
-    .sl-hero::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, #138d75 0%, #0e6655 100%);
-      z-index: 1;
-    }
-    
-    /* Tekst iznad pozadine */
-    .sl-hero .sl-hero__title,
-    .sl-hero .sl-hero__tagline,
-    .sl-hero .sl-hero__actions {
-      position: relative;
-      z-index: 2;
-      color: #ffffff;
-    }
-    
-    /* Bijeli tekst za naslov */
-    .sl-hero .sl-hero__title {
-      color: #ffffff !important;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    }
-    
-    /* Responzivni dizajn */
-    @media (max-width: 1024px) {
-      .sl-hero::before {
-        background-image: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.02) 50%, transparent 60%);
-        background-size: 100% 100%;
-      }
-    }
-  `
-}} />
+import FeaturesSection from '../../components/FeaturesSection.astro';
+
+<div class="hero-section">
+  <div class="hero-container">
+    <div class="hero-content">
+      
+              {/* Tekst sekcija */}
+      <div class="hero-text">
+        <p class="hero-tagline">Praktični pristup bakteriologiji</p>
+        <h1 class="hero-title">Mrežni udžbenik iz bakteriologije</h1>
+        <p class="hero-subtitle">Priručnik za studente s detaljnim uputama za bakteriološki praktikum. Naučite ključne tehnike od sigurnog rada i aseptike do identifikacije i interpretacije rezultata.</p>
+        
+        <div class="hero-buttons">
+          <a href="/predgovor/" class="btn btn-primary">Sadržaj udžbenika →</a>
+          <a href="/poglavlje-1/" class="btn btn-secondary">Započni učenje →</a>
+        </div>
+      </div>
+      
+              {/* Slika sekcija */}
+      <div class="hero-image">
+        <img
+          src="/images/petri.JPG"
+          alt="Petrijeva zdjelica s bakterijskim kulturama i testovima osjetljivosti"
+          class="hero-img"
+        />
+        <div class="decorative-circle circle-1"></div>
+        <div class="decorative-circle circle-2"></div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+:::tip[Brzi start]
+- [Sadržaj udžbenika](/predgovor/) - Pregled svih poglavlja
+- [Započni učenje](/poglavlje-1/) - Prvo poglavlje
+:::
+
+
 
 <section class="home-intro">
   <p><strong>Dobrodošli!</strong> Ovo mrežno izdanje vodi vas kroz ključne tehnike bakteriologije – od sigurnog rada i aseptike do identifikacije i interpretacije rezultata. Sve je organizirano tako da brzo prijeđete s teorije na praksu.</p>
 </section>
 
-<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Zašto ovaj udžbenik</h3>
-
-<div class="features" role="list">
-  <div class="feature" role="listitem">
-    <h3>Fokus na praksu</h3>
-    <p>Sažete upute, jasno označeni koraci i fotografije očekivanih rezultata.</p>
-  </div>
-  <div class="feature" role="listitem">
-    <h3>Standardizirani protokoli</h3>
-    <p>Sterilizacija, bojenja, brojanja i biokemijski testovi – sve na jednom mjestu.</p>
-  </div>
-  <div class="feature" role="listitem">
-    <h3>Učenje po modulima</h3>
-    <p>Svako poglavlje je samostalna cjelina s ciljevima i provjerom znanja.</p>
-  </div>
-</div>
+<FeaturesSection 
+  title="Zašto ovaj udžbenik?"
+  subtitle="Moderna platforma za efikasno učenje bakterioloških tehnika"
+  items={[
+    {
+      title: 'Fokus na praksu',
+      description: 'Sažete upute, jasno označeni koraci i fotografije očekivanih rezultata za brzo prelazak s teorije na praksu.',
+    },
+    {
+      title: 'Standardizirani protokoli',
+      description: 'Sterilizacija, bojenja, brojanja i biokemijski testovi – sve na jednom mjestu s detaljnim uputama.',
+    },
+    {
+      title: 'Učenje po modulima',
+      description: 'Svako poglavlje je samostalna cjelina s jasnim ciljevima i provjerom znanja za efikasno učenje.',
+    },
+  ]}
+/>
 
 <h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Kako koristiti</h3>
 

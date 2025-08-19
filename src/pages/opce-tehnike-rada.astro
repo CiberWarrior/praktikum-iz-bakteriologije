@@ -1,0 +1,102 @@
+---
+import ChapterLayout from '../components/ChapterLayout.astro';
+import { getChapterConfig } from '../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Opće tehnike rada',
+  description = 'Osnovne tehnike rada u bakteriološkom laboratoriju. Upoznajte pravila sigurnosti, sterilizaciju instrumenata i rad u blizini plamenika.'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(1);
+---
+
+<ChapterLayout 
+  title={title}
+  description={description}
+  chapterNumber={1}
+  prevLink="/ekstrakti/"
+  nextLink="/osnovni-pojmovi/"
+  prevText="← Ekstrakti"
+  nextText="Osnovni pojmovi →"
+  ctaTitle="Spreman za osnovne pojmove?"
+  ctaDescription="Nastavite s učenjem o osnovnim pojmovima u bakteriologiji."
+  ctaPrimaryText="Osnovni pojmovi"
+  ctaPrimaryLink="/osnovni-pojmovi/"
+  ctaSecondaryText="Povratak na sadržaj"
+  ctaSecondaryLink="/sadrzaj/"
+>
+  <!-- Breadcrumb Navigation -->
+  <div class="bg-gray-50 border-b border-gray-200 mb-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="flex items-center space-x-2 text-sm" aria-label="Breadcrumb">
+        <a href="/" class="text-gray-500 hover:text-green-600 transition-colors duration-200 flex items-center group">
+          <svg class="w-4 h-4 mr-1 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>
+          Naslovnica
+        </a>
+        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <a href="/sadrzaj/" class="text-gray-500 hover:text-green-600 transition-colors duration-200 hover:underline">
+          Sadržaj
+        </a>
+        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <a href="/poglavlje-1/" class="text-gray-500 hover:text-green-600 transition-colors duration-200 hover:underline">
+          Poglavlje 1
+        </a>
+        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="text-green-600 font-medium flex items-center">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Opće tehnike rada
+        </span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Uvodni tekst -->
+  <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 border border-green-200 mb-8">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-green-900 mb-3 font-heading">O opće tehnike rada</h3>
+        <p class="text-green-800 text-lg leading-relaxed font-body">
+          Osnovne tehnike rada u bakteriološkom laboratoriju. Upoznajte pravila sigurnosti, sterilizaciju instrumenata i rad u blizini plamenika.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sadržaj stranice -->
+  <div class="prose prose-lg max-w-none">
+    <h2>Opće tehnike rada</h2>
+    <p>Ovdje ćete pronaći sve potrebne informacije o opće tehnike rada.</p>
+    
+    <!-- Dodajte ovdje sadržaj stranice -->
+  </div>
+
+  <!-- Navigacija -->
+  <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+    <a href="/ekstrakti/" class="inline-flex items-center justify-center px-6 py-3 bg-gray-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      ← Ekstrakti
+    </a>
+    <a href="/osnovni-pojmovi/" class="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      Osnovni pojmovi →
+    </a>
+  </div>
+</ChapterLayout>

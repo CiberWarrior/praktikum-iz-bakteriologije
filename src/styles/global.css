@@ -1,4 +1,20 @@
 /* =======================================================================
+   FONTOVI
+   ======================================================================= */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+/* Font klase */
+.font-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* =======================================================================
    GLOBALNI STIL – Mrežni udžbenik iz bakteriologije
    ======================================================================= */
 
@@ -80,397 +96,486 @@
 }
 
 /* =======================================================================
-   SEKTOR KARTICA — NeoDev stajling (čisto, bez duplikata)
+   ANIMACIJE
    ======================================================================= */
 
-/* Full-width pozadina sekcije */
-.chapters-section{
-  position:relative;
-  width:100%;
-  padding:72px 0 88px;
-  background:
-    radial-gradient(1200px 600px at 0% -10%, rgba(19,141,117,.08), transparent 60%),
-    radial-gradient(900px 520px at 110% 0%, rgba(19,141,117,.06), transparent 60%),
-    linear-gradient(180deg, #f9fbfb 0%, #ffffff 50%, #f7f9fa 100%);
-  overflow:hidden;
-}
-.chapters-section::before{
-  content:"";
-  position:absolute; inset:-20% -10% auto -10%; height:65%;
-  background:
-    radial-gradient(40% 60% at 20% 20%, rgba(140,220,205,.18), transparent 60%),
-    radial-gradient(35% 50% at 80% 10%, rgba(90,180,255,.14), transparent 60%),
-    radial-gradient(30% 45% at 60% 65%, rgba(255,180,120,.12), transparent 60%);
-  filter:blur(12px); pointer-events:none;
-}
-.chapters-section .container{ max-width:1100px; margin:0 auto; padding:0 20px; }
-
-/* Grid */
-.chapters{
-  display:grid;
-  gap:1.2rem;
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Kartica (glass) */
-.chapters__item{
-  display:grid;
-  grid-template-columns:1fr auto; /* tekst | ikona */
-  align-items:center;
-  gap:1rem;
-  padding:1.25rem 1.35rem;
-  border-radius:16px;
-  text-decoration:none;
-  color:#0e5e51;
-  background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.66));
-  border:1px solid rgba(14,94,81,.12);
-  box-shadow:0 10px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.55);
-  backdrop-filter:saturate(130%) blur(6px);
-  -webkit-backdrop-filter:saturate(130%) blur(6px);
-  transition:transform .18s ease, box-shadow .22s ease, border-color .22s ease;
-}
-.chapters__item:hover{
-  transform:translateY(-3px);
-  border-color:rgba(14,94,81,.25);
-  box-shadow:0 16px 36px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.7);
-}
-.chapters__item:focus-visible{ outline:3px solid #1abc9c; outline-offset:3px; }
-
-/* Tekst */
-.chapters__heading{
-  font-size:1rem; font-weight:700; line-height:1.35; margin:0 0 .25rem 0;
-  color:#0e5e51; white-space:normal; word-break:break-word;
-}
-.chapters__text{
-  font-size:.88rem; font-weight:600; margin:0; color:#0e5e51;
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-/* Poglavlja 1–23: zelenkasti naslov */
-.chapters__item:nth-child(-n+23) .chapters__heading {
-  color:#0e5e51 !important;  /* ovdje mijenjaš boju naslova */
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-/* Ikona strelice — podrži i .chapters__arrow i .chapters__icon */
-.chapters__arrow,
-.chapters__icon {
-  width:36px;
-  height:36px;
-  display:grid;
-  place-items:center;
-  border-radius:999px;
-  background:rgba(255,255,255,.75);
-  border:1px solid rgba(14,94,81,.12);
-  box-shadow:0 4px 10px rgba(0,0,0,.06);
-  color:#0e5e51; /* normalno stanje */
-  transition:transform .22s ease, background .22s ease, color .22s ease, border-color .22s ease;
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.chapters__item:hover .chapters__arrow,
-.chapters__item:hover .chapters__icon {
-  transform:translateX(4px);
-  background:#fff;
-  border-color:#1579a0;
-  color:#1579a0; /* hover boja */
+/* ===== Scroll animacije ===== */
+.scroll-fade-in { 
+  opacity: 0; 
+  transform: translateY(30px); 
+  transition: all 0.6s ease-out; 
 }
 
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .chapters__item,
-  .chapters__arrow, .chapters__icon{ transition:none !important; }
+.scroll-fade-in.visible { 
+  opacity: 1; 
+  transform: translateY(0); 
 }
 
-/* Responsivnost margina sekcije */
-@media (max-width: 768px){
-  .chapters-section{ padding:48px 0 64px; }
+.scroll-fade-left { 
+  opacity: 0; 
+  transform: translateX(-30px); 
+  transition: all 0.6s ease-out; 
 }
 
-
-/* Tekst u kartici */
-.chapters__heading {
-  font-size: 1.1rem;
-  font-weight: 700;
-  line-height: 1.4;
-  margin: 0 0 .5rem 0;
-  color: var(--text-primary);           /* default: #0e5e51 */
-  word-break: break-word;
-  white-space: normal;
-}
-.chapters__text {
-  font-size: .9rem;
-  font-weight: 500;
-  margin: 0;
-  color: var(--text-primary);
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.scroll-fade-left.visible { 
+  opacity: 1; 
+  transform: translateX(0); 
 }
 
-/* Poglavlja 1–23: narančasti naslov */
-.chapters__item:nth-child(-n+23) .chapters__heading {
-  color: #e17055;
+.scroll-fade-right { 
+  opacity: 0; 
+  transform: translateX(30px); 
+  transition: all 0.6s ease-out; 
 }
 
-/* Strelica/ikonica */
-.chapters__arrow {
-  align-self: flex-end;
-  margin-top: 1.1rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  color: var(--text-primary);
-  opacity: .85;
-  transition: transform .2s ease, color .2s ease, opacity .2s ease;
-}
-.chapters__item:hover .chapters__arrow {
-  transform: translateX(4px);
-  color: #e17055;
-  opacity: 1;
+.scroll-fade-right.visible { 
+  opacity: 1; 
+  transform: translateX(0); 
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .chapters__item { transition: none !important; }
-  .chapters__arrow { transition: none !important; }
+.scroll-scale-in { 
+  opacity: 0; 
+  transform: scale(0.9); 
+  transition: all 0.6s ease-out; 
+}
+
+.scroll-scale-in.visible { 
+  opacity: 1; 
+  transform: scale(1); 
+}
+
+.scroll-stagger > * { 
+  opacity: 0; 
+  transform: translateY(30px); 
+  transition: all 0.6s ease-out; 
+}
+
+.scroll-stagger.visible > * { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+.scroll-stagger.visible > *:nth-child(1) { transition-delay: 0.1s; }
+.scroll-stagger.visible > *:nth-child(2) { transition-delay: 0.2s; }
+.scroll-stagger.visible > *:nth-child(3) { transition-delay: 0.3s; }
+.scroll-stagger.visible > *:nth-child(4) { transition-delay: 0.4s; }
+.scroll-stagger.visible > *:nth-child(5) { transition-delay: 0.5s; }
+
+/* =======================================================================
+   CHAPTER LAYOUT STILOVI
+   ======================================================================= */
+
+/* Hero sekcija */
+.chapter-hero {
+  @apply relative py-16 text-white overflow-hidden;
+}
+
+.chapter-hero-pattern {
+  @apply absolute inset-0 opacity-10;
+  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.chapter-hero-content {
+  @apply relative max-w-6xl mx-auto px-4 sm:px-6;
+}
+
+.chapter-hero-text {
+  @apply text-center;
+}
+
+.chapter-hero-subtitle {
+  @apply font-bold uppercase tracking-wide mb-4 text-sm;
+}
+
+.chapter-hero-title {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight font-heading;
+}
+
+.chapter-hero-description {
+  @apply text-xl mb-8 leading-relaxed max-w-3xl mx-auto font-body;
+}
+
+.chapter-hero-buttons {
+  @apply flex flex-col sm:flex-row gap-4 justify-center;
+}
+
+.chapter-hero-button-primary {
+  @apply inline-flex items-center justify-center px-6 py-3 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300;
+}
+
+.chapter-hero-button-secondary {
+  @apply inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-bold rounded-full transition-all duration-300;
+}
+
+/* Glavni sadržaj */
+.chapter-main {
+  @apply py-16 bg-white;
+}
+
+.chapter-container {
+  @apply max-w-4xl mx-auto px-4 sm:px-6;
+}
+
+.chapter-hero-image {
+  @apply text-center mb-12;
+}
+
+.chapter-hero-image img {
+  @apply max-w-4xl w-full rounded-2xl shadow-2xl border-4;
+}
+
+/* Kartice */
+.chapter-card {
+  @apply rounded-xl p-8 border mb-8;
+}
+
+.chapter-card-green {
+  @apply bg-gradient-to-br from-green-50 to-green-100 border-green-200;
+}
+
+.chapter-card-blue {
+  @apply bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200;
+}
+
+.chapter-card-red {
+  @apply bg-gradient-to-br from-red-50 to-red-100 border-red-200;
+}
+
+.chapter-card-purple {
+  @apply bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200;
+}
+
+.chapter-card-orange {
+  @apply bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200;
+}
+
+.chapter-card-teal {
+  @apply bg-gradient-to-br from-teal-50 to-teal-100 border-teal-200;
+}
+
+.chapter-card-indigo {
+  @apply bg-gradient-to-br from-indigo-50 to-indigo-100 border-indigo-200;
+}
+
+.chapter-card-gray {
+  @apply bg-gradient-to-br from-gray-50 to-gray-100 border-gray-200;
+}
+
+.chapter-card-content {
+  @apply flex items-start;
+}
+
+.chapter-card-icon {
+  @apply flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center mr-4;
+}
+
+.chapter-card-icon-green {
+  @apply bg-green-600;
+}
+
+.chapter-card-icon-blue {
+  @apply bg-blue-600;
+}
+
+.chapter-card-icon-red {
+  @apply bg-red-600;
+}
+
+.chapter-card-icon-purple {
+  @apply bg-purple-600;
+}
+
+.chapter-card-icon-orange {
+  @apply bg-orange-600;
+}
+
+.chapter-card-icon-teal {
+  @apply bg-teal-600;
+}
+
+.chapter-card-icon-indigo {
+  @apply bg-indigo-600;
+}
+
+.chapter-card-icon-gray {
+  @apply bg-gray-600;
+}
+
+.chapter-card-icon svg {
+  @apply w-6 h-6 text-white;
+}
+
+.chapter-card-text {
+  @apply flex-1;
+}
+
+.chapter-card-title {
+  @apply text-xl font-bold mb-3 font-heading;
+}
+
+.chapter-card-title-green {
+  @apply text-green-900;
+}
+
+.chapter-card-title-blue {
+  @apply text-blue-900;
+}
+
+.chapter-card-title-red {
+  @apply text-red-900;
+}
+
+.chapter-card-title-purple {
+  @apply text-purple-900;
+}
+
+.chapter-card-title-orange {
+  @apply text-orange-900;
+}
+
+.chapter-card-title-teal {
+  @apply text-teal-900;
+}
+
+.chapter-card-title-indigo {
+  @apply text-indigo-900;
+}
+
+.chapter-card-title-gray {
+  @apply text-gray-900;
+}
+
+.chapter-card-description {
+  @apply text-lg leading-relaxed font-body;
+}
+
+.chapter-card-description-green {
+  @apply text-green-800;
+}
+
+.chapter-card-description-blue {
+  @apply text-blue-800;
+}
+
+.chapter-card-description-red {
+  @apply text-red-800;
+}
+
+.chapter-card-description-purple {
+  @apply text-purple-800;
+}
+
+.chapter-card-description-orange {
+  @apply text-orange-800;
+}
+
+.chapter-card-description-teal {
+  @apply text-teal-800;
+}
+
+.chapter-card-description-indigo {
+  @apply text-indigo-800;
+}
+
+.chapter-card-description-gray {
+  @apply text-gray-800;
+}
+
+/* Navigacija */
+.chapter-navigation {
+  @apply flex flex-col sm:flex-row gap-4 justify-center mt-12;
+}
+
+.chapter-nav-button {
+  @apply inline-flex items-center justify-center px-6 py-3 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300;
+}
+
+.chapter-nav-button-primary {
+  @apply text-white;
+}
+
+.chapter-nav-button-secondary {
+  @apply bg-gray-600 text-white;
+}
+
+/* Breadcrumb */
+.chapter-breadcrumb {
+  @apply bg-gray-50 border-b border-gray-200 mb-8;
+}
+
+.chapter-breadcrumb-container {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 py-4;
+}
+
+.chapter-breadcrumb-nav {
+  @apply flex items-center space-x-2 text-sm;
+}
+
+.chapter-breadcrumb-link {
+  @apply text-gray-500 transition-colors duration-200 hover:underline;
+}
+
+.chapter-breadcrumb-current {
+  @apply font-medium flex items-center;
+}
+
+.chapter-breadcrumb-separator {
+  @apply w-4 h-4 text-gray-400;
 }
 
 /* =======================================================================
-   OSTALE KOMPONENTE (hero, blocks, gallery, quiz…)
+   RESPONSIVNOST
    ======================================================================= */
 
-/* Galerija slika */
-.sl-markdown-content .image-grid {
-  display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin:2rem 0;
-}
-.sl-markdown-content .image-grid img {
-  max-width:180px; height:auto; transition:transform .3s ease, box-shadow .3s ease;
-  border-radius:.5rem; box-shadow:0 2px 10px rgba(0,0,0,.1); cursor: zoom-in;
-}
-.sl-markdown-content .image-grid img:hover {
-  transform:scale(2); z-index:10; box-shadow:0 6px 20px rgba(0,0,0,.25); position:relative;
-}
-
-/* Hero (landing) */
-.hero {
-  position:relative; min-height:60vh;
-  background: linear-gradient(135deg, #138d75 0%, #0e6b5c 50%, #0a5449 100%);
-  color:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden;
-}
-.hero-bg-pattern {
-  position:absolute; inset:0;
-  background-image:
-    radial-gradient(circle at 2px 2px, rgba(255,255,255,.05) 1px, transparent 0),
-    linear-gradient(45deg, transparent 40%, rgba(255,255,255,.02) 50%, transparent 60%);
-  background-size:20px 20px, 100% 100%;
-  pointer-events:none;
-}
-.hero-container { width:100%; max-width:1100px; padding:64px 32px; margin:0 auto; }
-.hero-content { text-align:center; max-width:800px; margin:0 auto; }
-.hero-title {
-  font-family:system-ui,-apple-system,sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4rem); font-weight:700; line-height:1.1; margin:0 0 1rem; color:#fff;
-}
-.hero-subtitle {
-  font-family:system-ui,-apple-system,sans-serif; font-size:clamp(1.1rem,3vw,1.4rem);
-  font-weight:400; line-height:1.4; margin:0 0 2.5rem; color:rgba(255,255,255,.9); max-width:600px; margin-inline:auto;
-}
-.hero-actions { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-.btn {
-  display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 32px;
-  font-family:system-ui,-apple-system,sans-serif; font-size:1rem; font-weight:600; text-decoration:none;
-  border-radius:8px; border:2px solid transparent; transition:all .2s ease; cursor:pointer;
-}
-.btn:focus-visible { outline:3px solid rgba(255,255,255,.8); outline-offset:2px; }
-.btn-primary { background:#fff; color:var(--brand); border-color:#fff; }
-.btn-primary:hover { background:rgba(255,255,255,.95); transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.2); }
-.btn-ghost { background:transparent; color:#fff; border-color:rgba(255,255,255,.4); }
-.btn-ghost:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.6); transform:translateY(-2px); }
-
-/* Tekst & tablice u sadržaju */
-.sl-markdown-content {
-  line-height: 1.6;
-  color: var(--text-primary);
-  background-color: #fff;
-  max-width: 100%;
-}
-.sl-markdown-content main {
-  padding: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.sl-markdown-content h1,
-.sl-markdown-content h2,
-.sl-markdown-content h3,
-.sl-markdown-content h4 {
-  font-weight: 700;
-  color: var(--brand);
-  margin-top: 2rem;
-}
-.sl-markdown-content p { margin: 1rem 0; font-size: 1.05rem; }
-.sl-markdown-content img {
-  max-width: 100%; border-radius: 0.5rem; box-shadow: 0 2px 10px rgba(0,0,0,.1); margin: 1rem 0;
-}
-.sl-markdown-content table {
-  width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: .95rem;
-}
-.sl-markdown-content th,
-.sl-markdown-content td { border: 1px solid #ccc; padding: .6rem; text-align: left; }
-.sl-markdown-content th { background-color: #f4f4f4; }
-
-/* Napomene */
-.sl-markdown-content .note { padding: 1rem 1.25rem; margin: 2rem 0; border-radius: .5rem; position: relative; font-size: 1rem; }
-.sl-markdown-content .note-lab { background-color: #eafaf7; border-left: 4px solid var(--brand); }
-.sl-markdown-content .note-lab::before { content:"🧪"; position:absolute; left:1rem; top:1rem; font-size:1.4rem; }
-.sl-markdown-content .note-lab > * { margin-left: 2rem; }
-.sl-markdown-content .note-tip { background-color: #fffbea; border-left: 4px solid #f0c000; }
-.sl-markdown-content .note-tip::before { content:"💡"; position:absolute; left:1rem; top:1rem; font-size:1.4rem; }
-.sl-markdown-content .note-warning { background-color: #fff0f0; border-left: 4px solid #e72227; }
-.sl-markdown-content .note-warning::before { content:"⚠️"; position:absolute; left:1rem; top:1rem; font-size:1.4rem; }
-.sl-markdown-content .note-info { background-color: #edf4ff; border-left: 4px solid #3a78c9; }
-.sl-markdown-content .note-info::before { content:"📘"; position:absolute; left:1rem; top:1rem; font-size:1.4rem; }
-.sl-markdown-content .note-question { background-color: #f0faff; border-left: 4px solid #00bcd4; }
-.sl-markdown-content .note-question::before { content:"❓"; position:absolute; left:1rem; top:1rem; font-size:1.4rem; }
-.sl-markdown-content .note-reference { background-color: #f9f9f9; border-left: 4px solid #999; }
-.sl-markdown-content .note-reference::before { content:"📎"; position:absolute; left:1rem; top:1rem; font-size:1.4rem; }
-
-/* Predgovor – lijevi align */
-.sl-markdown-content h2,
-.sl-markdown-content h3,
-.sl-markdown-content p,
-.sl-markdown-content ul,
-.sl-markdown-content li { text-align:left !important; }
-.sl-markdown-content { text-align:left !important; }
-
-/* Block komponente */
-.intro {
-  background: var(--bg-secondary);
-  border-radius: .75rem;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  border-left: 4px solid var(--brand);
-  box-shadow: var(--shadow-light);
-}
-.intro p { font-size:1.1rem; line-height:1.7; margin:0; color: var(--text-primary); }
-
-.block {
-  border-radius:.75rem; padding:1.25rem; margin:1.25rem 0;
-  border:2px solid; box-shadow:var(--shadow-light); background:var(--bg-primary);
-}
-.block__header { display:flex; align-items:center; margin-bottom:1rem; gap:.75rem; }
-.block__icon { font-size:1.5rem; line-height:1; }
-.block__title { margin:0; font-size:1.125rem; font-weight:600; line-height:1.3; }
-.block__body { color:var(--text-primary); line-height:1.6; }
-.block__body p { margin:0 0 1rem 0; font-size:1rem; }
-.block__body p:last-child { margin-bottom:0; }
-.block--green { background:var(--block-green); border-color:var(--block-green-border); }
-.block--green .block__title { color:var(--block-green-text); }
-.block--blue { background:var(--block-blue); border-color:var(--block-blue-border); }
-.block--blue .block__title { color:var(--block-blue-text); }
-.block--amber { background:var(--block-amber); border-color:var(--block-amber-border); }
-.block--amber .block__title { color:var(--block-amber-text); }
-.block--red { background:var(--block-red); border-color:var(--block-red-border); }
-.block--red .block__title { color:var(--block-red-text); }
-
-/* Subnote */
-.subnote {
-  background: var(--bg-secondary);
-  padding:.75rem; border-radius:.5rem; border-left:3px solid var(--brand); margin-top:1rem;
-}
-.subnote__label { display:block; color:var(--brand); font-size:.875rem; font-weight:600; margin-bottom:.25rem; }
-.subnote__text { color:var(--text-secondary); font-size:.875rem; line-height:1.5; margin:0; }
-
-/* Quiz (bez JS-a: radio + :has) */
-.quiz-lite {
-  margin:1.4rem 0 0; border:1px solid var(--border); border-radius:16px;
-  padding:1rem 1.1rem; background:var(--bg);
-}
-.quiz-lite h3 { margin:0 0 .4rem; color:var(--brand-dark); }
-.quiz-opt {
-  display:block; padding:.55rem .7rem; border:1px solid var(--border); border-radius:10px;
-  margin:.4rem 0; cursor:pointer; background:var(--bg-soft); position:relative; transition:all .2s ease;
-}
-.quiz-opt:hover { filter:brightness(1.02); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.1); }
-.quiz-opt input { margin-right:.5rem; }
-.quiz-reveal { opacity:0; max-height:0; transform:translateY(-4px); transition:all .25s ease; color:var(--brand-dark); padding:.2rem .2rem 0; }
-.quiz-lite:has(.quiz-opt.is-correct input:checked) .quiz-reveal { opacity:1; max-height:200px; transform:none; }
-
-@supports not selector(:has(*)) {
-  .quiz-lite input[type="radio"] { position:absolute; opacity:0; }
-  .quiz-lite input[type="radio"]:checked + label.quiz-opt { border-color:#cfe7df; background:linear-gradient(180deg,#f7fbf9,#f1f8f5); transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.15); }
-  .quiz-lite input[type="radio"]:checked + label.quiz-opt.is-correct { border-color:#86efac; background:linear-gradient(180deg,#ecfdf5,#d1fae5); box-shadow:0 10px 26px rgba(16,185,129,.18); }
-  .quiz-lite input[type="radio"]:checked + label.quiz-opt:not(.is-correct) { border-color:#fecaca; background:linear-gradient(180deg,#fef2f2,#fee2e2); animation: exShake .28s ease-in-out 1; }
-  .quiz-lite input[type="radio"]:checked + label.quiz-opt.is-correct ~ .quiz-reveal{
-    opacity:1; max-height:200px; transform:none; margin-top:.5rem; padding:.6rem .7rem; border-radius:10px; border:1px dashed #86efac;
-    background:linear-gradient(180deg,#f0fdf4,#ecfdf5); color:#065f46; font-weight:600;
+@media (max-width: 768px) {
+  .container { padding: 0 1rem; }
+  
+  .chapter-hero-title {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  .chapter-card-content {
+    @apply flex-col text-center;
+  }
+  
+  .chapter-card-icon {
+    @apply mx-auto mb-4;
   }
 }
-@keyframes exShake {
-  0%,100%{ transform: translateX(0); }
-  25%{ transform: translateX(-4px); }
-  75%{ transform: translateX(4px); }
-}
 
-/* Responsive dodatno */
-@media (max-width: 768px) {
-  .hero-container { padding: 48px 20px; }
-  .hero-actions { flex-direction: column; align-items: center; }
-  .btn { width:100%; max-width:280px; }
-  .block { padding:1rem; margin:1rem 0; }
-  .block__header { flex-direction:column; text-align:center; gap:.5rem; }
-  .intro { padding:1.25rem; margin:1.25rem 0; }
-}
-
-/* Print čistoća */
-@media print{
-  .hero-edu{ box-shadow:none; background:#fff; }
-  .card-sheen, .callout-edu, .t-step, .quiz-lite{ box-shadow:none; background:#fff; }
+@media (prefers-reduced-motion: reduce) {
+  .scroll-fade-in,
+  .scroll-fade-left,
+  .scroll-fade-right,
+  .scroll-scale-in,
+  .scroll-stagger > *,
+  .chapter-hero-button-primary,
+  .chapter-hero-button-secondary,
+  .chapter-nav-button { 
+    transition: none !important; 
+  }
 }
 
 /* =======================================================================
-   STARLIGHT: sakrij breadcrumbs & H1 na vježbama + smanji H1 na ostalim
-   ======================================================================= */
-body:has([data-astro-source-file*="vjezba"]) .content-panel:first-child,
-body:has([data-astro-source-file*="vjezba"]) h1#_top,
-body:has([data-astro-source-file*="vjezba"]) nav[aria-label*="breadcrumb"],
-body:has([data-astro-source-file*="vjezba"]) nav[aria-label*="Breadcrumb"],
-body:has([data-astro-source-file*="vjezba"]) nav,
-body:has([data-astro-source-file*="vjezba"]) .sl-breadcrumb {
-  display: none !important;
-}
-
-/* =======================================================================
-   SLIKE - osiguraj da se slike prikazuju ispravno
+   ANIMACIJE I INTERAKTIVNOST
    ======================================================================= */
 
-/* Osiguraj da se slike prikazuju */
-.sl-markdown-content img {
-  max-width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  margin: 1rem 0 !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+/* Fade in animacija za kartice */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Stiliziraj slike u galeriji */
-.sl-markdown-content .image-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin: 2rem 0;
+.chapter-card {
+  animation: fadeInUp 0.6s ease-out;
 }
 
-.sl-markdown-content .image-grid img {
-  max-width: 180px;
-  height: auto;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  cursor: zoom-in;
+/* Hover efekti za kartice */
+.chapter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.sl-markdown-content .image-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+/* Pulse animacija za ikone */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.chapter-card-icon:hover {
+  animation: pulse 0.6s ease-in-out;
+}
+
+/* Progress bar animacija */
+#progress-bar {
+  transition: width 0.3s ease-out;
+}
+
+/* Floating Action Buttons animacija */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#back-to-top.visible,
+#toc-toggle.visible {
+  animation: slideInUp 0.3s ease-out;
+}
+
+/* Modal animacija */
+#toc-modal.visible {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles za accessibility */
+.chapter-card:focus-within {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* Loading animacija */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
 }

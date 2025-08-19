@@ -1,0 +1,181 @@
+---
+import ChapterLayout from '../../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Laboratorij - Biogeokemijski ciklus dušika',
+  description = 'Laboratorijski protokoli za analizu dušika'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(18);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={18}
+  primaryColor="blue"
+  prevLink="/poglavlje-18/vjezbe/" 
+  nextLink="/poglavlje-19/" 
+  prevText="← Vježbe" 
+  nextText="Poglavlje 19 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte sljedeće teme." 
+  ctaPrimaryText="Poglavlje 19" 
+  ctaPrimaryLink="/poglavlje-19/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-18/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 18', url: '/poglavlje-18/' },
+    { name: 'Laboratorij', url: '/poglavlje-18/laboratorij/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={18} 
+    currentSection="laboratory" 
+    chapterTitle="Biogeokemijski ciklus dušika"
+  />
+
+  <!-- Uvod u laboratorij -->
+  <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200 mb-8">
+    <h2 class="text-2xl font-bold text-blue-900 mb-4">Laboratorijski rad</h2>
+    <p class="text-blue-800 text-lg leading-relaxed">
+      Ova sekcija sadrži sve potrebne informacije za siguran i uspješan rad u laboratoriju 
+      s biogeokemijski ciklus dušika.
+    </p>
+  </div>
+
+  <!-- Sigurnosne mjere -->
+  <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200 mb-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+      <span class="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+        <span class="text-white font-bold">⚠️</span>
+      </span>
+      Sigurnosne mjere
+    </h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Osobna zaštitna oprema:</h3>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li><strong>Laboratorijski mantil</strong> - obavezan za sve radnje</li>
+          <li><strong>Rukavice</strong> - jednokratne, latex ili nitril</li>
+          <li><strong>Zaštitne naočale</strong> - kod rada s kemikalijama</li>
+          <li><strong>Zaštitna maska</strong> - kod rada s prašinama</li>
+          <li><strong>Zatvorena obuća</strong> - obavezna</li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Opće sigurnosne mjere:</h3>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li>Nikad ne jedite ili pijete u laboratoriju</li>
+          <li>Ne stavljajte ruke u usta, nos ili oči</li>
+          <li>Redovito perite ruke</li>
+          <li>Pravilno odlagajte kontaminirani materijal</li>
+          <li>Održavajte čistoću radne površine</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Laboratorijska oprema -->
+  <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200 mb-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+      <span class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+        <span class="text-white font-bold">🔬</span>
+      </span>
+      Laboratorijska oprema
+    </h2>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-blue-50 rounded-lg p-4">
+        <h3 class="font-semibold text-blue-800 mb-3">Osnovna oprema:</h3>
+        <ul class="list-disc list-inside space-y-1 text-blue-700 text-sm">
+          <li>Mikroskop</li>
+          <li>Inkubator</li>
+          <li>Autoklav</li>
+          <li>Laminarni ormarić</li>
+          <li>Vortex mikser</li>
+          <li>Centrifuga</li>
+        </ul>
+      </div>
+      
+      <div class="bg-green-50 rounded-lg p-4">
+        <h3 class="font-semibold text-green-800 mb-3">Pomoćna oprema:</h3>
+        <ul class="list-disc list-inside space-y-1 text-green-700 text-sm">
+          <li>Petrijeve zdjelice</li>
+          <li>Epruvete i vrčići</li>
+          <li>Pipete i vrčići</li>
+          <li>Staklene pločice</li>
+          <li>Filtri i membrane</li>
+        </ul>
+      </div>
+      
+      <div class="bg-purple-50 rounded-lg p-4">
+        <h3 class="font-semibold text-purple-800 mb-3">Kemikalije:</h3>
+        <ul class="list-disc list-inside space-y-1 text-purple-700 text-sm">
+          <li>Razni reagensi</li>
+          <li>Podloge za kultivaciju</li>
+          <li>Fiziološka otopina</li>
+          <li>Etanol (96%)</li>
+          <li>Distilirana voda</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protokoli rada -->
+  <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+      <span class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+        <span class="text-white font-bold">📋</span>
+      </span>
+      Protokoli rada
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">1. Priprema radne površine</h3>
+        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+          <li>Očistite radnu površinu dezinfekcijskim sredstvom</li>
+          <li>Postavite potrebnu opremu</li>
+          <li>Provjerite funkcionalnost opreme</li>
+          <li>Pripremite sterilne materijale</li>
+        </ol>
+      </div>
+      
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">2. Aseptički rad</h3>
+        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+          <li>Uklonite sve nakite i sat</li>
+          <li>Obucite zaštitnu opremu</li>
+          <li>Dezinfekcirajte ruke</li>
+          <li>Radite u blizini plamenika</li>
+          <li>Često dezinfekcirajte ruke</li>
+        </ol>
+      </div>
+      
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">3. Završetak rada</h3>
+        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+          <li>Dezinfekcirajte radnu površinu</li>
+          <li>Pravilno odlagajte otpad</li>
+          <li>Očistite opremu</li>
+          <li>Skinite zaštitnu opremu</li>
+          <li>Operite ruke</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</ChapterLayout>

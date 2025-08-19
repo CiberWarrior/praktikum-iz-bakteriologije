@@ -1,0 +1,317 @@
+---
+import ChapterLayout from '../components/ChapterLayout.astro';
+import { getChapterConfig } from '../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Streptomiceti',
+  description = 'Karakteristike, identifikacija i primjena streptomiceta u bakteriologiji'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(22);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={22}
+  primaryColor="indigo"
+  prevLink="/poglavlje-21/" 
+  nextLink="/poglavlje-23/" 
+  prevText="← Poglavlje 21" 
+  nextText="Poglavlje 23 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte napredne tehnike bakteriologije." 
+  ctaPrimaryText="Poglavlje 23" 
+  ctaPrimaryLink="/poglavlje-23/" 
+  ctaSecondaryText="Povratak na sadržaj" 
+  ctaSecondaryLink="/sadrzaj/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 22', url: '/poglavlje-22/' }
+  ]}
+>
+  <!-- Uvod u poglavlje -->
+  <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-8 border border-indigo-200 mb-8 hover:shadow-lg transition-all duration-300">
+<div class="flex items-start">
+<div class="flex-shrink-0 w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mr-4">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+</svg>
+</div>
+<div>
+        <h3 class="text-xl font-bold text-indigo-900 mb-3 font-heading">Dobrodošli u Poglavlje 22</h3>
+        <p class="text-indigo-800 text-lg leading-relaxed font-body">
+          Ovo poglavlje istražuje streptomicete kao važnu grupu bakterija u bakteriologiji. 
+          Naučit ćete o njihovim karakteristikama, identifikaciji i primjeni u istraživanju.
+        </p>
+</div>
+</div>
+</div>
+
+  <!-- Teorijski sadržaj -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Teorijski sadržaj</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Osnove streptomiceta -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Osnove streptomiceta</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Temeljne karakteristike i klasifikacija streptomiceta.</p>
+        <a href="/osnove-streptomiceta/" class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Morfologija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Morfologija</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Morfološke karakteristike streptomiceta.</p>
+        <a href="/morfologija-streptomiceta/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Kultura karakteristike -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Kultura karakteristike</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Karakteristike kultura streptomiceta na različitim medijima.</p>
+        <a href="/kultura-karakteristike-streptomiceta/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Biohemijske karakteristike -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Biohemijske karakteristike</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Biohemijske karakteristike streptomiceta.</p>
+        <a href="/biohemijske-karakteristike-streptomiceta/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Metode identifikacije -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Metode identifikacije</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Metode identifikacije streptomiceta.</p>
+        <a href="/metode-identifikacije-streptomiceta/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Kultura mediji -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Kultura mediji</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Specijalizirani kultura mediji za streptomicete.</p>
+        <a href="/kultura-mediji-streptomiceta/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Antibiotici -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Antibiotici</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Antibiotici koje proizvode streptomiceti.</p>
+        <a href="/antibiotici-streptomiceta/" class="text-pink-600 font-semibold hover:text-pink-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Praktični značaj -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+</svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Praktični značaj</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Praktični značaj streptomiceta u industriji.</p>
+        <a href="/prakticni-znacaj-streptomiceta/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+
+      <!-- Ekološki značaj -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Ekološki značaj</h3>
+</div>
+        <p class="text-gray-600 mb-4">Ekološki značaj streptomiceta u prirodi.</p>
+        <a href="/ekoloski-znacaj-streptomiceta/" class="text-gray-600 font-semibold hover:text-gray-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+</div>
+</div>
+
+  <!-- Praktične vježbe -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Praktične vježbe</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Vježba 22 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+</svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 22</h3>
+</div>
+        <p class="text-gray-600 mb-4">Glavna vježba iz streptomiceta.</p>
+        <a href="/vjezba-22/" class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 22-1 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 22-1</h3>
+</div>
+        <p class="text-gray-600 mb-4">Izolacija i kultura streptomiceta.</p>
+        <a href="/vjezbe/vjezba-22-1/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+          Pročitaj više →
+</a>
+</div>
+
+      <!-- Vježba 22-2 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+</svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 22-2</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Identifikacija streptomiceta.</p>
+        <a href="/vjezbe/vjezba-22-2/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+          Pročitaj više →
+</a>
+</div>
+    </div>
+  </div>
+
+  <!-- Ciljevi učenja -->
+  <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-8 border border-indigo-200 mb-8 hover:shadow-lg transition-all duration-300">
+    <h3 class="text-2xl font-bold text-indigo-900 mb-6">Ciljevi učenja</h3>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-indigo-800">Razumijevanje karakteristika streptomiceta</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-indigo-800">Poznavanje metoda identifikacije</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-indigo-800">Praktično rad s streptomicetima</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-indigo-800">Interpretacija rezultata i primjena</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preporuka za učenje -->
+  <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200 hover:shadow-lg transition-all duration-300">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 text-2xl mr-4">💡</div>
+      <div>
+        <h3 class="text-xl font-bold text-yellow-900 mb-4">Preporuka za učenje</h3>
+        <p class="text-yellow-800 text-lg leading-relaxed">
+          Preporučujemo da prvo proučite teorijski dio o streptomicetima, 
+          a zatim izvršite praktične vježbe kako biste stekli potrebne vještine. 
+          Posebnu pozornost obratite na morfološke karakteristike, kultura medije 
+          te metode identifikacije prema standardnim kriterijima.
+        </p>
+</div>
+</div>
+</div>
+</ChapterLayout>

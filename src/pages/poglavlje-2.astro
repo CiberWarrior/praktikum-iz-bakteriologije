@@ -1,0 +1,432 @@
+---
+import ChapterLayout from '../components/ChapterLayout.astro';
+import { getChapterConfig } from '../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Sterilizacija',
+  description = 'Tehnike sterilizacije i dezinfekcije u bakteriološkom laboratoriju'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(2);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={2}
+  primaryColor="blue"
+  prevLink="/poglavlje-1/" 
+  nextLink="/poglavlje-3/" 
+  prevText="← Poglavlje 1" 
+  nextText="Poglavlje 3 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte tehnike bojenja bakterija." 
+  ctaPrimaryText="Poglavlje 3" 
+  ctaPrimaryLink="/poglavlje-3/" 
+  ctaSecondaryText="Povratak na sadržaj" 
+  ctaSecondaryLink="/sadrzaj/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 2', url: '/poglavlje-2/' }
+  ]}
+>
+  <!-- Uvod u poglavlje -->
+  <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200 mb-8 hover:shadow-lg transition-all duration-300">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+</svg>
+</div>
+      <div>
+        <h3 class="text-xl font-bold text-blue-900 mb-3 font-heading">Dobrodošli u Poglavlje 2</h3>
+        <p class="text-blue-800 text-lg leading-relaxed font-body">
+          Ovo poglavlje vodi vas kroz ključne tehnike sterilizacije i dezinfekcije u bakteriološkom laboratoriju. 
+          Naučit ćete o različitim metodama sterilizacije, njihovoj primjeni i važnosti za siguran rad s bakterijama.
+        </p>
+</div>
+</div>
+</div>
+
+  <!-- Teorijski sadržaj -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Teorijski sadržaj</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Fizička sterilizacija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Fizička sterilizacija</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Metode sterilizacije toplinom i drugim fizičkim agensima.</p>
+        <a href="/fizicka-sterilizacija/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Autoklaviranje -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+</svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Autoklaviranje</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Sterilizacija pod povišenim tlakom i temperaturom.</p>
+        <a href="/autoklaviranje/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Suha sterilizacija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Suha sterilizacija</h3>
+</div>
+        <p class="text-gray-600 mb-4">Sterilizacija suhim zrakom na visokim temperaturama.</p>
+        <a href="/suha-sterilizacija/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+
+<!-- Kemijska sterilizacija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Kemijska sterilizacija</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Uporaba kemijskih sredstava za sterilizaciju.</p>
+        <a href="/kemijska-sterilizacija/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Kuhanje -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Kuhanje</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Sterilizacija kuhanjem u vodi.</p>
+        <a href="/kuhanje/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Pasterizacija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Pasterizacija</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Delikatna sterilizacija na nižim temperaturama.</p>
+        <a href="/pasterizacija/" class="text-teal-600 font-semibold hover:text-teal-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Flambiranje -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Flambiranje</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Sterilizacija plamenom za metalni pribor.</p>
+        <a href="/flambiranje/" class="text-red-500 font-semibold hover:text-red-700 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Žarenje -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Žarenje</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Sterilizacija na vrlo visokim temperaturama.</p>
+        <a href="/zarenje/" class="text-orange-500 font-semibold hover:text-orange-700 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Opaljivanje -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-yellow-500 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Opaljivanje</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Sterilizacija brzim prolaskom kroz plamen.</p>
+        <a href="/opaljivanje/" class="text-yellow-500 font-semibold hover:text-yellow-700 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+
+      <!-- Spaljivanje -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-400 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path>
+            </svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Spaljivanje</h3>
+</div>
+        <p class="text-gray-600 mb-4">Potpuno uništavanje materijala plamenom.</p>
+        <a href="/spaljivanje/" class="text-red-400 font-semibold hover:text-red-600 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+
+      <!-- Frakciona sterilizacija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+            </svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Frakciona sterilizacija</h3>
+</div>
+        <p class="text-gray-600 mb-4">Sterilizacija u nekoliko ciklusa.</p>
+        <a href="/frakciona-sterilizacija/" class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+
+      <!-- Hladna sterilizacija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-cyan-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+            </svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Hladna sterilizacija</h3>
+</div>
+        <p class="text-gray-600 mb-4">Sterilizacija bez topline.</p>
+        <a href="/hladna-sterilizacija/" class="text-cyan-600 font-semibold hover:text-cyan-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+
+      <!-- Sterilizacija zračenjem -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+</svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Sterilizacija zračenjem</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Sterilizacija ionizirajućim zračenjem.</p>
+        <a href="/sterilizacija-zracenjem/" class="text-purple-500 font-semibold hover:text-purple-700 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+
+      <!-- Sterilizacija ultrazvukom -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+            </svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Sterilizacija ultrazvukom</h3>
+</div>
+        <p class="text-gray-600 mb-4">Sterilizacija ultrazvučnim valovima.</p>
+        <a href="/sterilizacija-ultrazvukom/" class="text-pink-600 font-semibold hover:text-pink-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+</div>
+</div>
+
+  <!-- Praktične vježbe -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Praktične vježbe</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Vježba 2 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 2</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Glavna vježba iz sterilizacije i dezinfekcije.</p>
+        <a href="/vjezba-2/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 2-1 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+</svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 2-1</h3>
+</div>
+        <p class="text-gray-600 mb-4">Ispitivanje učinka vremena kuhanja.</p>
+        <a href="/vjezba-2-1/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 2-2 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 2-2</h3>
+</div>
+        <p class="text-gray-600 mb-4">Ispitivanje učinka dezinfekcijensa.</p>
+        <a href="/vjezba-2-2/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 2-3 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 2-3</h3>
+</div>
+        <p class="text-gray-600 mb-4">Ispitivanje učinka antiseptika.</p>
+        <a href="/vjezba-2-3/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+          Pročitaj više →
+</a>
+</div>
+
+      <!-- Vježba 2-5 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+</svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 2-5</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Priprema kosog agara.</p>
+        <a href="/vjezba-2-5/" class="text-teal-600 font-semibold hover:text-teal-800 transition-colors duration-300">
+          Pročitaj više →
+</a>
+</div>
+    </div>
+  </div>
+
+  <!-- Ciljevi učenja -->
+  <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200 mb-8 hover:shadow-lg transition-all duration-300">
+    <h3 class="text-2xl font-bold text-blue-900 mb-6">Ciljevi učenja</h3>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-blue-800">Razumijevanje različitih metoda sterilizacije</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-blue-800">Poznavanje primjene različitih tehnika</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-blue-800">Praktično izvođenje sterilizacijskih postupaka</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-blue-800">Sigurno rukovanje steriliziranim materijalom</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preporuka za učenje -->
+  <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200 hover:shadow-lg transition-all duration-300">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 text-2xl mr-4">💡</div>
+      <div>
+        <h3 class="text-xl font-bold text-yellow-900 mb-4">Preporuka za učenje</h3>
+        <p class="text-yellow-800 text-lg leading-relaxed">
+          Preporučujemo da prvo proučite teorijski dio o različitim metodama sterilizacije, 
+          a zatim izvršite praktične vježbe kako biste stekli potrebne vještine. 
+          Posebnu pozornost obratite na sigurnosne protokole i pravilno rukovanje 
+          steriliziranim materijalom.
+        </p>
+</div>
+</div>
+</div>
+</ChapterLayout>

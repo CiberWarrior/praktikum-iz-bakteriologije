@@ -1,0 +1,291 @@
+---
+import ChapterLayout from '../../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Laboratorij - Bakterije mliječne fermentacije',
+  description = 'Sigurnosne mjere, oprema i protokoli za rad s bakterijama mliječne fermentacije'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(16);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={16}
+  primaryColor="sky"
+  prevLink="/poglavlje-16/vjezbe/" 
+  nextLink="/poglavlje-17/" 
+  prevText="← Vježbe" 
+  nextText="Poglavlje 17 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte biogeokemijske cikluse." 
+  ctaPrimaryText="Poglavlje 17" 
+  ctaPrimaryLink="/poglavlje-17/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-16/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 16', url: '/poglavlje-16/' },
+    { name: 'Laboratorij', url: '/poglavlje-16/laboratorij/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={16} 
+    currentSection="laboratory" 
+    chapterTitle="Bakterije mliječne fermentacije"
+  />
+
+  <!-- Uvod u laboratorij -->
+  <div class="bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl p-8 border border-sky-200 mb-8">
+    <h2 class="text-2xl font-bold text-sky-900 mb-4">Laboratorijski rad</h2>
+    <p class="text-sky-800 text-lg leading-relaxed">
+      Ova sekcija sadrži sve potrebne informacije za siguran i uspješan rad u laboratoriju 
+      s bakterijama mliječne fermentacije.
+    </p>
+  </div>
+
+  <!-- Sigurnosne mjere -->
+  <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200 mb-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+      <span class="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+        <span class="text-white font-bold">⚠️</span>
+      </span>
+      Sigurnosne mjere
+    </h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Osobna zaštitna oprema:</h3>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li><strong>Laboratorijski mantil</strong> - obavezan za sve radnje</li>
+          <li><strong>Rukavice</strong> - jednokratne, latex ili nitril</li>
+          <li><strong>Zaštitne naočale</strong> - kod rada s kemikalijama</li>
+          <li><strong>Zaštitna maska</strong> - kod rada s prašinama</li>
+          <li><strong>Zatvorena obuća</strong> - obavezna</li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Opće sigurnosne mjere:</h3>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li>Nikad ne jedite ili pijete u laboratoriju</li>
+          <li>Ne stavljajte ruke u usta, nos ili oči</li>
+          <li>Redovito perite ruke</li>
+          <li>Pravilno odlagajte kontaminirani materijal</li>
+          <li>Održavajte čistoću radne površine</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-6 p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+      <h4 class="font-semibold text-red-800 mb-2">🚨 Hitne situacije:</h4>
+      <ul class="list-disc list-inside space-y-1 text-red-700">
+        <li>U slučaju izlijevanja - odmah obavijestite nastavnika</li>
+        <li>Kod ozljeda - odmah potražite medicinsku pomoć</li>
+        <li>Kod požara - koristite najbliži aparat za gašenje</li>
+        <li>Hitni broj: 112</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Laboratorijska oprema -->
+  <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200 mb-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+      <span class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+        <span class="text-white font-bold">🔬</span>
+      </span>
+      Laboratorijska oprema
+    </h2>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-blue-50 rounded-lg p-4">
+        <h3 class="font-semibold text-blue-800 mb-3">Osnovna oprema:</h3>
+        <ul class="list-disc list-inside space-y-1 text-blue-700 text-sm">
+          <li>Mikroskop</li>
+          <li>Inkubator (37°C)</li>
+          <li>Autoklav</li>
+          <li>Laminarni ormarić</li>
+          <li>Vortex mikser</li>
+          <li>Centrifuga</li>
+        </ul>
+      </div>
+      
+      <div class="bg-green-50 rounded-lg p-4">
+        <h3 class="font-semibold text-green-800 mb-3">Pomoćna oprema:</h3>
+        <ul class="list-disc list-inside space-y-1 text-green-700 text-sm">
+          <li>Petrijeve zdjelice</li>
+          <li>Epruvete i vrčići</li>
+          <li>Pipete i vrčići</li>
+          <li>Staklene pločice</li>
+          <li>Petrijeve zdjelice</li>
+          <li>Filtri i membrane</li>
+        </ul>
+      </div>
+      
+      <div class="bg-purple-50 rounded-lg p-4">
+        <h3 class="font-semibold text-purple-800 mb-3">Kemikalije:</h3>
+        <ul class="list-disc list-inside space-y-1 text-purple-700 text-sm">
+          <li>Gram reagensi</li>
+          <li>Podloge za kultivaciju</li>
+          <li>Fiziološka otopina</li>
+          <li>Etanol (96%)</li>
+          <li>Distilirana voda</li>
+          <li>API testovi</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protokoli rada -->
+  <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200 mb-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+      <span class="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+        <span class="text-white font-bold">📋</span>
+      </span>
+      Protokoli rada
+    </h2>
+    
+    <div class="space-y-6">
+      <!-- Protokol 1 -->
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">1. Priprema radne površine</h3>
+        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+          <li>Očistite radnu površinu dezinfekcijskim sredstvom</li>
+          <li>Postavite potrebnu opremu</li>
+          <li>Provjerite funkcionalnost opreme</li>
+          <li>Pripremite sterilne materijale</li>
+        </ol>
+      </div>
+      
+      <!-- Protokol 2 -->
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">2. Aseptički rad</h3>
+        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+          <li>Uklonite sve nakite i sat</li>
+          <li>Obucite zaštitnu opremu</li>
+          <li>Dezinfekcirajte ruke</li>
+          <li>Radite u blizini plamenika</li>
+          <li>Često dezinfekcirajte ruke</li>
+        </ol>
+      </div>
+      
+      <!-- Protokol 3 -->
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">3. Rukovanje uzorcima</h3>
+        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+          <li>Označite sve uzorke i materijale</li>
+          <li>Koristite sterilne pipete</li>
+          <li>Izbjegavajte kontaminaciju</li>
+          <li>Pravilno zatvarajte posude</li>
+          <li>Bilježite sve korake</li>
+        </ol>
+      </div>
+      
+      <!-- Protokol 4 -->
+      <div class="border border-gray-200 rounded-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">4. Završetak rada</h3>
+        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+          <li>Dezinfekcirajte radnu površinu</li>
+          <li>Pravilno odlagajte otpad</li>
+          <li>Očistite opremu</li>
+          <li>Skinite zaštitnu opremu</li>
+          <li>Operite ruke</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontrole kvalitete -->
+  <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200 mb-8">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+      <span class="w-8 h-8 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+        <span class="text-white font-bold">✅</span>
+      </span>
+      Kontrole kvalitete
+    </h2>
+    
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-3">Pozitivne kontrole:</h3>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li><strong>L. acidophilus</strong> - pozitivna katalaza reakcija</li>
+          <li><strong>S. thermophilus</strong> - fermentacija laktoze</li>
+          <li><strong>Gram bojanje</strong> - pozitivne bakterije</li>
+          <li><strong>Podloge</strong> - rast kontrolnih sojeva</li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-3">Negativne kontrole:</h3>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          <li><strong>Sterilne podloge</strong> - bez rasta</li>
+          <li><strong>Fiziološka otopina</strong> - bez bakterija</li>
+          <li><strong>Prazne posude</strong> - bez kontaminacije</li>
+          <li><strong>Reagensi</strong> - očekivane reakcije</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-6 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+      <h4 class="font-semibold text-yellow-800 mb-2">📊 Dokumentacija:</h4>
+      <p class="text-yellow-700">
+        Sve kontrole kvalitete moraju biti dokumentirane u laboratorijskom dnevniku 
+        s datumom, rezultatima i potpisom izvršitelja.
+      </p>
+    </div>
+  </section>
+
+  <!-- Rješavanje problema -->
+  <section class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+      <span class="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+        <span class="text-white font-bold">🔧</span>
+      </span>
+      Rješavanje problema
+    </h2>
+    
+    <div class="space-y-4">
+      <div class="border border-orange-200 rounded-lg p-4 bg-orange-50">
+        <h3 class="font-semibold text-orange-800 mb-2">Problem: Nema rasta na podlogama</h3>
+        <p class="text-orange-700 text-sm">Mogući uzroci: neispravna temperatura, istekli podloge, kontaminacija</p>
+      </div>
+      
+      <div class="border border-orange-200 rounded-lg p-4 bg-orange-50">
+        <h3 class="font-semibold text-orange-800 mb-2">Problem: Kontaminacija kultura</h3>
+        <p class="text-orange-700 text-sm">Mogući uzroci: neaseptički rad, neispravna oprema, istekli materijali</p>
+      </div>
+      
+      <div class="border border-orange-200 rounded-lg p-4 bg-orange-50">
+        <h3 class="font-semibold text-orange-800 mb-2">Problem: Neispravni rezultati testova</h3>
+        <p class="text-orange-700 text-sm">Mogući uzroci: istekli reagensi, neispravna temperatura, pogrešni protokoli</p>
+      </div>
+      
+      <div class="border border-orange-200 rounded-lg p-4 bg-orange-50">
+        <h3 class="font-semibold text-orange-800 mb-2">Problem: Oprema ne radi</h3>
+        <p class="text-orange-700 text-sm">Mogući uzroci: električni problemi, mehanički kvarovi, neispravno održavanje</p>
+      </div>
+    </div>
+    
+    <div class="mt-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+      <h4 class="font-semibold text-blue-800 mb-2">💡 Rješenja:</h4>
+      <ul class="list-disc list-inside space-y-1 text-blue-700">
+        <li>Provjerite sve parametre (temperatura, pH, vrijeme)</li>
+        <li>Koristite svježe materijale i reagense</li>
+        <li>Pratite protokole korak po korak</li>
+        <li>Konsultirajte se s nastavnikom</li>
+        <li>Dokumentirajte sve probleme i rješenja</li>
+      </ul>
+    </div>
+  </section>
+
+</ChapterLayout>

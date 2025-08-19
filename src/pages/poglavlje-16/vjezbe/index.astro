@@ -1,0 +1,287 @@
+---
+import ChapterLayout from '../../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Vježbe - Bakterije mliječne fermentacije',
+  description = 'Praktične laboratorijske vježbe za identifikaciju bakterija mliječne fermentacije'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(16);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={16}
+  primaryColor="sky"
+  prevLink="/poglavlje-16/teorija/" 
+  nextLink="/poglavlje-16/laboratorij/" 
+  prevText="← Teorija" 
+  nextText="Laboratorij →" 
+  ctaTitle="Spreman za laboratorij?" 
+  ctaDescription="Upoznajte sigurnosne mjere i laboratorijsku opremu." 
+  ctaPrimaryText="Laboratorij" 
+  ctaPrimaryLink="/poglavlje-16/laboratorij/" 
+  ctaSecondaryText="Povratak na teoriju" 
+  ctaSecondaryLink="/poglavlje-16/teorija/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 16', url: '/poglavlje-16/' },
+    { name: 'Vježbe', url: '/poglavlje-16/vjezbe/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={16} 
+    currentSection="exercises" 
+    chapterTitle="Bakterije mliječne fermentacije"
+  />
+
+  <!-- Uvod u vježbe -->
+  <div class="bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl p-8 border border-sky-200 mb-8">
+    <h2 class="text-2xl font-bold text-sky-900 mb-4">Praktične vježbe</h2>
+    <p class="text-sky-800 text-lg leading-relaxed">
+      Ove vježbe će vas uputiti kroz praktične metode identifikacije bakterija mliječne fermentacije. 
+      Svaka vježba uključuje detaljne korake i očekivane rezultate.
+    </p>
+  </div>
+
+  <!-- Lista vježbi -->
+  <div class="space-y-6">
+    
+    <!-- Vježba 1: Priprema uzoraka -->
+    <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+      <div class="bg-sky-600 text-white p-6">
+        <h3 class="text-xl font-bold flex items-center">
+          <span class="w-8 h-8 bg-white text-sky-600 rounded-lg flex items-center justify-center mr-3 font-bold">1</span>
+          Vježba 1: Priprema uzoraka mliječnih proizvoda
+        </h3>
+      </div>
+      
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">Cilj vježbe:</h4>
+            <p class="text-gray-700 mb-4">
+              Naučiti pravilno pripremiti uzorke mliječnih proizvoda za mikrobiološku analizu.
+            </p>
+            
+            <h4 class="font-semibold text-gray-800 mb-3">Potrebni materijali:</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+              <li>Različiti mliječni proizvodi (jogurt, sir, kefir)</li>
+              <li>Sterilne epruvete</li>
+              <li>Fiziološka otopina</li>
+              <li>Pipete i vrčići</li>
+              <li>Vortex mikser</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">Koraci:</h4>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+              <li>Pripremite sterilnu radnu površinu</li>
+              <li>Uzmite 10g uzorka u sterilnu epruvetu</li>
+              <li>Dodajte 90ml fiziološke otopine</li>
+              <li>Homogenizirajte 2 minute na vortex mikseru</li>
+              <li>Pripremite serijska razrjeđenja</li>
+            </ol>
+            
+            <div class="mt-4 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+              <p class="text-blue-800 text-sm">
+                <strong>Napomena:</strong> Sve radnje izvodite aseptički!
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6 pt-4 border-t border-gray-200">
+          <a href="/poglavlje-16/vjezbe/vjezba-1/" class="inline-flex items-center px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition-colors">
+            Detaljna vježba →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vježba 2: Izolacija bakterija -->
+    <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+      <div class="bg-blue-600 text-white p-6">
+        <h3 class="text-xl font-bold flex items-center">
+          <span class="w-8 h-8 bg-white text-blue-600 rounded-lg flex items-center justify-center mr-3 font-bold">2</span>
+          Vježba 2: Izolacija bakterija mliječne fermentacije
+        </h3>
+      </div>
+      
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">Cilj vježbe:</h4>
+            <p class="text-gray-700 mb-4">
+              Izolirati i kultivirati bakterije mliječne fermentacije na selektivnim podlogama.
+            </p>
+            
+            <h4 class="font-semibold text-gray-800 mb-3">Korištene podloge:</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+              <li>MRS agar (za laktobacile)</li>
+              <li>M17 agar (za streptokoke)</li>
+              <li>Rogosa agar</li>
+              <li>Skim milk agar</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">Koraci:</h4>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+              <li>Inokulirajte podloge s pripremljenim uzorcima</li>
+              <li>Incubirajte na 37°C 24-48h</li>
+              <li>Promatrajte morfologiju kolonija</li>
+              <li>Izaberite pojedinačne kolonije</li>
+              <li>Pripremite čiste kulture</li>
+            </ol>
+            
+            <div class="mt-4 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+              <p class="text-green-800 text-sm">
+                <strong>Očekivani rezultat:</strong> Bijele, okrugle kolonije različitih veličina
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6 pt-4 border-t border-gray-200">
+          <a href="/poglavlje-16/vjezbe/vjezba-2/" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+            Detaljna vježba →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vježba 3: Gram bojanje -->
+    <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+      <div class="bg-green-600 text-white p-6">
+        <h3 class="text-xl font-bold flex items-center">
+          <span class="w-8 h-8 bg-white text-green-600 rounded-lg flex items-center justify-center mr-3 font-bold">3</span>
+          Vježba 3: Gram bojanje i mikroskopski pregled
+        </h3>
+      </div>
+      
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">Cilj vježbe:</h4>
+            <p class="text-gray-700 mb-4">
+              Identificirati morfologiju i Gram reakciju izoliranih bakterija.
+            </p>
+            
+            <h4 class="font-semibold text-gray-800 mb-3">Potrebni reagensi:</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+              <li>Crystal violet</li>
+              <li>Lugolova otopina</li>
+              <li>Etanol (96%)</li>
+              <li>Safranin</li>
+              <li>Distilirana voda</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">Koraci:</h4>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+              <li>Pripremite fiksirani preparat</li>
+              <li>Nanosite crystal violet (1 min)</li>
+              <li>Ispirite Lugolovom otopinom (1 min)</li>
+              <li>Decolorizirajte etanolom (30s)</li>
+              <li>Nanosite safranin (1 min)</li>
+              <li>Promatrajte pod mikroskopom</li>
+            </ol>
+            
+            <div class="mt-4 p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+              <p class="text-yellow-800 text-sm">
+                <strong>Očekivani rezultat:</strong> Gram-pozitivne bakterije (ljubičaste)
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6 pt-4 border-t border-gray-200">
+          <a href="/poglavlje-16/vjezbe/vjezba-3/" class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+            Detaljna vježba →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vježba 4: Biokemijski testovi -->
+    <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+      <div class="bg-purple-600 text-white p-6">
+        <h3 class="text-xl font-bold flex items-center">
+          <span class="w-8 h-8 bg-white text-purple-600 rounded-lg flex items-center justify-center mr-3 font-bold">4</span>
+          Vježba 4: Biokemijski testovi
+        </h3>
+      </div>
+      
+      <div class="p-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">Cilj vježbe:</h4>
+            <p class="text-gray-700 mb-4">
+              Provesti biokemijske testove za identifikaciju vrsta bakterija mliječne fermentacije.
+            </p>
+            
+            <h4 class="font-semibold text-gray-800 mb-3">Testovi:</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+              <li>Katalaza test</li>
+              <li>Fermentacija ugljikohidrata</li>
+              <li>Produkcija mliječne kiseline</li>
+              <li>API testovi</li>
+              <li>Test tolerancije na sol</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-3">Koraci:</h4>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+              <li>Pripremite čiste kulture</li>
+              <li>Provedite katalaza test</li>
+              <li>Inokulirajte ugljikohidratne podloge</li>
+              <li>Incubirajte 24-48h</li>
+              <li>Očitajte rezultate</li>
+              <li>Identificirajte vrste</li>
+            </ol>
+            
+            <div class="mt-4 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+              <p class="text-purple-800 text-sm">
+                <strong>Rezultat:</strong> Identifikacija do razine vrste
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6 pt-4 border-t border-gray-200">
+          <a href="/poglavlje-16/vjezbe/vjezba-4/" class="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+            Detaljna vježba →
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Napomene za vježbe -->
+  <div class="mt-8 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
+    <h3 class="text-lg font-bold text-yellow-800 mb-3">⚠️ Važne napomene za vježbe:</h3>
+    <ul class="list-disc list-inside space-y-2 text-yellow-700">
+      <li>Uvijek radite aseptički</li>
+      <li>Koristite odgovarajuću zaštitnu opremu</li>
+      <li>Pravilno odlagajte kontaminirani materijal</li>
+      <li>Bilježite sve rezultate u laboratorijski dnevnik</li>
+      <li>U slučaju nesreće, odmah obavijestite nastavnika</li>
+    </ul>
+  </div>
+
+</ChapterLayout>

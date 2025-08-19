@@ -1,0 +1,196 @@
+---
+import ChapterLayout from '../components/ChapterLayout.astro';
+import { getChapterConfig } from '../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Prva pomoć',
+  description = 'Osnovne mjere prve pomoći u bakteriološkom laboratoriju. Upoznajte se s postupcima u slučaju nesreće ili ozljede.'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(1);
+---
+
+<ChapterLayout 
+  title={title}
+  description={description}
+  chapterNumber={1}
+  prevLink="/pravila-ponasanja/"
+  nextLink="/dezinfekcija-antisepsa/"
+  prevText="← Pravila ponašanja"
+  nextText="Dezinfekcija i antisepsa →"
+  ctaTitle="Spreman za dezinfekciju?"
+  ctaDescription="Nastavite s učenjem o dezinfekciji i antiseptičkim postupcima."
+  ctaPrimaryText="Dezinfekcija i antisepsa"
+  ctaPrimaryLink="/dezinfekcija-antisepsa/"
+  ctaSecondaryText="Povratak na sadržaj"
+  ctaSecondaryLink="/sadrzaj/"
+>
+  <!-- Breadcrumb Navigation -->
+  <div class="bg-gray-50 border-b border-gray-200 mb-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+      <nav class="flex items-center space-x-2 text-sm" aria-label="Breadcrumb">
+        <a href="/" class="text-gray-500 hover:text-green-600 transition-colors duration-200 flex items-center group">
+          <svg class="w-4 h-4 mr-1 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>
+          Naslovnica
+        </a>
+        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <a href="/sadrzaj/" class="text-gray-500 hover:text-green-600 transition-colors duration-200 hover:underline">
+          Sadržaj
+        </a>
+        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <a href="/poglavlje-1/" class="text-gray-500 hover:text-green-600 transition-colors duration-200 hover:underline">
+          Poglavlje 1
+        </a>
+        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+        <span class="text-green-600 font-medium flex items-center">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Prva pomoć
+        </span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Uvodni tekst -->
+  <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 border border-green-200 mb-8">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-green-900 mb-3 font-heading">O prvoj pomoći</h3>
+        <p class="text-green-800 text-lg leading-relaxed font-body">
+          Prva pomoć je ključna u slučaju nesreće u laboratoriju. Poznavanje osnovnih postupaka može spasiti život.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sadržaj stranice -->
+  <div class="prose prose-lg max-w-none">
+    <p>U svakom bakteriološkom laboratoriju (praktikumu) mora postojati na istaknutom mjestu ormarić s natpisom <strong>"Prva pomoć kod laboratorijskih infekcija"</strong>. Ormarić prve pomoći se koristi kod nezgoda uz prisutnost voditelja praktikuma.</p>
+
+    <p>U ormariću se mora nalaziti:</p>
+
+    <div style="background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%); border-radius: 15px; padding: 25px; margin: 20px 0; border: 2px solid #e17055;">
+      <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <span style="font-size: 24px; margin-right: 12px;">🚑</span>
+        <h4 style="margin: 0; color: #d63031; font-weight: 600; font-size: 18px;">Sadržaj ormarića za prvu pomoć</h4>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px;">
+        <div style="display: flex; align-items: center; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 16px; margin-right: 10px;">🧪</span>
+          <span style="color: #2d3436; font-weight: 500;">10 g tinkture joda</span>
+        </div>
+        <div style="display: flex; align-items: center; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 16px; margin-right: 10px;">🧪</span>
+          <span style="color: #2d3436; font-weight: 500;">20 g otopine Lugola</span>
+        </div>
+        <div style="display: flex; align-items: center; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 16px; margin-right: 10px;">⚗️</span>
+          <span style="color: #2d3436; font-weight: 500;">1 L 0,25% otopine KMnO₄</span>
+        </div>
+        <div style="display: flex; align-items: center; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 16px; margin-right: 10px;">⚫</span>
+          <span style="color: #2d3436; font-weight: 500;">50 g <em>Carbo medicinalis</em></span>
+        </div>
+        <div style="display: flex; align-items: center; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 16px; margin-right: 10px;">🧪</span>
+          <span style="color: #2d3436; font-weight: 500;">3% otopina H₂O₂</span>
+        </div>
+        <div style="display: flex; align-items: center; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 16px; margin-right: 10px;">💊</span>
+          <span style="color: #2d3436; font-weight: 500;">Tablete acidol-pepsin</span>
+        </div>
+        <div style="display: flex; align-items: center; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 16px; margin-right: 10px;">🥩</span>
+          <span style="color: #2d3436; font-weight: 500;">Mesni ekstrakt 50 g</span>
+        </div>
+        <div style="display: flex; align-items: center; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 16px; margin-right: 10px;">🧴</span>
+          <span style="color: #2d3436; font-weight: 500;">Oksicijanat mast 10 g</span>
+        </div>
+        <div style="display: flex; align-items: center; background: rgba(255,255,255,0.9); padding: 10px 15px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <span style="font-size: 16px; margin-right: 10px;">🧪</span>
+          <span style="color: #2d3436; font-weight: 500;">10% otopina (navesti tvar)</span>
+        </div>
+      </div>
+    </div>
+
+    <hr style="margin: 30px 0; border: none; border-top: 2px solid #e2e8f0;">
+
+    <p>Svakome se može tijekom eksperimentalnog rada s bakterijama dogoditi nezgoda, što se u bakteriološkom praktikumu mora shvatiti najozbiljnije.</p>
+
+    <p>Nisu rijetke nezgode koje završavaju zarazom sudionika, a poznate su inače u literaturi kao <strong>laboratorijske infekcije</strong>.</p>
+
+    <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-radius: 15px; padding: 20px; margin: 20px 0; border: 2px solid #e17055;">
+      <div style="display: flex; align-items: center; margin-bottom: 10px;">
+        <span style="font-size: 20px; margin-right: 10px;">⚠️</span>
+        <strong style="color: #d63031; font-size: 16px;">Bez panike!</strong>
+      </div>
+      <p style="margin: 0; color: #2d3436; line-height: 1.5;">
+        Ako se nešto neželjeno dogodi, odmah treba obavijestiti voditelja praktikuma o nezgodi i <strong>ne napuštati praktikum</strong>.
+      </p>
+    </div>
+
+    <h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Postupci u slučaju nezgoda</h3>
+
+    <div style="background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%); border-radius: 15px; padding: 20px; margin: 20px 0; border: 2px solid #f56565;">
+      <div style="display: flex; align-items: flex-start; margin-bottom: 15px; padding: 12px; background: rgba(255,255,255,0.8); border-radius: 8px;">
+        <span style="font-size: 18px; margin-right: 12px;">🚨</span>
+        <div>
+          <strong style="color: #c53030; font-size: 16px;">Ako je bakterijski materijal dospio u usta</strong> <em style="color: #718096;"> (neoprezno pipetiranje) </em>
+          <div style="margin-top: 8px; color: #2d3748; line-height: 1.5;">
+            → odmah ispljunuti, isprati nekoliko puta usnu šupljinu i grgljati otopinom permanganata ili vodikova peroksida, potom ispljunuti.
+          </div>
+        </div>
+      </div>
+      
+      <div style="display: flex; align-items: flex-start; margin-bottom: 15px; padding: 12px; background: rgba(255,255,255,0.8); border-radius: 8px;">
+        <span style="font-size: 18px; margin-right: 12px;">☠️</span>
+        <div>
+          <strong style="color: #c53030; font-size: 16px;">Ako je bakterijski materijal progutan</strong>
+          <div style="margin-top: 8px; color: #2d3748; line-height: 1.5;">
+            → uzeti <em>acidol-pepsin</em> ili <em>Carbo medicinalis</em>, te odmah otići liječniku radi dobivanja odgovarajućeg antibiotika.
+          </div>
+        </div>
+      </div>
+      
+      <div style="display: flex; align-items: flex-start; padding: 12px; background: rgba(255,255,255,0.8); border-radius: 8px;">
+        <span style="font-size: 18px; margin-right: 12px;">🧽</span>
+        <div>
+          <strong style="color: #c53030; font-size: 16px;">Ako je bakterijski materijal dospio na kožu</strong>
+          <div style="margin-top: 8px; color: #2d3748; line-height: 1.5;">
+            → odmah oprati mjesto sapunom i vodom, zatim dezinficirati tinkturom joda ili otopinom Lugola.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigacija -->
+  <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+    <a href="/pravila-ponasanja/" class="inline-flex items-center justify-center px-6 py-3 bg-gray-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      ← Pravila ponašanja
+    </a>
+    <a href="/dezinfekcija-antisepsa/" class="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      Dezinfekcija i antisepsa →
+    </a>
+  </div>
+</ChapterLayout> 

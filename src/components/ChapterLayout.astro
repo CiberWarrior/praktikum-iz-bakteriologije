@@ -1,0 +1,383 @@
+---
+import '../styles/tailwind.css';
+import '../styles/global.css';
+import HeroSection from './HeroSection.astro';
+import CallToAction from './CallToAction.astro';
+import Footer from './Footer.astro';
+import { getChapterConfig } from '../config/chapters';
+
+export interface Props {
+  title: string;
+  description: string;
+  chapterNumber?: number;
+  primaryColor?: string;
+  secondaryColor?: string;
+  prevLink?: string;
+  nextLink?: string;
+  prevText?: string;
+  nextText?: string;
+  ctaTitle?: string;
+  ctaDescription?: string;
+  ctaPrimaryText?: string;
+  ctaPrimaryLink?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryLink?: string;
+  showBreadcrumb?: boolean;
+  breadcrumbPath?: Array<{ name: string; url: string }>;
+}
+
+const { 
+  title,
+  description,
+  chapterNumber,
+  primaryColor = 'purple',
+  secondaryColor = 'blue',
+  prevLink,
+  nextLink,
+  prevText = "← Prethodno poglavlje",
+  nextText = "Sljedeće poglavlje →",
+  ctaTitle = "Nastavi na sljedeće poglavlje",
+  ctaDescription = "Nastavite s učenjem i proširite svoje znanje o bakteriologiji.",
+  ctaPrimaryText = "Sljedeće poglavlje",
+  ctaPrimaryLink = "/sadrzaj/",
+  ctaSecondaryText = "Povratak na sadržaj",
+  ctaSecondaryLink = "/sadrzaj/",
+  showBreadcrumb = false,
+  breadcrumbPath = []
+} = Astro.props;
+
+// Ako je chapterNumber definiran, koristi konfiguraciju iz chapters.ts
+const chapterConfig = chapterNumber ? getChapterConfig(chapterNumber) : null;
+
+// Koristi konfiguraciju ako je dostupna, inače koristi props
+const finalConfig = {
+  title: title || chapterConfig?.title || "Stranica",
+  description: description || chapterConfig?.description || "Opis stranice",
+  primaryColor: primaryColor || chapterConfig?.primaryColor || "purple",
+  secondaryColor: secondaryColor || chapterConfig?.secondaryColor || "blue",
+  prevLink: prevLink || chapterConfig?.prevLink,
+  nextLink: nextLink || chapterConfig?.nextLink,
+  prevText: prevText || chapterConfig?.prevText || "← Prethodno poglavlje",
+  nextText: nextText || chapterConfig?.nextText || "Sljedeće poglavlje →",
+  ctaTitle: ctaTitle || chapterConfig?.ctaTitle || "Nastavi na sljedeće poglavlje",
+  ctaDescription: ctaDescription || chapterConfig?.ctaDescription || "Nastavite s učenjem i proširite svoje znanje o bakteriologiji.",
+  ctaPrimaryText: ctaPrimaryText || chapterConfig?.ctaPrimaryText || "Sljedeće poglavlje",
+  ctaPrimaryLink: ctaPrimaryLink || chapterConfig?.ctaPrimaryLink || "/sadrzaj/",
+  ctaSecondaryText: ctaSecondaryText || chapterConfig?.ctaSecondaryText || "Povratak na sadržaj",
+  ctaSecondaryLink: ctaSecondaryLink || chapterConfig?.ctaSecondaryLink || "/sadrzaj/",
+  showBreadcrumb,
+  breadcrumbPath
+};
+
+// Color mapping for different themes
+const colorMap = {
+  purple: {
+    primary: 'purple',
+    secondary: 'blue',
+    gradient: 'from-purple-600 via-purple-700 to-purple-900',
+    accent: 'purple-200',
+    text: 'purple-100'
+  },
+  blue: {
+    primary: 'blue',
+    secondary: 'indigo',
+    gradient: 'from-blue-600 via-blue-700 to-blue-900',
+    accent: 'blue-200',
+    text: 'blue-100'
+  },
+  green: {
+    primary: 'green',
+    secondary: 'emerald',
+    gradient: 'from-green-600 via-green-700 to-green-900',
+    accent: 'green-200',
+    text: 'green-100'
+  },
+  emerald: {
+    primary: 'emerald',
+    secondary: 'teal',
+    gradient: 'from-emerald-600 via-emerald-700 to-emerald-900',
+    accent: 'emerald-200',
+    text: 'emerald-100'
+  },
+  teal: {
+    primary: 'teal',
+    secondary: 'cyan',
+    gradient: 'from-teal-600 via-teal-700 to-teal-900',
+    accent: 'teal-200',
+    text: 'teal-100'
+  },
+  indigo: {
+    primary: 'indigo',
+    secondary: 'purple',
+    gradient: 'from-indigo-600 via-indigo-700 to-indigo-900',
+    accent: 'indigo-200',
+    text: 'indigo-100'
+  }
+};
+
+const colors = colorMap[finalConfig.primaryColor] || colorMap.purple;
+---
+
+<!doctype html>
+<html lang="hr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{finalConfig.title}</title>
+    <meta name="description" content={finalConfig.description} />
+    
+    <!-- Performance optimizacija -->
+    <meta name="theme-color" content="#6a11cb" />
+    <meta name="color-scheme" content="light" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-page font-sans text-page">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex justify-between items-center py-4">
+          <a href="/" class="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">
+            Bakteriologija
+          </a>
+          <!-- Desktop navigacija -->
+          <div class="hidden md:flex space-x-8">
+            <a href="/sadrzaj/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Sadržaj
+            </a>
+            <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Predgovor
+            </a>
+            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              O nama
+            </a>
+            <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Kontakt
+            </a>
+          </div>
+          
+          <!-- Mobilni hamburger menu -->
+          <div class="md:hidden">
+            <button 
+              id="mobile-menu-button" 
+              class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+              aria-label="Otvori navigacijski menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobilni menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200" role="navigation" aria-label="Mobilna navigacija">
+          <div class="flex flex-col space-y-4 pt-4">
+            <a href="/sadrzaj/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Sadržaj
+            </a>
+            <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Predgovor
+            </a>
+            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              O nama
+            </a>
+            <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Kontakt
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    {finalConfig.showBreadcrumb && finalConfig.breadcrumbPath.length > 0 && (
+      <div class="bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2">
+          <nav class="flex" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+              <li>
+                <a href="/" class="text-gray-500 hover:text-gray-700 transition-colors duration-300">
+                  Početna
+                </a>
+              </li>
+              {finalConfig.breadcrumbPath.map((item, index) => (
+                <li class="flex items-center">
+                  <span class="text-gray-400 mx-2">/</span>
+                  {index === finalConfig.breadcrumbPath.length - 1 ? (
+                    <span class="text-gray-900 font-medium">{item.name}</span>
+                  ) : (
+                    <a href={item.url} class="text-gray-500 hover:text-gray-700 transition-colors duration-300">
+                      {item.name}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </div>
+      </div>
+    )}
+
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-gradient-to-br from-green-600 to-green-800 text-white overflow-hidden">
+      <!-- Pozadinski uzorak -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center">
+          <p class="text-green-200 font-bold uppercase tracking-wide mb-5 text-sm">
+            {chapterNumber ? `Poglavlje ${chapterNumber}` : 'Bakteriološki praktikum'}
+          </p>
+          
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            {finalConfig.title}
+          </h1>
+          
+          <p class="text-xl text-green-200 mb-8 leading-relaxed max-w-3xl mx-auto">
+            {finalConfig.description}
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            {finalConfig.prevLink && (
+              <a
+                href={finalConfig.prevLink}
+                class="inline-flex items-center justify-center px-6 py-3 bg-white text-green-700 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              >
+                {finalConfig.prevText}
+              </a>
+            )}
+            {finalConfig.nextLink && (
+              <a
+                href={finalConfig.nextLink}
+                class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-green-700 transition-all duration-300"
+              >
+                {finalConfig.nextText}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-1 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+        <article class="prose prose-lg max-w-none">
+          <slot />
+        </article>
+      </div>
+    </main>
+
+    <!-- Call to Action -->
+    <CallToAction 
+      title={finalConfig.ctaTitle}
+      description={finalConfig.ctaDescription}
+      primaryText={finalConfig.ctaPrimaryText}
+      primaryLink={finalConfig.ctaPrimaryLink}
+      secondaryText={finalConfig.ctaSecondaryText}
+      secondaryLink={finalConfig.ctaSecondaryLink}
+      primaryColor={finalConfig.primaryColor}
+    />
+
+    <!-- Footer -->
+    <Footer />
+
+    <!-- Back to Top Button -->
+    <button 
+      id="back-to-top"
+      class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 opacity-0 invisible"
+      style="z-index: 1000;"
+      aria-label="Povratak na vrh"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+      </svg>
+    </button>
+
+    <!-- Scroll Animacije JavaScript -->
+    <script>
+      // Intersection Observer za scroll animacije
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      }, observerOptions);
+
+      // Mobilni menu funkcionalnost
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', (!isHidden).toString());
+        });
+        
+        // Zatvori menu na klik izvan njega
+        document.addEventListener('click', (event) => {
+          const target = event.target;
+          if (target && !mobileMenuButton.contains(target) && !mobileMenu.contains(target)) {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+      
+      // Back to top funkcionalnost
+      const backToTopButton = document.getElementById('back-to-top');
+      
+      if (backToTopButton) {
+        // Prikaži gumb nakon scrolla
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+          } else {
+            backToTopButton.classList.add('opacity-0', 'invisible');
+            backToTopButton.classList.remove('opacity-100', 'visible');
+          }
+        });
+        
+        // Scroll na vrh
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+      
+      // Dodaj animacije na elemente
+      document.addEventListener('DOMContentLoaded', () => {
+        // Hero sekcija
+        const heroText = document.querySelector('.hero-text');
+        if (heroText) heroText.classList.add('scroll-fade-left');
+        
+        // Hero buttons
+        const heroButtons = document.querySelector('.hero-buttons');
+        if (heroButtons) heroButtons.classList.add('scroll-fade-right');
+      });
+    </script>
+  </body>
+</html>

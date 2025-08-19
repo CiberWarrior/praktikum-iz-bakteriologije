@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import icon from 'astro-icon';
 import accessibility from './src/integrations/accessibility.js';
+import tailwind from '@astrojs/tailwind';
 import path from 'path';
 
 // Detect deploy target to set correct site/base
@@ -43,6 +44,7 @@ export default defineConfig({
   },
   integrations: [
     accessibility(),
+    tailwind(),
     starlight({
       title: 'Mrežni udžbenik iz bakteriologije',
 
@@ -446,13 +448,14 @@ export default defineConfig({
             ]
           }
       ],
-      customCss: ['@/styles/global.css'],
+      customCss: ['@/styles/global.css', '@/styles/tailwind.css'],
     }),
   ],
   vite: {
     resolve: {
       alias: {
         '@': path.resolve('./src'),
+        '~': path.resolve('./src'),
       },
     },
   },

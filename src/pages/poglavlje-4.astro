@@ -1,0 +1,286 @@
+---
+import ChapterLayout from '../components/ChapterLayout.astro';
+import { getChapterConfig } from '../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Pokretljivost bakterija',
+  description = 'Tehnike ispitivanja pokretljivosti bakterija u bakteriološkom laboratoriju'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(4);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={4}
+  primaryColor="yellow"
+  prevLink="/poglavlje-3/" 
+  nextLink="/poglavlje-5/" 
+  prevText="← Poglavlje 3" 
+  nextText="Poglavlje 5 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte biokemijska svojstva bakterija." 
+  ctaPrimaryText="Poglavlje 5" 
+  ctaPrimaryLink="/poglavlje-5/" 
+  ctaSecondaryText="Povratak na sadržaj" 
+  ctaSecondaryLink="/sadrzaj/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 4', url: '/poglavlje-4/' }
+  ]}
+>
+  <!-- Uvod u poglavlje -->
+  <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200 mb-8 hover:shadow-lg transition-all duration-300">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-yellow-900 mb-3 font-heading">Dobrodošli u Poglavlje 4</h3>
+        <p class="text-yellow-800 text-lg leading-relaxed font-body">
+          Ovo poglavlje vodi vas kroz ključne tehnike ispitivanja pokretljivosti bakterija u bakteriološkom laboratoriju. 
+          Naučit ćete o različitim metodama određivanja pokretljivosti i njihovoj interpretaciji.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teorijski sadržaj -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Teorijski sadržaj</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Pokretljivost bakterija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Pokretljivost bakterija</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Osnove pokretljivosti i načini kretanja bakterija.</p>
+        <a href="/pokretljivost-bakterija/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Metode ispitivanja pokretljivosti -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Metode ispitivanja pokretljivosti</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Različite tehnike za određivanje pokretljivosti.</p>
+        <a href="/metode-ispitivanja-pokretljivosti/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- TTC test -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">TTC test</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Test s trifeniltetrazolij kloridom za pokretljivost.</p>
+        <a href="/ttc-test/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Mikroskopsko ispitivanje -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Mikroskopsko ispitivanje</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Direktno promatranje pokretljivosti pod mikroskopom.</p>
+        <a href="/mikroskopsko-ispitivanje/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Polučvrsti mediji -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Polučvrsti mediji</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Ispitivanje pokretljivosti na polučvrstim medijima.</p>
+        <a href="/polucvrsti-mediji/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Interpretacija rezultata -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Interpretacija rezultata</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Kako pravilno interpretirati rezultate testova pokretljivosti.</p>
+        <a href="/interpretacija-rezultata/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Praktične vježbe -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Praktične vježbe</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Vježba 4 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 4</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Glavna vježba iz pokretljivosti bakterija.</p>
+        <a href="/vjezba-4/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 4-1 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 4-1</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Mikroskopsko ispitivanje pokretljivosti.</p>
+        <a href="/vjezba-4-1/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 4-2 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 4-2</h3>
+        </div>
+        <p class="text-gray-600 mb-4">TTC test za pokretljivost.</p>
+        <a href="/vjezba-4-2/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 4-3 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 4-3</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Ispitivanje na polučvrstim medijima.</p>
+        <a href="/vjezba-4-3/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ciljevi učenja -->
+  <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200 mb-8 hover:shadow-lg transition-all duration-300">
+    <h3 class="text-2xl font-bold text-yellow-900 mb-6">Ciljevi učenja</h3>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-yellow-800">Razumijevanje pokretljivosti bakterija</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-yellow-800">Poznavanje različitih metoda ispitivanja</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-yellow-800">Praktično izvođenje testova pokretljivosti</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-yellow-800">Interpretacija rezultata testova</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preporuka za učenje -->
+  <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200 hover:shadow-lg transition-all duration-300">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 text-2xl mr-4">💡</div>
+      <div>
+        <h3 class="text-xl font-bold text-yellow-900 mb-4">Preporuka za učenje</h3>
+        <p class="text-yellow-800 text-lg leading-relaxed">
+          Preporučujemo da prvo proučite teorijski dio o pokretljivosti bakterija, 
+          a zatim izvršite praktične vježbe kako biste stekli potrebne vještine. 
+          Posebnu pozornost obratite na pravilno postavljanje testova i interpretaciju 
+          rezultata pokretljivosti.
+        </p>
+      </div>
+    </div>
+  </div>
+</ChapterLayout>

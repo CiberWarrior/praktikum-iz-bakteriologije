@@ -1,0 +1,381 @@
+---
+import ChapterLayout from '../components/ChapterLayout.astro';
+import { getChapterConfig } from '../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Metode bojenja bakterija',
+  description = 'Tehnike bojenja i vizualizacije bakterija u bakteriološkom laboratoriju'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(3);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={3}
+  primaryColor="purple"
+  prevLink="/poglavlje-2/" 
+  nextLink="/poglavlje-4/" 
+  prevText="← Poglavlje 2" 
+  nextText="Poglavlje 4 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte tehnike brojanja bakterija." 
+  ctaPrimaryText="Poglavlje 4" 
+  ctaPrimaryLink="/poglavlje-4/" 
+  ctaSecondaryText="Povratak na sadržaj" 
+  ctaSecondaryLink="/sadrzaj/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 3', url: '/poglavlje-3/' }
+  ]}
+>
+  <!-- Uvod u poglavlje -->
+  <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 border border-purple-200 mb-8 hover:shadow-lg transition-all duration-300">
+<div class="flex items-start">
+<div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+</svg>
+</div>
+<div>
+        <h3 class="text-xl font-bold text-purple-900 mb-3 font-heading">Dobrodošli u Poglavlje 3</h3>
+        <p class="text-purple-800 text-lg leading-relaxed font-body">
+          Ovo poglavlje vodi vas kroz ključne tehnike bojenja i vizualizacije bakterija u bakteriološkom laboratoriju. 
+          Naučit ćete o različitim metodama bojenja, njihovoj primjeni i interpretaciji rezultata.
+        </p>
+</div>
+</div>
+</div>
+
+  <!-- Teorijski sadržaj -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Teorijski sadržaj</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Metode bojenja bakterija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Metode bojenja bakterija</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Osnove pripreme bakterioloških preparata.</p>
+        <a href="/metode-bojenja-bakterija/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Osnovne otopine boja -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Osnovne otopine boja</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Tipovi boja i priprema otopina.</p>
+        <a href="/osnovne-otopine-boja/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Složena bojenja -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Složena bojenja</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Diferencijalna bojenja, uključujući Gram bojenje.</p>
+        <a href="/slozena-bojanja/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Test s kalijevom lužinom -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Test s kalijevom lužinom</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Brza alternativa Gram bojenju.</p>
+        <a href="/test-s-kalijevom-luzinom/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Bojenje acidorezistentnih bakterija -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Bojenje acidorezistentnih bakterija</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Ziehl-Neelsen metoda.</p>
+        <a href="/bojenje-acidorezistentnih-bakterija-po-ziehl-neelsenu/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Bojenje bakterijskih endospora -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Bojenje bakterijskih endospora</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Schäffer-Fulton metoda.</p>
+        <a href="/bojenje-bakterijskih-endospora-po-schaffer-fultonu/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Negativna bojenja -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+</svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Negativna bojenja</h3>
+</div>
+        <p class="text-gray-600 mb-4">Bojenje pozadine za vizualizaciju kapsula.</p>
+        <a href="/negativna-bojenja/" class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+</div>
+</div>
+
+  <!-- Praktične vježbe -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Praktične vježbe</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Vježba 3 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 3</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Glavna vježba iz bojenja bakterija.</p>
+        <a href="/vjezba-3/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 3-1 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 3-1</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Bojenje bakterija karbolfuksinom.</p>
+        <a href="/vjezba-3-1/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 3-2 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 3-2</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Bojenje bakterija gencijanom violet.</p>
+        <a href="/vjezba-3-2/" class="text-purple-500 font-semibold hover:text-purple-700 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 3-3 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 3-3</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Bojenje bakterija metilenskim plavim.</p>
+        <a href="/vjezba-3-3/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 3-4 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 3-4</h3>
+</div>
+        <p class="text-gray-600 mb-4">Bojenje bakterija po Gramu.</p>
+        <a href="/vjezba-3-4/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+</div>
+
+      <!-- Vježba 3-5 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+</svg>
+</div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 3-5</h3>
+</div>
+        <p class="text-gray-600 mb-4">Test s KOH-om.</p>
+        <a href="/vjezba-3-5/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 3-6 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 3-6</h3>
+</div>
+        <p class="text-gray-600 mb-4">Bojenje acidorezistentnih bakterija po Ziehl-Neelsenu.</p>
+        <a href="/vjezba-3-6/" class="text-red-500 font-semibold hover:text-red-700 transition-colors duration-300">
+          Pročitaj više →
+        </a>
+      </div>
+
+      <!-- Vježba 3-7 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 3-7</h3>
+</div>
+        <p class="text-gray-600 mb-4">Bojenje bakterijskih endospora.</p>
+        <a href="/vjezba-3-7/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+          Pročitaj više →
+</a>
+</div>
+
+      <!-- Vježba 3-8 -->
+      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+</svg>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Vježba 3-8</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Negativno bojenje kapsula.</p>
+        <a href="/vjezba-3-8/" class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors duration-300">
+          Pročitaj više →
+</a>
+</div>
+    </div>
+  </div>
+
+  <!-- Ciljevi učenja -->
+  <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 border border-purple-200 mb-8 hover:shadow-lg transition-all duration-300">
+    <h3 class="text-2xl font-bold text-purple-900 mb-6">Ciljevi učenja</h3>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-purple-800">Razumijevanje različitih metoda bojenja bakterija</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-purple-800">Poznavanje pripreme bakterioloških preparata</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-purple-800">Praktično izvođenje različitih tehnika bojenja</p>
+      </div>
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center mt-1">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <p class="text-purple-800">Interpretacija rezultata bojenja</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preporuka za učenje -->
+  <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200 hover:shadow-lg transition-all duration-300">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 text-2xl mr-4">💡</div>
+      <div>
+        <h3 class="text-xl font-bold text-yellow-900 mb-4">Preporuka za učenje</h3>
+        <p class="text-yellow-800 text-lg leading-relaxed">
+          Preporučujemo da prvo proučite teorijski dio o različitim metodama bojenja, 
+          a zatim izvršite praktične vježbe kako biste stekli potrebne vještine. 
+          Posebnu pozornost obratite na pravilnu pripremu preparata i interpretaciju 
+          rezultata bojenja.
+        </p>
+</div>
+</div>
+</div>
+</ChapterLayout>
