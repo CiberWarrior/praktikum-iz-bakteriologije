@@ -1,10 +1,8 @@
 ---
 import '../styles/tailwind.css';
 import '../styles/global.css';
-import HeroSection from './HeroSection.astro';
 import CallToAction from './CallToAction.astro';
 import Footer from './Footer.astro';
-import { getChapterConfig } from '../config/chapters';
 
 export interface Props {
   title: string;
@@ -30,8 +28,8 @@ const {
   title,
   description,
   chapterNumber,
-  primaryColor = 'purple',
-  secondaryColor = 'blue',
+  primaryColor = 'green',
+  secondaryColor = 'emerald',
   prevLink,
   nextLink,
   prevText = "← Prethodno poglavlje",
@@ -46,76 +44,25 @@ const {
   breadcrumbPath = []
 } = Astro.props;
 
-// Ako je chapterNumber definiran, koristi konfiguraciju iz chapters.ts
-const chapterConfig = chapterNumber ? getChapterConfig(chapterNumber) : null;
-
-// Koristi konfiguraciju ako je dostupna, inače koristi props
+// Koristi props direktno
 const finalConfig = {
-  title: title || chapterConfig?.title || "Stranica",
-  description: description || chapterConfig?.description || "Opis stranice",
-  primaryColor: primaryColor || chapterConfig?.primaryColor || "purple",
-  secondaryColor: secondaryColor || chapterConfig?.secondaryColor || "blue",
-  prevLink: prevLink || chapterConfig?.prevLink,
-  nextLink: nextLink || chapterConfig?.nextLink,
-  prevText: prevText || chapterConfig?.prevText || "← Prethodno poglavlje",
-  nextText: nextText || chapterConfig?.nextText || "Sljedeće poglavlje →",
-  ctaTitle: ctaTitle || chapterConfig?.ctaTitle || "Nastavi na sljedeće poglavlje",
-  ctaDescription: ctaDescription || chapterConfig?.ctaDescription || "Nastavite s učenjem i proširite svoje znanje o bakteriologiji.",
-  ctaPrimaryText: ctaPrimaryText || chapterConfig?.ctaPrimaryText || "Sljedeće poglavlje",
-  ctaPrimaryLink: ctaPrimaryLink || chapterConfig?.ctaPrimaryLink || "/sadrzaj/",
-  ctaSecondaryText: ctaSecondaryText || chapterConfig?.ctaSecondaryText || "Povratak na sadržaj",
-  ctaSecondaryLink: ctaSecondaryLink || chapterConfig?.ctaSecondaryLink || "/sadrzaj/",
+  title: title || "Stranica",
+  description: description || "Opis stranice",
+  primaryColor: primaryColor || "green",
+  secondaryColor: secondaryColor || "emerald",
+  prevLink,
+  nextLink,
+  prevText: prevText || "← Prethodno poglavlje",
+  nextText: nextText || "Sljedeće poglavlje →",
+  ctaTitle: ctaTitle || "Nastavi na sljedeće poglavlje",
+  ctaDescription: ctaDescription || "Nastavite s učenjem i proširite svoje znanje o bakteriologiji.",
+  ctaPrimaryText: ctaPrimaryText || "Sljedeće poglavlje",
+  ctaPrimaryLink: ctaPrimaryLink || "/sadrzaj/",
+  ctaSecondaryText: ctaSecondaryText || "Povratak na sadržaj",
+  ctaSecondaryLink: ctaSecondaryLink || "/sadrzaj/",
   showBreadcrumb,
   breadcrumbPath
 };
-
-// Color mapping for different themes
-const colorMap = {
-  purple: {
-    primary: 'purple',
-    secondary: 'blue',
-    gradient: 'from-purple-600 via-purple-700 to-purple-900',
-    accent: 'purple-200',
-    text: 'purple-100'
-  },
-  blue: {
-    primary: 'blue',
-    secondary: 'indigo',
-    gradient: 'from-blue-600 via-blue-700 to-blue-900',
-    accent: 'blue-200',
-    text: 'blue-100'
-  },
-  green: {
-    primary: 'green',
-    secondary: 'emerald',
-    gradient: 'from-green-600 via-green-700 to-green-900',
-    accent: 'green-200',
-    text: 'green-100'
-  },
-  emerald: {
-    primary: 'emerald',
-    secondary: 'teal',
-    gradient: 'from-emerald-600 via-emerald-700 to-emerald-900',
-    accent: 'emerald-200',
-    text: 'emerald-100'
-  },
-  teal: {
-    primary: 'teal',
-    secondary: 'cyan',
-    gradient: 'from-teal-600 via-teal-700 to-teal-900',
-    accent: 'teal-200',
-    text: 'teal-100'
-  },
-  indigo: {
-    primary: 'indigo',
-    secondary: 'purple',
-    gradient: 'from-indigo-600 via-indigo-700 to-indigo-900',
-    accent: 'indigo-200',
-    text: 'indigo-100'
-  }
-};
-
-const colors = colorMap[finalConfig.primaryColor] || colorMap.purple;
 ---
 
 <!doctype html>
@@ -129,7 +76,7 @@ const colors = colorMap[finalConfig.primaryColor] || colorMap.purple;
     <meta name="description" content={finalConfig.description} />
     
     <!-- Performance optimizacija -->
-    <meta name="theme-color" content="#6a11cb" />
+    <meta name="theme-color" content="#059669" />
     <meta name="color-scheme" content="light" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
@@ -139,7 +86,7 @@ const colors = colorMap[finalConfig.primaryColor] || colorMap.purple;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-page font-sans text-page">
+  <body class="bg-gray-50 font-sans text-gray-900">
     
     <!-- Navigation -->
     <nav class="bg-white shadow-sm border-b border-gray-100">
@@ -337,7 +284,7 @@ const colors = colorMap[finalConfig.primaryColor] || colorMap.purple;
         // Zatvori menu na klik izvan njega
         document.addEventListener('click', (event) => {
           const target = event.target;
-          if (target && !mobileMenuButton.contains(target) && !mobileMenu.contains(target)) {
+          if (target && target instanceof Node && !mobileMenuButton.contains(target) && !mobileMenu.contains(target)) {
             mobileMenu.classList.add('hidden');
             mobileMenuButton.setAttribute('aria-expanded', 'false');
           }

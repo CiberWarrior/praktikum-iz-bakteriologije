@@ -1,0 +1,119 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  chapterNumber: number;
+}
+
+const { title, description, chapterNumber } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description || `Poglavlje ${chapterNumber} - ${title}`} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+      <div class="container mx-auto px-4 py-4">
+        <nav class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <a href="/" class="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+              Mrežni udžbenik iz bakteriologije
+            </a>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="/sadrzaj/" class="text-gray-600 hover:text-blue-600 transition-colors">
+              Sadržaj
+            </a>
+            <a href="/o-nama/" class="text-gray-600 hover:text-blue-600 transition-colors">
+              O nama
+            </a>
+            <a href="/kontakt/" class="text-gray-600 hover:text-blue-600 transition-colors">
+              Kontakt
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b">
+      <div class="container mx-auto px-4 py-2">
+        <nav class="flex" aria-label="Breadcrumb">
+          <ol class="flex items-center space-x-2">
+            <li>
+              <a href="/" class="text-gray-500 hover:text-blue-600 transition-colors">
+                Početna
+              </a>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-gray-400 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <a href="/sadrzaj/" class="text-gray-500 hover:text-blue-600 transition-colors">
+                Sadržaj
+              </a>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 text-gray-400 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-gray-900 font-medium">
+                Poglavlje {chapterNumber}
+              </span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+      <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Mrežni udžbenik iz bakteriologije</h3>
+            <p class="text-gray-300">
+              Kompletan praktikum iz bakteriologije dostupan online.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Brzi linkovi</h3>
+            <ul class="space-y-2">
+              <li><a href="/sadrzaj/" class="text-gray-300 hover:text-white transition-colors">Sadržaj</a></li>
+              <li><a href="/o-nama/" class="text-gray-300 hover:text-white transition-colors">O nama</a></li>
+              <li><a href="/kontakt/" class="text-gray-300 hover:text-white transition-colors">Kontakt</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Kontakt</h3>
+            <p class="text-gray-300">
+              Za pitanja i sugestije kontaktirajte nas.
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+          <p>&copy; 2024 Mrežni udžbenik iz bakteriologije. Sva prava pridržana.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import 'tailwindcss/base';
+  @import 'tailwindcss/components';
+  @import 'tailwindcss/utilities';
+</style>
+

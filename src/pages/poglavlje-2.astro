@@ -1,6 +1,7 @@
 ---
 import ChapterLayout from '../components/ChapterLayout.astro';
 import { getChapterConfig } from '../config/chapters';
+import { getCollection } from 'astro:content';
 
 export interface Props {
   title?: string;
@@ -13,6 +14,17 @@ const {
 } = Astro.props;
 
 const chapterConfig = getChapterConfig(2);
+
+// Dohvati sve MDX datoteke iz poglavlje-2/ direktorija, osim index.mdx
+const allDocs = await getCollection('chapters');
+const poglavlje2Docs = allDocs
+  .filter(entry => entry.id.startsWith('poglavlje-2/') && entry.id !== 'poglavlje-2/index')
+  .sort((a, b) => {
+    // Sortiraj po chapterNumber iz frontmattera, ako ne postoji koristi 0
+    const aOrder = (a.data as any).chapterNumber || 0;
+    const bOrder = (b.data as any).chapterNumber || 0;
+    return aOrder - bOrder;
+  });
 ---
 
 <ChapterLayout 
@@ -36,6 +48,23 @@ const chapterConfig = getChapterConfig(2);
     { name: 'Poglavlje 2', url: '/poglavlje-2/' }
   ]}
 >
+
+<style>
+  .chapter-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .chapter-links li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .chapter-links a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
   <!-- Uvod u poglavlje -->
   <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200 mb-8 hover:shadow-lg transition-all duration-300">
     <div class="flex items-start">
@@ -52,7 +81,9 @@ const chapterConfig = getChapterConfig(2);
         </p>
 </div>
 </div>
-</div>
+  </div>
+
+
 
   <!-- Teorijski sadržaj -->
   <div class="mb-12">
@@ -70,7 +101,7 @@ const chapterConfig = getChapterConfig(2);
           <h3 class="text-lg font-bold text-gray-900">Fizička sterilizacija</h3>
         </div>
         <p class="text-gray-600 mb-4">Metode sterilizacije toplinom i drugim fizičkim agensima.</p>
-        <a href="/fizicka-sterilizacija/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
+        <a href="/poglavlje-2/fizicka-sterilizacija/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
           Pročitaj više →
         </a>
       </div>
@@ -86,7 +117,7 @@ const chapterConfig = getChapterConfig(2);
           <h3 class="text-lg font-bold text-gray-900">Autoklaviranje</h3>
         </div>
         <p class="text-gray-600 mb-4">Sterilizacija pod povišenim tlakom i temperaturom.</p>
-        <a href="/autoklaviranje/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+        <a href="/poglavlje-2/autoklaviranje/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
           Pročitaj više →
         </a>
       </div>
@@ -102,7 +133,7 @@ const chapterConfig = getChapterConfig(2);
           <h3 class="text-lg font-bold text-gray-900">Suha sterilizacija</h3>
 </div>
         <p class="text-gray-600 mb-4">Sterilizacija suhim zrakom na visokim temperaturama.</p>
-        <a href="/suha-sterilizacija/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
+        <a href="/poglavlje-2/suha-sterilizacija/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
           Pročitaj više →
         </a>
 </div>
@@ -118,7 +149,7 @@ const chapterConfig = getChapterConfig(2);
           <h3 class="text-lg font-bold text-gray-900">Kemijska sterilizacija</h3>
         </div>
         <p class="text-gray-600 mb-4">Uporaba kemijskih sredstava za sterilizaciju.</p>
-        <a href="/kemijska-sterilizacija/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
+        <a href="/poglavlje-2/kemijska-sterilizacija/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
           Pročitaj više →
         </a>
       </div>

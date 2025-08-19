@@ -1,6 +1,6 @@
 ---
 import ChapterLayout from '../components/ChapterLayout.astro';
-import { getChapterConfig } from '../config/chapters';
+import { getCollection } from 'astro:content';
 
 export interface Props {
   title?: string;
@@ -8,27 +8,36 @@ export interface Props {
 }
 
 const { 
-  title = 'Određivanje broja bakterija - direktne metode',
-  description = 'Direktne metode brojanja bakterija i korištenje brojačkih komora u bakteriološkom laboratoriju'
+  title = 'Poglavlje 7: Određivanje broja bakterija direktnim metodama',
+  description = 'Dobrodošli u poglavlje 7. Ovdje ćete pronaći sve potrebne informacije i vježbe.'
 } = Astro.props;
 
-const chapterConfig = getChapterConfig(7);
+// Dohvati sve MDX datoteke iz chapters kolekcije za ovo poglavlje
+const allDocs = await getCollection('chapters');
+const poglavljeDocs = allDocs
+  .filter(entry => entry.id.startsWith('poglavlje-7/') && entry.id !== 'poglavlje-7/index')
+  .sort((a, b) => {
+    // Sortiraj po chapterNumber iz frontmattera, ako ne postoji koristi 0
+    const aOrder = (a.data as any).chapterNumber || 0;
+    const bOrder = (b.data as any).chapterNumber || 0;
+    return aOrder - bOrder;
+  });
 ---
 
 <ChapterLayout 
-  title={title} 
-  description={description} 
+  title={title}
+  description={description}
   chapterNumber={7}
-  primaryColor="pink"
-  prevLink="/poglavlje-6/" 
+  primaryColor="blue"
+  prevLink="/poglavlje-6/"
   nextLink="/poglavlje-8/" 
-  prevText="← Poglavlje 6" 
+  prevText="← Poglavlje 6"
   nextText="Poglavlje 8 →" 
   ctaTitle="Nastavi na sljedeće poglavlje" 
-  ctaDescription="Nastavite s učenjem i upoznajte koliformne bakterije." 
+  ctaDescription="Nastavite s učenjem." 
   ctaPrimaryText="Poglavlje 8" 
   ctaPrimaryLink="/poglavlje-8/" 
-  ctaSecondaryText="Povratak na sadržaj" 
+  ctaSecondaryText="Povratak na sadržaj"
   ctaSecondaryLink="/sadrzaj/"
   showBreadcrumb={true}
   breadcrumbPath={[
@@ -36,250 +45,64 @@ const chapterConfig = getChapterConfig(7);
     { name: 'Poglavlje 7', url: '/poglavlje-7/' }
   ]}
 >
+
+<style>
+  .chapter-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .chapter-links li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .chapter-links a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
   <!-- Uvod u poglavlje -->
-  <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-8 border border-pink-200 mb-8 hover:shadow-lg transition-all duration-300">
+  <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200 mb-8 hover:shadow-lg transition-all duration-300">
     <div class="flex items-start">
-      <div class="flex-shrink-0 w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mr-4">
+      <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
         </svg>
       </div>
       <div>
-        <h3 class="text-xl font-bold text-pink-900 mb-3 font-heading">Dobrodošli u Poglavlje 7</h3>
-        <p class="text-pink-800 text-lg leading-relaxed font-body">
-          Ovo poglavlje vodi vas kroz ključne direktne metode određivanja broja bakterija u bakteriološkom laboratoriju. 
-          Naučit ćete o korištenju brojačkih komora i direktnim metodama brojanja.
+        <h3 class="text-xl font-bold text-blue-900 mb-3 font-heading">Dobrodošli u Poglavlje 7</h3>
+        <p class="text-blue-800 text-lg leading-relaxed font-body">
+          Ovo poglavlje vodi vas kroz određivanje broja bakterija direktnim metodama. 
+          Naučit ćete o ključnim konceptima, metodama i praktičnim vježbama.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- Teorijski sadržaj -->
+  <!-- Sadržaj poglavlja - Svi dostupni linkovi -->
   <div class="mb-12">
     <h2 class="text-3xl font-bold text-gray-900 mb-8">Teorijski sadržaj</h2>
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Direktne metode -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Direktne metode</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Osnove direktnih metoda određivanja broja bakterija.</p>
-        <a href="/direktne-metode/" class="text-pink-600 font-semibold hover:text-pink-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
 
-      <!-- Brojačke komore -->
+      <!-- Vjezba 7 -->
       <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <div class="flex items-center mb-4">
           <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-gray-900">Brojačke komore</h3>
+          <h3 class="text-lg font-bold text-gray-900">Vjezba 7</h3>
         </div>
-        <p class="text-gray-600 mb-4">Korištenje brojačkih komora za direktno brojanje bakterija.</p>
-        <a href="/brojacke-komore/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Thoma-Zeiss komora -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Thoma-Zeiss komora</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Korištenje Thoma-Zeiss brojačke komore.</p>
-        <a href="/thoma-zeiss-komora/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Neubauer komora -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Neubauer komora</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Korištenje Neubauer brojačke komore.</p>
-        <a href="/neubauer-komora/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Petroff-Hauser komora -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Petroff-Hauser komora</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Korištenje Petroff-Hauser brojačke komore.</p>
-        <a href="/petroff-hauser-komora/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Izračunavanje rezultata -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Izračunavanje rezultata</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Kako pravilno izračunati broj bakterija iz brojačkih komora.</p>
-        <a href="/izracunavanje-rezultata/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
+        <p class="text-gray-600 mb-4">Pogledajte detaljne informacije o vjezba 7.</p>
+        <a href="/poglavlje-7/vjezba-7/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
           Pročitaj više →
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Praktične vježbe -->
-  <div class="mb-12">
-    <h2 class="text-3xl font-bold text-gray-900 mb-8">Praktične vježbe</h2>
-    
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Vježba 7 -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Vježba 7</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Glavna vježba iz direktnih metoda brojanja bakterija.</p>
-        <a href="/vjezba-7/" class="text-pink-600 font-semibold hover:text-pink-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Vježba 7-1 -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Vježba 7-1</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Korištenje Thoma-Zeiss komore.</p>
-        <a href="/vjezba-7-1/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Vježba 7-2 -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Vježba 7-2</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Korištenje Neubauer komore.</p>
-        <a href="/vjezba-7-2/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Vježba 7-3 -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Vježba 7-3</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Izračunavanje rezultata iz brojačkih komora.</p>
-        <a href="/vjezba-7-3/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Ciljevi učenja -->
-  <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-8 border border-pink-200 mb-8 hover:shadow-lg transition-all duration-300">
-    <h3 class="text-2xl font-bold text-pink-900 mb-6">Ciljevi učenja</h3>
-    <div class="grid md:grid-cols-2 gap-4">
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-pink-800">Razumijevanje direktnih metoda brojanja bakterija</p>
-      </div>
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-pink-800">Poznavanje različitih tipova brojačkih komora</p>
-      </div>
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-pink-800">Praktično korištenje brojačkih komora</p>
-      </div>
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-pink-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-pink-800">Izračunavanje i interpretacija rezultata</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Preporuka za učenje -->
-  <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200 hover:shadow-lg transition-all duration-300">
-    <div class="flex items-start">
-      <div class="flex-shrink-0 text-2xl mr-4">💡</div>
-      <div>
-        <h3 class="text-xl font-bold text-yellow-900 mb-4">Preporuka za učenje</h3>
-        <p class="text-yellow-800 text-lg leading-relaxed">
-          Preporučujemo da prvo proučite teorijski dio o direktnim metodama brojanja bakterija, 
-          a zatim izvršite praktične vježbe kako biste stekli potrebne vještine. 
-          Posebnu pozornost obratite na pravilno korištenje brojačkih komora i izračunavanje 
-          rezultata brojanja.
-        </p>
-      </div>
-    </div>
-  </div>
 </ChapterLayout>

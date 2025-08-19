@@ -1,6 +1,6 @@
 ---
 import ChapterLayout from '../components/ChapterLayout.astro';
-import { getChapterConfig } from '../config/chapters';
+import { getCollection } from 'astro:content';
 
 export interface Props {
   title?: string;
@@ -8,27 +8,36 @@ export interface Props {
 }
 
 const { 
-  title = 'Antibiogram i aromatogram',
-  description = 'Metode izrade antibiograma i aromatograma u bakteriološkom laboratoriju'
+  title = 'Poglavlje 13: Testovi osjetljivosti na antibiotike',
+  description = 'Dobrodošli u poglavlje 13. Ovdje ćete pronaći sve potrebne informacije i vježbe.'
 } = Astro.props;
 
-const chapterConfig = getChapterConfig(13);
+// Dohvati sve MDX datoteke iz chapters kolekcije za ovo poglavlje
+const allDocs = await getCollection('chapters');
+const poglavljeDocs = allDocs
+  .filter(entry => entry.id.startsWith('poglavlje-13/') && entry.id !== 'poglavlje-13/index')
+  .sort((a, b) => {
+    // Sortiraj po chapterNumber iz frontmattera, ako ne postoji koristi 0
+    const aOrder = (a.data as any).chapterNumber || 0;
+    const bOrder = (b.data as any).chapterNumber || 0;
+    return aOrder - bOrder;
+  });
 ---
 
 <ChapterLayout 
-  title={title} 
-  description={description} 
+  title={title}
+  description={description}
   chapterNumber={13}
-  primaryColor="rose"
-  prevLink="/poglavlje-12/" 
+  primaryColor="blue"
+  prevLink="/poglavlje-12/"
   nextLink="/poglavlje-14/" 
-  prevText="← Poglavlje 12" 
+  prevText="← Poglavlje 12"
   nextText="Poglavlje 14 →" 
   ctaTitle="Nastavi na sljedeće poglavlje" 
-  ctaDescription="Nastavite s učenjem i upoznajte napredne tehnike bakteriologije." 
+  ctaDescription="Nastavite s učenjem." 
   ctaPrimaryText="Poglavlje 14" 
   ctaPrimaryLink="/poglavlje-14/" 
-  ctaSecondaryText="Povratak na sadržaj" 
+  ctaSecondaryText="Povratak na sadržaj"
   ctaSecondaryLink="/sadrzaj/"
   showBreadcrumb={true}
   breadcrumbPath={[
@@ -36,298 +45,94 @@ const chapterConfig = getChapterConfig(13);
     { name: 'Poglavlje 13', url: '/poglavlje-13/' }
   ]}
 >
-  <!-- Uvod u poglavlje -->
-  <div class="bg-gradient-to-br from-rose-50 to-rose-100 rounded-xl p-8 border border-rose-200 mb-8 hover:shadow-lg transition-all duration-300">
-<div class="flex items-start">
-      <div class="flex-shrink-0 w-12 h-12 bg-rose-600 rounded-lg flex items-center justify-center mr-4">
-<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-</svg>
-</div>
-<div>
-        <h3 class="text-xl font-bold text-rose-900 mb-3 font-heading">Dobrodošli u Poglavlje 13</h3>
-        <p class="text-rose-800 text-lg leading-relaxed font-body">
-          Ovo poglavlje vodi vas kroz ključne metode određivanja osjetljivosti bakterija u bakteriološkom laboratoriju. 
-          Naučit ćete o antibiogramu i aromatogramu kao važnim dijagnostičkim alatima.
-        </p>
-</div>
-</div>
-</div>
 
-  <!-- Teorijski sadržaj -->
+<style>
+  .chapter-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .chapter-links li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .chapter-links a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+  <!-- Uvod u poglavlje -->
+  <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200 mb-8 hover:shadow-lg transition-all duration-300">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-blue-900 mb-3 font-heading">Dobrodošli u Poglavlje 13</h3>
+        <p class="text-blue-800 text-lg leading-relaxed font-body">
+          Ovo poglavlje vodi vas kroz testovi osjetljivosti na antibiotike. 
+          Naučit ćete o ključnim konceptima, metodama i praktičnim vježbama.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sadržaj poglavlja - Svi dostupni linkovi -->
   <div class="mb-12">
     <h2 class="text-3xl font-bold text-gray-900 mb-8">Teorijski sadržaj</h2>
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Osnove antibiograma -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-rose-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Osnove antibiograma</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Temeljni principi određivanja osjetljivosti bakterija na antibiotike.</p>
-        <a href="/osnove-antibiograma/" class="text-rose-600 font-semibold hover:text-rose-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
 
-      <!-- Metode antibiograma -->
+      <!-- Antibiogram -->
       <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <div class="flex items-center mb-4">
           <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-gray-900">Metode antibiograma</h3>
+          <h3 class="text-lg font-bold text-gray-900">Antibiogram</h3>
         </div>
-        <p class="text-gray-600 mb-4">Različite metode određivanja osjetljivosti na antibiotike.</p>
-        <a href="/metode-antibiograma/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+        <p class="text-gray-600 mb-4">Pogledajte detaljne informacije o antibiogram.</p>
+        <a href="/poglavlje-13/antibiogram/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
           Pročitaj više →
         </a>
       </div>
-
-      <!-- Disk difuzijska metoda -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Disk difuzijska metoda</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Kirby-Bauer metoda i interpretacija rezultata.</p>
-        <a href="/disk-difuzijska-metoda/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- E-test -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">E-test</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Epsilometrijska metoda za određivanje MIC vrijednosti.</p>
-        <a href="/e-test/" class="text-yellow-600 font-semibold hover:text-yellow-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Brojčana metoda -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Brojčana metoda</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Brojčana metoda za određivanje osjetljivosti.</p>
-        <a href="/brojcana-metoda/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Osnove aromatograma -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Osnove aromatograma</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Temeljni principi određivanja osjetljivosti na aromatične spojeve.</p>
-        <a href="/osnove-aromatograma/" class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Metode aromatograma -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Metode aromatograma</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Različite metode određivanja osjetljivosti na aromatične spojeve.</p>
-        <a href="/metode-aromatograma/" class="text-pink-600 font-semibold hover:text-pink-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Interpretacija rezultata -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Interpretacija rezultata</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Pravilna interpretacija rezultata antibiograma i aromatograma.</p>
-        <a href="/interpretacija-rezultata/" class="text-orange-600 font-semibold hover:text-orange-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-      </div>
-
-      <!-- Kontrolni sojevi -->
+      <!-- Aromatogram -->
       <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <div class="flex items-center mb-4">
           <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-</div>
-          <h3 class="text-lg font-bold text-gray-900">Kontrolni sojevi</h3>
-        </div>
-        <p class="text-gray-600 mb-4">Korištenje kontrolnih sojeva za validaciju rezultata.</p>
-        <a href="/kontrolni-sojevi/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-</div>
-
-      <!-- Praktični značaj -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
             </svg>
-</div>
-          <h3 class="text-lg font-bold text-gray-900">Praktični značaj</h3>
-</div>
-        <p class="text-gray-600 mb-4">Praktični značaj antibiograma i aromatograma u medicini.</p>
-        <a href="/prakticni-znacaj/" class="text-gray-600 font-semibold hover:text-gray-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
-</div>
-</div>
-</div>
-
-  <!-- Praktične vježbe -->
-  <div class="mb-12">
-    <h2 class="text-3xl font-bold text-gray-900 mb-8">Praktične vježbe</h2>
-    
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Vježba 13 -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-rose-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-</svg>
-</div>
-          <h3 class="text-lg font-bold text-gray-900">Vježba 13</h3>
-</div>
-        <p class="text-gray-600 mb-4">Glavna vježba iz antibiograma i aromatograma.</p>
-        <a href="/vjezba-13/" class="text-rose-600 font-semibold hover:text-rose-800 transition-colors duration-300">
+          </div>
+          <h3 class="text-lg font-bold text-gray-900">Aromatogram</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Pogledajte detaljne informacije o aromatogram.</p>
+        <a href="/poglavlje-13/aromatogram/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
           Pročitaj više →
         </a>
       </div>
-
-      <!-- Vježba 13-1 -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-            </svg>
-</div>
-          <h3 class="text-lg font-bold text-gray-900">Vježba 13-1</h3>
-</div>
-        <p class="text-gray-600 mb-4">Izrada antibiograma disk difuzijskom metodom.</p>
-        <a href="/vjezbe/vjezba-13-1/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
-          Pročitaj više →
-</a>
-</div>
-
-      <!-- Vježba 13-2 -->
+      <!-- Vjezba 13 -->
       <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
         <div class="flex items-center mb-4">
           <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-</svg>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
           </div>
-          <h3 class="text-lg font-bold text-gray-900">Vježba 13-2</h3>
+          <h3 class="text-lg font-bold text-gray-900">Vjezba 13</h3>
         </div>
-        <p class="text-gray-600 mb-4">Izrada aromatograma i interpretacija rezultata.</p>
-        <a href="/vjezbe/vjezba-13-2/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
+        <p class="text-gray-600 mb-4">Pogledajte detaljne informacije o vjezba 13.</p>
+        <a href="/poglavlje-13/vjezba-13/" class="text-green-600 font-semibold hover:text-green-800 transition-colors duration-300">
           Pročitaj više →
-</a>
-</div>
-    </div>
-  </div>
-
-  <!-- Ciljevi učenja -->
-  <div class="bg-gradient-to-br from-rose-50 to-rose-100 rounded-xl p-8 border border-rose-200 mb-8 hover:shadow-lg transition-all duration-300">
-    <h3 class="text-2xl font-bold text-rose-900 mb-6">Ciljevi učenja</h3>
-    <div class="grid md:grid-cols-2 gap-4">
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-rose-800">Razumijevanje principa antibiograma i aromatograma</p>
-      </div>
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-rose-800">Poznavanje različitih metoda određivanja osjetljivosti</p>
-      </div>
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-rose-800">Praktično izvođenje antibiograma i aromatograma</p>
-      </div>
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-rose-800">Interpretacija rezultata i praktični značaj</p>
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- Preporuka za učenje -->
-  <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-8 border border-yellow-200 hover:shadow-lg transition-all duration-300">
-    <div class="flex items-start">
-      <div class="flex-shrink-0 text-2xl mr-4">💡</div>
-      <div>
-        <h3 class="text-xl font-bold text-yellow-900 mb-4">Preporuka za učenje</h3>
-        <p class="text-yellow-800 text-lg leading-relaxed">
-          Preporučujemo da prvo proučite teorijski dio o antibiogramu i aromatogramu, 
-          a zatim izvršite praktične vježbe kako biste stekli potrebne vještine. 
-          Posebnu pozornost obratite na aseptične tehnike rada, pravilno postavljanje diskova 
-          te interpretaciju rezultata prema standardnim kriterijima.
-        </p>
-</div>
-</div>
-</div>
 </ChapterLayout>
