@@ -1,0 +1,60 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Bojenje acidorezistentnih bakterija po Ziehl-Neelsenu',
+  description = 'Sadržaj poglavlja 3 - Bojenje acidorezistentnih bakterija po Ziehl-Neelsenu'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(3);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={3}
+  primaryColor="purple"
+  prevLink="/poglavlje-3/" 
+  nextLink="/poglavlje-4/" 
+  prevText="← Poglavlje 3" 
+  nextText="Poglavlje 4 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Kultivacija mikroorganizama." 
+  ctaPrimaryText="Poglavlje 4" 
+  ctaPrimaryLink="/poglavlje-4/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-3/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 3', url: '/poglavlje-3/' },
+    { name: 'Bojenje acidorezistentnih bakterija po Ziehl-Neelsenu', url: '/poglavlje-3/bojenjeacidorezistentnihbakterijapoziehl-neelsenu/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={3} 
+    currentSection="bojenje-acidorezistentnih-bakterija-po-ziehl-neelsenu" 
+    chapterTitle="Bojanje mikroorganizama"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+Neke bakterije posebno vrste iz roda *Mycobacterium* (*M. tuberculosis*, *M. lepreae*, *M. smegmatis*) otporne su na bojenja bazičnim bojilima jer oko stanice posjeduju omotač od fosfolipida i voska, koji ne propušta boje u stanice. Ta se ovojnica mora učiniti propusnom, i to grijanjem preparata prelivenog bojom (karbol fuksin) nad otvorenim plamenom.
+
+Preparat se drži nad plamenom, a kada se iz boje počne dizati para, odmakne se od plamena te ponovno primakne kada prestane, a cijeli postupak traje 5 minuta. Treba paziti da boja ne provre, da ne ispari, a preparat se posuši, tako da se po potrebi boja dolijeva. Tako tretiran sada obojen preparat ispire se kiselim alkoholom, sve dok ne prestane izlaziti crvena boja, te ispere vodom iz vodovoda. Na tako ispran preparat doda se metilensko modrilo kao kontrastna boja i ostavi 2 min. Nakon ispiranja vodom iz vodovoda preparat se posuši filter-papirom i mikroskopira.
+
+Acidorezistentne bakterije ostaju crveno obojene, a ostale bakterije obojene su plavo. Taj postupak složenog bojenja usavršili su bakteriolozi Ziehl i Neelsen 1883. g., a metoda je ponovno važna zbog sve češće pojave tuberkuloze u svijetu.
+  </div>
+
+</ChapterLayout>

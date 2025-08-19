@@ -1,0 +1,170 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Sulfat/tiosulfat reducirajuće bakterije',
+  description = 'Sadržaj poglavlja 19 - Sulfat/tiosulfat reducirajuće bakterije'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(19);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={19}
+  primaryColor="emerald"
+  prevLink="/poglavlje-19/" 
+  nextLink="/poglavlje-20/" 
+  prevText="← Poglavlje 19" 
+  nextText="Poglavlje 20 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Biofilmovi." 
+  ctaPrimaryText="Poglavlje 20" 
+  ctaPrimaryLink="/poglavlje-20/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-19/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 19', url: '/poglavlje-19/' },
+    { name: 'Sulfat/tiosulfat reducirajuće bakterije', url: '/poglavlje-19/sulfattiosulfatreducirajuebakterije/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={19} 
+    currentSection="sulfat/tiosulfat-reducirajuće-bakterije" 
+    chapterTitle="GMO"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+Fiziološka skupina sulfat reducirajućih bakterija vrlo je brojna u jezerskim ekosustavima u kojima su prisutni sulfati i anaerobni uvjeti. Fiziološka skupina sulfat reducirajućih bakterija uključuje obligatne anaerobe koji u procesu sulfatnog disanja reduciraju sulfatni ion (SO<sub>4</sub><sup>2−</sup>) do sumporovodika (H<sub>2</sub>S). Ova se redukcija odvija u strogo anaerobnim uvjetima.
+
+Skupina obuhvaća različite rodove bakterija kao što su *Desulfovibrio*, *Desulfotomaculum*, *Desulfobulbus*, *Desulfomicrobium*, *Desulfomonas*, *Desulfobacter*, *Desulfobacterium*, *Desulfococcus*, *Desulfosarcina*.
+
+*Desulfovibrio* su Gram-negativni, vibroidni stapići, veličine 0,5–1,3 × 0,8–5 μm, pokretni s polarnim bičevima, striktni anaerobi. Staništa su anoksični vodeni sedimenti, industrijske vode i intestinalni trakt životinja. Bakterije roda *Desulfovibrio* uzgajaju se u tekućoj podlozi Postgate′s E, inkubacija 28°C / 10 dana.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Sastav podloge Postgate′s E</h3>
+
+<div style="max-width: 520px; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px auto;">
+  <div style="display: flex; align-items: center; margin-bottom: 15px;">
+    <span style="font-size: 24px; margin-right: 10px;">🧪</span>
+    <h3 style="margin: 0; color: #2c3e50; font-weight: 600; font-size: 18px;">Sastav podloge Postgate′s E</h3>
+  </div>
+  <div style="background: white; border-radius: 10px; padding: 15px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 15px; align-items: center;">
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na-laktat 70% otopina</span>
+      <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">3,5 mL</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na<sub>2</sub>SO<sub>4</sub></span>
+      <span style="background: #f39c12; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">2,9 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">NH<sub>4</sub>Cl</span>
+      <span style="background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">K<sub>2</sub>HPO<sub>4</sub></span>
+      <span style="background: #9b59b6; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Ekstrakt kvasca</span>
+      <span style="background: #e91e63; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">FeSO<sub>4</sub> × 7H<sub>2</sub>O</span>
+      <span style="background: #2ecc71; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na-tioglikolat</span>
+      <span style="background: #1abc9c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,1 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Resazurin 1 mg/mL otopina</span>
+      <span style="background: #34495e; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1,0 mL</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">CaCl<sub>2</sub> × 6H<sub>2</sub>O</span>
+      <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">MgCl<sub>2</sub> × 6H<sub>2</sub>O</span>
+      <span style="background: #f39c12; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">2,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na-askorbat</span>
+      <span style="background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,1 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Destilirana voda</span>
+      <span style="background: #2ecc71; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1000 mL</span>
+    </div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ecf0f1;">
+      <span style="font-weight: 600; color: #2c3e50; font-size: 14px;">pH = 7,6 ± 0,1</span>
+    </div>
+  </div>
+  
+</div>
+
+Fiziološka skupina sulfat i tiosulfat reducirajućih bakterija ima širu ekološku nišu od isključivo sulfat reducirajućih bakterija jer osim sulfata reducira i tiosulfat. Uzgaja se na tekućoj podlozi STM (sulfat–tiosulfat medij) na 28°C / 36 h.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Sastav podloge STM (sulfat–tiosulfat medij)</h3>
+
+<div style="max-width: 520px; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px auto;">
+  <div style="display: flex; align-items: center; margin-bottom: 15px;">
+    <span style="font-size: 24px; margin-right: 10px;">🧪</span>
+    <h3 style="margin: 0; color: #2c3e50; font-weight: 600; font-size: 18px;">Sastav podloge STM (sulfat–tiosulfat medij)</h3>
+  </div>
+  <div style="background: white; border-radius: 10px; padding: 15px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 15px; align-items: center;">
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na-laktat 50% otopina</span>
+      <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">2,5 mL</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na<sub>2</sub>SO<sub>4</sub></span>
+      <span style="background: #f39c12; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">NH<sub>4</sub>Cl</span>
+      <span style="background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">C<sub>4</sub>H<sub>4</sub>KNaO<sub>6</sub> × 4H<sub>2</sub>O</span>
+      <span style="background: #9b59b6; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">K<sub>2</sub>HPO<sub>4</sub></span>
+      <span style="background: #e91e63; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">MgSO<sub>4</sub> × 7H<sub>2</sub>O</span>
+      <span style="background: #2ecc71; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Ekstrakt kvasca</span>
+      <span style="background: #1abc9c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">CaSO<sub>4</sub> × 2H<sub>2</sub>O</span>
+      <span style="background: #34495e; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,4 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">FeSO<sub>4</sub> × 7H<sub>2</sub>O</span>
+      <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,4 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub></span>
+      <span style="background: #f39c12; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,2 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Fe(NH<sub>4</sub>)<sub>3</sub>(C<sub>6</sub>H<sub>5</sub>O<sub>7</sub>)<sub>2</sub></span>
+      <span style="background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,2 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">HSCH<sub>2</sub>COONa</span>
+      <span style="background: #9b59b6; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,1 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Resazurin 1 mg/mL otopina</span>
+      <span style="background: #2ecc71; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1,0 mL</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Destilirana voda</span>
+      <span style="background: #1abc9c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1000 mL</span>
+    </div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ecf0f1;">
+      <span style="font-weight: 600; color: #2c3e50; font-size: 14px;">pH = 7,5 ± 0,1</span>
+    </div>
+  </div>
+</div>
+
+Kako se redukcija sulfata i tiosulfata do H<sub>2</sub>S može odvijati samo u anaerobnim uvjetima, dokazivanje aktivnosti ove fiziološke skupine provodi se u hermetički zatvorenim bočicama sa selektivnom tekućom podlogom. Popratna populacija fakultativno anaerobnih bakterija u uzorku u zatvorenim bočicama ubrzo će potrošiti kisik, a stvoreni anaerobni uvjeti omogućit će sulfat reducirajućim bakterijama puni razvoj. Producirani H<sub>2</sub>S precipitirat će se sa željezom u podlozi i tvoriti crni talog željeznog sulfida (FeS). Stoga će bočice s pozitivnom reakcijom na skupinu sulfat reducirajućih bakterija biti obojene crno (slika 82).
+
+U podlozi STM porast će široki rang bakterija koje su sposobne reducirati sulfat i tiosulfat do H<sub>2</sub>S, a na podlozi Postgate′s E porast će primarno bakterije roda *Desulfovibrio* (slika 83A, 83B).
+
+![Sulfat/tiosulfat reducirajuće bakterije u STM podlozi](/images/slika82.jpg)
+
+**Slika 82.** Sulfat/tiosulfat reducirajuće bakterije (crne bočice) uzgojene u podlozi STM.
+
+![Fiziološka skupina sulfat reducirajućih bakterija obojena po Gramu – Postgate′s E](/images/slika83A.jpg)
+
+**Slika 83A.** Fiziološka skupina sulfat reducirajućih bakterija obojena po Gramu, uzgojena u podlozi Postgate′s E.
+
+![Fiziološka skupina sulfat i tiosulfat reducirajućih bakterija obojena po Gramu – STM](/images/slika83B.jpg)
+
+**Slika 83B.** Fiziološka skupina sulfat i tiosulfat reducirajućih bakterija obojena po Gramu, uzgojena u STM podlozi.
+
+---
+
+*Povratak na [Poglavlje 19](/poglavlje-19)*
+
+
+
+  </div>
+
+</ChapterLayout>

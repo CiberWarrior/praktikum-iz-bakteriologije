@@ -1,0 +1,67 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Katalaza test',
+  description = 'Sadržaj poglavlja 5 - Katalaza test'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(5);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={5}
+  primaryColor="cyan"
+  prevLink="/poglavlje-5/" 
+  nextLink="/poglavlje-6/" 
+  prevText="← Poglavlje 5" 
+  nextText="Poglavlje 6 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Antibiotici i antimikrobna sredstva." 
+  ctaPrimaryText="Poglavlje 6" 
+  ctaPrimaryLink="/poglavlje-6/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-5/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 5', url: '/poglavlje-5/' },
+    { name: 'Katalaza test', url: '/poglavlje-5/katalazatest/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={5} 
+    currentSection="katalaza-test" 
+    chapterTitle="Identifikacija bakterija"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+Vodikov se peroksid stvara tijekom aerobnog metabolizma kada komponente respiratornog lanca daju elektrone molekularnom kisiku. Vodikov peroksid otrovan je za stanice bakterija. Enzim **katalaza** štiti aerobne i fakultativno anaerobne bakterije od toksičnog djelovanja vodikova peroksida, trenutačno razgrađujući vodikov peroksid do molekularnog kisika.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Princip rada</h3>
+
+Striktni anaerobi ne sintetiziraju te enzime pa je stoga okoliš koji sadrži vodikov peroksid za njih toksičan. Proces trenutačnog stvaranja mjehurića molekularnog kisika djelovanjem enzima katalaze može se promatrati makroskopski na predmetnom stakalcu.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Postupak</h3>
+
+U kapljici **3%-tnog vodikova peroksida** razmuti se bakteriološkom ušicom čista bakterijska kultura. U roku od **30 sekundi** stvaraju se mjehurići kisika što se uzima kao **katalaza-pozitivan test** (slika 38).
+
+![Slika 38](/images/slika38.jpg)
+
+**Slika 38.** Pozitivan katalaza test.
+  </div>
+
+</ChapterLayout>

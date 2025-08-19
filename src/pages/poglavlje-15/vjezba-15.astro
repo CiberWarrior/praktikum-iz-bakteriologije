@@ -1,0 +1,62 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Vježbe 15: Bakteriološko ispitivanje kvalitete namirnica',
+  description = 'Sadržaj poglavlja 15 - Vježbe 15: Bakteriološko ispitivanje kvalitete namirnica'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(15);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={15}
+  primaryColor="slate"
+  prevLink="/poglavlje-15/" 
+  nextLink="/poglavlje-16/" 
+  prevText="← Poglavlje 15" 
+  nextText="Poglavlje 16 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Bakterije mliječne fermentacije." 
+  ctaPrimaryText="Poglavlje 16" 
+  ctaPrimaryLink="/poglavlje-16/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-15/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 15', url: '/poglavlje-15/' },
+    { name: 'Vježbe 15: Bakteriološko ispitivanje kvalitete namirnica', url: '/poglavlje-15/vjebe15bakteriolokoispitivanjekvalitetenamirnica/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={15} 
+    currentSection="vježbe-15:-bakteriološko-ispitivanje-kvalitete-namirnica" 
+    chapterTitle="Molekularna biologija"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">1. [Izvedba testa s metilenskim modrilom](./vjezbe/vjezba-15-1)</h3>
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">2. [Izvedba TTC-testa](./vjezbe/vjezba-15-2)</h3>
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">3. [Izvedba HIL-testa](./vjezbe/vjezba-15-3)</h3>
+
+[← Povratak na Poglavlje 15](../) | [Povratak na Početnu stranicu](/)
+
+  </div>
+
+</ChapterLayout>

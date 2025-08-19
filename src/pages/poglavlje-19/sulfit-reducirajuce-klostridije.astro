@@ -1,0 +1,137 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Sulfit reducirajuće klostridije',
+  description = 'Sadržaj poglavlja 19 - Sulfit reducirajuće klostridije'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(19);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={19}
+  primaryColor="emerald"
+  prevLink="/poglavlje-19/" 
+  nextLink="/poglavlje-20/" 
+  prevText="← Poglavlje 19" 
+  nextText="Poglavlje 20 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Biofilmovi." 
+  ctaPrimaryText="Poglavlje 20" 
+  ctaPrimaryLink="/poglavlje-20/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-19/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 19', url: '/poglavlje-19/' },
+    { name: 'Sulfit reducirajuće klostridije', url: '/poglavlje-19/sulfitreducirajueklostridije/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={19} 
+    currentSection="sulfit-reducirajuće-klostridije" 
+    chapterTitle="GMO"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+Široki rang klostridija sposoban je u anaerobnim uvjetima iz sulfita producirati H2S i otud dolazi i naziv sulfit-reducirajuće klostridije za cijeli rod *Clostridium*. Bakterije roda *Clostridium* su Gram-pozitivni anaerobni, sporogeni štapići, koji kod sporulacije poprimaju oblik vretena zbog velikih endospora (lat. Closter, vreteno). Općenito su pokretni s peritrihnir bičevima, bez kapsule. Obligatni su anaerobi. Bakterije roda *Clostridium* široko su rasprostranjene u prirodi. Mnoge vrste stvaraju egzotoksine i patogene su za čovjeka i životinje zbog primarne izazvane infekcije ili potencijalne apsorpcije egzotoksina.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">*Clostridium perfringens*</h3>
+
+*Clostridium perfringens* ima kapsulu, nema bičeva, nepokretan je. Stvara subterminalne spore bez egzospora. Uzročnici su teških bolesti (plinska gangrena, sekundarne infekcije rana, enteritis, sepsa) a nastava probavni trakt životinja i ljudi te su pouzdan pokazatelj fekalnih zagađenja okoliša. Preko fekalija dolaze u vodu i tlo. U organizam se unose najčešće ozlijeđenim tkivom u kojem se stvaraju anaerobni uvjeti. Posjeduju moćne egzotoksine. *C. prefringens* selektivno se uzgaja na tripton-sulfit neomicin agaru na 46°C/18 h. Temperatura uzgoja od 46°C selektivna je temperatura koja onemogućuje rast većine druge mikroflore saprofitskih bakterija prisutnih u uzorku te će porasti samo vrste *C. perfringens*.
+
+<div style="max-width: 520px; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px auto;">
+  <div style="display: flex; align-items: center; margin-bottom: 15px;">
+    <span style="font-size: 24px; margin-right: 10px;">🧫</span>
+    <h3 style="margin: 0; color: #2c3e50; font-weight: 600; font-size: 18px;">Sastav tripton-sulfit-neomicin agara</h3>
+  </div>
+  <div style="background: white; border-radius: 10px; padding: 15px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 15px; align-items: center;">
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Pepton iz kazeina</span>
+      <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">15,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Ekstrakt kvasca</span>
+      <span style="background: #f39c12; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">10,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na<sub>2</sub>SO<sub>3</sub></span>
+      <span style="background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">C<sub>6</sub>H<sub>11</sub>FeNO<sub>7</sub></span>
+      <span style="background: #9b59b6; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Polymyxin B sulfat</span>
+      <span style="background: #e91e63; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,02 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Neomycin sulfat</span>
+      <span style="background: #2ecc71; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,05 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Agar</span>
+      <span style="background: #1abc9c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">13,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Destilirana voda</span>
+      <span style="background: #34495e; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1000 mL</span>
+    </div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ecf0f1;">
+      <span style="font-weight: 600; color: #2c3e50; font-size: 14px;">pH = 7,2 ± 0,2</span>
+    </div>
+  </div>
+</div>
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">SPS agar (Perfringens selektivni agar po Angelottiju)</h3>
+
+Za uzgoj širokog ranga sulfit-reducirajućih klostridija koristi se temperatura inkubacije 35°C/48 h i SPS agar (Perfringens selektivni agar po Angelottiju).
+
+<div style="max-width: 520px; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px auto;">
+  <div style="display: flex; align-items: center; margin-bottom: 15px;">
+    <span style="font-size: 24px; margin-right: 10px;">🧫</span>
+    <h3 style="margin: 0; color: #2c3e50; font-weight: 600; font-size: 18px;">Sastav SPS agara (Perfringens selektivni agar po Angelottiju)</h3>
+  </div>
+  <div style="background: white; border-radius: 10px; padding: 15px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 15px; align-items: center;">
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Kazein</span>
+      <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">15,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Ekstrakt kvasca</span>
+      <span style="background: #f39c12; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">10,0 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na<sub>2</sub>SO<sub>3</sub></span>
+      <span style="background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Fe-citrat</span>
+      <span style="background: #9b59b6; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Polimiksin B sulfat</span>
+      <span style="background: #e91e63; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,01 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na-sulfadiazin</span>
+      <span style="background: #2ecc71; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,12 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Agar</span>
+      <span style="background: #1abc9c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">13,5 g</span>
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Destilirana voda</span>
+      <span style="background: #34495e; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1000 mL</span>
+    </div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ecf0f1;">
+      <span style="font-weight: 600; color: #2c3e50; font-size: 14px;">pH = 7,0 ± 0,2</span>
+    </div>
+  </div>
+</div>
+
+Vrste roda *Clostridium* sposobne su u anaerobnim uvjetima iz sulfita stvarati H2S. Stvoreni H2S precipitirat će se sa željezom u podlozi i tvoriti crni talog željeznog sulfida (FeS). Stoga će ovalne kolonije roda *Clostridium* u epruvetama s dubokim SPS agarom biti u dubini podloge obojene crno (slika 81). Dodatak neomicina i polimiksina inhibirat će razvoj ostalih sulfit reducirajućih bakterija.
+
+![Slika 81](/images/slika81.jpg)
+
+**Slika 81.** Crne kolonije sulfit-reducirajućih klostridija izolirane u dubokom SPS agaru.
+
+---
+
+*Povratak na [Poglavlje 19](/poglavlje-19)*
+
+
+
+  </div>
+
+</ChapterLayout>

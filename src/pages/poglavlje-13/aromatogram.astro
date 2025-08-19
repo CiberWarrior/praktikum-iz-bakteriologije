@@ -1,0 +1,63 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Aromatogram',
+  description = 'Sadržaj poglavlja 13 - Aromatogram'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(13);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={13}
+  primaryColor="pink"
+  prevLink="/poglavlje-13/" 
+  nextLink="/poglavlje-14/" 
+  prevText="← Poglavlje 13" 
+  nextText="Poglavlje 14 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Kontrola kvalitete." 
+  ctaPrimaryText="Poglavlje 14" 
+  ctaPrimaryLink="/poglavlje-14/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-13/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 13', url: '/poglavlje-13/' },
+    { name: 'Aromatogram', url: '/poglavlje-13/aromatogram/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={13} 
+    currentSection="aromatogram" 
+    chapterTitle="Higijena i dezinfekcija"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+Aromaterapija podrazumijeva uporabu mirisnih, hlapivih tvari eteričnih ulja aromatskih biljaka za prevenciju, terapiju i suterapiju različitih bolesti. Aromaterapija je pradavno umijeće liječenja, koje danas doživljava procvat i transformaciju u suvremenoj znanosti terapije duha i tijela. Mnoga eterična ulja posjeduju snažna antibakterijska, antifungalna i antivirusna svojstva. Prve rezultate o antimikrobnom djelovanju eteričnih ulja objavio je još 1881. R. Koch. Našao je da eteričnim uljem impregnirani deblji konac iznad bujona inokuliranog s bakterijama ubija bakterije. Aromatogram (aroma-antibiogram) je postupak u aromaterapiji analogan antibiogramu, kojim se dokazuje antimikrobno djelovanje eteričnih ulja na čiste kulture patogenih bakterija izoliranih iz krvi, urina, sline, kože, upalnih procesa i nezaobilazan je postupak u kliničkoj primjeni eteričnih ulja (slika 64).
+
+![Zone inhibicije rasta bakterije Staphylococcus aureus oko diskova natopljenih eteričnim uljima](/images/slika64.jpg)
+
+*Slika 64. Zone inhibicije rasta bakterije Staphylococcus aureus oko diskova natopljenih eteričnim uljima.*
+
+[← Povratak na Poglavlje 13](../poglavlje-13)
+
+  </div>
+
+</ChapterLayout>

@@ -1,0 +1,74 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Untitled',
+  description = 'Sadržaj poglavlja 1 - Untitled'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(1);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={1}
+  primaryColor="emerald"
+  prevLink="/poglavlje-1/" 
+  nextLink="/poglavlje-2/" 
+  prevText="← Poglavlje 1" 
+  nextText="Poglavlje 2 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Mikroskopija." 
+  ctaPrimaryText="Poglavlje 2" 
+  ctaPrimaryLink="/poglavlje-2/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-1/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 1', url: '/poglavlje-1/' },
+    { name: 'Untitled', url: '/poglavlje-1/untitled/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={1} 
+    currentSection="untitled" 
+    chapterTitle="Osnove laboratorijskog rada"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+---
+title: Vježba 4 - Precjepljivanje bakterija s kosog na kosi agar
+---
+
+<section class="cards-grid">
+    <article class="card-sheen">
+      <h3 class="card-sheen__title">Opis vježbe</h3>
+      <p>Bakteriološkom ušicom uzeti bakterijski materijal čiste kulture iz jedne epruvete s kosim agarom i prenijeti je pomoću bakteriološke ušice na drugi sterilni kosi agar.</p>
+    </article>
+  </section>
+
+<figure class="image-figure">
+  <img src="/images/slika14A.jpg" alt="Slika 14A – Precjepljivanje na kosi agar" />
+  <figcaption><span class="chip">Slika 14A</span> Precjepljivanje bakterijske kulture na sterilni kosi agar</figcaption>
+</figure>
+
+<figure class="image-figure">
+  <img src="/images/slika14B.jpg" alt="Slika 14B – Precjepljivanje na kosi agar" />
+  <figcaption><span class="chip">Slika 14B</span> Precjepljivanje bakterijske kulture na sterilni kosi agar</figcaption>
+</figure>
+
+  </div>
+
+</ChapterLayout>

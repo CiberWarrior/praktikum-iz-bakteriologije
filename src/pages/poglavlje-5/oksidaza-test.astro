@@ -1,0 +1,70 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Oksidaza test',
+  description = 'Sadržaj poglavlja 5 - Oksidaza test'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(5);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={5}
+  primaryColor="cyan"
+  prevLink="/poglavlje-5/" 
+  nextLink="/poglavlje-6/" 
+  prevText="← Poglavlje 5" 
+  nextText="Poglavlje 6 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Antibiotici i antimikrobna sredstva." 
+  ctaPrimaryText="Poglavlje 6" 
+  ctaPrimaryLink="/poglavlje-6/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-5/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 5', url: '/poglavlje-5/' },
+    { name: 'Oksidaza test', url: '/poglavlje-5/oksidazatest/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={5} 
+    currentSection="oksidaza-test" 
+    chapterTitle="Identifikacija bakterija"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+Test se upotrebljava kao kvalitativna metoda za dokazivanje enzima **oksidaze**. Enzim oksidaza katalizira reakciju u kojoj se elektroni koji su uklonjeni sa supstrata izravno premještaju preko lanca enzima na molekularni kisik. Ove enzime posjeduju striktno aerobne bakterije koje imaju respiratorni metabolizam, pa je pozitivan oksidaza test znak da je riječ o aerobnim bakterijama.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Princip rada</h3>
+
+Oksidaza test temelji se na bakterijskoj produkciji enzima **indofenol oksidaze**. Taj enzim u prisutnosti atmosferskog kisika katalizira oksidaciju fenilendiamina prisutnog u oksidaza reagensu do tamnoljubičaste komponente **indofenola**.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Postupak</h3>
+
+Za izvođenje testa najprije je potrebno slomiti ampulu oksidaza reagensa (**parafenilendiamino klorid**) i njime natopiti membranski filtar. Potom se puna platinska bakteriološka ušica čiste kulture bakterija razmaže po filtru. 
+
+U roku od **30 sekundi do 1 minute** pojava **tamnoplave boje** znak je pozitivne reakcije oksidaze (slika 39). Slabo izražene reakcije koje se pojavljuju nakon 2 minute ne uzimaju se kao pozitivne.
+
+![Slika 39](/images/slika39.jpg)
+
+**Slika 39.** Plavo obojenje kod pozitivnog oksidaza testa (u sredini je test negativan).
+  </div>
+
+</ChapterLayout>

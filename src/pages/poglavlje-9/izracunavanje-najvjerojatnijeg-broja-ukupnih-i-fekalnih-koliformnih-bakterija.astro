@@ -1,0 +1,218 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Izračunavanje najvjerojatnijeg broja koliformnih bakterija',
+  description = 'Sadržaj poglavlja 9 - Izračunavanje najvjerojatnijeg broja koliformnih bakterija'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(9);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={9}
+  primaryColor="yellow"
+  prevLink="/poglavlje-9/" 
+  nextLink="/poglavlje-10/" 
+  prevText="← Poglavlje 9" 
+  nextText="Poglavlje 10 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Paraziti." 
+  ctaPrimaryText="Poglavlje 10" 
+  ctaPrimaryLink="/poglavlje-10/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-9/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 9', url: '/poglavlje-9/' },
+    { name: 'Izračunavanje najvjerojatnijeg broja koliformnih bakterija', url: '/poglavlje-9/izraunavanjenajvjerojatnijegbrojakoliformnihbakterija/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={9} 
+    currentSection="izračunavanje-najvjerojatnijeg-broja-koliformnih-bakterija" 
+    chapterTitle="Gljivice"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+Titar je najmanji volumen ili najveće razrjeđenje uzorka u kom još možemo dokazati prisutnost tražene skupine ili vrste bakterija. Ako je npr. zadnja pozitivna reakcija dobivena u epruveti s nacijepljenim 10<sup>-3</sup> mL, titar će biti 10<sup>-3</sup> ili 0,001 mL.
+
+Tablice po McCradyju objavljene u [Standard Methods for the Examination of Water and Wastewater (2005.)](https://www.standardmethods.org/doi/book/10.2105/smww.2882) (tablica 3) služe za izračunavanje najvjerojatnijeg broja bakterija iz očitanog titra. Kako bismo tablice mogli koristiti, isti volumen uzorka treba biti nacijepljen po tri ili pet puta. Nakon očitavanja titra dobivamo kombinaciju pozitivnih reakcija. U produžetku tablice na osnovi dobivene kombinacije očita se najvjerojatniji broj bakterija (engl. Most Probable Number, MPN) po 100 mL uzorka.
+
+**Primjer**: Ako je nacijepljeno u epruvete 10, 1 i 0,1 mL s tri ponavljanja, a s nacijepljenih 10 mL u sve tri epruvete dobivena pozitivna reakcija, s nacijepljenih 1 mL u dvije epruvete dobivena pozitivna reakcija, a s nacijepljenih 0,1 mL u jednoj epruveti dobivena pozitivna reakcija, dobivamo kombinaciju 3-2-1. U produžetku tablice vidimo da to odgovara najvjerojatnijem broju bakterija 150/100 mL.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">📊 Tablica 3. Primjer tablice po McCradyju</h3>
+
+| Pozitivne epruvete | MPN* / 100 mL | Pozitivne epruvete | MPN* / 100 mL |
+|-------------------|---------------|-------------------|---------------|
+| 10 mL | 1,0 mL | 0,1 mL | 3 pon.* | 5 pon.* | 10 mL | 1,0 mL | 0,1 mL | 3 pon.* | 5 pon.* |
+| 0 | 0 | 0 | &lt; 3 | &lt; 2 | 4 | 1 | 1 | - | 21 |
+| 0 | 0 | 1 | 3 | 2 | 4 | 1 | 2 | - | 26 |
+| 0 | 1 | 0 | 3 | 2 | 4 | 2 | 0 | - | 22 |
+| 0 | 2 | 0 | 6 | 4 | 4 | 2 | 1 | - | 26 |
+| 1 | 0 | 0 | 4 | 2 | 4 | 3 | 0 | - | 27 |
+| 1 | 0 | 1 | 7 | 4 | 4 | 3 | 1 | - | 33 |
+| 1 | 1 | 0 | 7 | 4 | 4 | 4 | 0 | - | 34 |
+| 1 | 1 | 1 | 11 | 6 | 5 | 0 | 0 | - | 23 |
+| 1 | 2 | 0 | 11 | 6 | 5 | 0 | 1 | - | 31 |
+| 2 | 0 | 0 | 9 | 5 | 5 | 0 | 2 | - | 43 |
+| 2 | 0 | 1 | 14 | 7 | 5 | 1 | 0 | - | 33 |
+| 2 | 1 | 0 | 15 | 7 | 5 | 1 | 1 | - | 46 |
+| 2 | 1 | 1 | 20 | 9 | 5 | 1 | 2 | - | 63 |
+| 2 | 2 | 0 | 21 | 9 | 5 | 2 | 0 | - | 49 |
+| 2 | 2 | 1 | 28 | - | 5 | 2 | 1 | - | 70 |
+| 2 | 3 | 0 | 30 | 12 | 5 | 2 | 2 | - | 94 |
+| 3 | 0 | 0 | 23 | 8 | 5 | 3 | 0 | - | 79 |
+| 3 | 0 | 1 | 39 | 11 | 5 | 3 | 1 | - | 110 |
+| 3 | 0 | 2 | 64 | - | 5 | 3 | 2 | - | 140 |
+| 3 | 1 | 0 | 43 | 11 | 5 | 3 | 3 | - | 180 |
+| 3 | 1 | 1 | 75 | 14 | 5 | 4 | 0 | - | 130 |
+| 3 | 1 | 2 | 120 | - | 5 | 4 | 1 | - | 170 |
+| 3 | 2 | 0 | 93 | 14 | 5 | 4 | 2 | - | 220 |
+| 3 | 2 | 1 | 150 | 17 | 5 | 4 | 3 | - | 280 |
+| 3 | 2 | 2 | 210 | - | 5 | 4 | 4 | - | 350 |
+| 3 | 3 | 0 | 240 | - | 5 | 5 | 0 | - | 240 |
+| 3 | 3 | 1 | 460 | - | 5 | 5 | 1 | - | 350 |
+| 3 | 3 | 2 | 1100 | - | 5 | 5 | 2 | - | 540 |
+| 3 | 3 | 3 | 2400 | - | 5 | 5 | 3 | - | 920 |
+| 4 | 0 | 0 | - | 13 | 5 | 5 | 4 | - | 1600 |
+| 4 | 0 | 1 | - | 17 | 5 | 5 | 5 | - | 2400 |
+| 4 | 1 | 0 | - | 17 | | | | | |
+
+**Legenda:**
+- **MPN** = najvjerojatniji broj bakterija (Most Probable Number)
+- **3 pon.** = tri serije ponavljanja
+- **5 pon.** = pet serija ponavljanja
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Tablice po GOST-u</h3>
+
+Tablice po GOST-u (Gospodarski državni standardi Rusije, tablica 4) služe za izračunavanje koli-indeksa i koli-titra iz očitanog titra ako je određeni volumen uzorka nacijepljen samo jedan put, bez ponavljanja.
+
+**Koli-indeks** je najvjerojatniji broj bakterija / 1000 mL, a **koli-titar** najmanji volumen uzorka izražen u mL u kom još možemo naći tražene bakterije. Tablice se koriste tako da uzmemo u obzir rang nacijepljenih volumena iz serije decimalnog razrjeđenja pa u epruvetama imamo kombinaciju pozitivnih i negativnih reakcija.
+
+**Primjer**: Ako je pozitivna reakcija dobivena u epruvetama s nacijepljenim 10, 1 i 0,1 mL, a kod viših razrjeđenja reakcija je bila negativna, koristimo se tablicom koja u gornjem lijevom uglu počinje s 10 mL. Kod kombinacije +++- koli-indeks bit će 23800 / 1000 mL, a koli-titar 0,04 mL.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">🧪 Tablica 4. Primjer tablica po GOST-u</h3>
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 10 mL, 1 mL, 0,1 mL, 0,01 mL</h4>
+
+| 10 mL | 1 mL | 0,1 mL | 0,01 mL | Koli-indeks | Koli-titar |
+|-------|------|--------|---------|-------------|------------|
+| - | - | - | - | &lt;90 | >11,1 |
+| - | - | - | + | 90 | 11,1 |
+| - | - | + | - | 90 | 11,1 |
+| - | + | - | - | 95 | 10,5 |
+| - | - | + | + | 180 | 5,6 |
+| - | + | - | + | 190 | 5,3 |
+| - | + | + | - | 220 | 4,6 |
+| + | - | - | - | 230 | 4,3 |
+| - | + | + | + | 280 | 3,6 |
+| + | - | - | + | 920 | 1,1 |
+| + | - | + | - | 940 | 1,0 |
+| + | - | + | + | 1 800 | 0,6 |
+| + | + | - | - | 2 300 | 0,4 |
+| + | + | - | + | 9 600 | 0,1 |
+| + | + | + | - | 23 800 | 0,04 |
+| + | + | + | + | >23 800 | &lt;0,01 |
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 1 mL, 0,1 mL, 0,01 mL, 0,001 mL</h4>
+
+| 1 mL | 0,1 mL | 0,01 mL | 0,001 mL | Koli-indeks | Koli-titar |
+|------|--------|---------|----------|-------------|------------|
+| - | - | - | - | &lt;900 | >1,11 |
+| - | - | - | + | 900 | 1,11 |
+| - | - | + | - | 900 | 1,11 |
+| - | + | - | - | 950 | 1,05 |
+| - | - | + | + | 1 800 | 0,55 |
+| - | + | - | + | 1 900 | 0,53 |
+| - | + | + | - | 2 200 | 0,46 |
+| + | - | - | - | 2 300 | 0,43 |
+| - | + | + | + | 2 800 | 0,36 |
+| + | - | - | + | 9 200 | 0,11 |
+| + | - | + | - | 9 400 | 0,10 |
+| + | - | + | + | 18 000 | 0,06 |
+| + | + | - | - | 23 000 | 0,04 |
+| + | + | - | + | 96 000 | 0,01 |
+| + | + | + | - | 238 000 | 0,004 |
+| + | + | + | + | >238 000 | &lt;0,001 |
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 0,1 mL, 0,01 mL, 0,001 mL, 0,0001 mL</h4>
+
+| 0,1 mL | 0,01 mL | 0,001 mL | 0,0001 mL | Koli-indeks | Koli-titar |
+|--------|---------|----------|-----------|-------------|------------|
+| - | - | - | - | &lt;9 000 | >1,1 |
+| - | - | - | + | 9 000 | 1,11 |
+| - | - | + | - | 9 000 | 1,10 |
+| - | + | - | - | 9 500 | 1,05 |
+| - | - | + | + | 18 000 | 0,56 |
+| - | + | - | + | 19 000 | 0,53 |
+| - | + | + | - | 22 000 | 0,46 |
+| + | - | - | - | 23 000 | 0,43 |
+| - | + | + | + | 28 000 | 0,36 |
+| + | - | - | + | 92 000 | 0,11 |
+| + | - | + | - | 94 000 | 0,10 |
+| + | - | + | + | 180 000 | 0,06 |
+| + | + | - | - | 230 000 | 0,04 |
+| + | + | - | + | 960 000 | 0,01 |
+| + | + | + | - | 2 380 000 | 0,004 |
+| + | + | + | + | >2 380 000 | &lt;0,001 |
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 0,01 mL, 0,001 mL, 0,0001 mL, 0,00001 mL</h4>
+
+| 0,01 mL | 0,001 mL | 0,0001 mL | 0,00001 mL | Koli-indeks | Koli-titar |
+|---------|----------|-----------|------------|-------------|------------|
+| - | - | - | - | &lt;90 000 | >0,0111 |
+| - | - | - | + | 90 000 | 0,0111 |
+| - | - | + | - | 95 000 | 0,0111 |
+| - | + | - | - | 90 000 | 0,0105 |
+| - | - | + | + | 180 000 | 0,0056 |
+| - | + | - | + | 190 000 | 0,0053 |
+| - | + | + | - | 220 000 | 0,0046 |
+| + | - | - | - | 230 000 | 0,0043 |
+| - | + | + | + | 280 000 | 0,0036 |
+| + | - | - | + | 920 000 | 0,0011 |
+| + | - | + | - | 940 000 | 0,0010 |
+| + | - | + | + | 1 800 000 | 0,0006 |
+| + | + | - | - | 2 300 000 | 0,0004 |
+| + | + | - | + | 9 600 000 | 0,0001 |
+| + | + | + | - | 23 800 000 | 0,00004 |
+| + | + | + | + | >100 000 000 | &lt;0,00001 |
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 0,001 mL, 0,0001 mL, 0,00001 mL, 0,000001 mL</h4>
+
+| 0,001 mL | 0,0001 mL | 0,00001 mL | 0,000001 mL | Koli-indeks | Koli-titar |
+|----------|-----------|------------|-------------|-------------|------------|
+| - | - | - | - | &lt;900 000 | >0,0111 |
+| - | - | - | + | 900 000 | 0,0111 |
+| - | - | + | - | 900 000 | 0,0111 |
+| - | + | - | - | 950 000 | 0,0105 |
+| - | - | + | + | 1 800 000 | 0,0056 |
+| - | + | - | + | 1 900 000 | 0,0053 |
+| - | + | + | - | 2 200 000 | 0,0046 |
+| + | - | - | - | 2 300 000 | 0,0043 |
+| - | + | + | + | 2 800 000 | 0,0036 |
+| + | - | - | + | 9 200 000 | 0,0011 |
+| + | - | + | - | 9 400 000 | 0,0010 |
+| + | - | + | + | 18 000 000 | 0,0006 |
+| + | + | - | - | 23 000 000 | 0,0004 |
+| + | + | - | + | 96 000 000 | 0,0001 |
+| + | + | + | - | 238 000 000 | 0,00004 |
+| + | + | + | + | >1 000 000 000 | &lt;0,00001 |
+  </div>
+
+</ChapterLayout>

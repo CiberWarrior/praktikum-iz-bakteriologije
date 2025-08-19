@@ -1,0 +1,185 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Pravila reda i ponašanja',
+  description = 'Sadržaj poglavlja 1 - Pravila reda i ponašanja'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(1);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={1}
+  primaryColor="emerald"
+  prevLink="/poglavlje-1/" 
+  nextLink="/poglavlje-2/" 
+  prevText="← Poglavlje 1" 
+  nextText="Poglavlje 2 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Mikroskopija." 
+  ctaPrimaryText="Poglavlje 2" 
+  ctaPrimaryLink="/poglavlje-2/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-1/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 1', url: '/poglavlje-1/' },
+    { name: 'Pravila reda i ponašanja', url: '/poglavlje-1/pravilaredaiponaanja/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={1} 
+    currentSection="pravila-reda-i-ponašanja" 
+    chapterTitle="Osnove laboratorijskog rada"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 15px; padding: 25px; margin: 20px 0; border: 2px solid #1976d2;">
+  <div style="display: flex; align-items: center; margin-bottom: 20px;">
+    <span style="font-size: 24px; margin-right: 12px;">📋</span>
+    <h4 style="margin: 0; color: #0d47a1; font-weight: 600; font-size: 18px;">Osnovna pravila ponašanja</h4>
+  </div>
+  
+  <div style="display: grid; gap: 15px;">
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #2196f3;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">🚪</span>
+        <div>
+          <strong style="color: #1565c0; font-size: 15px;">Ulazak u praktikum</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Prije ulaska u praktikum treba odložiti osobne stvari u ormarić, promijeniti obuću i odjenuti bijelu kutu. Prilikom ulaska i napuštanja praktikuma obvezno treba oprati i antiseptikom tretirati ruke.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #2196f3;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">🪟</span>
+        <div>
+          <strong style="color: #1565c0; font-size: 15px;">Održavanje sterilnosti</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Za vrijeme praktične nastave prozori i vrata praktikuma moraju biti zatvoreni da se što više izbjegne kontaminacija hranjivih sterilnih medija bakterijama, koje prilikom propuha donosi zračno strujanje.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #f57c00;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">⚠️</span>
+        <div>
+          <strong style="color: #ef6c00; font-size: 15px;">Zabranjeno kretanje</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Nepotrebno prolaženje praktikumom, izlaženje i ponovno ulaženje treba strogo izbjegavati jer se time podižu bakterije s poda, odjeće i drugih površina u zrak, što često uzrokuje kontaminacije sterilnih bakterioloških hranjivih medija.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #d32f2f;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">🚫</span>
+        <div>
+          <strong style="color: #c62828; font-size: 15px;">Stroge zabrane</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Zabranjeno je sjedenje na laboratorijskim stolovima. Dugu kosu treba povezati, nakit s ruku odložiti.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #388e3c;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">😷</span>
+        <div>
+          <strong style="color: #2e7d32; font-size: 15px;">Higijena i zaštita</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Studenti se moraju strogo pridržavati pravila tehnike rada s bakterijskim materijalom te pravila antisepse i osobne higijene (nošenje zaštitne maske pri radu, izbjegavanje suvišna razgovora, a kihati i kašljati obvezno u papirnati rupčić).
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #7b1fa2;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">🧪</span>
+        <div>
+          <strong style="color: #6a1b9a; font-size: 15px;">Rukovanje instrumentima</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Ne stavljati upotrijebljene instrumente i stakleni materijal na radnu površinu, već u za to pripremljene i označene posude. Bakteriološku ušicu treba obvezno spaliti prije precjepljivanja bakterijskog materijala i odmah nakon obavljena eksperimenta!
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #795548;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">🧫</span>
+        <div>
+          <strong style="color: #5d4037; font-size: 15px;">Rad s kulturama</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Neupotrijebljene bakterijske kulture i podloge te razvijene kulture bakterija iz prethodnih vježbi moraju stajati na vidljivu mjestu radnog stola i ne smiju se koristiti za pokus bez dopuštenja voditelja praktikuma.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #00796b;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">🧽</span>
+        <div>
+          <strong style="color: #00695c; font-size: 15px;">Čišćenje radnog mjesta</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Radne površine nakon završetka praktikuma treba dezinficirati i posušiti. Radno mjesto nakon završenih vježbi nužno je ostaviti čisto i spremno za sljedeću vježbu.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #ff5722;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">🔥</span>
+        <div>
+          <strong style="color: #d84315; font-size: 15px;">Sterilizacija ušice</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Posebnu pozornost valja obratiti pravilnu ispaljivanju bakteriološke ušice, prije i nakon svakog precjepljivanja bakterijskog materijala.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #3f51b5;">
+      <div style="display: flex; align-items: flex-start;">
+        <span style="font-size: 18px; margin-right: 10px; margin-top: 2px;">🔬</span>
+        <div>
+          <strong style="color: #303f9f; font-size: 15px;">Održavanje mikroskopa</strong>
+          <p style="margin: 5px 0 0 0; color: #37474f; line-height: 1.5; font-size: 14px;">
+            Potrebno je pažljivo očistiti okulare i objektive mikroskopa, posebno imerzioni objektiv da se ne ošteti i ne zamuti.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+  </div>
+
+</ChapterLayout>

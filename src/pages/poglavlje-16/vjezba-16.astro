@@ -1,0 +1,58 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Vježbe 16: Bakterije mliječne fermentacije',
+  description = 'Sadržaj poglavlja 16 - Vježbe 16: Bakterije mliječne fermentacije'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(16);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={16}
+  primaryColor="sky"
+  prevLink="/poglavlje-16/" 
+  nextLink="/poglavlje-17/" 
+  prevText="← Poglavlje 16" 
+  nextText="Poglavlje 17 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Biogeokemijski ciklusi." 
+  ctaPrimaryText="Poglavlje 17" 
+  ctaPrimaryLink="/poglavlje-17/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-16/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 16', url: '/poglavlje-16/' },
+    { name: 'Vježbe 16: Bakterije mliječne fermentacije', url: '/poglavlje-16/vjebe16bakterijemlijenefermentacije/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={16} 
+    currentSection="vježbe-16:-bakterije-mliječne-fermentacije" 
+    chapterTitle="Bakterije mliječne fermentacije"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+**Vježba 16-1:** [Dokazivanje bakterija mliječne fermentacije u acidofilnom jogurtu](/poglavlje-16/vjezbe/vjezba-16-1/)
+
+[← Povratak na Poglavlje 16](../) | [Povratak na Početnu stranicu](/)
+
+  </div>
+
+</ChapterLayout>

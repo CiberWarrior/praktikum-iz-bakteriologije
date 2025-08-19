@@ -1,0 +1,72 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Autoklaviranje',
+  description = 'Sadržaj poglavlja 2 - Autoklaviranje'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(2);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={2}
+  primaryColor="blue"
+  prevLink="/poglavlje-2/" 
+  nextLink="/poglavlje-3/" 
+  prevText="← Poglavlje 2" 
+  nextText="Poglavlje 3 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Bojanje mikroorganizama." 
+  ctaPrimaryText="Poglavlje 3" 
+  ctaPrimaryLink="/poglavlje-3/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-2/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 2', url: '/poglavlje-2/' },
+    { name: 'Autoklaviranje', url: '/poglavlje-2/autoklaviranje/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={2} 
+    currentSection="autoklaviranje" 
+    chapterTitle="Mikroskopija"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<div style="background: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%); border-radius: 15px; padding: 25px; margin: 20px 0;">
+  
+  <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; border-left: 4px solid #2196f3;">
+    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+      <h3 style="margin: 0; color: #1565c0; font-size: 1.3rem; font-weight: 600;">Sterilizacija autoklaviranjem</h3>
+    </div>
+    <p style="margin: 0 0 15px 0; color: #2d3748; line-height: 1.6;">
+      Podrazumijeva upotrebu pregrijane (iznad 100°C) vodene pare pod pritiskom, u posebnom aparatu autoklavu, što je najučinkovitije sredstvo za ubijanje vegetativnih i sporogenih oblika mikroorganizama. Autoklav je napravljen od vrlo čvrstog metala, s dvostrukim zidom i poklopcem koji hermetički zatvara prostor sterilizacije. Opremljen je ventilom za izlaz zraka prije i ispuštanje pare poslije sterilizacije, termometrom i manometrom, sigurnosnim ventilom te stupcem za očitavanje razine vode u autoklavu.
+    </p>
+    <p style="margin: 0 0 15px 0; color: #2d3748; line-height: 1.6;">
+      Na metalnu pregradu iznad vodenog sloja s električnim grijačima u donjem dijelu autoklava stavlja se materijal za sterilizaciju (tikvice s medijima, epruvete i dr). Na početku sterilizacije ventil za izlaz zraka treba biti otvoren. Vodena para koja nastaje zagrijavanjem vode potiskuje zrak iz radnog prostora autoklava. Ventil za izlaz zraka postupno se zatvara kad para počinje izlaziti te pošto je zrak potisnut hermetički zatvara radni prostor. Vodena para koja se stvara ne izlazi iz hermetički zatvorenog prostora, u kojem se stoga povećava pritisak. Pod povećanim pritiskom voda na dnu autoklava vrjet će na temperaturi iznad 100°C.
+    </p>
+    <p style="margin: 0; color: #2d3748; line-height: 1.6;">
+      Na taj način u radnom prostoru autoklava dobivamo pregrijanu vodenu paru pod pritiskom. Kad prođe vrijeme sterilizacije, postupno se otvori ventil za izlaz pare te se (kad je sva para izašla) autoklav može otvoriti. Zasićena vodena para povećanjem pritiska 0,5 ATM ima temperaturu 112°C te uništava vegetativne i sporogene oblike mikroorganizama za 90 min. Povećanjem pritiska na 1,0 ATM na temperaturi od 121°C potpunu učinak sterilizacije postiže se za 20 min, a povećanjem pritiska za 2,0 ATM na temperaturi od 134°C za 10 min.
+    </p>
+  </div>
+
+</div>
+  </div>
+
+</ChapterLayout>

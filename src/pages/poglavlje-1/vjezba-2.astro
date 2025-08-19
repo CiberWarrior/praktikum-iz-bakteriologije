@@ -1,0 +1,71 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Untitled',
+  description = 'Sadržaj poglavlja 1 - Untitled'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(1);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={1}
+  primaryColor="emerald"
+  prevLink="/poglavlje-1/" 
+  nextLink="/poglavlje-2/" 
+  prevText="← Poglavlje 1" 
+  nextText="Poglavlje 2 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Mikroskopija." 
+  ctaPrimaryText="Poglavlje 2" 
+  ctaPrimaryLink="/poglavlje-2/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-1/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 1', url: '/poglavlje-1/' },
+    { name: 'Untitled', url: '/poglavlje-1/untitled/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={1} 
+    currentSection="untitled" 
+    chapterTitle="Osnove laboratorijskog rada"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+---
+title: Vježba 2 - Izolacija čiste kulture iz bakterijske suspenzije
+---
+
+<section class="cards-grid">
+    <article class="card-sheen">
+      <h3 class="card-sheen__title">Opis vježbe</h3>
+      <p>Izolacija čiste kulture bakterija obuhvaća standardne postupke u bakteriologiji, s konačnim ciljem dobivanja bakterijske kulture na kosom agaru, koja služi kao inokulum za sva daljnja istraživanja njezinih morfoloških, genetičkih i biokemijskih svojstava. Osnovno je pravilo da se bakterije mogu izolirati iz tekuće faze – suspenzije, a to su: krv, slina, urin, likvor, voda, mlijeko, suspenzija tla i dr.</p>
+      <p>U epruveti sa sterilnom destiliranom vodom uz dodatak 0,3% NaCl homogenizirati bakteriološkom ušicom nekoliko čistih bakterijskih kultura s kosog agara te tako pripremiti mješovitu kulturu. U suspenziju uroniti sterilnu ušicu pa razmazati metodom iscrpljivanja bakterijskog materijala po krutoj podlozi s hranjivim agarom i inkubirati na 22°C/72 h. Metodom iscrpljivanja materijala dobiva se porast pojedinačnih kolonija na krutoj hranjivoj podlozi (slika 11).</p>
+    </article>
+  </section>
+
+  <figure class="image-figure">
+    <img src="/images/slika11.jpg" alt="Izolacija čiste kulture – kolonije na hranjivom agaru" />
+    <figcaption><span class="chip">Slika 11</span> Izolacija čiste kulture – kolonije na hranjivom agaru</figcaption>
+  </figure>
+
+
+  </div>
+
+</ChapterLayout>

@@ -1,0 +1,114 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Stvaranje sumporovodika',
+  description = 'Sadržaj poglavlja 5 - Stvaranje sumporovodika'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(5);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={5}
+  primaryColor="cyan"
+  prevLink="/poglavlje-5/" 
+  nextLink="/poglavlje-6/" 
+  prevText="← Poglavlje 5" 
+  nextText="Poglavlje 6 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Antibiotici i antimikrobna sredstva." 
+  ctaPrimaryText="Poglavlje 6" 
+  ctaPrimaryLink="/poglavlje-6/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-5/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 5', url: '/poglavlje-5/' },
+    { name: 'Stvaranje sumporovodika', url: '/poglavlje-5/stvaranjesumporovodika/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={5} 
+    currentSection="stvaranje-sumporovodika" 
+    chapterTitle="Identifikacija bakterija"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+U epruvete za dokazivanje produkcije indola može se objesiti iznad površine bujona traka filtar-papira natopljena 5%-tnom otopinom olovnog acetata, osušena u termostatu, radi ispitivanja produkcije sumporovodika (H<sub>2</sub>S) iz aminokiselina koje sadrže sumpor.
+
+Ako bakterija razgrađuje aminokiseline sa sumporom uz produkciju H<sub>2</sub>S, H<sub>2</sub>S će izlaziti iz bujona i na filtar-papiru reagirati s olovnim acetatom uz tvorbu crnog precipitata **olovnog sulfida (PbS)**. Filtar-papir će pri tome pocrniti u donjem dijelu.
+
+![Slika 32](/images/slika32.jpg)
+
+**Slika 32.** Dokazivanje H<sub>2</sub>S na filtar-papiru sa olovnim acetatom.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Preciznije dokazivanje na SIM mediju</h3>
+
+<div style="max-width: 520px; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px auto;">
+  <div style="display: flex; align-items: center; margin-bottom: 15px;">
+    <span style="font-size: 24px; margin-right: 10px;">🧫</span>
+    <h3 style="margin: 0; color: #2c3e50; font-weight: 600; font-size: 18px;">Sastav SIM medija</h3>
+  </div>
+  <div style="background: white; border-radius: 10px; padding: 15px;">
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 15px; align-items: center;">
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Pepton iz kazeina</span>
+      <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">20,0 g</span>
+      
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Pepton iz mesa</span>
+      <span style="background: #f39c12; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">6,6 g</span>
+      
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">C₆H₁₁FeNO₇</span>
+      <span style="background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,2 g</span>
+      
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Na₂S₂O₃ × 5H₂O</span>
+      <span style="background: #9b59b6; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">0,2 g</span>
+      
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Agar</span>
+      <span style="background: #e91e63; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">3,0 g</span>
+      
+      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Destilirana voda</span>
+      <span style="background: #2ecc71; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1000 mL</span>
+    </div>
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ecf0f1;">
+      <span style="font-weight: 600; color: #2c3e50; font-size: 14px;">pH = 7,3 ± 0,2</span>
+    </div>
+  </div>
+</div>
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Višestruka primjena SIM medija</h3>
+
+Podloga **SIM** služi za dokazivanje:
+- **S** - stvaranja H₂S 
+- **I** - produkcije indola
+- **M** - pokretljivosti u polukrutom mediju
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">Postupak testa</h4>
+
+Medij se inokulira čistom bakterijskom kulturom metodom uboda i inkubira na **35°C** tijekom **24 sata**.
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">Interpretacija rezultata</h4>
+
+Nakon inkubacije, produkcija H₂S dokazuje se kao **crno obojenje medija**. Nakon očitavanja produkcije H₂S, na površinu medija može se dodati **Kovaczev reagens** te se očitava reakcija na produkciju indola.
+
+![Slika 33](/images/slika33.jpg)
+
+**Slika 33.** Pozitivna reakcija na proizvodnju sumporovodika (desno) te negativna (lijevo) i pozitivna (u sredini) reakcija na produkciju indola.
+
+  </div>
+
+</ChapterLayout>

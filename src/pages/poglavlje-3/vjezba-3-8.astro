@@ -1,0 +1,93 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Vježba 3.8 - Negativno bojenje kapsula',
+  description = 'Sadržaj poglavlja 3 - Vježba 3.8 - Negativno bojenje kapsula'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(3);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={3}
+  primaryColor="purple"
+  prevLink="/poglavlje-3/" 
+  nextLink="/poglavlje-4/" 
+  prevText="← Poglavlje 3" 
+  nextText="Poglavlje 4 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Kultivacija mikroorganizama." 
+  ctaPrimaryText="Poglavlje 4" 
+  ctaPrimaryLink="/poglavlje-4/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-3/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 3', url: '/poglavlje-3/' },
+    { name: 'Vježba 3.8 - Negativno bojenje kapsula', url: '/poglavlje-3/vjeba38-negativnobojenjekapsula/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={3} 
+    currentSection="vježba-3.8---negativno-bojenje-kapsula" 
+    chapterTitle="Bojanje mikroorganizama"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Cilj vježbe</h3>
+
+Savladavanje tehnike negativnog bojenja za dokazivanje bakterijskih kapsula.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Materijali i reagensi</h3>
+
+- Čiste predmetnice (2 komada)
+- 5%-tna otopina nigrozina (ili crni tuš)
+- Čista kultura bakterija s kapsulama
+- Bakteriološka ušica
+- Karbol fuksin ili metilensko modrilo (za naknadno bojenje)
+- Mikroskop s imerzionim objektivom
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Postupak</h3>
+
+1. **Priprema razmaza** - Na jedan kraj suhe, čiste predmetnice kapnuti kap **5%-tne otopine nigrozina** (ili crnog tuša)
+2. **Suspendiranje bakterija** - U kapljicu suspendirati bakteriološkom ušicom materijal čiste kulture bakterija
+3. **Razmaz** - Drugom predmetnicom dotaknuti jednim krajem kapljicu nigrozina
+4. **Čekanje širenja** - Čekati da se kapljica proširi uzduž svoga ruba
+5. **Razmazivanje** - Razvući bojilo s bakterijskom kulturom preko površine prve predmetnice u što tanjem razmazu
+6. **Sušenje** - Osušiti na zraku, **ne fiksirati plamenom**
+   - *Kapsule su neionske (ne posjeduju naboj), pa se boja samo nataloži na njih bez povezivanja kemijskim vezama*
+7. **Prvo promatranje** - Pripremljen preparat promatrati imerzijskim objektivom
+8. **Naknadno bojenje** - Da bi se kapsula razlikovala od bakterija, osušeni preparat naknadno obojiti jednom bojom (najčešće **karbol fuksinom** ili **metilenskim modrilom**)
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Rezultati</h3>
+
+U naknadno obojenu tuš-preparatu vidjet će se:
+- **Kapsule kao bezbojni omotač** (prozirne)
+- **Protoplazma bakterija** bit će obojena ovisno o boji koja je upotrijebljena
+- **Tamna pozadina** zbog nigrozina
+
+<img src="/images/slika26.jpg" alt="Bezbojne kapsule vidljive u tamnoj podlozi s nigrozinom" className="hover-zoom" style="cursor: pointer;" />
+
+*Slika 26. Bezbojne kapsule vidljive u tamnoj podlozi s nigrozinom.*
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Zaključak</h3>
+
+Negativno bojenje kapsula omogućuje vizualizaciju bakterijskih kapsula bez oštećenja njihove strukture, jer se bojilo ne veže direktno na kapsule već stvara tamnu pozadinu koja ih čini vidljivima.
+  </div>
+
+</ChapterLayout>

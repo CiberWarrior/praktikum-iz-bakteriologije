@@ -1,0 +1,152 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Laboratorijski pribor u bakteriologiji',
+  description = 'Sadržaj poglavlja 1 - Laboratorijski pribor u bakteriologiji'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(1);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={1}
+  primaryColor="emerald"
+  prevLink="/poglavlje-1/" 
+  nextLink="/poglavlje-2/" 
+  prevText="← Poglavlje 1" 
+  nextText="Poglavlje 2 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Mikroskopija." 
+  ctaPrimaryText="Poglavlje 2" 
+  ctaPrimaryLink="/poglavlje-2/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-1/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 1', url: '/poglavlje-1/' },
+    { name: 'Laboratorijski pribor u bakteriologiji', url: '/poglavlje-1/laboratorijskipriborubakteriologiji/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={1} 
+    currentSection="laboratorijski-pribor-u-bakteriologiji" 
+    chapterTitle="Osnove laboratorijskog rada"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<div style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c8 100%); border-radius: 15px; padding: 25px; margin: 25px 0; border-left: 5px solid #4caf50;">
+  <p style="font-size: 1.1rem; line-height: 1.7; margin: 0 0 20px 0; color: #2c3e50;">
+    Bakteriološki laboratorij za normalno odvijanje rada mora biti opremljen standardnim priborom, koji uključuje:
+  </p>
+</div>
+
+<div style="background: linear-gradient(135deg, #f0f4f8 0%, #e1e8ed 100%); border-radius: 15px; padding: 25px; margin: 20px 0;">
+  <h4 style="margin: 0 0 20px 0; color: #2980b9; font-weight: 600; font-size: 18px;">Standardni laboratorijski pribor</h4>
+  
+  <div style="display: grid; gap: 12px;">
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Winklerove boce</strong>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Erlenmeyerove tikvice različitih volumena</strong>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Epruvete s čepovima</strong>
+      <span style="margin-left: auto; color: #666; font-size: 14px; font-style: italic;">(metalni ili plastični)</span>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Durhamove epruvete</strong>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Petrijeve zdjelice različite veličine</strong>
+      <span style="margin-left: auto; color: #666; font-size: 14px; font-style: italic;">(staklene ili plastične)</span>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Predmetna i pokrovna stakalca</strong>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Pipete</strong>
+      <span style="margin-left: auto; color: #666; font-size: 14px; font-style: italic;">(staklene, plastične ili automatske)</span>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Drygalski štapić</strong>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Staklene čaše</strong>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Kapalice</strong>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Plamenici</strong>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Bakteriološke ušice</strong>
+      <span style="margin-left: auto; color: #666; font-size: 14px; font-style: italic;">(eze)</span>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Pincete</strong>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.9); padding: 12px; border-radius: 8px; border-left: 3px solid #3498db; display: flex; align-items: center;">
+      <span style="width: 8px; height: 8px; background: #3498db; border-radius: 50%; margin-right: 12px; flex-shrink: 0;"></span>
+      <strong style="color: #2c3e50;">Stolić ili kadice za bojenje mikroskopskih preparata</strong>
+    </div>
+    
+  </div>
+</div>
+
+<div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 15px; padding: 20px; margin: 20px 0; border-left: 5px solid #2196f3;">
+  <div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <span style="font-size: 18px; margin-right: 8px;">ℹ️</span>
+    <h4 style="margin: 0; color: #1565c0; font-weight: 600; font-size: 16px;">Važna napomena</h4>
+  </div>
+  <p style="margin: 0; color: #2c3e50; font-size: 15px; line-height: 1.6;">
+    Sav laboratorijski pribor treba biti redovito održavan, steriliziran i pravilno uskladišten kako bi se osigurala sigurnost i preciznost u radu.
+  </p>
+</div>
+
+  </div>
+
+</ChapterLayout>

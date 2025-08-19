@@ -70,15 +70,44 @@ function parseMDXFile(filePath) {
   return { frontmatter, body };
 }
 
+// Funkcija za čišćenje MDX sadržaja
+function cleanMDXContent(content) {
+  // Ukloni MDX komponente i zamijeni ih HTML-om
+  return content
+    .replace(/:::note\{\.note-lab\}([\s\S]*?):::/g, '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-tip\}([\s\S]*?):::/g, '<div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-warning\}([\s\S]*?):::/g, '<div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-danger\}([\s\S]*?):::/g, '<div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-info\}([\s\S]*?):::/g, '<div class="bg-cyan-50 border-l-4 border-cyan-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-success\}([\s\S]*?):::/g, '<div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-important\}([\s\S]*?):::/g, '<div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-exercise\}([\s\S]*?):::/g, '<div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-theory\}([\s\S]*?):::/g, '<div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-practice\}([\s\S]*?):::/g, '<div class="bg-teal-50 border-l-4 border-teal-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-lab\}([\s\S]*?):::/g, '<div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-tip\}([\s\S]*?):::/g, '<div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-warning\}([\s\S]*?):::/g, '<div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-danger\}([\s\S]*?):::/g, '<div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-info\}([\s\S]*?):::/g, '<div class="bg-cyan-50 border-l-4 border-cyan-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-success\}([\s\S]*?):::/g, '<div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-important\}([\s\S]*?):::/g, '<div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-exercise\}([\s\S]*?):::/g, '<div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-theory\}([\s\S]*?):::/g, '<div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg mb-4">$1</div>')
+    .replace(/:::note\{\.note-practice\}([\s\S]*?):::/g, '<div class="bg-teal-50 border-l-4 border-teal-500 p-4 rounded-r-lg mb-4">$1</div>');
+}
+
 // Funkcija za konverziju MDX sadržaja u Astro komponentu
 function convertMDXToAstro(mdxContent, chapterNumber, sectionName) {
   const config = CHAPTERS_CONFIG[chapterNumber];
   
+  // Očisti MDX sadržaj
+  const cleanedContent = cleanMDXContent(mdxContent);
+  
   // Osnovni Astro template
   const astroTemplate = `---
-import ChapterLayout from '../../../components/ChapterLayout.astro';
-import ChapterNavigation from '../../../components/ChapterNavigation.astro';
-import { getChapterConfig } from '../../../config/chapters';
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
 
 export interface Props {
   title?: string;
@@ -112,7 +141,7 @@ const chapterConfig = getChapterConfig(${chapterNumber});
   breadcrumbPath={[
     { name: 'Sadržaj', url: '/sadrzaj/' },
     { name: 'Poglavlje ${chapterNumber}', url: '/poglavlje-${chapterNumber}/' },
-    { name: '${sectionName}', url: '/poglavlje-${chapterNumber}/${sectionName.toLowerCase().replace(/\\s+/g, '-')}/' }
+    { name: '${sectionName}', url: '/poglavlje-${chapterNumber}/${sectionName.toLowerCase().replace(/\\s+/g, '-').replace(/[^a-z0-9-]/g, '')}/' }
   ]}
 >
   <!-- Navigacija kroz poglavlje -->
@@ -124,7 +153,7 @@ const chapterConfig = getChapterConfig(${chapterNumber});
 
   <!-- Sadržaj poglavlja -->
   <div class="prose prose-lg max-w-none">
-    ${mdxContent}
+    ${cleanedContent}
   </div>
 
 </ChapterLayout>`;

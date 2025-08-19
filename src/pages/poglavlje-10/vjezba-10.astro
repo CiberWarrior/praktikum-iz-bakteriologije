@@ -1,0 +1,78 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Vježbe 10',
+  description = 'Sadržaj poglavlja 10 - Vježbe 10'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(10);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={10}
+  primaryColor="amber"
+  prevLink="/poglavlje-10/" 
+  nextLink="/poglavlje-11/" 
+  prevText="← Poglavlje 10" 
+  nextText="Poglavlje 11 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Imunologija." 
+  ctaPrimaryText="Poglavlje 11" 
+  ctaPrimaryLink="/poglavlje-11/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-10/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 10', url: '/poglavlje-10/' },
+    { name: 'Vježbe 10', url: '/poglavlje-10/vjebe10/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={10} 
+    currentSection="vježbe-10" 
+    chapterTitle="Paraziti"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Sadržaj vježbi</h3>
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">1. [Određivanje broja kolonija termofilnih bakterija](/poglavlje-10/vjezbe/vjezba-10-1)</h4>
+Kvantitativno određivanje broja kolonija termofilnih bakterija u uzorcima.
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">2. [Određivanje gnojenja tala stajskim gnojem](/poglavlje-10/vjezbe/vjezba-10-2)</h4>
+Analiza gnojenja tala stajskim gnojem pomoću termofilnih bakterija kao pokazatelja.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Ciljevi vježbi</h3>
+
+- Naučiti selektivnu izolaciju termofilnih bakterija
+- Razumjeti značaj termofila kao pokazatelja zagađenja
+- Interpretirati rezultate u ekološkom kontekstu
+- Provesti kvantitativne analize
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Potrebni materijali</h3>
+
+- **Podloge s peptonom** za termofile
+- **Inkubatori** s temperaturom 55-60°C
+- **Uzorci** vode i sedimenta
+- **Sterilni pribor** za uzorkovanje
+
+[← Povratak na Poglavlje 10](/poglavlje-10/) | [Vježba 1 →](/poglavlje-10/vjezbe/vjezba-10-1)
+
+  </div>
+
+</ChapterLayout>

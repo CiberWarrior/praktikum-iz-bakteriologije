@@ -1,0 +1,64 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Koliformne bakterije u sanitarnoj analizi',
+  description = 'Sadržaj poglavlja 9 - Koliformne bakterije u sanitarnoj analizi'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(9);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={9}
+  primaryColor="yellow"
+  prevLink="/poglavlje-9/" 
+  nextLink="/poglavlje-10/" 
+  prevText="← Poglavlje 9" 
+  nextText="Poglavlje 10 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Paraziti." 
+  ctaPrimaryText="Poglavlje 10" 
+  ctaPrimaryLink="/poglavlje-10/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-9/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 9', url: '/poglavlje-9/' },
+    { name: 'Koliformne bakterije u sanitarnoj analizi', url: '/poglavlje-9/koliformnebakterijeusanitarnojanalizi/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={9} 
+    currentSection="koliformne-bakterije-u-sanitarnoj-analizi" 
+    chapterTitle="Gljivice"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+U sanitarnoj bakteriologiji zbog praktičnih razloga uspostavljene su dvije skupine koliformnih bakterija: ukupni koliformi i fekalni koliformi, a postupak njihova dokazivanja i određivanja brojnosti naziva se kolimetrija.
+
+Ukupne koliformne bakterije razgrađuju laktozu na 35±0,5°C/48 h, a fekalne koliformne bakterije na 44,5±0,2°C/24 h, što označujemo svojstvom termotolerancije (termotolerantni sojevi koliforma). Smatra se da nalaz termotolerantnih koliforma (fekalni koliformi) upozorava sa sigurnošću na recentna (svježa) fekalna zagađenja sredine, koja su s epidemiološkog aspekta opasnija jer uz njih još mogu biti prisutne i virulentne patogene bakterije koje uzrokuju crijevna i druga oboljenja.
+
+Tzv. ukupni koliformi izgubili su boraveći u vanjskoj sredini sposobnost termotolerancije i znak su starijih fekalnih zagađenja. Sanitarna analiza vode na koliformne bakterije provodi se u tri faze nazvane u praksi kao: prethodni, potvrdni, završni test (slika 51).
+
+![Shematski prikaz izvedbe sanitarne analize vode](/images/slika51.jpg)
+
+*Slika 51. Shematski prikaz izvedbe sanitarne analize vode.*
+  </div>
+
+</ChapterLayout>

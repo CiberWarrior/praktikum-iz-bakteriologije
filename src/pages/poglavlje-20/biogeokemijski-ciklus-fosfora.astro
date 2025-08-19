@@ -1,0 +1,78 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Biogeokemijski ciklus fosfora',
+  description = 'Sadržaj poglavlja 20 - Biogeokemijski ciklus fosfora'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(20);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={20}
+  primaryColor="blue"
+  prevLink="/poglavlje-20/" 
+  nextLink="/poglavlje-21/" 
+  prevText="← Poglavlje 20" 
+  nextText="Poglavlje 21 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Antibiotička rezistencija." 
+  ctaPrimaryText="Poglavlje 21" 
+  ctaPrimaryLink="/poglavlje-21/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-20/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 20', url: '/poglavlje-20/' },
+    { name: 'Biogeokemijski ciklus fosfora', url: '/poglavlje-20/biogeokemijskiciklusfosfora/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={20} 
+    currentSection="biogeokemijski-ciklus-fosfora" 
+    chapterTitle="Biofilmovi"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+Biogeokemijski ciklus fosfora
+Ciklus fosfora u prirodi započinje asimilacijom ortofosfata (PO4
+3-) u
+biljne organizme, pri čemu nastaju organski spojevi fosfora (slika 84).
+Nakon smrti živih organizama, kemoorganoheterotrofni mikroorganizmi
+razgradnjom će stvoriti humus (organska frakcija tla), a posebna mikrofl
+ora organski će fosfor u humusu asimilirati (organski fosfor u mikroorganizmima).
+Fiziološka skupina bakterija fosfomineralizatora sposobna
+je direktno razgraditi organsku tvar do ortofosfata, koji će dijelom
+imobilizirati biljke, a dijelom mikroorganizmi. Ortofosfat je nestabilan i
+podliježe procesu kemijske fi ksacije s kalcijevim i željeznim ionima i u
+takvu ga obliku živi organizmi ne mogu asimilirati. Fiziološka skupina
+bakterija fosfomobilizatora može stvorenim anorganskim (npr. bakterije
+roda *Thiobacillus*) ili organskim kiselinama (organotrofne bakterije) mobilizirati
+ kemijski fiksirani fosfor do ortofosfata.
+Slika 84. Ciklus kruženja fosfora u prirodi.
+
+---
+
+*Povratak na [Poglavlje 20](/poglavlje-20)*
+
+
+
+  </div>
+
+</ChapterLayout>

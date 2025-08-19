@@ -8,8 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "convert-mdx": "node scripts/convert-mdx-to-astro.js",
-    "generate-paths": "node scripts/generate-paths.js"
+    "convert-mdx": "node scripts/convert-mdx-to-astro.cjs",
+    "generate-paths": "node scripts/generate-paths.cjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.34.4",

@@ -1,0 +1,120 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Dezinfekcija i antisepsa',
+  description = 'Sadržaj poglavlja 1 - Dezinfekcija i antisepsa'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(1);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={1}
+  primaryColor="emerald"
+  prevLink="/poglavlje-1/" 
+  nextLink="/poglavlje-2/" 
+  prevText="← Poglavlje 1" 
+  nextText="Poglavlje 2 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Mikroskopija." 
+  ctaPrimaryText="Poglavlje 2" 
+  ctaPrimaryLink="/poglavlje-2/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-1/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 1', url: '/poglavlje-1/' },
+    { name: 'Dezinfekcija i antisepsa', url: '/poglavlje-1/dezinfekcijaiantisepsa/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={1} 
+    currentSection="dezinfekcija-i-antisepsa" 
+    chapterTitle="Osnove laboratorijskog rada"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<section class="intro">
+  <p>
+    Tijekom i nakon svakog praktikuma potrebno je obaviti dezinfekciju radnih površina i antisepsu ruku.
+  </p>
+</section>
+
+<section class="block block--green">
+  <header class="block__header">
+    <span class="block__icon">🧽</span>
+    <h3 class="block__title">Dezinfekcija</h3>
+  </header>
+  <div class="block__body">
+    <p>
+      <strong>Dezinfekcija</strong> <em>(lat. inficiens – koji truje)</em> je tretman kemijskim agensima – dezinficijensima radi uništavanja bakterija i drugih mikroba u zraku, na radnim površinama i predmetima.
+    </p>
+    <div class="subnote">
+      <strong class="subnote__label">Dezinficijensi:</strong>
+      <div class="subnote__text">
+        Halogeni, derivati joda i klora, metanol, etanol, izopropanol, fenol i derivati fenola, vodikov peroksid
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block block--amber">
+  <header class="block__header">
+    <span class="block__icon">⚠️</span>
+    <h3 class="block__title">Postupak kod izlijevanja</h3>
+  </header>
+  <div class="block__body">
+    <p>
+      Prolivene suspenzije bakterijskih kultura odmah treba prekriti papirnatim ručnikom i potom ga natopiti dezinficijensom, ostaviti tako <strong>petnaest minuta</strong> i onda odložiti na predviđeno odlagalište kontaminiranog materijala.
+    </p>
+  </div>
+</section>
+
+<section class="block block--blue">
+  <header class="block__header">
+    <span class="block__icon">🖐️</span>
+    <h3 class="block__title">Antisepsa</h3>
+  </header>
+  <div class="block__body">
+    <p>
+      <strong>Antisepsa</strong> podrazumijeva dezinfekciju živog tkiva, npr. površina tijela, ruke, usna šupljina, antisepticima.
+    </p>
+    <div class="subnote">
+      <strong class="subnote__label">Antiseptici:</strong>
+      <div class="subnote__text">
+        Kalijev permanganat, vodikov peroksid, komercijalni antiseptici
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block block--red">
+  <header class="block__header">
+    <span class="block__icon">⚡</span>
+    <h3 class="block__title">Važno ograničenje</h3>
+  </header>
+  <div class="block__body">
+    <p>
+      Postupcima dezinfekcije i antisepse <strong>ne postiže se potpuna sterilizacija</strong>, jer se ne uništavaju bakterijske endospore.
+    </p>
+  </div>
+</section>
+
+  </div>
+
+</ChapterLayout>

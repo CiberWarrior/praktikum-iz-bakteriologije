@@ -1,0 +1,61 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Antibiogram',
+  description = 'Sadržaj poglavlja 13 - Antibiogram'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(13);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={13}
+  primaryColor="pink"
+  prevLink="/poglavlje-13/" 
+  nextLink="/poglavlje-14/" 
+  prevText="← Poglavlje 13" 
+  nextText="Poglavlje 14 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Kontrola kvalitete." 
+  ctaPrimaryText="Poglavlje 14" 
+  ctaPrimaryLink="/poglavlje-14/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-13/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 13', url: '/poglavlje-13/' },
+    { name: 'Antibiogram', url: '/poglavlje-13/antibiogram/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={13} 
+    currentSection="antibiogram" 
+    chapterTitle="Higijena i dezinfekcija"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+Antibiogram je laboratorijska metoda kojom se određuje osjetljivost bakterijskih izolata na različite antibiotike. Rezultati antibiograma pomažu u odabiru najučinkovitije terapije te u praćenju pojave rezistencije na antibiotike.
+
+[← Povratak na Poglavlje 13](../poglavlje-13)
+
+
+
+  </div>
+
+</ChapterLayout>

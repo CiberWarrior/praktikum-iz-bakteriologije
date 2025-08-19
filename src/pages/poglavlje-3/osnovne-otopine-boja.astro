@@ -1,0 +1,56 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Osnovne otopine boja',
+  description = 'Sadržaj poglavlja 3 - Osnovne otopine boja'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(3);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={3}
+  primaryColor="purple"
+  prevLink="/poglavlje-3/" 
+  nextLink="/poglavlje-4/" 
+  prevText="← Poglavlje 3" 
+  nextText="Poglavlje 4 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Kultivacija mikroorganizama." 
+  ctaPrimaryText="Poglavlje 4" 
+  ctaPrimaryLink="/poglavlje-4/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-3/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 3', url: '/poglavlje-3/' },
+    { name: 'Osnovne otopine boja', url: '/poglavlje-3/osnovneotopineboja/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={3} 
+    currentSection="osnovne-otopine-boja" 
+    chapterTitle="Bojanje mikroorganizama"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+U bakteriologiji se upotrebljavaju dva tipa boja: kisela (kationska) i bazična (anionska). Boje imaju tu sposobnost da se vežu na razne komponente bakterijske stanice (proteine, nukleinske kiseline), što ovisi o električnom naboju staničnih sastojaka te o kromogenom dijelu samog bojila. Za postupak bojenja moraju se iz zasićenih otopina pripremljenih bojila pripraviti određena razrjeđenja koja imaju kraći vijek trajanja (nekoliko dana do nekoliko mjeseci). Pri bojenju bakterija potrebno je da boje budu svježe. Čuvane u smeđim bočicama mogu biti za upotrebu dulje vrijeme.
+  </div>
+
+</ChapterLayout>

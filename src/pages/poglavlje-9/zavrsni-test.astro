@@ -1,0 +1,89 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Završni test',
+  description = 'Sadržaj poglavlja 9 - Završni test'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(9);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={9}
+  primaryColor="yellow"
+  prevLink="/poglavlje-9/" 
+  nextLink="/poglavlje-10/" 
+  prevText="← Poglavlje 9" 
+  nextText="Poglavlje 10 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Paraziti." 
+  ctaPrimaryText="Poglavlje 10" 
+  ctaPrimaryLink="/poglavlje-10/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-9/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 9', url: '/poglavlje-9/' },
+    { name: 'Završni test', url: '/poglavlje-9/zavrnitest/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={9} 
+    currentSection="završni-test" 
+    chapterTitle="Gljivice"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Postupak</h3>
+
+Izolirane čiste kulture koliformnih bakterija boje se po Gramu te se ispituju biokemijska svojstva radi determinacije roda ili vrste koliforma. Najčešće se koristi fermentacija laktoze, citokrom oksidaza test i IMVC test (indol, metilno crvenilo, Voges-Proskauer, citrat test). Dobiveni rezultati broja kolonija saprofitskih bakterija i broja ukupnih i fekalnih koliformnih bakterija tumače se prema Uredbi o klasifikaciji voda Republike Hrvatske (Narodne novine 77/1998.) te se prema mikrobiološkim parametrima određuje vrsta vode (od 1 do 5).
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Tablica 5. Vrste voda s obzirom na mikrobiološke pokazatelje</h3>
+
+<div class="water-quality-table">
+
+| **Pokazatelj, mjerna jedinica** | **I VRSTA** | **II VRSTA** | **III VRSTA** | **IV VRSTA** | **V VRSTA** |
+|:--------------------------------|:-----------:|:------------:|:-------------:|:------------:|:-----------:|
+| **Broj ukupnih koliforma /L** | <span class="excellent">&lt; 5×10<sup>2</sup></span> | <span class="good">5×10<sup>2</sup>-5×10<sup>3</sup></span> | <span class="moderate">5×10<sup>3</sup>-10<sup>5</sup></span> | <span class="poor">10<sup>5</sup>-10<sup>6</sup></span> | <span class="very-poor">&gt; 10<sup>6</sup></span> |
+| **Broj fekalnih koliforma /L** | <span class="excellent">&lt; 2×10<sup>2</sup></span> | <span class="good">2×10<sup>2</sup>-10<sup>3</sup></span> | <span class="moderate">10<sup>3</sup>-10<sup>4</sup></span> | <span class="poor">10<sup>4</sup>-10<sup>5</sup></span> | <span class="very-poor">&gt; 10<sup>5</sup></span> |
+| **Broj saprofitskih bakterija /mL** | <span class="excellent">&lt; 10<sup>3</sup></span> | <span class="good">10<sup>3</sup>-10<sup>4</sup></span> | <span class="moderate">10<sup>4</sup>-10<sup>5</sup></span> | <span class="poor">10<sup>5</sup>-7,5×10<sup>6</sup></span> | <span class="very-poor">&gt; 7,5×10<sup>6</sup></span> |
+
+</div>
+
+Da bismo prikazali što pojedina vrsta voda znači, dolje je naveden kratki opis pojedine vrste voda:
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">I VRSTA</h4>
+Podzemne i površinske vode koje se u svom prirodnom stanju ili nakon dezinfekcije mogu upotrijebiti za piće ili u prehrambenoj industriji te površinske vode koje mogu poslužiti za uzgoj plemenitih vrsta riba (pastrve).
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">II VRSTA</h4>
+Vode koje se u prirodnom stanju mogu koristiti za kupanje i rekreaciju, za sportove na vodi, za uzgoj drugih vrsta riba (ciprinida) ili koje se nakon odgovarajućeg pročišćivanja mogu upotrijebiti za piće i druge namjene u industriji i sl.
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">III VRSTA</h4>
+Vode koje se mogu upotrijebiti u industrijama koje nemaju posebne zahtjeve za kakvoćom vode te u poljoprivredi. To su vode koje se pročišćuju da bi se upotrijebile za određene namjene.
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">IV VRSTA</h4>
+Vode koje se mogu upotrijebiti isključivo uz pročišćivanje na područjima na kojima je velik nedostatak vode.
+
+<h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">V VRSTA</h4>
+Vode koje se ne mogu koristiti ni za kakve namjene jer ne zadovoljavaju kriterije za namjene.
+
+
+  </div>
+
+</ChapterLayout>

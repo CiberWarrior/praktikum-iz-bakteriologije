@@ -1,0 +1,65 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Biogeokemijski ciklus sumpora',
+  description = 'Sadržaj poglavlja 19 - Biogeokemijski ciklus sumpora'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(19);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={19}
+  primaryColor="emerald"
+  prevLink="/poglavlje-19/" 
+  nextLink="/poglavlje-20/" 
+  prevText="← Poglavlje 19" 
+  nextText="Poglavlje 20 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Biofilmovi." 
+  ctaPrimaryText="Poglavlje 20" 
+  ctaPrimaryLink="/poglavlje-20/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-19/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 19', url: '/poglavlje-19/' },
+    { name: 'Biogeokemijski ciklus sumpora', url: '/poglavlje-19/biogeokemijskiciklussumpora/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={19} 
+    currentSection="biogeokemijski-ciklus-sumpora" 
+    chapterTitle="GMO"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+
+Glavni je rezervoar sumpora u prirodi organska frakcija tla (humus) u kojoj se sumpor nalazi u obliku estera sulfata i aminokiselina. Nakon smrti organizama, kemoorganoheterotrofni mikroorganizmi (saprofi ti) mineraliziraju organske spojeve sumpora (slika 79). Anaerobnom razgradnjom aminokiselina koje sadrže sumpor nastaje sulfatni ioni (SO4 2-). Anaerobnom razgradnjom aminokiselina koje sadrže sumpor nastaje otrovni glin sumporovodik (H2S). Oksidacijom sumporovodika bakterijama roda *Thiobacillus* preko elementarnog sumpora (S°), tiosulfata (S2O3 2-) i sulfi ta (SO3 2-) nastaju sulfatni ioni (SO4 2-), jedini oblik sumpora pogodan za asimilaciju u biljne organizme. U anaerobnim uvjetima sulfat je terminalni akceptor elektrona u procesu sulfatnog disanja (disimilatorna sulfatredukcija) obligatnih anaerobnih bakterija roda *Desulfovibrio* i *Desulfotomaculum*, pri čemu biva reduciran do sumporovodika.
+
+U biokemijskim ciklusima sumpora H2S se stvara razgradnjom proteina ili redukcijom sulfata, a njegova prisutnost u vodi uvijek upozorava na anaerobiju i toksičnost sredine zvane „sulfuretum" za sve vodene organizme, osim anaerobnih, fotosintetskih sumpornih bakterija.
+
+Slika 79. Ciklus kruženja sumpora u prirodi.
+
+---
+
+*Povratak na [Poglavlje 19](/poglavlje-19)*
+
+  </div>
+
+</ChapterLayout>

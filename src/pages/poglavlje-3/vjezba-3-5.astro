@@ -1,0 +1,83 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Vježba 3.5 - Test s KOH-om',
+  description = 'Sadržaj poglavlja 3 - Vježba 3.5 - Test s KOH-om'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(3);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={3}
+  primaryColor="purple"
+  prevLink="/poglavlje-3/" 
+  nextLink="/poglavlje-4/" 
+  prevText="← Poglavlje 3" 
+  nextText="Poglavlje 4 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Kultivacija mikroorganizama." 
+  ctaPrimaryText="Poglavlje 4" 
+  ctaPrimaryLink="/poglavlje-4/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-3/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 3', url: '/poglavlje-3/' },
+    { name: 'Vježba 3.5 - Test s KOH-om', url: '/poglavlje-3/vjeba35-testskoh-om/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={3} 
+    currentSection="vježba-3.5---test-s-koh-om" 
+    chapterTitle="Bojanje mikroorganizama"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Cilj vježbe</h3>
+
+Savladavanje tehnike KOH testa kao brze alternative bojenju po Gramu.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Materijali i reagensi</h3>
+
+- Bakterijska kultura (ne starija od 24 sata)
+- 3%-tna KOH (kalij hidroksid)
+- Bakteriološka ušica
+- Staklena ploča s jažicama ili predmetno stakalce
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Postupak</h3>
+
+1. Na staklenoj ploči s jažicama ili predmetnom stakalcu razmutimo **bakterijsku kulturu** bakteriološkom ušicom u kapljici **3%-tne KOH**
+2. Nakon **30 sekundi** ušica se polagano podiže iz kapljice
+3. Promatrati rezultat u roku od **1 minute**
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Rezultati</h3>
+
+- **Ako je bakterija Gram-negativna:** izvlače se na ušici tanke sluzave niti (zbog prisutnosti lipopolisaharida iz sastava razorene stanične stijenke)
+- **Ako je bakterija Gram-pozitivna:** sadržaj kapljice ostaje grudast i nema izvlačenja niti
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Zaključak</h3>
+
+Test s kalijevom lužinom je brza i pouzdana alternativa bojenju po Gramu za razlikovanje Gram-pozitivnih i Gram-negativnih bakterija.
+
+<img src="/images/slika22.jpg" alt="Izvlačenje niti u Gram-negativnih bakterija u testu s kalijevom lužinom" className="hover-zoom" />
+
+*Slika 22. Izvlačenje niti u Gram-negativnih bakterija u testu s kalijevom lužinom.*
+  </div>
+
+</ChapterLayout>

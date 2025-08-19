@@ -1,0 +1,119 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Osnovni pojmovi u bakteriologiji',
+  description = 'Sadržaj poglavlja 1 - Osnovni pojmovi u bakteriologiji'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(1);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={1}
+  primaryColor="emerald"
+  prevLink="/poglavlje-1/" 
+  nextLink="/poglavlje-2/" 
+  prevText="← Poglavlje 1" 
+  nextText="Poglavlje 2 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Mikroskopija." 
+  ctaPrimaryText="Poglavlje 2" 
+  ctaPrimaryLink="/poglavlje-2/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-1/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 1', url: '/poglavlje-1/' },
+    { name: 'Osnovni pojmovi u bakteriologiji', url: '/poglavlje-1/osnovnipojmoviubakteriologiji/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={1} 
+    currentSection="osnovni-pojmovi-u-bakteriologiji" 
+    chapterTitle="Osnove laboratorijskog rada"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<div style="background: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%); border-radius: 15px; padding: 25px; margin: 20px 0;">
+  
+  <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #2196f3;">
+    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+      <span style="font-size: 20px; margin-right: 10px;">🧫</span>
+      <h3 style="margin: 0; color: #1565c0; font-size: 1.3rem; font-weight: 600;">Bakterijska kultura</h3>
+    </div>
+    <p style="margin: 0 0 15px 0; color: #2d3748; line-height: 1.6;">
+      Bakterijska kultura predstavlja populaciju bakterija, nastalu na hranjivim krutim ili tekućim podlogama razmnožavanjem iz jedne ili više istovrsnih stanica, prisutnih u materijalu kojim je nacijepljen hranjivi medij.
+    </p>
+    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+      <strong style="color: #1565c0; font-size: 14px; margin-bottom: 10px; display: block;">Uzorci materijala:</strong>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px;">
+        <span style="background: #e3f2fd; color: #1565c0; padding: 4px 8px; border-radius: 15px; font-size: 13px; text-align: center;">💧 Voda</span>
+        <span style="background: #e3f2fd; color: #1565c0; padding: 4px 8px; border-radius: 15px; font-size: 13px; text-align: center;">🌱 Tlo</span>
+        <span style="background: #e3f2fd; color: #1565c0; padding: 4px 8px; border-radius: 15px; font-size: 13px; text-align: center;">💨 Zrak</span>
+        <span style="background: #e3f2fd; color: #1565c0; padding: 4px 8px; border-radius: 15px; font-size: 13px; text-align: center;">🩸 Krv</span>
+        <span style="background: #e3f2fd; color: #1565c0; padding: 4px 8px; border-radius: 15px; font-size: 13px; text-align: center;">💛 Urin</span>
+        <span style="background: #e3f2fd; color: #1565c0; padding: 4px 8px; border-radius: 15px; font-size: 13px; text-align: center;">👄 Slina</span>
+        <span style="background: #e3f2fd; color: #1565c0; padding: 4px 8px; border-radius: 15px; font-size: 13px; text-align: center;">🥛 Mlijeko</span>
+        <span style="background: #e3f2fd; color: #1565c0; padding: 4px 8px; border-radius: 15px; font-size: 13px; text-align: center;">🍎 Hrana</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #ff9800;">
+    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+      <span style="font-size: 20px; margin-right: 10px;">🧫</span>
+      <h3 style="margin: 0; color: #f57c00; font-size: 1.3rem; font-weight: 600;">Mješovita kultura</h3>
+    </div>
+    <p style="margin: 0; color: #2d3748; line-height: 1.6;">
+      Mješovita kultura je kultura bakterija koja sadrži <strong>dvije ili više vrsta ili sojeva bakterija</strong>.
+    </p>
+  </div>
+
+  <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #4caf50;">
+    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+      <span style="font-size: 20px; margin-right: 10px;">✅</span>
+      <h3 style="margin: 0; color: #388e3c; font-size: 1.3rem; font-weight: 600;">Čista kultura</h3>
+    </div>
+    <p style="margin: 0; color: #2d3748; line-height: 1.6;">
+      Čista kultura je kultura <strong>samo jedne vrste, odnosno jednog soja bakterija</strong>.
+    </p>
+  </div>
+
+  <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #9c27b0;">
+    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+      <span style="font-size: 20px; margin-right: 10px;">⚫</span>
+      <h3 style="margin: 0; color: #7b1fa2; font-size: 1.3rem; font-weight: 600;">Bakterijska kolonija</h3>
+    </div>
+    <p style="margin: 0; color: #2d3748; line-height: 1.6;">
+      Bakterijska kolonija je <strong>nakupina bakterijskih stanica na krutoj hranjivoj podlozi</strong>, nastala rastom i razmnožavanjem od jedne prvobitne bakterijske stanice.
+    </p>
+  </div>
+
+  <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; border-left: 4px solid #607d8b;">
+    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+      <h3 style="margin: 0; color: #455a64; font-size: 1.3rem; font-weight: 600;">Bakterijska suspenzija</h3>
+    </div>
+    <p style="margin: 0; color: #2d3748; line-height: 1.6;">
+      Bakterijska suspenzija predstavlja <strong>raspršene bakterijske stanice u tekućem mediju</strong>.
+    </p>
+  </div>
+
+</div>
+  </div>
+
+</ChapterLayout>

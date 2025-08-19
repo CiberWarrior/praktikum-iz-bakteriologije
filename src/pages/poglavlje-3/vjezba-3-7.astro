@@ -1,0 +1,91 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Vježba 3.7 - Bojenje bakterijskih endospora',
+  description = 'Sadržaj poglavlja 3 - Vježba 3.7 - Bojenje bakterijskih endospora'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(3);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={3}
+  primaryColor="purple"
+  prevLink="/poglavlje-3/" 
+  nextLink="/poglavlje-4/" 
+  prevText="← Poglavlje 3" 
+  nextText="Poglavlje 4 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Kultivacija mikroorganizama." 
+  ctaPrimaryText="Poglavlje 4" 
+  ctaPrimaryLink="/poglavlje-4/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-3/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 3', url: '/poglavlje-3/' },
+    { name: 'Vježba 3.7 - Bojenje bakterijskih endospora', url: '/poglavlje-3/vjeba37-bojenjebakterijskihendospora/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={3} 
+    currentSection="vježba-3.7---bojenje-bakterijskih-endospora" 
+    chapterTitle="Bojanje mikroorganizama"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Cilj vježbe</h3>
+
+Savladavanje tehnike bojenja bakterijskih endospora po Schäffer-Fultonu.
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Materijali i reagensi</h3>
+
+- Bakterijska kultura s endosporama (fiksirana)
+- Malahitno zelenilo
+- Safranin
+- Voda iz vodovoda
+- Pinceta
+- Bunsenov plameník
+- Mikroskop s imerzionim objektivom
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Postupak</h3>
+
+1. **Prvo bojenje** - **Malahitno zelenilo** nanese se preko razmaza fiksirane bakterijske kulture
+2. **Zagrijavanje** - Pridržavajući predmetno stakalce pincetom, preparat se zagrijava s donje strane iznad plamena dok boja ne počne isparavati (oko **15 sekundi**)
+3. **Hlađenje** - Preparat se odmakne u stranu da se ohladi
+4. **Ponavljanje zagrijavanja** - Nakon otprilike minutu zagrijavanje se ponavlja još **dva puta** (ukupno **trokratno zagrijavanje**)
+   - *Zagrijano malahitno zelenilo prodire kroz debelu stijenku endospore*
+5. **Ispiranje** - Preparat se ispere pod mlazom vode približno **30 sekundi** da bi se boja odstranila sa stanica koje nisu spore i međustaničnih površina
+6. **Kontrastno bojenje** - **Safranin** nanosi se preko razmaza (obojit će vegetativne stanice koje nisu sporulirale)
+7. **Završno ispiranje** - Preparat se pere mlazom vode
+8. **Sušenje i mikroskopiranje** - Preparat se posuši i mikroskopira
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Rezultati</h3>
+
+U preparatu će se vidjeti **zeleno obojene endospore** između **crvenih ili ružičastih vegetativnih stanica**.
+
+<img src="/images/slika25.jpg" alt="Zeleno obojene bakterijske endospore između crvenih vegetativnih stanica" className="hover-zoom" style="cursor: pointer;" />
+
+*Slika 25. Zeleno obojene bakterijske endospore između crvenih vegetativnih stanica.*
+
+<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Zaključak</h3>
+
+Bojenje bakterijskih endospora po Schäffer-Fultonu omogućuje jasno razlikovanje između sporuliranih i nesporuliranih bakterijskih stanica na osnovi različite propusnosti stanične stijenke za malahitno zelenilo.
+  </div>
+
+</ChapterLayout>

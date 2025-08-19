@@ -1,0 +1,104 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+import ChapterNavigation from '../../components/ChapterNavigation.astro';
+import { getChapterConfig } from '../../config/chapters';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Bakterije mliječne fermentacije',
+  description = 'Sadržaj poglavlja 16 - Bakterije mliječne fermentacije'
+} = Astro.props;
+
+const chapterConfig = getChapterConfig(16);
+---
+
+<ChapterLayout 
+  title={title} 
+  description={description} 
+  chapterNumber={16}
+  primaryColor="sky"
+  prevLink="/poglavlje-16/" 
+  nextLink="/poglavlje-17/" 
+  prevText="← Poglavlje 16" 
+  nextText="Poglavlje 17 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte Biogeokemijski ciklusi." 
+  ctaPrimaryText="Poglavlje 17" 
+  ctaPrimaryLink="/poglavlje-17/" 
+  ctaSecondaryText="Povratak na pregled" 
+  ctaSecondaryLink="/poglavlje-16/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 16', url: '/poglavlje-16/' },
+    { name: 'Bakterije mliječne fermentacije', url: '/poglavlje-16/bakterijemlijenefermentacije/' }
+  ]}
+>
+  <!-- Navigacija kroz poglavlje -->
+  <ChapterNavigation 
+    chapterNumber={16} 
+    currentSection="bakterije-mliječne-fermentacije" 
+    chapterTitle="Bakterije mliječne fermentacije"
+  />
+
+  <!-- Sadržaj poglavlja -->
+  <div class="prose prose-lg max-w-none">
+    
+
+Bakterije mliječnog vrenja (fermentacije) imaju mnogostruke zahtjeve za aminokiselinama i vitaminima. Nalaze se u animalnim i ljudskim oralnim šupljinama i crijevu (*Streptococcus* sp), lišću biljaka (*Lactobacillus*, *Leuconostoc*), biljnom i životinjskom materijalu koji se raspada. Bakterije mliječnog vrenja provode mliječno-kiseli tip fermentacije, koja može biti homofermentativna (jedini produkt mliječna kiselina, npr. *Streptococcus*, *Lactobacillus*) i heterofermentativna (konačni produkt mliječna kiselina, etanol i CO<sub>2</sub>, npr. *Leuconostoc*). Tijekom procesa fermentacije (mliječnog vrenja) pH medija pada na 4,0, što je dovoljno da inhibira rast drugih mikroorganizama i najčešće ljudske patogene. Kiselost mijenja teksturu hrane zbog precipitacije proteina. Proces mliječnog vrenja ne zahtijeva kisik. Bakterije su mliječnog vrenja katalaza-negativne. Bakterije mliječnog vrenja koriste se za proizvodnju različitih mliječnih produkata (tablica 8).
+
+<div style="overflow-x: auto; margin: 20px 0;">
+  <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <thead>
+      <tr style="background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);">
+        <th style="padding: 15px; text-align: left; border-bottom: 2px solid #27ae60; color: #2c3e50; font-weight: 600;">Mikroorganizam</th>
+        <th style="padding: 15px; text-align: left; border-bottom: 2px solid #27ae60; color: #2c3e50; font-weight: 600;">Produkt fermentacije</th>
+        <th style="padding: 15px; text-align: left; border-bottom: 2px solid #27ae60; color: #2c3e50; font-weight: 600;">Postupak</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #ecf0f1;">
+        <td style="padding: 12px 15px; font-style: italic;">*Streptococcus* sp.<br />*Leuconostoc* sp.</td>
+        <td style="padding: 12px 15px;">Kiselo vrhnje</td>
+        <td style="padding: 12px 15px;">Inokulacija vrhnja</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ecf0f1; background-color: #f8f9fa;">
+        <td style="padding: 12px 15px; font-style: italic;">*Streptococcus* sp.<br />*Leuconostoc* sp.</td>
+        <td style="padding: 12px 15px;">Sirutka</td>
+        <td style="padding: 12px 15px;">Inokulacija obranog pasteriziranog mlijeka</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ecf0f1;">
+        <td style="padding: 12px 15px; font-style: italic;">*Lactobacillus bulgaricus*</td>
+        <td style="padding: 12px 15px;">Bugarska sirutka</td>
+        <td style="padding: 12px 15px;">Inokulacija komercijalne sirutke</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ecf0f1; background-color: #f8f9fa;">
+        <td style="padding: 12px 15px; font-style: italic;">*Lactobacillus acidophilus*</td>
+        <td style="padding: 12px 15px;">Acidofilno mlijeko</td>
+        <td style="padding: 12px 15px;">Inokulacija steriliziranog mlijeka</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ecf0f1;">
+        <td style="padding: 12px 15px; font-style: italic;">*Streptococcus termophilus*<br />*Lactobacillus bulgaricus*</td>
+        <td style="padding: 12px 15px;">Jogurt</td>
+        <td style="padding: 12px 15px;">Inokulacija obranog mlijeka</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #ecf0f1; background-color: #f8f9fa;">
+        <td style="padding: 12px 15px; font-style: italic;">*Streptococcus lactis*<br />*Lactobacillus bulgaricus*<br />kvasci</td>
+        <td style="padding: 12px 15px;">Kefir</td>
+        <td style="padding: 12px 15px;">Inokulacija kozjeg mlijeka, mješovita mliječno-kisela fermentacija (bakterije) i alkoholna fermentacija (kvasci)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+**Tablica 8.** Namirnice proizvedene od fermentiranog mlijeka.
+
+[← Povratak na Poglavlje 16](../) | [Povratak na Početnu stranicu](/)
+
+  </div>
+
+</ChapterLayout>
