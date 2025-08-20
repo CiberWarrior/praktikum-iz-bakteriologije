@@ -1,37 +1,14 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import EnhancedSubPageLayout from '../../components/EnhancedSubPageLayout.astro';
 import { getEntryBySlug } from 'astro:content';
-
-export async function getStaticPaths() {
-  // Koristimo import.meta.glob da dobijemo sve MDX datoteke iz chapters/poglavlje-2/
-  const files = import.meta.glob('/src/content/chapters/poglavlje-2/*.mdx');
-  const paths = [];
-
-  for (const path in files) {
-    // Izvuci slug iz path-a (npr. "/src/content/chapters/poglavlje-2/naziv.mdx" -> "naziv")
-    const slug = path.split('/').pop()?.replace('.mdx', '');
-    if (slug && slug !== 'index') {
-      paths.push({
-        params: { slug }
-      });
-    }
-  }
-
-  return paths;
-}
-
-const { slug } = Astro.params;
-
-if (!slug) {
-  throw new Error('Slug je obavezan');
-}
+import { extractHeadingsFromMDX, getNavigationForSlug } from '../../utils/tocGenerator';
 
 // Dohvati MDX entry iz chapters kolekcije
 // @ts-ignore
-const entry = await getEntryBySlug('chapters', `poglavlje-2/${slug}`);
+const entry = await getEntryBySlug('chapters', 'poglavlje-2/hladna-sterilizacija');
 
 if (!entry) {
-  throw new Error(`Entry nije pronađen za slug: ${slug}`);
+  throw new Error('Entry nije pronađen za hladna-sterilizacija');
 }
 
 // Renderiraj MDX sadržaj
@@ -47,28 +24,34 @@ const chapterNumber = (data as any).chapterNumber || 2;
 
 // Generiraj breadcrumb path
 const breadcrumbPath = (data as any).breadcrumbPath || [
-  { name: (data as any).title || slug, url: `/poglavlje-2/${slug}/` }
+  { name: (data as any).title || 'Hladna sterilizacija', url: '/poglavlje-2/hladna-sterilizacija/' }
 ];
+
+// Extract TOC items from MDX content
+// @ts-ignore
+const tocItems = extractHeadingsFromMDX(entry.body || '');
+
+// Get navigation
+const navigation = getNavigationForSlug('hladna-sterilizacija');
 ---
 
-<SubPageLayout
-  title={(data as any).title || `Poglavlje 2 - ${slug}`}
+<EnhancedSubPageLayout
+  title={(data as any).title || 'Hladna sterilizacija'}
   description={(data as any).description || ''}
   chapterNumber={chapterNumber}
   primaryColor={(data as any).primaryColor || 'blue'}
-  prevLink={(data as any).prevLink || '/poglavlje-1/'}
-  nextLink={(data as any).nextLink || '/poglavlje-3/'}
-  prevText={(data as any).prevText || `← Poglavlje 1`}
-  nextText={(data as any).nextText || `Poglavlje 3 →`}
+  prevLink={navigation?.prev ? `/poglavlje-2/${navigation.prev.link}/` : '/poglavlje-2/'}
+  nextLink={navigation?.next ? `/poglavlje-2/${navigation.next.link}/` : '/poglavlje-3/'}
+  prevText={navigation?.prev ? navigation.prev.text : 'Poglavlje 2'}
+  nextText={navigation?.next ? navigation.next.text : 'Poglavlje 3'}
   breadcrumbPath={breadcrumbPath}
+  tocItems={tocItems}
 >
   <!-- Renderiraj MDX sadržaj s poboljšanim stilovima -->
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="prose prose-slate max-w-none lg:prose-lg xl:prose-xl prose-headings:scroll-mt-28 prose-h1:text-3xl prose-h1:font-bold prose-h1:text-gray-900 prose-h1:mb-6 prose-h1:mt-8 prose-h2:text-2xl prose-h2:font-semibold prose-h2:text-gray-800 prose-h2:mb-4 prose-h2:mt-6 prose-h3:text-xl prose-h3:font-semibold prose-h3:text-gray-700 prose-h3:mb-3 prose-h3:mt-5 prose-h4:text-lg prose-h4:font-medium prose-h4:text-gray-700 prose-h4:mb-2 prose-h4:mt-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-img:rounded-xl prose-img:shadow-lg prose-img:my-6 prose-hr:border-gray-300 prose-hr:my-8 prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-li:mb-2 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-700 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto prose-table:border-collapse prose-table:w-full prose-th:border prose-th:border-gray-300 prose-th:bg-gray-50 prose-th:p-3 prose-th:text-left prose-td:border prose-td:border-gray-300 prose-td:p-3">
-      <Content />
-    </div>
+  <div class="prose prose-slate max-w-none lg:prose-lg xl:prose-xl prose-headings:scroll-mt-28 prose-h1:text-3xl prose-h1:font-bold prose-h1:text-gray-900 prose-h1:mb-6 prose-h1:mt-8 prose-h2:text-2xl prose-h2:font-semibold prose-h2:text-gray-800 prose-h2:mb-4 prose-h2:mt-6 prose-h3:text-xl prose-h3:font-semibold prose-h3:text-gray-700 prose-h3:mb-3 prose-h3:mt-5 prose-h4:text-lg prose-h4:font-medium prose-h4:text-gray-700 prose-h4:mb-2 prose-h4:mt-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-img:rounded-xl prose-img:shadow-lg prose-img:my-6 prose-hr:border-gray-300 prose-hr:my-8 prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-li:mb-2 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-700 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto prose-table:border-collapse prose-table:w-full prose-th:border prose-th:border-gray-300 prose-th:bg-gray-50 prose-th:p-3 prose-th:text-left prose-td:border prose-td:border-gray-300 prose-td:p-3">
+    <Content />
   </div>
-</SubPageLayout>
+</EnhancedSubPageLayout>
 
 <style>
   /* Dodatni stilovi za specifične elemente */
