@@ -8,7 +8,7 @@ export interface Props {
 
 const { 
   title = 'Preuzimanje radnog mjesta',
-  description = ''
+  description = 'Priprema studenata za praktičnu nastavu u bakteriološkom praktikumu'
 } = Astro.props;
 ---
 
@@ -45,16 +45,16 @@ const {
           <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
         </button>
         
-        <!-- Quick Navigation -->
+        <!-- Table of Contents -->
         <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Brza navigacija</div>
-          <a href="/poglavlje-1/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
-            <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
-            Pregled poglavlja
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#pravila-rada" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="pravila-rada">
+            <span class="w-2 h-2 bg-red-400 rounded-full mr-3 transition-all duration-300"></span>
+            Pravila rada i ponašanja
           </a>
-          <a href="/sadrzaj/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-            Svi sadržaji
+          <a href="#obavezna-oprema" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="obavezna-oprema">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Obavezna oprema
           </a>
         </nav>
       </div>
@@ -64,14 +64,76 @@ const {
     <main class="flex-1 px-6 py-8">
       <div class="max-w-4xl mx-auto">
         <div class="prose prose-lg max-w-none">
-          <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; padding: 25px; margin: 25px 0; border-left: 5px solid #138d75;">
-  <p style="font-size: 1.1rem; line-height: 1.7; margin: 0 0 15px 0; color: #2c3e50;">
-    Prije početka praktične nastave iz bakteriologije svi studenti potpisuju osobno da su pročitali pravila rada i ponašanja u mikrobiološkom praktikumu (laboratoriju) te da će se toga strogo pridržavati.
-  </p>
-  <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-radius: 10px; padding: 15px; border: 1px solid #e17055;">
-    <div style="display: flex; align-items: center; margin-bottom: 8px;">
-      <span style="font-size: 18px; margin-right: 8px;">⚠️</span>
-      <strong style="color: #d63031;">Važno</strong>
+          
+          <!-- Content Blocks -->
+          <div class="space-y-8">
+            
+            <!-- Pravila rada i ponašanja -->
+            <div id="pravila-rada" class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-lg border border-gray-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">📋</span>
+                <h3 class="text-2xl font-bold text-gray-900">Pravila rada i ponašanja</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Prije početka praktične nastave iz bakteriologije svi studenti potpisuju osobno da su pročitali pravila rada i ponašanja u mikrobiološkom praktikumu (laboratoriju) te da će se toga strogo pridržavati.
+              </p>
+              
+              <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-4 shadow-sm border border-yellow-200">
+                <div class="flex items-center mb-3">
+                  <span class="text-2xl mr-3">⚠️</span>
+                  <strong class="text-red-800 text-lg">Važno</strong>
+                </div>
+                <p class="text-gray-800 leading-relaxed font-medium">
+                  Sve što student na svoju ruku učini izvan propisanih pravila antisepse čini na vlastitu odgovornost.
+                </p>
+              </div>
+            </div>
+
+            <!-- Obavezna oprema -->
+            <div id="obavezna-oprema" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🎒</span>
+                <h3 class="text-2xl font-bold text-green-900">Obavezna oprema</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Svaki polaznik mikrobiološkog praktikuma mora obvezno imati:
+              </p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
+                  <span class="text-2xl mr-3">🥼</span>
+                  <span class="text-green-800 font-medium">Čistu radnu bijelu kutu</span>
+                </div>
+                
+                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
+                  <span class="text-2xl mr-3">👟</span>
+                  <span class="text-green-800 font-medium">Laboratorijske cipele</span>
+                </div>
+                
+                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
+                  <span class="text-2xl mr-3">🧻</span>
+                  <span class="text-green-800 font-medium">Papirnate rupčiće</span>
+                </div>
+                
+                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
+                  <span class="text-2xl mr-3">🖊️</span>
+                  <span class="text-green-800 font-medium">Vodootporni pisač za staklo</span>
+                </div>
+                
+                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
+                  <span class="text-2xl mr-3">📔</span>
+                  <span class="text-green-800 font-medium">Laboratorijski dnevnik</span>
+                </div>
+                
+                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
+                  <span class="text-2xl mr-3">🔢</span>
+                  <span class="text-green-800 font-medium">Džepno računalo</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </main>
@@ -187,6 +249,17 @@ const {
     </div>
   </section>
 
+  <!-- CSS Styles for Active State -->
+  <style>
+    .toc-link.active {
+      @apply text-emerald-600 bg-emerald-50 font-semibold;
+    }
+    
+    .toc-link.active span {
+      @apply w-3 h-3 scale-125;
+    }
+  </style>
+
   <!-- JavaScript -->
   <script>
     // Bookmark functionality
@@ -203,7 +276,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
@@ -264,10 +337,47 @@ const {
       });
     }
 
+    // Scroll Spy for TOC
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('[id^="pravila-"], [id^="obavezna-"]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      
+      function updateActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        // Remove active class from all links
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Add active class to current section link
+        if (currentSection) {
+          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      }
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', updateActiveLink);
+      
+      // Initial check
+      updateActiveLink();
+    }
+
     // Initialize everything
     document.addEventListener('DOMContentLoaded', () => {
       initBookmarks();
       initMobileTOC();
+      initScrollSpy();
     });
   </script>
 

@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const { 
-  title = 'Vježba 2',
+  title = 'Vježba 2 - Izolacija čiste kulture iz bakterijske suspenzije',
   description = ''
 } = Astro.props;
 ---
@@ -45,16 +45,28 @@ const {
           <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
         </button>
         
-        <!-- Quick Navigation -->
+        <!-- Table of Contents -->
         <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Brza navigacija</div>
-          <a href="/poglavlje-1/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
-            <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
-            Pregled poglavlja
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#opis-vjezbe" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="opis-vjezbe">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
+            Opis vježbe
           </a>
-          <a href="/sadrzaj/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-            Svi sadržaji
+          <a href="#cilj-izolacije" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="cilj-izolacije">
+            <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 transition-all duration-300"></span>
+            Cilj izolacije
+          </a>
+          <a href="#metoda-izolacije" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="metoda-izolacije">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Metoda izolacije
+          </a>
+          <a href="#izvori-materijala" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="izvori-materijala">
+            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
+            Izvori materijala
+          </a>
+          <a href="#rezultati" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="rezultati">
+            <span class="w-2 h-2 bg-pink-400 rounded-full mr-3 transition-all duration-300"></span>
+            Rezultati
           </a>
         </nav>
       </div>
@@ -65,32 +77,123 @@ const {
       <div class="max-w-4xl mx-auto">
         <div class="prose prose-lg max-w-none">
           
-          <!-- Naslov vježbe -->
-          <div style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c8 100%); border-radius: 15px; padding: 25px; margin: 25px 0; border-left: 5px solid #4caf50;">
-            <h3 style="margin: 0 0 15px 0; color: #1e7e34; font-size: 1.4rem; font-weight: 600;">Vježba 2 - Izolacija čiste kulture iz bakterijske suspenzije</h3>
-          </div>
-
-          <!-- Opis vježbe -->
-          <div style="background: linear-gradient(135deg, #f0f4f8 0%, #e1e8ed 100%); border-radius: 15px; padding: 25px; margin: 20px 0; border-left: 4px solid #3498db;">
-            <h4 style="margin: 0 0 15px 0; color: #2980b9; font-weight: 600; font-size: 18px;">Opis vježbe</h4>
-            <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px;">
-              <p style="margin: 0 0 15px 0; color: #2c3e50; line-height: 1.6;">
-                Izolacija čiste kulture bakterija obuhvaća standardne postupke u bakteriologiji, s konačnim ciljem dobivanja bakterijske kulture na kosom agaru, koja služi kao inokulum za sva daljnja istraživanja njezinih morfoloških, genetičkih i biokemijskih svojstava. Osnovno je pravilo da se bakterije mogu izolirati iz tekuće faze – suspenzije, a to su: krv, slina, urin, likvor, voda, mlijeko, suspenzija tla i dr.
+          <!-- Content Blocks -->
+          <div class="space-y-8">
+            
+            <!-- Opis vježbe -->
+            <div id="opis-vjezbe" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🧫</span>
+                <h3 class="text-2xl font-bold text-blue-900">Opis vježbe</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Izolacija čiste kulture bakterija obuhvaća standardne postupke u bakteriologiji, s konačnim ciljem dobivanja bakterijske kulture na kosom agaru, koja služi kao inokulum za sva daljnja istraživanja njezinih morfoloških, genetičkih i biokemijskih svojstava.
               </p>
-              <p style="margin: 0; color: #2c3e50; line-height: 1.6;">
-                U epruveti sa sterilnom destiliranom vodom uz dodatak 0,3% NaCl homogenizirati bakteriološkom ušicom nekoliko čistih bakterijskih kultura s kosog agara te tako pripremiti mješovitu kulturu. U suspenziju uroniti sterilnu ušicu pa razmazati metodom iscrpljivanja bakterijskog materijala po krutoj podlozi s hranjivim agarom i inkubirati na 22°C/72 h. Metodom iscrpljivanja materijala dobiva se porast pojedinačnih kolonija na krutoj hranjivoj podlozi (slika 11).
-              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-blue-800 mb-3">Ključni aspekti:</h4>
+                <p class="text-gray-700">Standardni postupci u bakteriologiji za dobivanje čiste kulture koja služi kao inokulum za daljnja istraživanja.</p>
+              </div>
             </div>
+
+            <!-- Cilj izolacije -->
+            <div id="cilj-izolacije" class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 shadow-lg border border-orange-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🎯</span>
+                <h3 class="text-2xl font-bold text-orange-900">Cilj izolacije</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Dobivanje bakterijske kulture na kosom agaru koja služi kao inokulum za sva daljnja istraživanja.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-orange-800 mb-3">Istraživanja koja se mogu provoditi:</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                  <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm text-center">🔬 Morfološka</span>
+                  <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm text-center">🧬 Genetička</span>
+                  <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm text-center">⚗️ Biokemijska</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Metoda izolacije -->
+            <div id="metoda-izolacije" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🔬</span>
+                <h3 class="text-2xl font-bold text-green-900">Metoda izolacije</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                U epruveti sa sterilnom destiliranom vodom uz dodatak 0,3% NaCl homogenizirati bakteriološkom ušicom nekoliko čistih bakterijskih kultura s kosog agara te tako pripremiti mješovitu kulturu.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-green-800 mb-3">Koraci metode:</h4>
+                <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                  <li>Homogenizirati bakteriološkom ušicom nekoliko čistih bakterijskih kultura</li>
+                  <li>Pripremiti mješovitu kulturu u sterilnoj destiliranoj vodi s 0,3% NaCl</li>
+                  <li>Uroniti sterilnu ušicu u suspenziju</li>
+                  <li>Razmazati metodom iscrpljivanja bakterijskog materijala po krutoj podlozi</li>
+                  <li>Inkubirati na 22°C/72 h</li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- Izvori materijala -->
+            <div id="izvori-materijala" class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6 shadow-lg border border-purple-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">💧</span>
+                <h3 class="text-2xl font-bold text-purple-900">Izvori materijala</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Osnovno je pravilo da se bakterije mogu izolirati iz tekuće faze – suspenzije.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-purple-800 mb-3">Tipovi suspenzija:</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm text-center">🩸 Krv</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm text-center">👄 Slina</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm text-center">💛 Urin</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm text-center">💧 Voda</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm text-center">🥛 Mlijeko</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm text-center">🌱 Tlo</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm text-center">🧠 Likvor</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm text-center">🍎 Hrana</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rezultati -->
+            <div id="rezultati" class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-6 shadow-lg border border-pink-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">📊</span>
+                <h3 class="text-2xl font-bold text-pink-900">Rezultati</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Metodom iscrpljivanja materijala dobiva se porast pojedinačnih kolonija na krutoj hranjivoj podlozi.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-pink-800 mb-3">Očekivani rezultat:</h4>
+                <div class="space-y-2 text-gray-700">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 bg-pink-400 rounded-full mr-3"></span>
+                    <span><strong>Pojedinačne kolonije</strong> na krutoj hranjivoj podlozi</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 bg-pink-400 rounded-full mr-3"></span>
+                    <span><strong>Čista kultura</strong> za daljnja istraživanja</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slika -->
+            <figure class="image-figure bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+              <img src="/images/slika11.jpg" alt="Izolacija čiste kulture – kolonije na hranjivom agaru" class="w-3/5 h-auto rounded-lg mx-auto" />
+              <figcaption class="mt-4 text-center">
+                <span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">Slika 11</span>
+                <span class="block mt-2 text-gray-700">Izolacija čiste kulture – kolonije na hranjivom agaru</span>
+              </figcaption>
+            </figure>
+
           </div>
 
-          <!-- Slika -->
-          <div style="margin: 2rem 0; text-align: center;">
-            <img src="/images/slika11.jpg" alt="Izolacija čiste kulture – kolonije na hranjivom agaru" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-            <p style="margin-top: 1rem; font-weight: 600; color: #2c3e50;">
-              <span style="background: #3498db; color: white; padding: 4px 8px; border-radius: 12px; font-size: 14px; margin-right: 8px;">Slika 11</span>
-              Izolacija čiste kulture – kolonije na hranjivom agaru
-            </p>
-          </div>
         </div>
       </div>
     </main>
@@ -206,6 +309,17 @@ const {
     </div>
   </section>
 
+  <!-- CSS Styles for Active State -->
+  <style>
+    .toc-link.active {
+      @apply text-emerald-600 bg-emerald-50 font-semibold;
+    }
+    
+    .toc-link.active span {
+      @apply w-3 h-3 scale-125;
+    }
+  </style>
+
   <!-- JavaScript -->
   <script>
     // Bookmark functionality
@@ -222,7 +336,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
@@ -283,10 +397,47 @@ const {
       });
     }
 
+    // Scroll Spy for TOC
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('[id^="opis-"], [id^="cilj-"], [id^="metoda-"], [id^="izvori-"], [id^="rezultati"]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      
+      function updateActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        // Remove active class from all links
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Add active class to current section link
+        if (currentSection) {
+          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      }
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', updateActiveLink);
+      
+      // Initial check
+      updateActiveLink();
+    }
+
     // Initialize everything
     document.addEventListener('DOMContentLoaded', () => {
       initBookmarks();
       initMobileTOC();
+      initScrollSpy();
     });
   </script>
 

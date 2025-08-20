@@ -9,6 +9,7 @@ export const collections = {
 		schema: z.object({
 			title: z.string(),
 			chapterNumber: z.number().optional(),
+			order: z.number().optional(), // Added order field for subpage ordering within chapters
 			description: z.string().optional(),
 			primaryColor: z.string().optional(),
 			showBreadcrumb: z.boolean().optional(),

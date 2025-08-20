@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const { 
-  title = 'Vježba 1',
+  title = 'Vježba 1 - Dokazivanje sveprisutnosti mikroba u okolišu',
   description = ''
 } = Astro.props;
 ---
@@ -45,16 +45,28 @@ const {
           <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
         </button>
         
-        <!-- Quick Navigation -->
+        <!-- Table of Contents -->
         <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Brza navigacija</div>
-          <a href="/poglavlje-1/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
-            <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
-            Pregled poglavlja
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#opis-vjezbe" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="opis-vjezbe">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
+            Opis vježbe
           </a>
-          <a href="/sadrzaj/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-            Svi sadržaji
+          <a href="#metoda-brisa" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="metoda-brisa">
+            <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 transition-all duration-300"></span>
+            Metoda brisa
+          </a>
+          <a href="#metoda-izlaganja-zraku" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="metoda-izlaganja-zraku">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Metoda izlaganja zraku
+          </a>
+          <a href="#rezultati" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="rezultati">
+            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
+            Rezultati
+          </a>
+          <a href="#oblik-kolonija" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="oblik-kolonija">
+            <span class="w-2 h-2 bg-pink-400 rounded-full mr-3 transition-all duration-300"></span>
+            Oblik kolonija
           </a>
         </nav>
       </div>
@@ -64,24 +76,132 @@ const {
     <main class="flex-1 px-6 py-8">
       <div class="max-w-4xl mx-auto">
         <div class="prose prose-lg max-w-none">
-          ---
-title: Vježba 1 - Dokazivanje sveprisutnosti mikroba u okolišu
----
+          
+          <!-- Content Blocks -->
+          <div class="space-y-8">
+            
+            <!-- Opis vježbe -->
+            <div id="opis-vjezbe" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🧫</span>
+                <h3 class="text-2xl font-bold text-blue-900">Opis vježbe</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Ova vježba ima za cilj dokazati sveprisutnost mikroorganizama u okolišu. Koriste se dvije metode: metoda brisa s površina i metoda izlaganja Petrijevih zdjelica zraku.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-blue-800 mb-3">Cilj vježbe:</h4>
+                <p class="text-gray-700">Dokazivanje prisutnosti mikroorganizama u različitim okolišima i razumijevanje njihove distribucije.</p>
+              </div>
+            </div>
 
-<section class="cards-grid">
-  <article class="card-sheen">
-    <h3 class="card-sheen__title">Opis vježbe</h3>
-    <p>Sterilni štapić za uzimanje brisa umočiti u sterilnu destiliranu vodu s dodatkom 0,3% NaCl. Uzeti brisove đona cipela, radnih površina, kvaka, stubova i sl. Premazati štapićem površinu Petrijeve zdjelice s hranjivim agarom i inkubirati na 22°C/72 h.</p>
-    <p>Radi dokazivanja mikroorganizama koji se nalaze oko nas u zraku Petrijevu zdjelicu s hranjivim agarom otvoriti i ostaviti bez poklopca izloženu zraku 20 min. Petrijeve zdjelice izložiti u predavaonici, praktikumu, hodniku, na prozoru.</p>
-    <p>Nakon inkubacije (22°C/72 h) na pločama će porasti kolonije bakterija (slika 10), kvasaca i plijesni, a njihov broj zavisi od mjesta uzorkovanja. Na mjestima sakupljanja i zadržavanja većeg broja ljudi, u zatvorenim prostorijama, na cesti u centru grada bit će znatno veći nego u šumi, parkovima i sl.</p>
-    <p>Obratiti pozornost obliku i izgledu ruba bakterijskih kolonija. Gledano odozgo oblik kolonija pretežno je okrugao, a rubovi glatki, valoviti, izrezuckani ili čupavi. Gledane sa strane kolonije mogu biti konveksne s udubljenjem ili ispupčenjem u sredini ili izgleda okrugle ploče. Površina kolonija može biti glatka ili hrapava kadkad s raznim specifičnim crtežima, a kolonije mogu biti različito obojene ili prozirne.</p>
-  </article>
-</section>
+            <!-- Metoda brisa -->
+            <div id="metoda-brisa" class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 shadow-lg border border-orange-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🦠</span>
+                <h3 class="text-2xl font-bold text-orange-900">Metoda brisa</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Sterilni štapić za uzimanje brisa umočiti u sterilnu destiliranu vodu s dodatkom 0,3% NaCl. Uzeti brisove đona cipela, radnih površina, kvaka, stubova i sl.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-orange-800 mb-3">Koraci:</h4>
+                <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                  <li>Umočiti sterilni štapić u sterilnu destiliranu vodu s 0,3% NaCl</li>
+                  <li>Uzeti brisove s različitih površina</li>
+                  <li>Premazati štapićem površinu Petrijeve zdjelice s hranjivim agarom</li>
+                  <li>Inkubirati na 22°C/72 h</li>
+                </ol>
+              </div>
+            </div>
 
-<figure class="image-figure">
-  <img src="/images/slika10.jpg" alt="Bakterijske kolonije na hranjivom agaru" />
-  <figcaption><span class="chip">Slika 10</span> Bakterijske kolonije na hranjivom agaru</figcaption>
-</figure>
+            <!-- Metoda izlaganja zraku -->
+            <div id="metoda-izlaganja-zraku" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">💨</span>
+                <h3 class="text-2xl font-bold text-green-900">Metoda izlaganja zraku</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Radi dokazivanja mikroorganizama koji se nalaze oko nas u zraku Petrijevu zdjelicu s hranjivim agarom otvoriti i ostaviti bez poklopca izloženu zraku 20 min.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-green-800 mb-3">Mjesta izlaganja:</h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm text-center">🏫 Predavaonica</span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm text-center">🔬 Praktikum</span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm text-center">🚶 Hodnik</span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm text-center">🪟 Prozor</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rezultati -->
+            <div id="rezultati" class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6 shadow-lg border border-purple-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">📊</span>
+                <h3 class="text-2xl font-bold text-purple-900">Rezultati</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Nakon inkubacije (22°C/72 h) na pločama će porasti kolonije bakterija, kvasaca i plijesni, a njihov broj zavisi od mjesta uzorkovanja.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-purple-800 mb-3">Distribucija mikroorganizama:</h4>
+                <div class="space-y-2 text-gray-700">
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 bg-red-400 rounded-full mr-3"></span>
+                    <span><strong>Više:</strong> Mjesta sakupljanja ljudi, zatvoreni prostori, centar grada</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="w-3 h-3 bg-green-400 rounded-full mr-3"></span>
+                    <span><strong>Manje:</strong> Šuma, parkovi, otvoreni prostori</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Oblik kolonija -->
+            <div id="oblik-kolonija" class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-6 shadow-lg border border-pink-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🔍</span>
+                <h3 class="text-2xl font-bold text-pink-900">Oblik kolonija</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Obratiti pozornost obliku i izgledu ruba bakterijskih kolonija. Gledano odozgo oblik kolonija pretežno je okrugao, a rubovi glatki, valoviti, izrezuckani ili čupavi.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-pink-800 mb-3">Karakteristike kolonija:</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+                  <div>
+                    <h5 class="font-medium text-pink-700 mb-2">Oblik:</h5>
+                    <ul class="list-disc list-inside space-y-1">
+                      <li>Okrugao (pretežno)</li>
+                      <li>Konveksan s udubljenjem</li>
+                      <li>Ispupčenje u sredini</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-pink-700 mb-2">Površina:</h5>
+                    <ul class="list-disc list-inside space-y-1">
+                      <li>Glatka ili hrapava</li>
+                      <li>Različito obojene</li>
+                      <li>Prozirne</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slika -->
+            <figure class="image-figure bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+              <img src="/images/slika10.jpg" alt="Bakterijske kolonije na hranjivom agaru" class="w-3/5 h-auto rounded-lg mx-auto" />
+              <figcaption class="mt-4 text-center">
+                <span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">Slika 10</span>
+                <span class="block mt-2 text-gray-700">Bakterijske kolonije na hranjivom agaru</span>
+              </figcaption>
+            </figure>
+
+          </div>
+
         </div>
       </div>
     </main>
@@ -197,6 +317,17 @@ title: Vježba 1 - Dokazivanje sveprisutnosti mikroba u okolišu
     </div>
   </section>
 
+  <!-- CSS Styles for Active State -->
+  <style>
+    .toc-link.active {
+      @apply text-emerald-600 bg-emerald-50 font-semibold;
+    }
+    
+    .toc-link.active span {
+      @apply w-3 h-3 scale-125;
+    }
+  </style>
+
   <!-- JavaScript -->
   <script>
     // Bookmark functionality
@@ -213,7 +344,7 @@ title: Vježba 1 - Dokazivanje sveprisutnosti mikroba u okolišu
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
@@ -274,10 +405,47 @@ title: Vježba 1 - Dokazivanje sveprisutnosti mikroba u okolišu
       });
     }
 
+    // Scroll Spy for TOC
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('[id^="opis-"], [id^="metoda-"], [id^="rezultati"], [id^="oblik-"]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      
+      function updateActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        // Remove active class from all links
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Add active class to current section link
+        if (currentSection) {
+          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      }
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', updateActiveLink);
+      
+      // Initial check
+      updateActiveLink();
+    }
+
     // Initialize everything
     document.addEventListener('DOMContentLoaded', () => {
       initBookmarks();
       initMobileTOC();
+      initScrollSpy();
     });
   </script>
 

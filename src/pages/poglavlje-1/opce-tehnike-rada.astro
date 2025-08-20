@@ -7,8 +7,8 @@ export interface Props {
 }
 
 const { 
-  title = 'Opće tehnike rada',
-  description = ''
+  title = 'Bakteriološke tehnike rada',
+  description = 'Osnovne tehnike rada u bakteriološkom praktikumu'
 } = Astro.props;
 ---
 
@@ -45,16 +45,20 @@ const {
           <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
         </button>
         
-        <!-- Quick Navigation -->
+        <!-- Table of Contents -->
         <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Brza navigacija</div>
-          <a href="/poglavlje-1/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
-            <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
-            Pregled poglavlja
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#osnovno-pravilo" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="osnovno-pravilo">
+            <span class="w-2 h-2 bg-red-400 rounded-full mr-3 transition-all duration-300"></span>
+            Osnovno pravilo sigurnosti
           </a>
-          <a href="/sadrzaj/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-            Svi sadržaji
+          <a href="#kljucne-tehnike" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="kljucne-tehnike">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
+            Ključne tehnike rada
+          </a>
+          <a href="#kljucno-sigurnost" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="kljucno-sigurnost">
+            <span class="w-2 h-2 bg-yellow-400 rounded-full mr-3 transition-all duration-300"></span>
+            Ključno za sigurnost
           </a>
         </nav>
       </div>
@@ -65,69 +69,80 @@ const {
       <div class="max-w-4xl mx-auto">
         <div class="prose prose-lg max-w-none">
           
-          <!-- Osnovno pravilo sigurnosti -->
-          <div style="background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%); border-radius: 15px; padding: 25px; margin: 25px 0; border: 2px solid #e53e3e;">
-            <div style="display: flex; align-items: center; margin-bottom: 15px;">
-              <h4 style="margin: 0; color: #c53030; font-weight: 600; font-size: 18px;">Osnovno pravilo sigurnosti</h4>
-            </div>
-            <p style="margin: 0; color: #2d3748; line-height: 1.6; font-weight: 500;">
-              Treba strogo poštovati pravilo da <strong>svaka bakterijska kultura u velikoj količini</strong> (čiste kulture, kolonije bakterija na hranjivoj podlozi) može biti <strong>potencijalan izvor zaraze</strong> makar bila u literaturi citirana kao nepatogena vrsta.
-            </p>
-          </div>
-
-          <!-- Ključne tehnike rada -->
-          <div style="background: linear-gradient(135deg, #e8f4fd 0%, #d1ecf1 100%); border-radius: 15px; padding: 25px; margin: 20px 0; border: 2px solid #3498db;">
-            <div style="display: flex; align-items: center; margin-bottom: 20px;">
-              <h4 style="margin: 0; color: #2980b9; font-weight: 600; font-size: 18px;">Ključne tehnike rada</h4>
-            </div>
+          <!-- Content Blocks -->
+          <div class="space-y-8">
             
-            <div style="display: grid; gap: 15px;">
-              
-              <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #ff9800;">
-                <div style="display: flex; align-items: flex-start;">
-                  <div>
-                    <strong style="color: #f57c00; font-size: 15px;">Rad u blizini plamenika</strong>
-                    <p style="margin: 5px 0 0 0; color: #495057; line-height: 1.5; font-size: 14px;">
-                      Sve bakteriološke tehnike rada moraju se odvijati u neposrednoj blizini plamenika radi izbjegavanja kontaminacije hranjivih sterilnih medija i čistih kultura bakterijama raspršenim u zraku praktikuma.
-                    </p>
-                  </div>
-                </div>
+            <!-- Osnovno pravilo sigurnosti -->
+            <div id="osnovno-pravilo" class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 shadow-lg border border-red-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">⚠️</span>
+                <h3 class="text-2xl font-bold text-red-900">Osnovno pravilo sigurnosti</h3>
               </div>
-              
-              <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #e91e63;">
-                <div style="display: flex; align-items: flex-start;">
-                  <div>
-                    <strong style="color: #c2185b; font-size: 15px;">Sterilizacija instrumenata</strong>
-                    <p style="margin: 5px 0 0 0; color: #495057; line-height: 1.5; font-size: 14px;">
-                      Otvori epruveta, tikvica, bakteriološke ušice opaljuju se radi sterilizacije na plameniku prije svakog rukovanja s bakterijskim materijalom.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #9c27b0;">
-                <div style="display: flex; align-items: flex-start;">
-                  <div>
-                    <strong style="color: #7b1fa2; font-size: 15px;">Sigurno pipetiranje</strong>
-                    <p style="margin: 5px 0 0 0; color: #495057; line-height: 1.5; font-size: 14px;">
-                      Pipetiranje je dopušteno samo vatom zaštićenim gornjim otvorom pipeta (serološke pipete) ili automatskim pipetama.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
+              <p class="text-gray-700 leading-relaxed font-medium">
+                Treba strogo poštovati pravilo da <strong>svaka bakterijska kultura u velikoj količini</strong> (čiste kulture, kolonije bakterija na hranjivoj podlozi) može biti <strong>potencijalan izvor zaraze</strong> makar bila u literaturi citirana kao nepatogena vrsta.
+              </p>
             </div>
+
+            <!-- Ključne tehnike rada -->
+            <div id="kljucne-tehnike" class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🔬</span>
+                <h3 class="text-2xl font-bold text-blue-900">Ključne tehnike rada</h3>
+              </div>
+              
+              <div class="space-y-4">
+                
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-orange-500">
+                  <div class="flex items-start">
+                    <div>
+                      <strong class="text-orange-800 text-lg">Rad u blizini plamenika</strong>
+                      <p class="text-gray-700 leading-relaxed mt-2">
+                        Sve bakteriološke tehnike rada moraju se odvijati u neposrednoj blizini plamenika radi izbjegavanja kontaminacije hranjivih sterilnih medija i čistih kultura bakterijama raspršenim u zraku praktikuma.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-pink-500">
+                  <div class="flex items-start">
+                    <div>
+                      <strong class="text-pink-800 text-lg">Sterilizacija instrumenata</strong>
+                      <p class="text-gray-700 leading-relaxed mt-2">
+                        Otvori epruveta, tikvica, bakteriološke ušice opaljuju se radi sterilizacije na plameniku prije svakog rukovanja s bakterijskim materijalom.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
+                  <div class="flex items-start">
+                    <div>
+                      <strong class="text-purple-800 text-lg">Sigurno pipetiranje</strong>
+                      <p class="text-gray-700 leading-relaxed mt-2">
+                        Pipetiranje je dopušteno samo vatom zaštićenim gornjim otvorom pipeta (serološke pipete) ili automatskim pipetama.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+            <!-- Ključno za sigurnost -->
+            <div id="kljucno-sigurnost" class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 shadow-lg border border-yellow-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🔑</span>
+                <h3 class="text-2xl font-bold text-yellow-900">Ključno za sigurnost</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed font-medium">
+                Sterilizacija otvorenih instrumenata i rad u blizini plamenika ključni su za održavanje sterilnosti i sigurnosti u radu.
+              </p>
+            </div>
+
           </div>
 
-          <!-- Ključno za sigurnost -->
-          <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-radius: 10px; padding: 18px; margin: 20px 0; border-left: 4px solid #f39c12;">
-            <div style="display: flex; align-items: center; margin-bottom: 8px;">
-              <strong style="color: #e67e22;">Ključno za sigurnost</strong>
-            </div>
-            <p style="margin: 0; color: #d68910; line-height: 1.5; font-weight: 500;">
-              Sterilizacija otvorenih instrumenata i rad u blizini plamenika ključni su za održavanje sterilnosti i sigurnosti u radu.
-            </p>
-          </div>
+        </div>
+      </div>
     </main>
   </div>
 
@@ -241,6 +256,17 @@ const {
     </div>
   </section>
 
+  <!-- CSS Styles for Active State -->
+  <style>
+    .toc-link.active {
+      @apply text-emerald-600 bg-emerald-50 font-semibold;
+    }
+    
+    .toc-link.active span {
+      @apply w-3 h-3 scale-125;
+    }
+  </style>
+
   <!-- JavaScript -->
   <script>
     // Bookmark functionality
@@ -257,7 +283,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
@@ -318,10 +344,47 @@ const {
       });
     }
 
+    // Scroll Spy for TOC
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('[id^="osnovno-"], [id^="kljucne-"], [id^="kljucno-"]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      
+      function updateActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        // Remove active class from all links
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Add active class to current section link
+        if (currentSection) {
+          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      }
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', updateActiveLink);
+      
+      // Initial check
+      updateActiveLink();
+    }
+
     // Initialize everything
     document.addEventListener('DOMContentLoaded', () => {
       initBookmarks();
       initMobileTOC();
+      initScrollSpy();
     });
   </script>
 

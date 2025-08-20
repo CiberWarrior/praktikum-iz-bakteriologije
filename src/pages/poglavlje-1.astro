@@ -20,9 +20,9 @@ const allDocs = await getCollection('chapters');
 const poglavlje1Docs = allDocs
   .filter(entry => entry.id.startsWith('poglavlje-1/') && entry.id !== 'poglavlje-1/index')
   .sort((a, b) => {
-    // Sortiraj po chapterNumber iz frontmattera, ako ne postoji koristi 0
-    const aOrder = (a.data as any).chapterNumber || 0;
-    const bOrder = (b.data as any).chapterNumber || 0;
+    // Sortiraj po order iz frontmattera, ako ne postoji koristi 0
+    const aOrder = (a.data as any).order || 0;
+    const bOrder = (b.data as any).order || 0;
     return aOrder - bOrder;
   });
 ---
@@ -74,7 +74,7 @@ const poglavlje1Docs = allDocs
         </svg>
       </div>
       <div>
-        <h3 class="text-xl font-bold text-green-900 mb-3 font-heading">Dobrodošli u Poglavlje 1</h3>
+        <h3 class="text-xl font-bold text-green-900 mb-3">Dobrodošli u Poglavlje 1</h3>
         <p class="text-green-800 text-lg leading-relaxed font-body">
           Ovo poglavlje vodi vas kroz osnovne koncepte i sigurnosne mjere u bakteriološkom laboratoriju. 
           Naučit ćete o pravilima ponašanja, opremi, tehnikama rada i sigurnosnim protokolima koji su 
@@ -90,7 +90,7 @@ const poglavlje1Docs = allDocs
       Bakteriološki praktikum (slika 1) namijenjen je isključivo praktičnoj nastavi iz bakteriologije. Specifičnosti bakteriološke prakse zahtijevaju strogo pridržavanje propisa antisepse i higijene zajedničkih za sve bakteriološke laboratorije i praktikume u svijetu. Svi uzorci mikrobioloških kultura i inokuliranih hranjivih podloga potencijalno su zarazni te se stoga preporučuje rukovati njima uza stroge mjere opreza. U radu je potrebno rukovoditi se aseptičkim tehnikama i strogim mjerama rukovanja bakterijama prema "NCCLS M29-A, Protection of Laboratory Workers from Instrument Biohazards and Infectious Disease Transmitted By Blood, Body Fluids, and Tissue; Aproved Guedline- December 1997". Dolje navodimo pravila reda i ponašanja propisana u bakteriološkom laboratoriju Instituta za primijenjenu mikrobiologiju Sveučilišta u Beču (Institute of Applied Microbiology University of Natural Resources and Applied Life Sciences, Vienna - Übungslabors Richtlinien, 01/06, 01/14).
     </p>
     <div class="mt-4">
-      <img src="/images/slika1.jpg" alt="Slika 1 – Bakteriološki praktikum" class="w-4/5 max-w-3xl mx-auto rounded-lg shadow-lg" />
+      <img src="/images/slika1.jpg" alt="Slika 1 – Bakteriološki praktikum" class="w-3/5 max-w-3xl mx-auto rounded-lg shadow-lg" />
       <p class="text-gray-800 text-lg font-semibold mt-4 text-center">Slika 1. Bakteriološki praktikum.</p>
     </div>
   </div>
