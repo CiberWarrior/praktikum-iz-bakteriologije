@@ -1,7 +1,5 @@
 ---
-import ChapterLayout from '../../components/ChapterLayout.astro';
-import ChapterNavigation from '../../components/ChapterNavigation.astro';
-import { getChapterConfig } from '../../config/chapters';
+import SubPageLayout from '../../components/SubPageLayout.astro';
 
 export interface Props {
   title?: string;
@@ -9,192 +7,416 @@ export interface Props {
 }
 
 const { 
-  title = 'Hranjive podloge',
-  description = 'Sadržaj poglavlja 1 - Hranjive podloge'
+  title = 'Hranjivi mediji',
+  description = ''
 } = Astro.props;
-
-const chapterConfig = getChapterConfig(1);
 ---
 
-<ChapterLayout 
+<SubPageLayout 
   title={title} 
-  description={description} 
+  description={description}
   chapterNumber={1}
-  primaryColor="emerald"
-  prevLink="/poglavlje-1/" 
-  nextLink="/poglavlje-2/" 
-  prevText="← Poglavlje 1" 
-  nextText="Poglavlje 2 →" 
-  ctaTitle="Nastavi na sljedeće poglavlje" 
-  ctaDescription="Nastavite s učenjem i upoznajte Mikroskopija." 
-  ctaPrimaryText="Poglavlje 2" 
-  ctaPrimaryLink="/poglavlje-2/" 
-  ctaSecondaryText="Povratak na pregled" 
-  ctaSecondaryLink="/poglavlje-1/"
-  showBreadcrumb={true}
+  primaryColor="green"
   breadcrumbPath={[
-    { name: 'Sadržaj', url: '/sadrzaj/' },
-    { name: 'Poglavlje 1', url: '/poglavlje-1/' },
-    { name: 'Hranjive podloge', url: '/poglavlje-1/hranjivepodloge/' }
+    { name: 'Hranjivi mediji', url: '/poglavlje-1/hranjivi-mediji/' }
   ]}
 >
-  <!-- Navigacija kroz poglavlje -->
-  <ChapterNavigation 
-    chapterNumber={1} 
-    currentSection="hranjive-podloge" 
-    chapterTitle="Osnove laboratorijskog rada"
-  />
 
-  <!-- Sadržaj poglavlja -->
-  <div class="prose prose-lg max-w-none">
+  <!-- Main Content with Sidebar -->
+  <div class="flex max-w-7xl mx-auto">
     
+    <!-- Table of Contents Sidebar -->
+    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
+      <div class="mb-6">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-emerald-50 w-full">
+          <svg id="bookmark-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Quick Navigation -->
+        <nav class="space-y-1">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Brza navigacija</div>
+          <a href="/poglavlje-1/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
+            <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
+            Pregled poglavlja
+          </a>
+          <a href="/sadrzaj/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+            Svi sadržaji
+          </a>
+        </nav>
+      </div>
+    </aside>
 
-<div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; padding: 25px; margin: 25px 0; border-left: 5px solid #138d75;">
-  <p style="font-size: 1.1rem; line-height: 1.7; margin: 0 0 15px 0; color: #2c3e50;">
-    Hranjive podloge ili <em>hranjivi mediji</em> otopine su kemijskih spojeva koji omogućuju rast i razmnožavanje određenih vrsta ili skupina bakterija.
-  </p>
-  <p style="font-size: 1rem; line-height: 1.6; margin: 0; color: #495057;">
-    Podloge moraju sadržavati izvore potrebnih kemijskih elemenata za sintezu dijelova bakterijske stanice te izvore energije kako bi se životni ciklus odvijao.
-  </p>
-</div>
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-none">
+          
+          <!-- Uvod o hranjivim medijima -->
+          <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px; padding: 25px; margin: 25px 0; border-left: 5px solid #138d75;">
+            <p style="font-size: 1.1rem; line-height: 1.7; margin: 0 0 15px 0; color: #2c3e50;">
+              Hranjive podloge ili <em>hranjivi mediji</em> otopine su kemijskih spojeva koji omogućuju rast i razmnožavanje određenih vrsta ili skupina bakterija.
+            </p>
+            <p style="font-size: 1rem; line-height: 1.6; margin: 0; color: #495057;">
+              Podloge moraju sadržavati izvore potrebnih kemijskih elemenata za sintezu dijelova bakterijske stanice te izvore energije kako bi se životni ciklus odvijao.
+            </p>
+          </div>
 
-<div style="background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%); border-radius: 15px; padding: 20px; margin: 20px 0; border: 2px solid #27ae60;">
-  <div style="display: flex; align-items: center; margin-bottom: 15px;">
-    <span style="font-size: 24px; margin-right: 12px;">⚗️</span>
-    <h4 style="margin: 0; color: #1e7e34; font-weight: 600; font-size: 18px;">Osnovni biogeni elementi</h4>
+          <!-- Osnovni biogeni elementi -->
+          <div style="background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%); border-radius: 15px; padding: 20px; margin: 20px 0; border: 2px solid #27ae60;">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 24px; margin-right: 12px;">⚗️</span>
+              <h4 style="margin: 0; color: #1e7e34; font-weight: 600; font-size: 18px;">Osnovni biogeni elementi</h4>
+            </div>
+            <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+              <p style="margin: 0 0 10px 0; color: #2d3748; line-height: 1.6; font-size: 14px;">
+                Kao osnovni konstitucijski (biogeni) elementi dodaju se u propisanim koncentracijama hranjivim medijima:
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">C</span>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">O</span>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">H</span>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">N</span>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">S</span>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">P</span>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">K</span>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">Ca</span>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">Mg</span>
+                <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">Fe</span>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+              <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #3498db;">
+                <strong style="color: #2980b9; font-size: 15px; display: block; margin-bottom: 8px;">🔵 Izvor ugljika</strong>
+                <div style="font-size: 14px; color: #495057; line-height: 1.4;">
+                  <div>• <strong>Organski:</strong> ugljikohidrati, masne kiseline</div>
+                  <div>• <strong>Anorganski:</strong> CO₂</div>
+                </div>
+              </div>
+              
+              <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #e74c3c;">
+                <strong style="color: #c0392b; font-size: 15px; display: block; margin-bottom: 8px;">🔴 Izvor dušika</strong>
+                <div style="font-size: 14px; color: #495057; line-height: 1.4;">
+                  <div>• <strong>Organski:</strong> pepton (digestija mesa)</div>
+                  <div>• <strong>Anorganski:</strong> NaNO₃, KNO₃, (NH₄)₂SO₄</div>
+                </div>
+              </div>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px;">
+              <p style="margin: 0 0 8px 0; color: #2d3748; font-weight: 500; font-size: 14px;">Ostali elementi dodaju se u obliku anorganskih soli.</p>
+              <div style="font-size: 14px; color: #495057;">
+                <strong>Tragovi:</strong> Mn, Zn, Mo, Cu, Co, Ni, V, B, Cl, Na, Si
+              </div>
+            </div>
+          </div>
+
+          <hr style="margin: 30px 0; border: none; border-top: 2px solid #e2e8f0;">
+
+          <h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Komercijalne podloge</h3>
+
+          <!-- Komercijalne podloge -->
+          <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 15px; padding: 20px; margin: 20px 0;">
+            <p style="margin: 0 0 15px 0; color: #1565c0; line-height: 1.6; font-weight: 500;">
+              Danas su bakteriolozima na raspolaganju mnoge komercijalno pripremljene:
+            </p>
+            <div style="display: grid; gap: 10px;">
+              <div style="display: flex; align-items: center; background: rgba(255,255,255,0.8); padding: 12px; border-radius: 8px;">
+                <span style="width: 6px; height: 6px; background: #2196f3; border-radius: 50%; margin-right: 10px; flex-shrink: 0;"></span>
+                <span style="color: #1565c0; font-weight: 500;">Dehidrirane podloge za uzgoj različitih vrsta bakterija</span>
+              </div>
+              <div style="display: flex; align-items: center; background: rgba(255,255,255,0.8); padding: 12px; border-radius: 8px;">
+                <span style="width: 6px; height: 6px; background: #2196f3; border-radius: 50%; margin-right: 10px; flex-shrink: 0;"></span>
+                <span style="color: #1565c0; font-weight: 500;">Reagensi i selektivni dodaci</span>
+              </div>
+              <div style="display: flex; align-items: center; background: rgba(255,255,255,0.8); padding: 12px; border-radius: 8px;">
+                <span style="width: 6px; height: 6px; background: #2196f3; border-radius: 50%; margin-right: 10px; flex-shrink: 0;"></span>
+                <span style="color: #1565c0; font-weight: 500;">Već gotovi sterilni mediji u Petrijevkama ili epruvetama, spremni za jednokratnu upotrebu</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Vrste hranjivih podloga</h3>
+
+          <!-- Vrste hranjivih podloga -->
+          <div style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); border-radius: 15px; padding: 20px; margin: 20px 0; border: 2px solid #ff9800;">
+            <p style="margin: 0 0 20px 0; color: #e65100; line-height: 1.6; font-weight: 600; text-align: center;">
+              Hranjive podloge dijelimo na:
+            </p>
+            
+            <div style="display: grid; gap: 15px;">
+              <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                  <span style="font-size: 18px; margin-right: 10px;">1️⃣</span>
+                  <h4 style="margin: 0; color: #2e7d32; font-size: 1.2rem; font-weight: 600;">Sintetske (definirane)</h4>
+                </div>
+                <p style="margin: 0 0 8px 0; color: #2d3748; line-height: 1.5;">
+                  Sadrže točno određene koncentracije poznatih kemijskih spojeva.
+                </p>
+                <div style="background: #e8f5e8; padding: 10px; border-radius: 6px; font-style: italic; color: #2e7d32; font-size: 14px;">
+                  Primjer: tekuća podloga za uzgoj nitrifikacijskih bakterija
+                </div>
+              </div>
+              
+              <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0;">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                  <span style="font-size: 18px; margin-right: 10px;">2️⃣</span>
+                  <h4 style="margin: 0; color: #7b1fa2; font-size: 1.2rem; font-weight: 600;">Kompleksne</h4>
+                </div>
+                <p style="margin: 0 0 8px 0; color: #2d3748; line-height: 1.5;">
+                  Ne sadrže točno određene sastojke. Sadrže razne ekstrakte, peptone, hidrolizate, sokove itd.
+                </p>
+                <div style="background: #f3e5f5; padding: 10px; border-radius: 6px; font-style: italic; color: #7b1fa2; font-size: 14px;">
+                  Primjer: Hranjivi agar (mesno-peptonski agar)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr style="margin: 30px 0; border: none; border-top: 2px solid #e2e8f0;">
+
+          <!-- Sastav hranjivog agara -->
+          <div style="max-width: 520px; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px auto;">
+            <div style="display: flex; align-items: center; margin-bottom: 15px;">
+              <span style="font-size: 24px; margin-right: 10px;">🧫</span>
+              <h3 style="margin: 0; color: #2c3e50; font-weight: 600; font-size: 18px;">Sastav hranjivog agara</h3>
+            </div>
+            <div style="background: white; border-radius: 10px; padding: 15px;">
+              <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 15px; align-items: center;">
+                <span style="font-weight: 500; color: #34495e; font-size: 14px;">Pepton</span>
+                <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">5,0 g</span>
+                <span style="font-weight: 500; color: #34495e; font-size: 14px;">Mesni ekstrakt</span>
+                <span style="background: #f39c12; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">3,0 g</span>
+                <span style="font-weight: 500; color: #34495e; font-size: 14px;">Agar</span>
+                <span style="background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">15,0 g</span>
+                <span style="font-weight: 500; color: #34495e; font-size: 14px;">Destilirana voda</span>
+                <span style="background: #2ecc71; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1000 mL</span>
+              </div>
+              <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ecf0f1;">
+                <span style="font-weight: 600; color: #2c3e50; font-size: 14px;">pH = 7,0 ± 0,2</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Napomena -->
+          <div style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c8 100%); border-radius: 10px; padding: 18px; margin: 20px 0; border-left: 4px solid #4caf50;">
+            <div style="display: flex; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 18px; margin-right: 8px;">🧫</span>
+              <strong style="color: #2e7d32;">Napomena</strong>
+            </div>
+            <p style="margin: 0; color: #2e7d32; line-height: 1.5; font-weight: 500;">
+              Hranjivi agar koristi se kao univerzalna kompleksna podloga u rutinskim mikrobiološkim vježbama.
+            </p>
+          </div>
+    </main>
   </div>
-  <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
-    <p style="margin: 0 0 10px 0; color: #2d3748; line-height: 1.6; font-size: 14px;">
-      Kao osnovni konstitucijski (biogeni) elementi dodaju se u propisanim koncentracijama hranjivim medijima:
-    </p>
-    <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">C</span>
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">O</span>
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">H</span>
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">N</span>
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">S</span>
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">P</span>
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">K</span>
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">Ca</span>
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">Mg</span>
-      <span style="background: #27ae60; color: white; padding: 4px 8px; border-radius: 12px; font-size: 13px; font-weight: 600;">Fe</span>
+
+  <!-- Mobile TOC Toggle -->
+  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-emerald-600 text-white p-3 rounded-full shadow-lg z-50">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+    </svg>
+  </button>
+
+  <!-- Mobile TOC Overlay -->
+  <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
+    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
+          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 mb-4 w-full">
+          <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="mobile-bookmark-text">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <nav class="space-y-2">
+          <a href="/poglavlje-1/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
+            Pregled poglavlja
+          </a>
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
+            Svi sadržaji
+          </a>
+        </nav>
+      </div>
     </div>
   </div>
-  
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
-    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #3498db;">
-      <strong style="color: #2980b9; font-size: 15px; display: block; margin-bottom: 8px;">🔵 Izvor ugljika</strong>
-      <div style="font-size: 14px; color: #495057; line-height: 1.4;">
-        <div>• <strong>Organski:</strong> ugljikohidrati, masne kiseline</div>
-        <div>• <strong>Anorganski:</strong> CO₂</div>
-      </div>
+
+  <!-- Navigacijski gumbovi -->
+  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
+    <!-- Prethodna stranica -->
+    <a
+      href="/poglavlje-1/prva-pomoc/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na prethodnu stranicu: Prva pomoć"
+    >
+      <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+      <span class="text-lg">Prva pomoć</span>
+    </a>
+    
+    <!-- Iduća stranica -->
+    <a
+      href="/poglavlje-1/ekstrakti/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na sljedeću stranicu: Ekstrakti"
+    >
+      <span class="text-lg">Ekstrakti</span>
+      <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Call to Action Section -->
+  <section class="bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 text-white py-20 mt-20 relative overflow-hidden">
+    <!-- Pozadinski uzorak -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
     </div>
     
-    <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #e74c3c;">
-      <strong style="color: #c0392b; font-size: 15px; display: block; margin-bottom: 8px;">🔴 Izvor dušika</strong>
-      <div style="font-size: 14px; color: #495057; line-height: 1.4;">
-        <div>• <strong>Organski:</strong> pepton (digestija mesa)</div>
-        <div>• <strong>Anorganski:</strong> NaNO₃, KNO₃, (NH₄)₂SO₄</div>
-      </div>
-    </div>
-  </div>
-  
-  <div style="background: rgba(255,255,255,0.9); padding: 15px; border-radius: 10px;">
-    <p style="margin: 0 0 8px 0; color: #2d3748; font-weight: 500; font-size: 14px;">Ostali elementi dodaju se u obliku anorganskih soli.</p>
-    <div style="font-size: 14px; color: #495057;">
-      <strong>Tragovi:</strong> Mn, Zn, Mo, Cu, Co, Ni, V, B, Cl, Na, Si
-    </div>
-  </div>
-</div>
-
----
-
-<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Komercijalne podloge</h3>
-
-<div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 15px; padding: 20px; margin: 20px 0;">
-  <p style="margin: 0 0 15px 0; color: #1565c0; line-height: 1.6; font-weight: 500;">
-    Danas su bakteriolozima na raspolaganju mnoge komercijalno pripremljene:
-  </p>
-  <div style="display: grid; gap: 10px;">
-    <div style="display: flex; align-items: center; background: rgba(255,255,255,0.8); padding: 12px; border-radius: 8px;">
-      <span style="width: 6px; height: 6px; background: #2196f3; border-radius: 50%; margin-right: 10px; flex-shrink: 0;"></span>
-      <span style="color: #1565c0; font-weight: 500;">Dehidrirane podloge za uzgoj različitih vrsta bakterija</span>
-    </div>
-    <div style="display: flex; align-items: center; background: rgba(255,255,255,0.8); padding: 12px; border-radius: 8px;">
-      <span style="width: 6px; height: 6px; background: #2196f3; border-radius: 50%; margin-right: 10px; flex-shrink: 0;"></span>
-      <span style="color: #1565c0; font-weight: 500;">Reagensi i selektivni dodaci</span>
-    </div>
-    <div style="display: flex; align-items: center; background: rgba(255,255,255,0.8); padding: 12px; border-radius: 8px;">
-      <span style="width: 6px; height: 6px; background: #2196f3; border-radius: 50%; margin-right: 10px; flex-shrink: 0;"></span>
-      <span style="color: #1565c0; font-weight: 500;">Već gotovi sterilni mediji u Petrijevkama ili epruvetama, spremni za jednokratnu upotrebu</span>
-    </div>
-  </div>
-</div>
-
-<h3 style="color: #096279; font-size: 1.4rem; font-weight: 600; margin: 1.5rem 0 1rem 0;">Vrste hranjivih podloga</h3>
-
-<div style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); border-radius: 15px; padding: 20px; margin: 20px 0; border: 2px solid #ff9800;">
-  <p style="margin: 0 0 20px 0; color: #e65100; line-height: 1.6; font-weight: 600; text-align: center;">
-    Hranjive podloge dijelimo na:
-  </p>
-  
-  <div style="display: grid; gap: 15px;">
-    <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
-      <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <span style="font-size: 18px; margin-right: 10px;">1️⃣</span>
-        <h4 style="margin: 0; color: #2e7d32; font-size: 1.2rem; font-weight: 600;">Sintetske (definirane)</h4>
-      </div>
-      <p style="margin: 0 0 8px 0; color: #2d3748; line-height: 1.5;">
-        Sadrže točno određene koncentracije poznatih kemijskih spojeva.
+    <!-- Dekorativni elementi -->
+    <div class="absolute top-10 left-10 w-32 h-32 bg-white opacity-5 rounded-full blur-xl"></div>
+    <div class="absolute bottom-10 right-10 w-48 h-48 bg-white opacity-5 rounded-full blur-2xl"></div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        Započni učenje?
+      </h2>
+      
+      <p class="text-xl md:text-2xl text-purple-200 mb-12 leading-relaxed max-w-3xl mx-auto">
+        Započni svoj put u bakteriologiji danas. Svako poglavlje je samostalna cjelina
+        s teorijom, praktičnim vježbama i provjerom znanja.
       </p>
-      <div style="background: #e8f5e8; padding: 10px; border-radius: 6px; font-style: italic; color: #2e7d32; font-size: 14px;">
-        Primjer: tekuća podloga za uzgoj nitrifikacijskih bakterija
+      
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <a
+          href="/sadrzaj/"
+          class="inline-flex items-center justify-center px-8 py-4 bg-white text-purple-700 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 no-underline text-lg"
+        >
+          <span>Sadržaj</span>
+          <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        
+        <a
+          href="/"
+          class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-purple-700 transition-all duration-300 transform hover:-translate-y-1 no-underline text-lg"
+        >
+          Povratak na početnu
+        </a>
       </div>
     </div>
-    
-    <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0;">
-      <div style="display: flex; align-items: center; margin-bottom: 10px;">
-        <span style="font-size: 18px; margin-right: 10px;">2️⃣</span>
-        <h4 style="margin: 0; color: #7b1fa2; font-size: 1.2rem; font-weight: 600;">Kompleksne</h4>
-      </div>
-      <p style="margin: 0 0 8px 0; color: #2d3748; line-height: 1.5;">
-        Ne sadrže točno određene sastojke. Sadrže razne ekstrakte, peptone, hidrolizate, sokove itd.
-      </p>
-      <div style="background: #f3e5f5; padding: 10px; border-radius: 6px; font-style: italic; color: #7b1fa2; font-size: 14px;">
-        Primjer: Hranjivi agar (mesno-peptonski agar)
-      </div>
-    </div>
-  </div>
-</div>
+  </section>
 
----
+  <!-- JavaScript -->
+  <script>
+    // Bookmark functionality
+    function initBookmarks() {
+      const bookmarkKey = 'bookmark-hranjivi-mediji';
+      const bookmarkBtn = document.getElementById('bookmark-btn');
+      const bookmarkIcon = document.getElementById('bookmark-icon');
+      const bookmarkText = document.getElementById('bookmark-text');
+      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
+      const mobileBookmarkIcon = document.getElementById('mobile-bookmark-icon');
+      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
+      
+      // Check if bookmarked
+      const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+      updateBookmarkUI(isBookmarked);
+      
+      function updateBookmarkUI(bookmarked) {
+        const fillAttribute = bookmarked ? 'currentColor' : 'none';
+        const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
+        
+        if (bookmarkIcon) bookmarkIcon.setAttribute('fill', fillAttribute);
+        if (bookmarkText) bookmarkText.textContent = text;
+        if (mobileBookmarkIcon) mobileBookmarkIcon.setAttribute('fill', fillAttribute);
+        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
+      }
+      
+      function toggleBookmark() {
+        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+        const newBookmarkState = !currentlyBookmarked;
+        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
+        updateBookmarkUI(newBookmarkState);
+      }
+      
+      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
+      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
+    }
 
-<div style="max-width: 520px; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px auto;">
-  <div style="display: flex; align-items: center; margin-bottom: 15px;">
-    <span style="font-size: 24px; margin-right: 10px;">🧫</span>
-    <h3 style="margin: 0; color: #2c3e50; font-weight: 600; font-size: 18px;">Sastav hranjivog agara</h3>
-  </div>
-  <div style="background: white; border-radius: 10px; padding: 15px;">
-    <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 15px; align-items: center;">
-      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Pepton</span>
-      <span style="background: #3498db; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">5,0 g</span>
-      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Mesni ekstrakt</span>
-      <span style="background: #f39c12; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">3,0 g</span>
-      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Agar</span>
-      <span style="background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">15,0 g</span>
-      <span style="font-weight: 500; color: #34495e; font-size: 14px;">Destilirana voda</span>
-      <span style="background: #2ecc71; color: white; padding: 3px 10px; border-radius: 15px; font-size: 13px; font-weight: 600;">1000 mL</span>
-    </div>
-    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ecf0f1;">
-      <span style="font-weight: 600; color: #2c3e50; font-size: 14px;">pH = 7,0 ± 0,2</span>
-    </div>
-  </div>
-</div>
+    // Mobile TOC
+    function initMobileTOC() {
+      const toggleBtn = document.getElementById('mobile-toc-toggle');
+      const overlay = document.getElementById('mobile-toc-overlay');
+      const panel = document.getElementById('mobile-toc-panel');
+      const closeBtn = document.getElementById('mobile-toc-close');
+      const tocLinks = document.querySelectorAll('.mobile-toc-link');
+      
+      function openTOC() {
+        if (overlay && panel) {
+          overlay.classList.remove('hidden');
+          setTimeout(() => {
+            panel.classList.remove('translate-x-full');
+          }, 10);
+        }
+      }
+      
+      function closeTOC() {
+        if (panel && overlay) {
+          panel.classList.add('translate-x-full');
+          setTimeout(() => {
+            overlay.classList.add('hidden');
+          }, 300);
+        }
+      }
+      
+      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
+      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
+      if (overlay) {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) closeTOC();
+        });
+      }
+      
+      // Close TOC when clicking on a link
+      tocLinks.forEach(link => {
+        link.addEventListener('click', closeTOC);
+      });
+    }
 
-:::note-lab
-Hranjivi agar koristi se kao univerzalna kompleksna podloga u rutinskim mikrobiološkim vježbama.
-:::
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+      initBookmarks();
+      initMobileTOC();
+    });
+  </script>
 
-  </div>
-
-</ChapterLayout>
+</SubPageLayout>

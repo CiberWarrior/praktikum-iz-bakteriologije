@@ -1,7 +1,5 @@
 ---
-import ChapterLayout from '../../components/ChapterLayout.astro';
-import ChapterNavigation from '../../components/ChapterNavigation.astro';
-import { getChapterConfig } from '../../config/chapters';
+import SubPageLayout from '../../components/SubPageLayout.astro';
 
 export interface Props {
   title?: string;
@@ -9,66 +7,294 @@ export interface Props {
 }
 
 const { 
-  title = 'Untitled',
-  description = 'Sadržaj poglavlja 1 - Untitled'
+  title = 'Vježba 4',
+  description = ''
 } = Astro.props;
-
-const chapterConfig = getChapterConfig(1);
 ---
 
-<ChapterLayout 
+<SubPageLayout 
   title={title} 
-  description={description} 
+  description={description}
   chapterNumber={1}
-  primaryColor="emerald"
-  prevLink="/poglavlje-1/" 
-  nextLink="/poglavlje-2/" 
-  prevText="← Poglavlje 1" 
-  nextText="Poglavlje 2 →" 
-  ctaTitle="Nastavi na sljedeće poglavlje" 
-  ctaDescription="Nastavite s učenjem i upoznajte Mikroskopija." 
-  ctaPrimaryText="Poglavlje 2" 
-  ctaPrimaryLink="/poglavlje-2/" 
-  ctaSecondaryText="Povratak na pregled" 
-  ctaSecondaryLink="/poglavlje-1/"
-  showBreadcrumb={true}
+  primaryColor="green"
   breadcrumbPath={[
-    { name: 'Sadržaj', url: '/sadrzaj/' },
-    { name: 'Poglavlje 1', url: '/poglavlje-1/' },
-    { name: 'Untitled', url: '/poglavlje-1/untitled/' }
+    { name: 'Vježba 4', url: '/poglavlje-1/vjezba-4/' }
   ]}
 >
-  <!-- Navigacija kroz poglavlje -->
-  <ChapterNavigation 
-    chapterNumber={1} 
-    currentSection="untitled" 
-    chapterTitle="Osnove laboratorijskog rada"
-  />
 
-  <!-- Sadržaj poglavlja -->
-  <div class="prose prose-lg max-w-none">
+  <!-- Main Content with Sidebar -->
+  <div class="flex max-w-7xl mx-auto">
     
----
-title: Vježba 4 - Precjepljivanje bakterija s kosog na kosi agar
----
+    <!-- Table of Contents Sidebar -->
+    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
+      <div class="mb-6">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-emerald-50 w-full">
+          <svg id="bookmark-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Quick Navigation -->
+        <nav class="space-y-1">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Brza navigacija</div>
+          <a href="/poglavlje-1/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
+            <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3"></span>
+            Pregled poglavlja
+          </a>
+          <a href="/sadrzaj/" class="group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+            Svi sadržaji
+          </a>
+        </nav>
+      </div>
+    </aside>
 
-<section class="cards-grid">
-    <article class="card-sheen">
-      <h3 class="card-sheen__title">Opis vježbe</h3>
-      <p>Bakteriološkom ušicom uzeti bakterijski materijal čiste kulture iz jedne epruvete s kosim agarom i prenijeti je pomoću bakteriološke ušice na drugi sterilni kosi agar.</p>
-    </article>
-  </section>
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-none">
+          
+          <!-- Naslov vježbe -->
+          <div style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c8 100%); border-radius: 15px; padding: 25px; margin: 25px 0; border-left: 5px solid #4caf50;">
+            <h3 style="margin: 0 0 15px 0; color: #1e7e34; font-size: 1.4rem; font-weight: 600;">Vježba 4 - Precjepljivanje bakterija s kosog na kosi agar</h3>
+          </div>
 
-<figure class="image-figure">
-  <img src="/images/slika14A.jpg" alt="Slika 14A – Precjepljivanje na kosi agar" />
-  <figcaption><span class="chip">Slika 14A</span> Precjepljivanje bakterijske kulture na sterilni kosi agar</figcaption>
-</figure>
+          <!-- Opis vježbe -->
+          <div style="background: linear-gradient(135deg, #f0f4f8 0%, #e1e8ed 100%); border-radius: 15px; padding: 25px; margin: 20px 0; border-left: 4px solid #3498db;">
+            <h4 style="margin: 0 0 15px 0; color: #2980b9; font-weight: 600; font-size: 18px;">Opis vježbe</h4>
+            <div style="background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px;">
+              <p style="margin: 0; color: #2c3e50; line-height: 1.6;">
+                Bakteriološkom ušicom uzeti bakterijski materijal čiste kulture iz jedne epruvete s kosim agarom i prenijeti je pomoću bakteriološke ušice na drugi sterilni kosi agar.
+              </p>
+            </div>
+          </div>
 
-<figure class="image-figure">
-  <img src="/images/slika14B.jpg" alt="Slika 14B – Precjepljivanje na kosi agar" />
-  <figcaption><span class="chip">Slika 14B</span> Precjepljivanje bakterijske kulture na sterilni kosi agar</figcaption>
-</figure>
+          <!-- Slike -->
+          <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0;">
+            <div style="text-align: center;">
+              <img src="/images/slika14A.jpg" alt="Slika 14A – Precjepljivanje na kosi agar" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <p style="margin-top: 1rem; font-weight: 600; color: #2c3e50;">
+                <span style="background: #3498db; color: white; padding: 4px 8px; border-radius: 12px; font-size: 14px; margin-right: 8px;">Slika 14A</span>
+                Precjepljivanje bakterijske kulture na sterilni kosi agar
+              </p>
+            </div>
 
+            <div style="text-align: center;">
+              <img src="/images/slika14B.jpg" alt="Slika 14B – Precjepljivanje na kosi agar" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+              <p style="margin-top: 1rem; font-weight: 600; color: #2c3e50;">
+                <span style="background: #3498db; color: white; padding: 4px 8px; border-radius: 12px; font-size: 14px; margin-right: 8px;">Slika 14B</span>
+                Precjepljivanje bakterijske kulture na sterilni kosi agar
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 
-</ChapterLayout>
+  <!-- Mobile TOC Toggle -->
+  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-emerald-600 text-white p-3 rounded-full shadow-lg z-50">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+    </svg>
+  </button>
+
+  <!-- Mobile TOC Overlay -->
+  <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
+    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
+          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 mb-4 w-full">
+          <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="mobile-bookmark-text">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <nav class="space-y-2">
+          <a href="/poglavlje-1/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
+            Pregled poglavlja
+          </a>
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
+            Svi sadržaji
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigacijski gumbovi -->
+  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
+    <!-- Prethodna stranica -->
+    <a
+      href="/poglavlje-1/vjezba-3/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na prethodnu stranicu: Vježba 3"
+    >
+      <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+      <span class="text-lg">Vježba 3</span>
+    </a>
+    
+    <!-- Iduća stranica -->
+    <a
+      href="/poglavlje-1/vjezba-5/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na sljedeću stranicu: Vježba 5"
+    >
+      <span class="text-lg">Vježba 5</span>
+      <svg class="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Call to Action Section -->
+  <section class="bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 text-white py-20 mt-20 relative overflow-hidden">
+    <!-- Pozadinski uzorak -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
+    </div>
+    
+    <!-- Dekorativni elementi -->
+    <div class="absolute top-10 left-10 w-32 h-32 bg-white opacity-5 rounded-full blur-xl"></div>
+    <div class="absolute bottom-10 right-10 w-48 h-48 bg-white opacity-5 rounded-full blur-2xl"></div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        Započni učenje?
+      </h2>
+      
+      <p class="text-xl md:text-2xl text-purple-200 mb-12 leading-relaxed max-w-3xl mx-auto">
+        Započni svoj put u bakteriologiji danas. Svako poglavlje je samostalna cjelina
+        s teorijom, praktičnim vježbama i provjerom znanja.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <a
+          href="/sadrzaj/"
+          class="inline-flex items-center justify-center px-8 py-4 bg-white text-purple-700 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 no-underline text-lg"
+        >
+          <span>Sadržaj</span>
+          <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        
+        <a
+          href="/"
+          class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-purple-700 transition-all duration-300 transform hover:-translate-y-1 no-underline text-lg"
+        >
+          Povratak na početnu
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    // Bookmark functionality
+    function initBookmarks() {
+      const bookmarkKey = 'bookmark-vjezba-4';
+      const bookmarkBtn = document.getElementById('bookmark-btn');
+      const bookmarkIcon = document.getElementById('bookmark-icon');
+      const bookmarkText = document.getElementById('bookmark-text');
+      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
+      const mobileBookmarkIcon = document.getElementById('mobile-bookmark-icon');
+      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
+      
+      // Check if bookmarked
+      const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+      updateBookmarkUI(isBookmarked);
+      
+      function updateBookmarkUI(bookmarked) {
+        const fillAttribute = bookmarked ? 'currentColor' : 'none';
+        const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
+        
+        if (bookmarkIcon) bookmarkIcon.setAttribute('fill', fillAttribute);
+        if (bookmarkText) bookmarkText.textContent = text;
+        if (mobileBookmarkIcon) mobileBookmarkIcon.setAttribute('fill', fillAttribute);
+        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
+      }
+      
+      function toggleBookmark() {
+        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+        const newBookmarkState = !currentlyBookmarked;
+        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
+        updateBookmarkUI(newBookmarkState);
+      }
+      
+      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
+      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
+    }
+
+    // Mobile TOC
+    function initMobileTOC() {
+      const toggleBtn = document.getElementById('mobile-toc-toggle');
+      const overlay = document.getElementById('mobile-toc-overlay');
+      const panel = document.getElementById('mobile-toc-panel');
+      const closeBtn = document.getElementById('mobile-toc-close');
+      const tocLinks = document.querySelectorAll('.mobile-toc-link');
+      
+      function openTOC() {
+        if (overlay && panel) {
+          overlay.classList.remove('hidden');
+          setTimeout(() => {
+            panel.classList.remove('translate-x-full');
+          }, 10);
+        }
+      }
+      
+      function closeTOC() {
+        if (panel && overlay) {
+          panel.classList.add('translate-x-full');
+          setTimeout(() => {
+            overlay.classList.add('hidden');
+          }, 300);
+        }
+      }
+      
+      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
+      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
+      if (overlay) {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) closeTOC();
+        });
+      }
+      
+      // Close TOC when clicking on a link
+      tocLinks.forEach(link => {
+        link.addEventListener('click', closeTOC);
+      });
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+      initBookmarks();
+      initMobileTOC();
+    });
+  </script>
+
+</SubPageLayout>
