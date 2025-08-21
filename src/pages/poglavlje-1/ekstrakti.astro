@@ -7,8 +7,8 @@ export interface Props {
 }
 
 const { 
-  title = 'Ekstrakti i sastojci hranjivih podloga',
-  description = 'Upoznajte osnovne sastojke hranjivih podloga u bakteriologiji'
+  title = 'Ekstrakti',
+  description = 'Ekstrakti i sastojci hranjivih podloga u bakteriologiji'
 } = Astro.props;
 ---
 
@@ -18,7 +18,7 @@ const {
   chapterNumber={1}
   primaryColor="green"
   breadcrumbPath={[
-    { name: 'Ekstrakti i sastojci hranjivih podloga', url: '/poglavlje-1/ekstrakti/' }
+    { name: 'Ekstrakti', url: '/poglavlje-1/ekstrakti/' }
   ]}
 >
 
@@ -49,7 +49,7 @@ const {
         <nav class="space-y-1">
           <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
           <a href="#mesni-ekstrakt" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="mesni-ekstrakt">
-            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            <span class="w-2 h-2 bg-red-400 rounded-full mr-3 transition-all duration-300"></span>
             Mesni ekstrakt
           </a>
           <a href="#ekstrakt-kvasca" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="ekstrakt-kvasca">
@@ -64,16 +64,16 @@ const {
             <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
             Agar
           </a>
-          <a href="#oblici-upotrebe" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="oblici-upotrebe">
-            <span class="w-2 h-2 bg-teal-400 rounded-full mr-3 transition-all duration-300"></span>
-            Oblici upotrebe
+          <a href="#konzistencija" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="konzistencija">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Prema konzistenciji
           </a>
-          <a href="#slozenost-podloga" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="slozenost-podloga">
+          <a href="#slozenost" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="slozenost">
             <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3 transition-all duration-300"></span>
-            Složenost podloga
+            Prema složenosti
           </a>
           <a href="#sterilizacija-ph" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="sterilizacija-ph">
-            <span class="w-2 h-2 bg-red-400 rounded-full mr-3 transition-all duration-300"></span>
+            <span class="w-2 h-2 bg-yellow-400 rounded-full mr-3 transition-all duration-300"></span>
             Sterilizacija i pH
           </a>
         </nav>
@@ -89,53 +89,30 @@ const {
           <div class="space-y-8">
             
             <!-- Mesni ekstrakt -->
-            <div id="mesni-ekstrakt" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
+            <div id="mesni-ekstrakt" class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 shadow-lg border border-red-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">🥩</span>
-                <h3 class="text-2xl font-bold text-green-900">Mesni ekstrakt</h3>
+                <h3 class="text-2xl font-bold text-red-900">Mesni ekstrakt</h3>
               </div>
               <p class="text-gray-700 leading-relaxed mb-4">
-                Mesni ekstrakt dobiva se vodenom ekstrakcijom nemasna mesa (govedina, junetina, konjsko meso). 
-                Danas se koristi tvornički dehidrirani ekstrakt, no u nastavku je prikazan klasični recept iz prakse:
+                Mesni ekstrakt dobiva se vodenom ekstrakcijom nemasna mesa (govedina, junetina, konjsko meso). Budući da danas bakteriolozi rabe tvornički mesni ekstrakt u dehidriranu stanju dodajući ga hranjivim podlogama, navodimo za usporedbu recept za njegov pripravak u medicinskoj bakteriologiji prije šezdesetak godina.
               </p>
-              
-              <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-green-500">
-                <h4 class="font-semibold text-green-800 mb-3">Spremanje bujona dvostruke jačine:</h4>
-                <div class="space-y-2">
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-green-500">
-                    <span class="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700">Uzme se 0,5 kg očišćene krtine i doda 1 L vode</span>
-                  </div>
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-green-500">
-                    <span class="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700">Smjesa odstoji 24 h u ledenici</span>
-                  </div>
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-green-500">
-                    <span class="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700">Nakon procjeđivanja i filtriranja, kuha se 15 min na laganoj vatri</span>
-                  </div>
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-green-500">
-                    <span class="w-2 h-2 bg-green-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700">Smjesa se zatim razbistri, nadopuni do 1 L i koristi kao ekstrakt</span>
-                  </div>
-                </div>
+              <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-red-500">
+                <h4 class="font-semibold text-red-800 mb-3">Spremanje bujona dvostruke jačine:</h4>
+                <p class="text-gray-700 leading-relaxed mb-3">
+                  "Prvo se spremi vodeni ekstrakt mesa. Najčešće se upotrebljava mršavo meso (krtina). Pola kilograma krtine je dovoljno za 1L mesnog ekstrakta. Meso se očisti od masti i isjecka na što sitnije komadiće i na 0,5 kilograma doda se 1L vode. Ostaviti smjesu 24 h u ledenici. Poslije toga procijediti smjesu kroz gazu, nakon toga smjesa je bistra, svijetlo crvena i s tankim slojem masti na površini - što se uklanja filtriranjem kroz papirnati filter. Kuhati smjesu na laganoj vatri 15 minuta. Ona će se zamutiti i postati tamnosmeđe boje (zbog zgrušavanja bjelančevina i promjene hemoglobina). Radi razbistravanja filtrirati i dopuniti vodom do prvobitne količine. Krajnji produkt treba da je bistar i žućkaste boje".
+                </p>
               </div>
             </div>
 
             <!-- Ekstrakt kvasca -->
-            <div id="ekstrakt-kvasca" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
+            <div id="ekstrakt-kvasca" class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 shadow-lg border border-blue-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">🍞</span>
                 <h3 class="text-2xl font-bold text-blue-900">Ekstrakt kvasca</h3>
               </div>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                Dobiva se dehidriranjem kulture pekarskog kvasca.
-              </p>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                Izvor je <strong>vitamina B</strong>, <strong>organskog ugljika i dušika</strong>.
-              </p>
               <p class="text-gray-700 leading-relaxed">
-                Moguće je pripremati i ekstrakte iz <strong>krumpira, riže, mrkve, tla</strong> prema recepturi.
+                Ekstrakt kvasca dobiva se dehidriranjem kulture pekarskog kvasca, a ekstrakt je izvor grupe vitamina B, te organskog ugljika i dušika. Spomenut ćemo da se ekstrakti mogu pripremati iz krumpira, riže, mrkve, tla, prema propisanim recepturama.
               </p>
             </div>
 
@@ -145,12 +122,8 @@ const {
                 <span class="text-3xl mr-4">🧬</span>
                 <h3 class="text-2xl font-bold text-orange-900">Peptoni</h3>
               </div>
-              <p class="text-gray-700 leading-relaxed mb-3">
-                Izvor organskog dušika. Dobivaju se hidrolizom životinjskih ili biljnih bjelančevina: 
-                <strong>meso, kazein, soja</strong>, uz pomoć kiselina ili <strong>proteolitičkih enzima</strong>.
-              </p>
               <p class="text-gray-700 leading-relaxed">
-                Sadrže <strong>aminokiseline</strong>, <strong>proteoze</strong> i <strong>oligopeptide</strong>.
+                Peptoni su izvor organskog dušika, a dobivaju se hidrolizom s kiselinama ili proteolitičkim enzimima iz bjelančevina životinjskog ili biljnog porijekla (meso, kazein, soja). Sadrže aminokiseline, proteoze i oligopeptide.
               </p>
             </div>
 
@@ -161,150 +134,99 @@ const {
                 <h3 class="text-2xl font-bold text-purple-900">Agar</h3>
               </div>
               <p class="text-gray-700 leading-relaxed mb-4">
-                Agar je sredstvo za <strong>skrućivanje hranjivih podloga</strong>, mješavina je <strong>agaroze i agaropektina</strong>.
-                Dobiva se iz crvenih algi: <strong>Gelidium</strong> i <strong>Gracilaria</strong>.
+                Agar, sredstvo upotrijebljeno za skrućivanje hranjivih podloga, smjesa je polisaharida agaroze i agaropektina. Dobiva se iz tihooceanskih crvenih algi rodova Gelidium i Gracilaria. Zagrijavanjem otopine kojoj je dodan agar u prahu (najčešće 10-20 g/L) na 100°C agar se rastopi, a na temperaturi oko 42oC skrućuje se vežući vodu pa nastaje konzistentna želatinozna masa, na kojoj se izvrsno razvijaju bakterijske kolonije. Takve podloge nazivamo krutim podlogama. Danas se rabe dehidrirane podloge u prahu, a uz njihov naziv uvijek stoji nastavak: „agar" za krute te: "broth, bujon ili voda" za tekuće medije. Npr. agar Slanetz-Bartley, Streptococcus selektivni bujon, peptonska voda i dr.
               </p>
-              
-              <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-500 mb-4">
-                <h4 class="font-semibold text-purple-800 mb-3">Svojstva agara:</h4>
-                <div class="space-y-2">
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-purple-500">
-                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700">Rastapa se na <strong>100°C</strong></span>
-                  </div>
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-purple-500">
-                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700">Skrućuje pri <strong>~42°C</strong></span>
-                  </div>
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-purple-500">
-                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700">Dodaje se u količini <strong>10–20 g/L</strong></span>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
-                <h4 class="font-semibold text-purple-800 mb-3">Ovisno o sadržaju agara:</h4>
-                <div class="space-y-2">
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-purple-500">
-                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700"><strong>Tekuće podloge</strong> (juha, broth, bujon, voda)</span>
-                  </div>
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-purple-500">
-                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700"><strong>Polukrute podloge</strong> (0.2–0.4% agara)</span>
-                  </div>
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-purple-500">
-                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-3 flex-shrink-0"></span>
-                    <span class="text-gray-700"><strong>Krute podloge</strong> (0.5–3% agara)</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <!-- Oblici upotrebe podloga -->
-            <div id="oblici-upotrebe" class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 shadow-lg border border-teal-200">
+            <!-- Prema konzistenciji -->
+            <div id="konzistencija" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">🧪</span>
-                <h3 class="text-2xl font-bold text-teal-900">Oblici upotrebe podloga</h3>
+                <h3 class="text-2xl font-bold text-green-900">Prema konzistenciji hranjivi mediji dijele se na:</h3>
               </div>
-              
-              <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-teal-500">
-                <div class="space-y-3">
-                  <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-                    <strong class="text-green-800 text-lg">Tekuće</strong>
-                    <span class="text-gray-600 italic">Erlenmeyerove tikvice, epruvete</span>
+              <div class="space-y-3">
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-blue-500">
+                  <div class="flex items-center">
+                    <span class="text-2xl mr-3">💧</span>
+                    <div>
+                      <strong class="text-blue-800 text-lg">Tekuće:</strong>
+                      <span class="text-gray-700 ml-2">juha, broth, bujon, voda</span>
+                    </div>
                   </div>
-                  
-                  <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg border-l-4 border-yellow-500">
-                    <strong class="text-yellow-800 text-lg">Polukrute</strong>
-                    <span class="text-gray-600 italic">Duboki agar u epruveti</span>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-yellow-500">
+                  <div class="flex items-center">
+                    <span class="text-2xl mr-3">🥣</span>
+                    <div>
+                      <strong class="text-yellow-800 text-lg">Polukrute:</strong>
+                      <span class="text-gray-700 ml-2">sadrže 0,2-0,4% agara</span>
+                    </div>
                   </div>
-                  
-                  <div class="flex justify-between items-center bg-gray-50 p-4 rounded-lg border-l-4 border-red-500">
-                    <strong class="text-red-800 text-lg">Krute</strong>
-                    <span class="text-gray-600 italic">Petrijeve zdjelice, kosi ili duboki agar u epruveti</span>
+                </div>
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-red-500">
+                  <div class="flex items-center">
+                    <span class="text-2xl mr-3">🧫</span>
+                    <div>
+                      <strong class="text-red-800 text-lg">Krute:</strong>
+                      <span class="text-gray-700 ml-2">sadrže 0,5-3% agara</span>
+                    </div>
                   </div>
                 </div>
               </div>
+              <p class="text-gray-700 leading-relaxed mt-4">
+                Tekuće hranjive podloge upotrebljavaju se u Erlenmeyerovim tikvicama ili epruvetama, polukrute u obliku dubokog agara u epruveti, a krute u Petrijevim zdjelicama (pločama) ili epruvetama u obliku kosog, dubokog i dubokog kosog agara.
+              </p>
             </div>
 
             <!-- Prema složenosti -->
-            <div id="slozenost-podloga" class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 shadow-lg border border-indigo-200">
+            <div id="slozenost" class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 shadow-lg border border-indigo-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">🔬</span>
-                <h3 class="text-2xl font-bold text-indigo-900">Prema složenosti</h3>
+                <h3 class="text-2xl font-bold text-indigo-900">Prema složenosti hranjive se podloge dijele na:</h3>
               </div>
-              
-              <div class="grid gap-4 mb-6">
+              <div class="space-y-4">
                 <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-green-500">
                   <div class="flex items-center mb-2">
-                    <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                    <strong class="text-green-800 text-lg">Jednostavne</strong>
+                    <span class="text-2xl mr-3">📝</span>
+                    <strong class="text-green-800 text-lg">Jednostavne:</strong>
                   </div>
-                  <p class="text-gray-600 italic ml-5">npr. peptonska voda</p>
+                  <p class="text-gray-700 ml-11">sadrže jednu supstancu, npr. peptonska voda</p>
                 </div>
-                
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-orange-500">
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
                   <div class="flex items-center mb-2">
-                    <span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                    <strong class="text-orange-800 text-lg">Složene</strong>
+                    <span class="text-2xl mr-3">⚗️</span>
+                    <strong class="text-purple-800 text-lg">Složene:</strong>
                   </div>
-                  <p class="text-gray-600 italic ml-5">s više supstanci</p>
-                </div>
-              </div>
-              
-              <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-indigo-500">
-                <h4 class="font-semibold text-indigo-800 mb-3">Među složenima razlikujemo:</h4>
-                
-                <div class="space-y-3">
-                  <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-purple-500">
-                    <h5 class="font-semibold text-purple-800 mb-2">Diferencijalne podloge</h5>
-                    <p class="text-gray-700 mb-2 text-sm">Omogućuju razlikovanje vrsta po izgledu kolonija</p>
-                    <p class="text-gray-600 italic text-sm">Primjer: EC X-GLUC agar (E. coli – plave kolonije, druge – žućkaste)</p>
-                  </div>
-                  
-                  <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-red-500">
-                    <h5 class="font-semibold text-red-800 mb-2">Selektivne podloge</h5>
-                    <p class="text-gray-700 mb-2 text-sm">Inhibiraju rast neželjenih bakterija</p>
-                    <p class="text-gray-600 italic text-sm">Primjer: SS agar – rastu samo Salmonella i Shigella</p>
+                  <p class="text-gray-700 ml-11 mb-3">sadrže dvije ili više supstanci, a mogu biti:</p>
+                  <div class="ml-11 space-y-2">
+                    <div class="bg-gray-50 p-3 rounded-lg border-l-3 border-blue-500">
+                      <strong class="text-blue-800">Diferencijalne</strong>
+                      <p class="text-gray-700 text-sm mt-1">(omogućuju diferencijaciju ili razlikovanje jedne vrste bakterija od drugih, npr. na EC X-GLUC agaru razlikuju se plave kolonije Escherichia coli od drugih koliformnih bakterija koje su žućkaste boje)</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg border-l-3 border-red-500">
+                      <strong class="text-red-800">Selektivne</strong>
+                      <p class="text-gray-700 text-sm mt-1">(omogućuju porast samo određenih rodova bakterija, npr. na SS agaru rastu samo bakterije rodova Salmonella i Shigella, a porast je drugih vrsta bakterija inhibiran sastavom podloge)</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Sterilizacija i pH-vrijednost -->
-            <div id="sterilizacija-ph" class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 shadow-lg border border-red-200">
+            <!-- Sterilizacija i pH -->
+            <div id="sterilizacija-ph" class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 shadow-lg border border-yellow-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">⚗️</span>
-                <h3 class="text-2xl font-bold text-red-900">Sterilizacija i pH-vrijednost</h3>
+                <h3 class="text-2xl font-bold text-yellow-900">Sterilizacija i pH-vrijednost</h3>
               </div>
-              
-              <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-red-500 mb-4">
-                <p class="text-gray-700 leading-relaxed">
-                  Sve hranjive podloge moraju se <strong>sterilizirati</strong>.<br />
-                  Način sterilizacije naveden je na ambalaži tvorničkog proizvoda.
-                </p>
-              </div>
-              
-              <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-orange-500">
-                <h4 class="font-semibold text-orange-800 mb-3">Podešavanje pH-vrijednosti:</h4>
-                <p class="text-gray-700 mb-4">Ako sami pripremamo podlogu prema recepturi, pH se podešava s:</p>
-                
-                <div class="space-y-3">
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-blue-500">
-                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                    <strong class="text-blue-800">1 M NaOH</strong>
-                    <span class="ml-auto text-gray-600 italic">(za podizanje pH)</span>
-                  </div>
-                  
-                  <div class="flex items-center bg-gray-50 p-3 rounded-lg border-l-3 border-red-500">
-                    <span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
-                    <strong class="text-red-800">1 M HCl</strong>
-                    <span class="ml-auto text-gray-600 italic">(za snižavanje pH)</span>
-                  </div>
-                </div>
-              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Sve se hranjive bakteriološke podloge moraju sterilizirati, a način sterilizacije točno je opisan na tvorničkoj ambalaži u kojoj je podloga dostavljena.
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                pH-vrijednost dehidriranih podloga namještena je na optimalne vrijednosti za svaku vrstu ili skupinu bakterija.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                U slučaju da sami prema postojećoj recepturi pripremamo hranjivu podlogu, pH-vrijednost postići ćemo dodatkom 1 M otopine NaOH ili HCl.
+              </p>
             </div>
 
           </div>
@@ -514,7 +436,7 @@ const {
 
     // Scroll Spy for TOC
     function initScrollSpy() {
-      const sections = document.querySelectorAll('[id^="mesni-"], [id^="ekstrakt-"], [id^="peptoni"], [id^="agar"], [id^="oblici-"], [id^="slozenost-"], [id^="sterilizacija-"]');
+      const sections = document.querySelectorAll('[id^="mesni-"], [id^="ekstrakt-"], [id^="peptoni"], [id^="agar"], [id^="konzistencija"], [id^="slozenost"], [id^="sterilizacija-"]');
       const tocLinks = document.querySelectorAll('.toc-link');
       
       function updateActiveLink() {

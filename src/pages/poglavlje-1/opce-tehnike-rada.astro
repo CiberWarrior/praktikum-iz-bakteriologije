@@ -7,8 +7,8 @@ export interface Props {
 }
 
 const { 
-  title = 'Bakteriološke tehnike rada',
-  description = 'Osnovne tehnike rada u bakteriološkom praktikumu'
+  title = 'Opće tehnike rada',
+  description = 'Pravila sigurnosti u radu'
 } = Astro.props;
 ---
 
@@ -55,10 +55,6 @@ const {
           <a href="#kljucne-tehnike" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="kljucne-tehnike">
             <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
             Ključne tehnike rada
-          </a>
-          <a href="#kljucno-sigurnost" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="kljucno-sigurnost">
-            <span class="w-2 h-2 bg-yellow-400 rounded-full mr-3 transition-all duration-300"></span>
-            Ključno za sigurnost
           </a>
         </nav>
       </div>
@@ -128,16 +124,7 @@ const {
               </div>
             </div>
 
-            <!-- Ključno za sigurnost -->
-            <div id="kljucno-sigurnost" class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 shadow-lg border border-yellow-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🔑</span>
-                <h3 class="text-2xl font-bold text-yellow-900">Ključno za sigurnost</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed font-medium">
-                Sterilizacija otvorenih instrumenata i rad u blizini plamenika ključni su za održavanje sterilnosti i sigurnosti u radu.
-              </p>
-            </div>
+
 
           </div>
 
@@ -346,7 +333,7 @@ const {
 
     // Scroll Spy for TOC
     function initScrollSpy() {
-      const sections = document.querySelectorAll('[id^="osnovno-"], [id^="kljucne-"], [id^="kljucno-"]');
+      const sections = document.querySelectorAll('[id^="osnovno-"], [id^="kljucne-"]');
       const tocLinks = document.querySelectorAll('.toc-link');
       
       function updateActiveLink() {

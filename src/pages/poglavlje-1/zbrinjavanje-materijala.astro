@@ -8,7 +8,7 @@ export interface Props {
 
 const { 
   title = 'Zbrinjavanje materijala',
-  description = 'Protokoli za sigurno zbrinjavanje materijala nakon rada s bakterijama'
+  description = 'Zbrinjavanje upotrijebljenog materijala u bakteriologiji'
 } = Astro.props;
 ---
 
@@ -52,17 +52,21 @@ const {
             <span class="w-2 h-2 bg-red-400 rounded-full mr-3 transition-all duration-300"></span>
             Važno!
           </a>
-          <a href="#protokoli-zbrinjavanje" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="protokoli-zbrinjavanje">
+          <a href="#pipete" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="pipete">
             <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Protokoli za zbrinjavanje
+            Pipete
           </a>
-          <a href="#postupci-kategorije" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="postupci-kategorije">
-            <span class="w-2 h-2 bg-cyan-400 rounded-full mr-3 transition-all duration-300"></span>
-            Postupci po kategorijama
+          <a href="#mikroskopski-preparati" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="mikroskopski-preparati">
+            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
+            Mikroskopski preparati
           </a>
-          <a href="#vaznost-sigurnog" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="vaznost-sigurnog">
-            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3 transition-all duration-300"></span>
-            Važnost sigurnog zbrinjavanja
+          <a href="#stakleno-posude" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="stakleno-posude">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Stakleno posuđe
+          </a>
+          <a href="#plasticno-posude" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="plasticno-posude">
+            <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 transition-all duration-300"></span>
+            Plastično posuđe
           </a>
         </nav>
       </div>
@@ -76,104 +80,58 @@ const {
           <!-- Content Blocks -->
           <div class="space-y-8">
             
-                         <!-- Stroga zabrana -->
-             <div id="stroga-zabrana" class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 shadow-lg border border-red-200">
-               <div class="flex items-center mb-4">
-                 <span class="text-3xl mr-4">🚫</span>
-                 <h3 class="text-2xl font-bold text-red-900">Važno!</h3>
-               </div>
+            <!-- Stroga zabrana -->
+            <div id="stroga-zabrana" class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 shadow-lg border border-red-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🚫</span>
+                <h3 class="text-2xl font-bold text-red-900">Važno!</h3>
+              </div>
               <p class="text-gray-700 leading-relaxed font-medium">
-                Živi <strong>bakterijski materijal najstrože je zabranjeno odbaciti kao otpad u kontejner</strong>. 
-                Sav materijal koji je došao u dodir s bakterijama <strong>mora se dekontaminirati</strong>.
+                Živi bakterijski materijal najstrože je zabranjeno odbaciti kao otpad u kontejner. Sav materijal, koji je došao u dodir s bakterijama, mora se dekontaminirati.
               </p>
             </div>
 
-            <!-- Protokoli za zbrinjavanje -->
-            <div id="protokoli-zbrinjavanje" class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 shadow-lg border border-blue-200">
+            <!-- Pipete -->
+            <div id="pipete" class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 shadow-lg border border-blue-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📋</span>
-                <h3 class="text-2xl font-bold text-blue-900">Protokoli za zbrinjavanje</h3>
+                <span class="text-3xl mr-4">🧪</span>
+                <h3 class="text-2xl font-bold text-blue-900">Pipete</h3>
               </div>
               <p class="text-gray-700 leading-relaxed">
-                Postupci za sigurno zbrinjavanje materijala nakon rada s bakterijama.
+                Pipete odmah nakon upotrebe valja odložiti u kadice s dezinfi cijensom i ostaviti stajati nekoliko sati. Nakon ispiranja tekućom i destiliranom vodom pipete treba staviti u zaštitne cilindre i sterilizirati u suhom sterilizatoru.
               </p>
             </div>
 
-            <!-- Postupci zbrinjavanja po kategorijama -->
-            <div id="postupci-kategorije" class="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 shadow-lg border border-cyan-200">
+            <!-- Mikroskopski preparati -->
+            <div id="mikroskopski-preparati" class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 shadow-lg border border-purple-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🗂️</span>
-                <h3 class="text-2xl font-bold text-cyan-900">Postupci zbrinjavanja po kategorijama</h3>
+                <span class="text-3xl mr-4">🔬</span>
+                <h3 class="text-2xl font-bold text-purple-900">Mikroskopski preparati</h3>
               </div>
-              
-              <div class="space-y-4">
-                
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-cyan-500">
-                  <div class="flex items-start">
-                    <span class="text-2xl mr-3 mt-1">👩‍🔬</span>
-                    <div>
-                      <strong class="text-cyan-800 text-lg">Pipete</strong>
-                      <p class="text-gray-700 leading-relaxed mt-2">
-                        Odmah nakon upotrebe valja odložiti u kadice s dezinficijensom i ostaviti stajati nekoliko sati. 
-                        Nakon ispiranja tekućom i destiliranom vodom, pipete treba staviti u zaštitne cilindre i sterilizirati u suhom sterilizatoru.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
-                  <div class="flex items-start">
-                    <span class="text-2xl mr-3 mt-1">🔬</span>
-                    <div>
-                      <strong class="text-purple-800 text-lg">Mikroskopski preparati</strong>
-                      <p class="text-gray-700 leading-relaxed mt-2">
-                        Treba uroniti u posudu s dezinficijensom.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-green-500">
-                  <div class="flex items-start">
-                    <span class="text-2xl mr-3 mt-1">🧫</span>
-                    <div>
-                      <strong class="text-green-800 text-lg">Stakleno posuđe</strong>
-                      <p class="text-gray-700 leading-relaxed mt-2 mb-3">
-                        Petrijeve zdjelice, epruvete s razvijenim bakterijskim kulturama:
-                      </p>
-                      <ol class="list-decimal list-inside text-gray-700 space-y-1 ml-4">
-                        <li>Odložiti u metalne košarice</li>
-                        <li>Autoklavirati</li>
-                        <li>Isprati ostatke agarne podloge ručno</li>
-                        <li>Zatim isprati stakleno posuđe u perilici za laboratorijsko posuđe</li>
-                      </ol>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-orange-500">
-                  <div class="flex items-start">
-                    <span class="text-2xl mr-3 mt-1">♻️</span>
-                    <div>
-                      <strong class="text-orange-800 text-lg">Plastično posuđe za jednokratnu upotrebu</strong>
-                      <p class="text-gray-700 leading-relaxed mt-2">
-                        S razvijenim bakterijskim kulturama treba odložiti u posebne plastične vreće i također <strong>autoklavirati</strong>.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
+              <p class="text-gray-700 leading-relaxed">
+                Mikroskopske preparate treba uroniti u posudu s dezinfi cijensom.
+              </p>
             </div>
 
-            <!-- Važnost sigurnog zbrinjavanja -->
-            <div id="vaznost-sigurnog" class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 shadow-lg border border-indigo-200">
+            <!-- Stakleno posuđe -->
+            <div id="stakleno-posude" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">ℹ️</span>
-                <h3 class="text-2xl font-bold text-indigo-900">Važnost sigurnog zbrinjavanja</h3>
+                <span class="text-3xl mr-4">🧪</span>
+                <h3 class="text-2xl font-bold text-green-900">Stakleno posuđe</h3>
               </div>
-              <p class="text-gray-700 leading-relaxed font-medium">
-                Zbrinjavanje kontaminiranog materijala nije samo tehnički postupak, već i temeljna mjera sigurnosti u svakom bakteriološkom laboratoriju.
+              <p class="text-gray-700 leading-relaxed">
+                Stakleno posuđe (petrijevke, epruvete) s razvijenim bakterijskim kulturama potrebno je odložiti u metalne košarice i autoklavirati. Nakon autoklaviranja valja isprati ostatke agarne podloge ručno, a zatim isprati stakleno posuđe u perilici za pranje laboratorijskog posuđa.
+              </p>
+            </div>
+
+            <!-- Plastično posuđe -->
+            <div id="plasticno-posude" class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl p-6 shadow-lg border border-orange-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">♻️</span>
+                <h3 class="text-2xl font-bold text-orange-900">Plastično posuđe</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed">
+                Plastično posuđe za jednokratnu upotrebu s razvijenim bakterijskim kulturama valja odložiti u posebne plastične vreće i autoklavirati.
               </p>
             </div>
 
@@ -384,7 +342,7 @@ const {
 
     // Scroll Spy for TOC
     function initScrollSpy() {
-      const sections = document.querySelectorAll('[id^="stroga-"], [id^="protokoli-"], [id^="postupci-"], [id^="vaznost-"]');
+      const sections = document.querySelectorAll('[id^="stroga-"], [id^="pipete"], [id^="mikroskopski-"], [id^="stakleno-"], [id^="plasticno-"]');
       const tocLinks = document.querySelectorAll('.toc-link');
       
       function updateActiveLink() {
