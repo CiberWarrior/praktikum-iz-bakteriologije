@@ -45,7 +45,7 @@ const colors = colorClasses[primaryColor as keyof typeof colorClasses] || colorC
 
 <section class={`py-16 bg-gradient-to-br ${colors.bg} text-white`} style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight font-heading">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight font-body">
       {title}
     </h2>
     <p class={`text-xl ${colors.text} mb-8 max-w-2xl mx-auto font-body`}>
@@ -54,7 +54,7 @@ const colors = colorClasses[primaryColor as keyof typeof colorClasses] || colorC
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a
         href={primaryLink}
-        class={`inline-flex items-center justify-center px-8 py-4 bg-white ${colors.button} font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300`}
+        class={`inline-flex items-center justify-center px-8 py-4 bg-white ${colors.button} font-bold font-body rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300`}
       >
         {primaryText}
         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@ const colors = colorClasses[primaryColor as keyof typeof colorClasses] || colorC
       {secondaryText && secondaryLink && (
         <a
           href={secondaryLink}
-          class={`inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full ${colors.hover} hover:bg-white transition-all duration-300`}
+          class={`inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold font-body rounded-full ${colors.hover} hover:bg-white transition-all duration-300`}
         >
           {secondaryText}
         </a>
