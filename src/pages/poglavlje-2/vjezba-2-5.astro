@@ -1,199 +1,211 @@
 ---
-import EnhancedSubPageLayout from '../../components/EnhancedSubPageLayout.astro';
-import { getEntryBySlug } from 'astro:content';
-import { extractHeadingsFromMDX, getNavigationForSlug } from '../../utils/tocGenerator';
+import SubPageLayout from '../../components/SubPageLayout.astro';
 
-// Dohvati MDX entry iz chapters kolekcije
-// @ts-ignore
-const entry = await getEntryBySlug('chapters', 'poglavlje-2/vjezba-2-5');
-
-if (!entry) {
-  throw new Error('Entry nije pronađen za vjezba-2-5');
+export interface Props {
+  title?: string;
+  description?: string;
 }
 
-// Renderiraj MDX sadržaj
-// @ts-ignore
-const { Content } = await entry.render();
-
-// Izvuci podatke iz frontmattera
-// @ts-ignore
-const { data } = entry;
-
-// Fallback za chapterNumber ako nije postavljen
-const chapterNumber = (data as any).chapterNumber || 2;
-
-// Generiraj breadcrumb path
-const breadcrumbPath = (data as any).breadcrumbPath || [
-  { name: (data as any).title || 'Vjezba 2 5', url: '/poglavlje-2/vjezba-2-5/' }
-];
-
-// Extract TOC items from MDX content
-// @ts-ignore
-const tocItems = extractHeadingsFromMDX(entry.body || '');
-
-// Get navigation
-const navigation = getNavigationForSlug('vjezba-2-5');
+const { 
+  title = 'Vježba 2.5 - Priprema kosog agara',
+  description = 'Postupak pripreme kosog hranjivog agara za uzgoj bakterijskih kultura'
+} = Astro.props;
 ---
 
-<EnhancedSubPageLayout
-  title={(data as any).title || 'Vjezba 2 5'}
-  description={(data as any).description || ''}
-  chapterNumber={chapterNumber}
-  primaryColor={(data as any).primaryColor || 'blue'}
-  prevLink={navigation?.prev ? `/poglavlje-2/${navigation.prev.link}/` : '/poglavlje-2/'}
-  nextLink={navigation?.next ? `/poglavlje-2/${navigation.next.link}/` : '/poglavlje-3/'}
-  prevText={navigation?.prev ? navigation.prev.text : 'Poglavlje 2'}
-  nextText={navigation?.next ? navigation.next.text : 'Poglavlje 3'}
-  breadcrumbPath={breadcrumbPath}
-  tocItems={tocItems}
+<SubPageLayout 
+  title={title} 
+  description={description}
+  chapterNumber={2}
+  primaryColor="blue"
+  breadcrumbPath={[
+    { name: 'Vježba 2.5 - Priprema kosog agara', url: '/poglavlje-2/vjezba-2-5/' }
+  ]}
 >
-  <!-- Renderiraj MDX sadržaj s poboljšanim stilovima -->
-  <div class="prose prose-slate max-w-none lg:prose-lg xl:prose-xl prose-headings:scroll-mt-28 prose-h1:text-3xl prose-h1:font-bold prose-h1:text-gray-900 prose-h1:mb-6 prose-h1:mt-8 prose-h2:text-2xl prose-h2:font-semibold prose-h2:text-gray-800 prose-h2:mb-4 prose-h2:mt-6 prose-h3:text-xl prose-h3:font-semibold prose-h3:text-gray-700 prose-h3:mb-3 prose-h3:mt-5 prose-h4:text-lg prose-h4:font-medium prose-h4:text-gray-700 prose-h4:mb-2 prose-h4:mt-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-img:rounded-xl prose-img:shadow-lg prose-img:my-6 prose-hr:border-gray-300 prose-hr:my-8 prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6 prose-li:mb-2 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-700 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto prose-table:border-collapse prose-table:w-full prose-th:border prose-th:border-gray-300 prose-th:bg-gray-50 prose-th:p-3 prose-th:text-left prose-td:border prose-td:border-gray-300 prose-td:p-3">
-    <Content />
-  </div>
-</EnhancedSubPageLayout>
 
-<style>
-  /* Dodatni stilovi za specifične elemente */
-  .prose h1, .prose h2, .prose h3, .prose h4 {
-    color: #1f2937;
-    font-weight: 600;
-  }
-  
-  .prose h1 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .prose h2 {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    color: #374151;
-  }
-  
-  .prose h3 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    margin-top: 1.25rem;
-    margin-bottom: 0.75rem;
-    color: #4b5563;
-  }
-  
-  .prose p {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    color: #374151;
-    margin-bottom: 1rem;
-  }
-  
-  .prose ul, .prose ol {
-    margin-bottom: 1rem;
-  }
-  
-  .prose li {
-    margin-bottom: 0.5rem;
-    color: #374151;
-  }
-  
-  .prose img {
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    margin: 1.5rem 0;
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .prose blockquote {
-    border-left: 4px solid #3b82f6;
-    padding-left: 1rem;
-    font-style: italic;
-    color: #374151;
-    background-color: #f8fafc;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin: 1.5rem 0;
-  }
-  
-  .prose code {
-    background-color: #f1f5f9;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
-    color: #1e293b;
-  }
-  
-  .prose pre {
-    background-color: #1e293b;
-    color: #f1f5f9;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
-    margin: 1.5rem 0;
-  }
-  
-  .prose table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-  }
-  
-  .prose th {
-    border: 1px solid #d1d5db;
-    background-color: #f9fafb;
-    padding: 0.75rem;
-    text-align: left;
-    font-weight: 600;
-    color: #374151;
-  }
-  
-  .prose td {
-    border: 1px solid #d1d5db;
-    padding: 0.75rem;
-    color: #374151;
-  }
-  
-  /* Hover efekti za slike */
-  .prose img:hover {
-    transform: scale(1.02);
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  /* Stilovi za linkove */
-  .prose a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease-in-out;
-  }
-  
-  .prose a:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
-  }
-  
-  /* Stilovi za liste */
-  .prose ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-  }
-  
-  .prose ol {
-    list-style-type: decimal;
-    padding-left: 1.5rem;
-  }
-  
-  .prose li {
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Stilovi za horizontalnu liniju */
-  .prose hr {
-    border: none;
-    border-top: 2px solid #e5e7eb;
-    margin: 2rem 0;
-  }
-</style>
+  <!-- Main Content with Sidebar -->
+  <div class="flex max-w-7xl mx-auto">
+    
+    <!-- Table of Contents Sidebar -->
+    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
+      <div class="mb-6">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-blue-50 w-full">
+          <svg id="bookmark-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Table of Contents -->
+        <nav class="space-y-1">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#opis-metode" class="toc-link group flex items-center text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-blue-50" data-target="opis-metode">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
+            Opis metode
+          </a>
+          <a href="#primjena" class="toc-link group flex items-center text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-blue-50" data-target="primjena">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Primjena
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-none">
+          
+          <!-- Content Blocks -->
+          <div class="space-y-8">
+            
+            <!-- Opis metode -->
+            <div id="opis-metode" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🧪</span>
+                <h3 class="text-2xl font-bold text-blue-900">Opis metode</h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 shadow-sm space-y-6">
+                
+                <!-- Cilj vježbe -->
+                <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                  <h4 class="text-lg font-semibold text-blue-800 mb-2">Cilj vježbe</h4>
+                  <p class="text-gray-700">
+                    Naučiti pripremu kosog hranjivog agara kao osnovne podloge za uzgoj bakterijskih kultura.
+                  </p>
+                </div>
+
+                <!-- Materijali i reagensi -->
+                <div class="bg-orange-50 rounded-lg p-4 border-l-4 border-orange-500">
+                  <h4 class="text-lg font-semibold text-orange-800 mb-2">Materijali i reagensi</h4>
+                  <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Hranjivi agar</li>
+                    <li>Epruvete</li>
+                    <li>Čep od pamuka i gaze</li>
+                    <li>Autoklav</li>
+                  </ul>
+                </div>
+
+                <!-- Postupak -->
+                <div class="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
+                  <h4 class="text-lg font-semibold text-green-800 mb-2">Postupak</h4>
+                  <ol class="list-decimal list-inside text-gray-700 space-y-1">
+                    <li>Pripremiti hranjivi agar prema standardnoj recepturi</li>
+                    <li>Razliti vrući agar u sterilne epruvete</li>
+                    <li>Zatvoriti epruvete pamučnim čepovima</li>
+                    <li>Autoklavirati na 121°C/15 min</li>
+                    <li>Nakon hlađenja postaviti epruvete pod kutom za formiranje kose površine</li>
+                  </ol>
+                </div>
+
+                <!-- Rezultati -->
+                <div class="bg-purple-50 rounded-lg p-4 border-l-4 border-purple-500">
+                  <h4 class="text-lg font-semibold text-purple-800 mb-2">Rezultati</h4>
+                  <p class="text-gray-700">
+                    Kosi agar osigurava veću površinu za uzgoj bakterija i olakšava precjepljivanje kultura.
+                  </p>
+                </div>
+
+                <!-- Zaključak -->
+                <div class="bg-red-50 rounded-lg p-4 border-l-4 border-red-500">
+                  <h4 class="text-lg font-semibold text-red-800 mb-2">Zaključak</h4>
+                  <p class="text-gray-700">
+                    Kosi agar je standardna podloga u bakteriologiji koja omogućava dugotrajno čuvanje čistih kultura.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Primjena -->
+            <div id="primjena" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🎯</span>
+                <h3 class="text-2xl font-bold text-green-900">Primjena</h3>
+              </div>
+              <div class="bg-white rounded-lg p-6 shadow-sm">
+                <p class="text-gray-700 leading-relaxed">
+                  Metoda se koristi za sterilizaciju različitih materijala.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</SubPageLayout>
+
+<script>
+  // Bookmark functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const bookmarkBtn = document.getElementById('bookmark-btn');
+    const bookmarkIcon = document.getElementById('bookmark-icon');
+    const bookmarkText = document.getElementById('bookmark-text');
+    
+    if (bookmarkBtn && bookmarkText) {
+      bookmarkBtn.addEventListener('click', () => {
+        const isBookmarked = bookmarkBtn.classList.contains('text-blue-600');
+        
+        if (isBookmarked) {
+          bookmarkBtn.classList.remove('text-blue-600', 'bg-blue-50');
+          bookmarkBtn.classList.add('text-gray-600');
+          bookmarkText.textContent = 'Označiti kao bookmark';
+          localStorage.removeItem('bookmark-vjezba-2-5');
+        } else {
+          bookmarkBtn.classList.add('text-blue-600', 'bg-blue-50');
+          bookmarkBtn.classList.remove('text-gray-600');
+          bookmarkText.textContent = 'Ukloniti bookmark';
+          localStorage.setItem('bookmark-vjezba-2-5', 'true');
+        }
+      });
+      
+      // Check if already bookmarked
+      if (localStorage.getItem('bookmark-vjezba-2-5')) {
+        bookmarkBtn.classList.add('text-blue-600', 'bg-blue-50');
+        bookmarkBtn.classList.remove('text-gray-600');
+        bookmarkText.textContent = 'Ukloniti bookmark';
+      }
+    }
+    
+    // TOC functionality
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const sections = document.querySelectorAll('[id]');
+    
+    const observerOptions = {
+      rootMargin: '-20% 0px -80% 0px',
+      threshold: 0
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(link => {
+            link.classList.remove('text-blue-600', 'bg-blue-50');
+            link.classList.add('text-gray-600');
+            if (link.getAttribute('data-target') === id) {
+              link.classList.add('text-blue-600', 'bg-blue-50');
+              link.classList.remove('text-gray-600');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+    
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>
