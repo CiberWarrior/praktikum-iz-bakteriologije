@@ -52,10 +52,7 @@ const {
             <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
             Opis metode
           </a>
-          <a href="#primjena" class="toc-link group flex items-center text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-blue-50" data-target="primjena">
-            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
-            Primjena
-          </a>
+          
         </nav>
       </div>
     </aside>
@@ -74,70 +71,40 @@ const {
                 <span class="text-3xl mr-4">🧪</span>
                 <h3 class="text-2xl font-bold text-blue-900">Opis metode</h3>
               </div>
-              <div class="bg-white rounded-lg p-6 shadow-sm space-y-6">
+              <div class="bg-white rounded-lg p-6 shadow-sm">
                 
-                <!-- Cilj vježbe -->
-                <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
-                  <h4 class="text-lg font-semibold text-blue-800 mb-2">Cilj vježbe</h4>
-                  <p class="text-gray-700">
-                    Naučiti pripremu kosog hranjivog agara kao osnovne podloge za uzgoj bakterijskih kultura.
-                  </p>
-                </div>
-
-                <!-- Materijali i reagensi -->
-                <div class="bg-orange-50 rounded-lg p-4 border-l-4 border-orange-500">
-                  <h4 class="text-lg font-semibold text-orange-800 mb-2">Materijali i reagensi</h4>
-                  <ul class="list-disc list-inside text-gray-700 space-y-1">
-                    <li>Hranjivi agar</li>
-                    <li>Epruvete</li>
-                    <li>Čep od pamuka i gaze</li>
-                    <li>Autoklav</li>
-                  </ul>
-                </div>
-
                 <!-- Postupak -->
                 <div class="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
                   <h4 class="text-lg font-semibold text-green-800 mb-2">Postupak</h4>
-                  <ol class="list-decimal list-inside text-gray-700 space-y-1">
-                    <li>Pripremiti hranjivi agar prema standardnoj recepturi</li>
-                    <li>Razliti vrući agar u sterilne epruvete</li>
-                    <li>Zatvoriti epruvete pamučnim čepovima</li>
-                    <li>Autoklavirati na 121°C/15 min</li>
-                    <li>Nakon hlađenja postaviti epruvete pod kutom za formiranje kose površine</li>
-                  </ol>
-                </div>
-
-                <!-- Rezultati -->
-                <div class="bg-purple-50 rounded-lg p-4 border-l-4 border-purple-500">
-                  <h4 class="text-lg font-semibold text-purple-800 mb-2">Rezultati</h4>
-                  <p class="text-gray-700">
-                    Kosi agar osigurava veću površinu za uzgoj bakterija i olakšava precjepljivanje kultura.
-                  </p>
-                </div>
-
-                <!-- Zaključak -->
-                <div class="bg-red-50 rounded-lg p-4 border-l-4 border-red-500">
-                  <h4 class="text-lg font-semibold text-red-800 mb-2">Zaključak</h4>
-                  <p class="text-gray-700">
-                    Kosi agar je standardna podloga u bakteriologiji koja omogućava dugotrajno čuvanje čistih kultura.
-                  </p>
+                  <div class="text-gray-700 leading-relaxed">
+                    <p class="mb-3">
+                      U Erlenmeyerovu tikvicu odvagati određenu količinu odabranog dehidriranog hranjivog agaroznog medija prema uputi proizvođača i nadoliti destilirane vode do 1L. Provjeriti pH-vrijednost otopine pH-metrom.
+                    </p>
+                    <p class="mb-3">
+                      Na plameniku zagrijati u loncu vodovodnu vodu, te u lonac staviti sadržaj u Erlenmeyerovoj tikvici. Zagrijati vodu do vrenja i rastopiti medij 5 min.
+                    </p>
+                    <p class="mb-3">
+                      U pripremljene epruvete pipetirati po 7 mL toplog medija. Epruvete začepiti čepom. Epruvete autoklavirati na 121°C/20 min. Nakon autoklaviranja epruvete ukositi (slika 19) i ostaviti da se skrutnu.
+                    </p>
+                    
+                    {/* Slika 19 */}
+                    <figure class="image-figure w-3/5 h-auto rounded-lg mx-auto mt-4">
+                      <img 
+                        src="/images/slika19.jpg" 
+                        alt="Priprema kosih agara - Sterilizacija" 
+                        class="w-full h-auto rounded-lg shadow-lg"
+                      />
+                      <figcaption class="text-center inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium block mt-2 text-gray-700">
+                        Slika 19. Priprema kosih agara. 
+                      </figcaption>
+                    </figure>
+                  </div>
                 </div>
 
               </div>
             </div>
 
-            <!-- Primjena -->
-            <div id="primjena" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🎯</span>
-                <h3 class="text-2xl font-bold text-green-900">Primjena</h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 shadow-sm">
-                <p class="text-gray-700 leading-relaxed">
-                  Metoda se koristi za sterilizaciju različitih materijala.
-                </p>
-              </div>
-            </div>
+            
 
           </div>
         </div>
