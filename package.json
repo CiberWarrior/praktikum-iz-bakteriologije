@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "convert-mdx": "node scripts/convert-mdx-to-astro.cjs",
-    "generate-paths": "node scripts/generate-paths.cjs"
+    "generate-paths": "node scripts/generate-paths.cjs",
+    "migrate-icons": "node scripts/migrate-to-tabler-icons.js"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.34.4",
