@@ -10,7 +10,7 @@
     "astro": "astro",
     "convert-mdx": "node scripts/convert-mdx-to-astro.cjs",
     "generate-paths": "node scripts/generate-paths.cjs",
-    "migrate-icons": "node scripts/migrate-to-tabler-icons.js"
+    "migrate-icons": "node scripts/migrate-to-tabler-icons.cjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.34.4",
