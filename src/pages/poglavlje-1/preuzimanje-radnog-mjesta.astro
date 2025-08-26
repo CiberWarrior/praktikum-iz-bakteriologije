@@ -1,6 +1,5 @@
 ---
-import SubPageLayout from
-import Icon from '../../components/ui/Icon.astro'; '../../components/SubPageLayout.astro';
+import SubPageLayout from '../../components/SubPageLayout.astro';
 
 export interface Props {
   title?: string;
@@ -40,7 +39,9 @@ const {
         
         <!-- Bookmark Button -->
         <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-emerald-50 w-full">
-          <Icon name="IconBookmark" className="w-5 h-5" />
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
           <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
         </button>
         
@@ -79,9 +80,7 @@ const {
               
               <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-lg p-4 shadow-sm border border-red-200">
                 <div class="flex items-center mb-3">
-                  <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                  <Icon name="IconAlertTriangle" className="w-8 h-8 text-white" />
-                </div>
+                  <span class="text-3xl mr-4">⚠️</span>
                   <strong class="text-red-800 text-lg">Važno</strong>
                 </div>
                 <p class="text-gray-800 leading-relaxed font-medium">
@@ -191,7 +190,7 @@ const {
       aria-label="Prijeđi na sljedeću stranicu: Pravila ponašanja"
     >
       <span class="text-lg">Pravila ponašanja</span>
-      <Icon name="IconChevronRight" className="w-5 h-5 ml-3" />
+      →
     </a>
   </div><!-- CSS Styles for Active State -->
   <style>

@@ -39,7 +39,9 @@ const {
         
         <!-- Bookmark Button -->
         <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-emerald-50 w-full">
-          <Icon name="IconBookmark" className="w-5 h-5" />
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
           <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
         </button>
         
@@ -77,9 +79,7 @@ const {
             <!-- Izolacija čiste kulture -->
             <div id="izolacija-ciste-kulture" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
               <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                  <Icon name="IconFlask" className="w-8 h-8 text-white" />
-                </div>
+                <span class="text-3xl mr-4">🧪</span>
                 <h3 class="text-2xl font-bold text-blue-900">Izolacija čiste kulture</h3>
               </div>
               <p class="text-gray-700 leading-relaxed">
@@ -101,9 +101,7 @@ const {
             <!-- Metoda izolacije -->
             <div id="metoda-izolacije" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
               <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                  <Icon name="IconMicroscope" className="w-8 h-8 text-white" />
-                </div>
+                <span class="text-3xl mr-4">🔬</span>
                 <h3 class="text-2xl font-bold text-green-900">Metoda izolacije</h3>
               </div>
               <p class="text-gray-700 leading-relaxed mb-4">
@@ -120,9 +118,7 @@ const {
             <!-- Rezultati -->
             <div id="rezultati" class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6 shadow-lg border border-purple-200">
               <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                  <Icon name="IconChartBar" className="w-8 h-8 text-white" />
-                </div>
+                <span class="text-3xl mr-4">📊</span>
                 <h3 class="text-2xl font-bold text-purple-900">Rezultati</h3>
               </div>
               <p class="text-gray-700 leading-relaxed">
@@ -195,7 +191,7 @@ const {
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
       aria-label="Prijeđi na prethodnu stranicu: Vježba 1"
     >
-      <Icon name="IconChevronLeft" className="w-5 h-5 mr-3" />
+      ←
       <span class="text-lg">Vježba 1</span>
     </a>
     
@@ -206,7 +202,7 @@ const {
       aria-label="Prijeđi na sljedeću stranicu: Vježba 3"
     >
       <span class="text-lg">Vježba 3</span>
-      <Icon name="IconChevronRight" className="w-5 h-5 ml-3" />
+      →
     </a>
   </div><!-- CSS Styles for Active State -->
   <style>
