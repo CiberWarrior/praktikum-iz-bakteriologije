@@ -7,6 +7,7 @@ export interface Props {
   secondaryText?: string;
   secondaryLink?: string;
   primaryColor?: string;
+  customBgColor?: string;
 }
 
 const { 
@@ -16,7 +17,8 @@ const {
   primaryLink,
   secondaryText,
   secondaryLink,
-  primaryColor = "purple"
+  primaryColor = "purple",
+  customBgColor
 } = Astro.props;
 
 const colorClasses = {
@@ -37,13 +39,19 @@ const colorClasses = {
     text: "text-green-100",
     button: "text-green-700",
     hover: "hover:text-green-700"
+  },
+  red: {
+    bg: "from-red-600 via-red-700 to-red-900",
+    text: "text-red-100",
+    button: "text-red-700",
+    hover: "hover:text-red-700"
   }
 };
 
 const colors = colorClasses[primaryColor as keyof typeof colorClasses] || colorClasses.purple;
 ---
 
-<section class={`py-16 bg-gradient-to-br ${colors.bg} text-white`} style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
+<section class={`py-16 bg-gradient-to-br ${colors.bg} text-white`} style={customBgColor ? `background: ${customBgColor}` : "background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);"}>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
     <h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight font-body">
       {title}
