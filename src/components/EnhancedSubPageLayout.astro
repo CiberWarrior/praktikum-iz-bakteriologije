@@ -221,7 +221,7 @@ const getTOCColor = (index: number) => {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked: boolean) {
+      function updateBookmarkUI(bookmarked) {
         const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
@@ -277,20 +277,20 @@ const getTOCColor = (index: number) => {
       }
       
       // Close TOC when clicking on a link
-      tocLinks.forEach((link: Element) => {
+      tocLinks.forEach((link) => {
         link.addEventListener('click', closeTOC);
       });
     }
 
     // Scroll Spy for TOC
     function initScrollSpy() {
-      const tocItemIds = tocItems.map((item: any) => item.id);
+      const tocItemIds = tocItems.map((item) => item.id);
       const tocLinks = document.querySelectorAll('.toc-link');
       
       function updateActiveLink() {
         let currentSection = '';
         
-        tocItemIds.forEach((itemId: string) => {
+        tocItemIds.forEach((itemId) => {
           const section = document.getElementById(itemId);
           if (section) {
             const rect = section.getBoundingClientRect();
@@ -301,7 +301,7 @@ const getTOCColor = (index: number) => {
         });
         
         // Remove active class from all links
-        tocLinks.forEach((link: Element) => {
+        tocLinks.forEach((link) => {
           link.classList.remove('active');
         });
         

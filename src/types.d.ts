@@ -162,7 +162,7 @@ export interface Testimonial {
 }
 
 export interface Input {
-  type: HTMLInputTypeAttribute;
+  type: string;
   name: string;
   label?: string;
   autocomplete?: string;

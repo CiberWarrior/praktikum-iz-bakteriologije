@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export interface MDXContent {
-  frontmatter: Record<string, any>;
+  frontmatter: Record<string, unknown>;
   content: string;
   slug: string;
 }
@@ -41,9 +41,9 @@ const CHAPTER_CONFIG = {
 };
 
 // Funkcija za parsiranje MDX frontmatter-a
-function parseFrontmatter(content: string): { frontmatter: Record<string, any>; body: string } {
+function parseFrontmatter(content: string): { frontmatter: Record<string, unknown>; body: string } {
   const lines = content.split('\n');
-  let frontmatter: Record<string, any> = {};
+  let frontmatter: Record<string, unknown> = {};
   let bodyStart = 0;
   
   if (lines[0].trim() === '---') {
@@ -56,10 +56,10 @@ function parseFrontmatter(content: string): { frontmatter: Record<string, any>; 
         
         // Parsiranje različitih tipova vrijednosti
         if (value.startsWith('[') && value.endsWith(']')) {
-          frontmatter[key.trim()] = JSON.parse(value);
+          frontmatter[key.trim()] = JSON.parse(value) as unknown;
         } else if (value === 'true' || value === 'false') {
           frontmatter[key.trim()] = value === 'true';
-        } else if (!isNaN(value) && value !== '') {
+        } else if (!isNaN(Number(value)) && value !== '') {
           frontmatter[key.trim()] = parseInt(value);
         } else {
           frontmatter[key.trim()] = value.replace(/^["']|["']$/g, '');
@@ -104,11 +104,11 @@ export function loadChapter(chapterNumber: number): ChapterStructure {
     return loadMDXFile(filePath);
   });
   
-  const config = CHAPTER_CONFIG[chapterNumber as keyof typeof CHAPTER_CONFIG];
+  const _config = CHAPTER_CONFIG[chapterNumber as keyof typeof CHAPTER_CONFIG];
   
   return {
     chapterNumber,
-    title: config?.title || `Poglavlje ${chapterNumber}`,
+    title: _config?.title || `Poglavlje ${chapterNumber}`,
     sections
   };
 }
@@ -152,7 +152,6 @@ export function getChapterNavigation(chapterNumber: number) {
 
 // Funkcija za generiranje breadcrumb putanje
 export function generateBreadcrumbPath(chapterNumber: number, sectionName?: string) {
-  const config = CHAPTER_CONFIG[chapterNumber as keyof typeof CHAPTER_CONFIG];
   const breadcrumb = [
     { name: 'Sadržaj', url: '/sadrzaj/' },
     { name: `Poglavlje ${chapterNumber}`, url: `/poglavlje-${chapterNumber}/` }

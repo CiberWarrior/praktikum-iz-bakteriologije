@@ -3,11 +3,11 @@
  * Provides accessibility features and validation
  */
 
-export default function accessibility(options = {}) {
+export default function accessibility() {
   return {
     name: 'astro-accessibility',
     hooks: {
-      'astro:config:setup': ({ config, updateConfig }) => {
+      'astro:config:setup': ({ config }) => {
         // Add accessibility meta tags
         if (!config.site) {
           config.site = 'https://example.com';
@@ -30,7 +30,7 @@ export default function accessibility(options = {}) {
         }
       },
       
-      'astro:build:done': ({ pages, dir, routes }) => {
+      'astro:build:done': () => {
         console.log('🔍 Accessibility: Build completed. Consider running accessibility audits.');
       }
     }

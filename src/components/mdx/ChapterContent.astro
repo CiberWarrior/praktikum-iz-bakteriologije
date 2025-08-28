@@ -30,7 +30,7 @@ const colorMap = {
   fuchsia: 'from-fuchsia-50 to-fuchsia-100 border-fuchsia-200 text-fuchsia-900'
 };
 
-const colorClasses = colorMap[primaryColor] || colorMap.blue;
+const colorClasses = colorMap[primaryColor as keyof typeof colorMap] || colorMap.blue;
 ---
 
 <div class={`bg-gradient-to-br ${colorClasses} rounded-xl p-8 border mb-8`}>
