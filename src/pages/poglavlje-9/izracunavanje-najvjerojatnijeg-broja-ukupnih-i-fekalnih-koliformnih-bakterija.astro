@@ -1,0 +1,320 @@
+---
+import SubPageLayout from '../../components/SubPageLayout.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Izračunavanje najvjerojatnijeg broja koliformnih bakterija',
+  description = 'MPN metoda i interpretacija rezultata'
+} = Astro.props;
+---
+
+<SubPageLayout 
+  title={title} 
+  description={description}
+  chapterNumber={9}
+  primaryColor="red"
+  breadcrumbPath={[
+    { name: 'Poglavlje 9', url: '/poglavlje-9/' },
+    { name: 'Izračunavanje najvjerojatnijeg broja koliformnih bakterija', url: '/poglavlje-9/izracunavanje-najvjerojatnijeg-broja-ukupnih-i-fekalnih-koliformnih-bakterija/' }
+  ]}
+>
+
+  <!-- Main Content with Sidebar -->
+  <div class="flex max-w-7xl mx-auto">
+    
+    <!-- Table of Contents Sidebar -->
+    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
+      <div class="mb-6">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-red-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-red-50 w-full">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Table of Contents -->
+        <nav class="space-y-1">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#-tablica-3-primjer-tablice-po-mccradyju" class="toc-link group flex items-center text-sm text-gray-600 hover:text-red-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-red-50" data-target="-tablica-3-primjer-tablice-po-mccradyju">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
+            📊 Tablica 3. Primjer tablice po McCradyju
+          </a>
+          <a href="#tablice-po-gost-u" class="toc-link group flex items-center text-sm text-gray-600 hover:text-red-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-red-50" data-target="tablice-po-gost-u">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Tablice po GOST-u
+          </a>
+          <a href="#-tablica-4-primjer-tablica-po-gost-u" class="toc-link group flex items-center text-sm text-gray-600 hover:text-red-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-red-50" data-target="-tablica-4-primjer-tablica-po-gost-u">
+            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
+            🧪 Tablica 4. Primjer tablica po GOST-u
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-none">
+          
+          <!-- Content Blocks -->
+          <div class="space-y-8">
+            
+            <!-- 📊 Tablica 3. Primjer tablice po McCradyju -->
+            <div id="-tablica-3-primjer-tablice-po-mccradyju" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">📖</span>
+                <h3 class="text-2xl font-bold text-blue-900">📊 Tablica 3. Primjer tablice po McCradyju</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">| Pozitivne epruvete | MPN<em> / 100 mL | Pozitivne epruvete | MPN</em> / 100 mL | |-------------------|---------------|-------------------|---------------| | 10 mL | 1,0 mL | 0,1 mL | 3 pon.<em> | 5 pon.</em> | 10 mL | 1,0 mL | 0,1 mL | 3 pon.<em> | 5 pon.</em> | | 0 | 0 | 0 | &lt; 3 | &lt; 2 | 4 | 1 | 1 | - | 21 | | 0 | 0 | 1 | 3 | 2 | 4 | 1 | 2 | - | 26 | | 0 | 1 | 0 | 3 | 2 | 4 | 2 | 0 | - | 22 | | 0 | 2 | 0 | 6 | 4 | 4 | 2 | 1 | - | 26 | | 1 | 0 | 0 | 4 | 2 | 4 | 3 | 0 | - | 27 | | 1 | 0 | 1 | 7 | 4 | 4 | 3 | 1 | - | 33 | | 1 | 1 | 0 | 7 | 4 | 4 | 4 | 0 | - | 34 | | 1 | 1 | 1 | 11 | 6 | 5 | 0 | 0 | - | 23 | | 1 | 2 | 0 | 11 | 6 | 5 | 0 | 1 | - | 31 | | 2 | 0 | 0 | 9 | 5 | 5 | 0 | 2 | - | 43 | | 2 | 0 | 1 | 14 | 7 | 5 | 1 | 0 | - | 33 | | 2 | 1 | 0 | 15 | 7 | 5 | 1 | 1 | - | 46 | | 2 | 1 | 1 | 20 | 9 | 5 | 1 | 2 | - | 63 | | 2 | 2 | 0 | 21 | 9 | 5 | 2 | 0 | - | 49 | | 2 | 2 | 1 | 28 | - | 5 | 2 | 1 | - | 70 | | 2 | 3 | 0 | 30 | 12 | 5 | 2 | 2 | - | 94 | | 3 | 0 | 0 | 23 | 8 | 5 | 3 | 0 | - | 79 | | 3 | 0 | 1 | 39 | 11 | 5 | 3 | 1 | - | 110 | | 3 | 0 | 2 | 64 | - | 5 | 3 | 2 | - | 140 | | 3 | 1 | 0 | 43 | 11 | 5 | 3 | 3 | - | 180 | | 3 | 1 | 1 | 75 | 14 | 5 | 4 | 0 | - | 130 | | 3 | 1 | 2 | 120 | - | 5 | 4 | 1 | - | 170 | | 3 | 2 | 0 | 93 | 14 | 5 | 4 | 2 | - | 220 | | 3 | 2 | 1 | 150 | 17 | 5 | 4 | 3 | - | 280 | | 3 | 2 | 2 | 210 | - | 5 | 4 | 4 | - | 350 | | 3 | 3 | 0 | 240 | - | 5 | 5 | 0 | - | 240 | | 3 | 3 | 1 | 460 | - | 5 | 5 | 1 | - | 350 | | 3 | 3 | 2 | 1100 | - | 5 | 5 | 2 | - | 540 | | 3 | 3 | 3 | 2400 | - | 5 | 5 | 3 | - | 920 | | 4 | 0 | 0 | - | 13 | 5 | 5 | 4 | - | 1600 | | 4 | 0 | 1 | - | 17 | 5 | 5 | 5 | - | 2400 | | 4 | 1 | 0 | - | 17 | | | | | |</p>
+        <p class="text-gray-800 text-lg leading-relaxed mb-4"><strong>Legenda:</strong> - <strong>MPN</strong> = najvjerojatniji broj bakterija (Most Probable Number) - <strong>3 pon.</strong> = tri serije ponavljanja - <strong>5 pon.</strong> = pet serija ponavljanja</p>
+              </div>
+            </div>
+
+            <!-- Tablice po GOST-u -->
+            <div id="tablice-po-gost-u" class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">📖</span>
+                <h3 class="text-2xl font-bold text-green-900">Tablice po GOST-u</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Tablice po GOST-u (Gospodarski državni standardi Rusije, tablica 4) služe za izračunavanje koli-indeksa i koli-titra iz očitanog titra ako je određeni volumen uzorka nacijepljen samo jedan put, bez ponavljanja.</p>
+        <p class="text-gray-800 text-lg leading-relaxed mb-4"><strong>Koli-indeks</strong> je najvjerojatniji broj bakterija / 1000 mL, a <strong>koli-titar</strong> najmanji volumen uzorka izražen u mL u kom još možemo naći tražene bakterije. Tablice se koriste tako da uzmemo u obzir rang nacijepljenih volumena iz serije decimalnog razrjeđenja pa u epruvetama imamo kombinaciju pozitivnih i negativnih reakcija.</p>
+        <p class="text-gray-800 text-lg leading-relaxed mb-4"><strong>Primjer</strong>: Ako je pozitivna reakcija dobivena u epruvetama s nacijepljenim 10, 1 i 0,1 mL, a kod viših razrjeđenja reakcija je bila negativna, koristimo se tablicom koja u gornjem lijevom uglu počinje s 10 mL. Kod kombinacije +++- koli-indeks bit će 23800 / 1000 mL, a koli-titar 0,04 mL.</p>
+              </div>
+            </div>
+
+            <!-- 🧪 Tablica 4. Primjer tablica po GOST-u -->
+            <div id="-tablica-4-primjer-tablica-po-gost-u" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 shadow-lg border border-purple-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">📖</span>
+                <h3 class="text-2xl font-bold text-purple-900">🧪 Tablica 4. Primjer tablica po GOST-u</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 10 mL, 1 mL, 0,1 mL, 0,01 mL</h4>
+        <p class="text-gray-800 text-lg leading-relaxed mb-4">| 10 mL | 1 mL | 0,1 mL | 0,01 mL | Koli-indeks | Koli-titar | |-------|------|--------|---------|-------------|------------| | - | - | - | - | &lt;90 | >11,1 | | - | - | - | + | 90 | 11,1 | | - | - | + | - | 90 | 11,1 | | - | + | - | - | 95 | 10,5 | | - | - | + | + | 180 | 5,6 | | - | + | - | + | 190 | 5,3 | | - | + | + | - | 220 | 4,6 | | + | - | - | - | 230 | 4,3 | | - | + | + | + | 280 | 3,6 | | + | - | - | + | 920 | 1,1 | | + | - | + | - | 940 | 1,0 | | + | - | + | + | 1 800 | 0,6 | | + | + | - | - | 2 300 | 0,4 | | + | + | - | + | 9 600 | 0,1 | | + | + | + | - | 23 800 | 0,04 | | + | + | + | + | >23 800 | &lt;0,01 |</p>
+        <h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 1 mL, 0,1 mL, 0,01 mL, 0,001 mL</h4>
+        <p class="text-gray-800 text-lg leading-relaxed mb-4">| 1 mL | 0,1 mL | 0,01 mL | 0,001 mL | Koli-indeks | Koli-titar | |------|--------|---------|----------|-------------|------------| | - | - | - | - | &lt;900 | >1,11 | | - | - | - | + | 900 | 1,11 | | - | - | + | - | 900 | 1,11 | | - | + | - | - | 950 | 1,05 | | - | - | + | + | 1 800 | 0,55 | | - | + | - | + | 1 900 | 0,53 | | - | + | + | - | 2 200 | 0,46 | | + | - | - | - | 2 300 | 0,43 | | - | + | + | + | 2 800 | 0,36 | | + | - | - | + | 9 200 | 0,11 | | + | - | + | - | 9 400 | 0,10 | | + | - | + | + | 18 000 | 0,06 | | + | + | - | - | 23 000 | 0,04 | | + | + | - | + | 96 000 | 0,01 | | + | + | + | - | 238 000 | 0,004 | | + | + | + | + | >238 000 | &lt;0,001 |</p>
+        <h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 0,1 mL, 0,01 mL, 0,001 mL, 0,0001 mL</h4>
+        <p class="text-gray-800 text-lg leading-relaxed mb-4">| 0,1 mL | 0,01 mL | 0,001 mL | 0,0001 mL | Koli-indeks | Koli-titar | |--------|---------|----------|-----------|-------------|------------| | - | - | - | - | &lt;9 000 | >1,1 | | - | - | - | + | 9 000 | 1,11 | | - | - | + | - | 9 000 | 1,10 | | - | + | - | - | 9 500 | 1,05 | | - | - | + | + | 18 000 | 0,56 | | - | + | - | + | 19 000 | 0,53 | | - | + | + | - | 22 000 | 0,46 | | + | - | - | - | 23 000 | 0,43 | | - | + | + | + | 28 000 | 0,36 | | + | - | - | + | 92 000 | 0,11 | | + | - | + | - | 94 000 | 0,10 | | + | - | + | + | 180 000 | 0,06 | | + | + | - | - | 230 000 | 0,04 | | + | + | - | + | 960 000 | 0,01 | | + | + | + | - | 2 380 000 | 0,004 | | + | + | + | + | >2 380 000 | &lt;0,001 |</p>
+        <h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 0,01 mL, 0,001 mL, 0,0001 mL, 0,00001 mL</h4>
+        <p class="text-gray-800 text-lg leading-relaxed mb-4">| 0,01 mL | 0,001 mL | 0,0001 mL | 0,00001 mL | Koli-indeks | Koli-titar | |---------|----------|-----------|------------|-------------|------------| | - | - | - | - | &lt;90 000 | >0,0111 | | - | - | - | + | 90 000 | 0,0111 | | - | - | + | - | 95 000 | 0,0111 | | - | + | - | - | 90 000 | 0,0105 | | - | - | + | + | 180 000 | 0,0056 | | - | + | - | + | 190 000 | 0,0053 | | - | + | + | - | 220 000 | 0,0046 | | + | - | - | - | 230 000 | 0,0043 | | - | + | + | + | 280 000 | 0,0036 | | + | - | - | + | 920 000 | 0,0011 | | + | - | + | - | 940 000 | 0,0010 | | + | - | + | + | 1 800 000 | 0,0006 | | + | + | - | - | 2 300 000 | 0,0004 | | + | + | - | + | 9 600 000 | 0,0001 | | + | + | + | - | 23 800 000 | 0,00004 | | + | + | + | + | >100 000 000 | &lt;0,00001 |</p>
+        <h4 style="color: #096279; font-size: 1.2rem; font-weight: 600; margin: 1.2rem 0 0.8rem 0;">📋 Tablica za 0,001 mL, 0,0001 mL, 0,00001 mL, 0,000001 mL</h4>
+        <p class="text-gray-800 text-lg leading-relaxed mb-4">| 0,001 mL | 0,0001 mL | 0,00001 mL | 0,000001 mL | Koli-indeks | Koli-titar | |----------|-----------|------------|-------------|-------------|------------| | - | - | - | - | &lt;900 000 | >0,0111 | | - | - | - | + | 900 000 | 0,0111 | | - | - | + | - | 900 000 | 0,0111 | | - | + | - | - | 950 000 | 0,0105 | | - | - | + | + | 1 800 000 | 0,0056 | | - | + | - | + | 1 900 000 | 0,0053 | | - | + | + | - | 2 200 000 | 0,0046 | | + | - | - | - | 2 300 000 | 0,0043 | | - | + | + | + | 2 800 000 | 0,0036 | | + | - | - | + | 9 200 000 | 0,0011 | | + | - | + | - | 9 400 000 | 0,0010 | | + | - | + | + | 18 000 000 | 0,0006 | | + | + | - | - | 23 000 000 | 0,0004 | | + | + | - | + | 96 000 000 | 0,0001 | | + | + | + | - | 238 000 000 | 0,00004 | | + | + | + | + | >1 000 000 000 | &lt;0,00001 |</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+  <!-- Mobile TOC Toggle -->
+  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-red-600 text-white p-3 rounded-full shadow-lg z-50">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+    </svg>
+  </button>
+
+  <!-- Mobile TOC Overlay -->
+  <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
+    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
+          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 mb-4 w-full">
+          <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="mobile-bookmark-text">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <nav class="space-y-2">
+          <a href="/poglavlje-9/" class="mobile-toc-link block text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-red-600 pl-3">
+            Pregled poglavlja
+          </a>
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-red-600 pl-3">
+            Svi sadržaji
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigacijski gumbovi -->
+  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
+    <!-- Prethodna stranica -->
+    <a
+      href="/poglavlje-9/zavrsni-test/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi Na Prethodnu Stranicu: Završni Test"
+    >
+      ←
+      <span class="text-lg">Završni Test</span>
+    </a>
+    
+    <!-- Iduća stranica -->
+    <a
+      href="/poglavlje-9/vjezba-9/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na sljedeću stranicu: Vježba 9"
+    >
+      <span class="text-lg">Vježba 9</span>
+      →
+    </a>
+  </div>
+
+  <!-- CSS Styles for Active State -->
+  <style>
+    .toc-link.active {
+      @apply text-red-600 bg-red-50 font-semibold;
+    }
+    
+    .toc-link.active span {
+      @apply w-3 h-3 scale-125;
+    }
+  </style>
+
+  <!-- JavaScript -->
+  <script>
+    // Bookmark functionality
+    function initBookmarks() {
+      const bookmarkKey = 'bookmark-izracunavanje-najvjerojatnijeg-broja-ukupnih-i-fekalnih-koliformnih-bakterija';
+      const bookmarkBtn = document.getElementById('bookmark-btn');
+      const bookmarkText = document.getElementById('bookmark-text');
+      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
+      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
+      
+      // Check if bookmarked
+      const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+      updateBookmarkUI(isBookmarked);
+      
+      function updateBookmarkUI(bookmarked) {
+        const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
+        
+        if (bookmarkText) bookmarkText.textContent = text;
+        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
+      }
+      
+      function toggleBookmark() {
+        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+        const newBookmarkState = !currentlyBookmarked;
+        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
+        updateBookmarkUI(newBookmarkState);
+      }
+      
+      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
+      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
+    }
+
+    // Mobile TOC
+    function initMobileTOC() {
+      const toggleBtn = document.getElementById('mobile-toc-toggle');
+      const overlay = document.getElementById('mobile-toc-overlay');
+      const panel = document.getElementById('mobile-toc-panel');
+      const closeBtn = document.getElementById('mobile-toc-close');
+      const tocLinks = document.querySelectorAll('.mobile-toc-link');
+      
+      function openTOC() {
+        if (overlay && panel) {
+          overlay.classList.remove('hidden');
+          setTimeout(() => {
+            panel.classList.remove('translate-x-full');
+          }, 10);
+        }
+      }
+      
+      function closeTOC() {
+        if (panel && overlay) {
+          panel.classList.add('translate-x-full');
+          setTimeout(() => {
+            overlay.classList.add('hidden');
+          }, 300);
+        }
+      }
+      
+      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
+      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
+      if (overlay) {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) closeTOC();
+        });
+      }
+      
+      // Close TOC when clicking on a link
+      tocLinks.forEach(link => {
+        link.addEventListener('click', closeTOC);
+      });
+    }
+
+    // Scroll Spy for TOC
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('[id]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      
+      function updateActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        // Remove active class from all links
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Add active class to current section link
+        if (currentSection) {
+          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      }
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', updateActiveLink);
+      
+      // Initial check
+      updateActiveLink();
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+      initBookmarks();
+      initMobileTOC();
+      initScrollSpy();
+    });
+  </script>
+
+</SubPageLayout>
