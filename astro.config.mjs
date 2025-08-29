@@ -9,14 +9,11 @@ import path from 'path';
 const isVercel = !!process.env.VERCEL;
 const siteUrl = isVercel && process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : 'https://ciberwarrior.github.io/praktikum-iz-bakteriologije';
-
-// Set base path based on deployment platform
-const basePath = isVercel ? '/' : '/praktikum-iz-bakteriologije/';
+  : 'https://ciberwarrior.github.io';
 
 export default defineConfig({
   site: siteUrl,
-  base: basePath,
+  base: '/',
   output: 'static',
   redirects: {
     '/poglavlje/poglavlje-1/': '/poglavlje-1/',
