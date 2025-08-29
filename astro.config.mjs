@@ -9,11 +9,11 @@ import path from 'path';
 const isVercel = !!process.env.VERCEL;
 const siteUrl = isVercel && process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : 'https://ciberwarrior.github.io';
+  : 'https://ciberwarrior.github.io/praktikum-iz-bakteriologije';
 
 export default defineConfig({
   site: siteUrl,
-  base: '/',
+  base: '/praktikum-iz-bakteriologije/',
   output: 'static',
   redirects: {
     '/poglavlje/poglavlje-1/': '/poglavlje-1/',
