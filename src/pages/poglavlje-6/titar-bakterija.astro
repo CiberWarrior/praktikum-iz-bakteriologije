@@ -77,15 +77,15 @@ const {
               </div>
               <div class="text-gray-700 leading-relaxed">
                 <p class="mb-4">
-                  Pod <strong>titrom bakterija</strong> označava se najmanji volumen uzorka (npr. 1,0 mL, 0,1 mL, 0,001 mL itd.), tj. najveće razrjeđenje u kojem je prisutna tražena bakterija. Što je zagađenje uzorka bakterijama veće, titar je niži.
+                  Pod titrom bakterija označava se najmanji volumen uzorka (npr. 1,0 mL, 0,1 mL, 0,001 mL itd.), tj. najveće razrjeđenje u kojem je prisutna tražena bakterija. Što je zagađenje uzorka bakterijama veće, titar je niži.
                 </p>
                 
                 <p class="mb-4">
-                  Za određivanje vrijednosti titra pripreme se <strong>decimalna razrjeđenja uzorka</strong> tako da se 1 mL originalnog uzorka iz Winklerove boce sterilno prenese u epruvetu s 9 mL sterilne destilirane vode s dodatkom <strong>0,3% NaCl</strong>.
+                  Za određivanje vrijednosti titra pripreme se decimalna razrjeđenja uzorka tako da se 1 mL originalnog uzorka iz Winklerove boce sterilno prenese u epruvetu s 9 mL sterilne destilirane vode s dodatkom 0,3% NaCl.
                 </p>
                 
                 <p class="mb-4">
-                  Uzorak u prvoj epruveti bit će razrijeđen <strong>10 puta</strong> (1:10 ili 10⁻¹), u drugoj <strong>1:100 ili 10⁻²</strong> itd.). Nakon homogeniziranja sadržaja epruvete, promijeniti pipetu i prebaciti 1 mL u iduće epruvete. Na kraju ćemo dobiti razrijeđeni uzorak u epruvetama za po 10 puta, zbog čega ovako pripremljenu seriju epruveta nazivamo <strong>serijom decimalnih razrjeđenja uzorka</strong>.
+                  Uzorak u prvoj epruveti bit će razrijeđen 10 puta (1:10 ili 10⁻¹), u drugoj 1:100 ili 10⁻² itd.). Nakon homogeniziranja sadržaja epruvete, promijeniti pipetu i prebaciti 1 mL u iduće epruvete. Na kraju ćemo dobiti razrijeđeni uzorak u epruvetama za po 10 puta, zbog čega ovako pripremljenu seriju epruveta nazivamo serijom decimalnih razrjeđenja uzorka.
                 </p>
                 
                 <p class="mb-4">
@@ -102,14 +102,14 @@ const {
               </div>
               <div class="text-gray-700 leading-relaxed">
                 <p class="mb-4">
-                  <strong>Titar se izračunava</strong> nakon razdoblja inkubacije prema zadnjoj pozitivnoj epruveti u nacijepljenom nizu.
+                  Titar se izračunava nakon razdoblja inkubacije prema zadnjoj pozitivnoj epruveti u nacijepljenom nizu.
                 </p>
                 
-                <figure class="my-6">
-                  <img src="/images/slika42.jpg" alt="Postupak određivanja titra bakterija iz uzorka vode metodom decimalnih razrjeđenja uzorka" class="w-full h-auto rounded-lg shadow-md">
-                  <figcaption class="mt-2 text-center">
-                    <span class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full mb-2">Slika 42</span>
-                    <p class="text-gray-600">Postupak određivanja titra bakterija iz uzorka vode metodom decimalnih razrjeđenja uzorka.</p>
+                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/images/slika42.jpg" alt="Postupak određivanja titra bakterija iz uzorka vode metodom decimalnih razrjeđenja uzorka" class="w-3/5 h-auto rounded-lg mx-auto" />
+                  <figcaption class="mt-4 text-center">
+                    <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Slika 42</span>
+                    <span class="block mt-2 text-gray-700">Postupak određivanja titra bakterija iz uzorka vode metodom decimalnih razrjeđenja uzorka</span>
                   </figcaption>
                 </figure>
               </div>
@@ -168,21 +168,21 @@ const {
   <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
     <!-- Prethodna stranica -->
     <a
-      href="/poglavlje-6/broj-kolonija-bakterija/"
+      href="/poglavlje-6/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na prethodnu stranicu: Broj kolonija bakterija"
+      aria-label="Prijeđi na prethodnu stranicu: poglavlje 6"
     >
       ←
-      <span class="text-lg">Broj kolonija bakterija</span>
+      <span class="text-lg">poglavlje 6</span>
     </a>
     
     <!-- Iduća stranica -->
     <a
-      href="/poglavlje-6/vjezba-6/"
+      href="/poglavlje-6/broj-kolonija-bakterija/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sljedeću stranicu: Vježba 6"
+      aria-label="Prijeđi na sljedeću stranicu: broj kolonija bakterija"
     >
-      <span class="text-lg">Vježba 6</span>
+      <span class="text-lg">broj kolonija bakterija</span>
       →
     </a>
   </div>
@@ -212,7 +212,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
         if (bookmarkText) bookmarkText.textContent = text;

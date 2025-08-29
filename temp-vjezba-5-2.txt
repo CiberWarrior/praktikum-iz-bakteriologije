@@ -1,0 +1,17 @@
+---
+layout: ../../layouts/ChapterLayout.astro
+title: "Vježba 5.2 - Identifikacija koliformnih bakterija API® 20 E testom"
+description: "Praktične vježbe iz identifikacije koliformnih bakterija pomoću API® 20 E test sustava"
+breadcrumbPath: ['Poglavlje 5', 'Vježba 5.2']
+---
+
+<div class="min-h-screen bg-gray-50">
+  <main class="flex-1 px-6 py-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="prose prose-lg max-w-none">
+        <h1>Vježba 5.2: Identifikacija koliformnih bakterija API® 20 E testom</h1>
+        <p>Sadržaj će biti dodan...</p>
+      </div>
+    </div>
+  </main>
+</div>

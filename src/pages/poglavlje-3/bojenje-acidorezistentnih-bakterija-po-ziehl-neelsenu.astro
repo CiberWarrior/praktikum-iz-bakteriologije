@@ -73,8 +73,21 @@ const {
               </div>
               
               <div class="bg-white rounded-lg p-4 shadow-sm">
-                <p class="text-gray-700 leading-relaxed">
-                  Neke bakterije posebno vrste iz roda <em>Mycobacterium</em> (<em>M. tuberculosis</em>, <em>M. lepreae</em>, <em>M. smegmatis</em>) otporne su na bojenja bazičnim bojilima jer oko stanice posjeduju omotač od fosfolipida i voska, koji ne propušta boje u stanice. Ta se ovojnica mora učiniti propusnom, i to grijanjem preparata prelivenog bojom (karbol fuksin) nad otvorenim plamenom. Postupak bojenja uključuje grijanje preparata (preparat se drži nad plamenom, a kada se iz boje počne dizati para, odmakne se od plamena te ponovno primakne kada prestane, a cijeli postupak traje 5 minuta), ispranje kiselim alkoholom (tako tretiran sada obojen preparat ispire se kiselim alkoholom, sve dok ne prestane izlaziti crvena boja, te ispere vodom iz vodovoda) i kontrabojenje (na tako ispran preparat doda se metilensko modrilo kao kontrastna boja i ostavi 2 min). Interpretacija rezultata pokazuje da acidorezistentne bakterije ostaju crveno obojene, a ostale bakterije su obojene plavo. Taj postupak složenog bojenja usavršili su bakteriolozi Ziehl i Neelsen 1883. g., a metoda je ponovno važna zbog sve češće pojave tuberkuloze u svijetu.
+                <h4 class="text-lg font-semibold text-gray-800 mb-3">Bojenje acidorezistentnih bakterija po Ziehl-Neelsenu</h4>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                  Neke bakterije posebno vrste iz roda <em>Mycobacterium</em> (<em>M. tuberculosis</em>, <em>M. lepreae</em>, <em>M. smegmatis</em>) otporne su na bojenja bazičnim bojilima jer oko stanice posjeduju omotač od fosfolipida i voska, koji ne propušta boje u stanice. Ta se ovojnica mora učiniti propusnom, i to grijanjem preparata prelivenog bojom (karbol fuksin) nad otvorenim plamenom.
+                </p>
+                
+                <p class="text-gray-700 leading-relaxed mb-4">
+                  Preparat se drži nad plamenom, a kada se iz boje počne dizati para, odmakne se od plamena te ponovno primakne kada prestane, a cijeli postupak traje 5 minuta. Treba paziti da boja ne provre, da ne ispari, a preparat se posuši, tako da se po potrebi boja dolijeva.
+                </p>
+                
+                <p class="text-gray-700 leading-relaxed mb-4">
+                  Tako tretiran sada obojen preparat ispire se kiselim alkoholom, sve dok ne prestane izlaziti crvena boja, te ispere vodom iz vodovoda. Na tako ispran preparat doda se metilensko modrilo kao kontrastna boja i ostavi 2 min. Nakon ispiranja vodom iz vodovoda preparat se posuši filter-papirom i mikroskopira.
+                </p>
+                
+                <p class="text-gray-700 leading-relaxed mb-4">
+                  Acidorezistentne bakterije ostaju crveno obojene, a ostale bakterije obojene su plavo. Taj postupak složenog bojenja usavršili su bakteriolozi Ziehl i Neelsen 1883. g., a metoda je ponovno važna zbog sve češće pojave tuberkuloze u svijetu.
                 </p>
               </div>
             </div>
@@ -154,7 +167,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
@@ -265,19 +278,19 @@ const {
     <a
       href="/poglavlje-3/test-s-kalijevom-luzinom/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na prethodnu stranicu: Test S Kalijevom Lužinom"
+      aria-label="Prijeđi na prethodnu stranicu: test s kalijevom lužinom"
     >
       ←
-      <span class="text-lg">Test S Kalijevom Lužinom</span>
+      <span class="text-lg">test s kalijevom lužinom</span>
     </a>
     
     <!-- Iduća stranica -->
     <a
       href="/poglavlje-3/bojenje-bakterijskih-endospora-po-schaffer-fultonu/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sljedeću stranicu: Bojenje Po Schaffer Fultonu"
+      aria-label="Prijeđi na sljedeću stranicu: bojenje po schaffer fultonu"
     >
-      <span class="text-lg">Bojenje Po Schaffer Fultonu</span>
+      <span class="text-lg">bojenje po Schaffer Fultonu</span>
       →
     </a>
   </div>

@@ -163,11 +163,11 @@ const {
                   <strong>Podloga se sterilizira kuhanjem u vodenoj kupelji 20 min.</strong> Rast drugih bakterija koje se nalaze u uzorku inhibiran je <strong>Na-azidom</strong>, a fekalni streptokoki nesmetano rastu u njegovoj prisutnosti. Fekalni streptokoki reduciraju <strong>2,3,5-trifeniltetrazolium klorid (TTC)</strong> u podlozi do <strong>crvenog spoja formazana</strong> te su njihove kolonije (promjera <strong>0,5-2 mm</strong>) <strong>crveno obojene</strong> (slika 50).
                 </p>
                 
-                <figure class="my-6">
-                  <img src="/images/slika50.jpg" alt="Crveno obojene kolonije fekalnih streptokoka na Slanetz-Bartleyevoj podlozi" class="w-full h-auto rounded-lg shadow-md">
-                  <figcaption class="mt-2 text-center">
-                    <span class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full mb-2">Slika 50</span>
-                    <p class="text-gray-600">Crveno obojene kolonije fekalnih streptokoka na Slanetz-Bartleyevoj podlozi.</p>
+                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/images/slika50.jpg" alt="Crveno obojene kolonije fekalnih streptokoka na Slanetz-Bartleyevoj podlozi" class="w-3/5 h-auto rounded-lg mx-auto" />
+                  <figcaption class="mt-4 text-center">
+                    <span class="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">Slika 50</span>
+                    <span class="block mt-2 text-gray-700">Crveno obojene kolonije fekalnih streptokoka na Slanetz-Bartleyevoj podlozi</span>
                   </figcaption>
                 </figure>
               </div>
@@ -226,15 +226,23 @@ const {
 
   <!-- Navigacijski gumbovi -->
   <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
-
+    <!-- Prethodna stranica -->
+    <a
+      href="/poglavlje-8/koliformne-bakterije/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na prethodnu stranicu: koliformne bakterije"
+    >
+      ←
+      <span class="text-lg">koliformne bakterije</span>
+    </a>
     
     <!-- Iduća stranica -->
     <a
-      href="/poglavlje-8/koliformne-bakterije/"
+      href="/poglavlje-8/vjezba-8/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sljedeću stranicu: Koliformne bakterije"
+      aria-label="Prijeđi na sljedeću stranicu: vježba 8"
     >
-      <span class="text-lg">Koliformne bakterije</span>
+      <span class="text-lg">vježba 8</span>
       →
     </a>
   </div>
@@ -264,7 +272,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
         if (bookmarkText) bookmarkText.textContent = text;
