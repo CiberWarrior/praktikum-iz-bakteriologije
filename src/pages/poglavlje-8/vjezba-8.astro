@@ -49,9 +49,17 @@ const {
         <!-- Table of Contents -->
         <nav class="space-y-1">
           <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#sadraj-vjebi" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="sadraj-vjebi">
+          <a href="#usporedba-broja-kolonija" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="usporedba-broja-kolonija">
             <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Sadržaj vježbi
+            1. Usporedba broja kolonija
+          </a>
+          <a href="#usporedba-titra" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="usporedba-titra">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            2. Usporedba titra
+          </a>
+          <a href="#fekalni-streptokoki" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="fekalni-streptokoki">
+            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
+            3. Fekalni streptokoki
           </a>
         </nav>
       </div>
@@ -66,55 +74,61 @@ const {
           <div class="space-y-8">
             
             <!-- Sadržaj vježbi -->
-            <div id="sadraj-vjebi" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
+            <!-- 1. Usporedba broja kolonija ukupnih i fekalnih koliformnih bakterija -->
+            <div id="usporedba-broja-kolonija" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📚</span>
-                <h3 class="text-2xl font-bold text-blue-900">Sadržaj vježbi</h3>
+                <span class="text-3xl mr-4">🔬</span>
+                <h3 class="text-2xl font-bold text-blue-900">1. Usporedba broja kolonija ukupnih i fekalnih koliformnih bakterija izoliranih na selektivnim podlogama za koliforme</h3>
               </div>
               <div class="text-gray-700 leading-relaxed">
-                <p class="mb-6 text-lg">
-                  Ove vježbe obuhvaćaju praktične radove iz dokazivanja bakterija indikatora sanitarnog stanja. Studenti će naučiti metode za određivanje koliformnih bakterija i fekalnih streptokoka u različitim uzorcima.
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">
+                  Homogenizirati uzorak površinske ili otpadne vode u Winklerovoj boci energičnim mućkanjem. Napraviti seriju decimalnih razrjeđenja uzorka.
                 </p>
-                
-                <div class="space-y-4">
-                  <div class="bg-white rounded-lg p-4 border border-blue-200 hover:shadow-md transition-shadow duration-300">
-                    <div class="flex items-center">
-                      <span class="bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full mr-4">1</span>
-                      <h4 class="text-lg font-semibold text-blue-900">Usporedba broja kolonija ukupnih i fekalnih koliformnih bakterija</h4>
-                    </div>
-                    <p class="mt-2 text-gray-600">Praktična vježba iz određivanja broja kolonija koliformnih bakterija na različitim temperaturama.</p>
-                  </div>
-                  
-                  <div class="bg-white rounded-lg p-4 border border-blue-200 hover:shadow-md transition-shadow duration-300">
-                    <div class="flex items-center">
-                      <span class="bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full mr-4">2</span>
-                      <h4 class="text-lg font-semibold text-blue-900">Usporedba titra ukupnih i fekalnih koliformnih bakterija</h4>
-                    </div>
-                    <p class="mt-2 text-gray-600">Određivanje titra koliformnih bakterija pomoću tehnike najvjerojatnijeg broja (MPN).</p>
-                  </div>
-                  
-                  <div class="bg-white rounded-lg p-4 border border-blue-200 hover:shadow-md transition-shadow duration-300">
-                    <div class="flex items-center">
-                      <span class="bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full mr-4">3</span>
-                      <h4 class="text-lg font-semibold text-blue-900">Određivanje broja kolonija fekalnih streptokoka</h4>
-                    </div>
-                    <p class="mt-2 text-gray-600">Praktična vježba iz izolacije i brojanja fekalnih streptokoka iz uzoraka vode.</p>
-                  </div>
-                </div>
-                
-                <div class="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                  <div class="flex items-start">
-                    <span class="text-yellow-600 text-xl mr-3">⚠️</span>
-                    <div>
-                      <h5 class="font-semibold text-yellow-800 mb-2">Napomena</h5>
-                      <p class="text-yellow-700 text-sm">
-                        Sve vježbe se izvode u laboratoriju pod stručnim nadzorom. Obavezno je poštovanje sigurnosnih mjera i laboratorijskih procedura.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">
+                  Po <strong>0,1 mL uzorka</strong> iz odgovarajuće serije decimalnog razrjeđenja nacijepiti metodom širenja razmaza na <strong>Petrijeve zdjelice s Endo agarom i EC X-GLUC agarom u duplikatu</strong>. Jednu seriju nacjepljenih ploča inkubirati na <strong>35°C/48 h</strong> (ukupni koliformi), a drugu seriju na <strong>44,5°C/24 h</strong> (fekalni koliformi).
+                </p>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">
+                  Nakon razdoblja inkubacije prebrojiti na svim pločama kolonije te izračunati broj kolonija koliformnih bakterija u uzorku. Na pločama s <strong>EC X-GLUC agarom</strong> ponovno prebrojiti plavo obojene kolonije te izračunati postotak <em>Escherichia coli</em> u populaciji ukupnih i fekalnih koliforma.
+                </p>
+                <p class="text-gray-800 text-lg leading-relaxed">
+                  Potom nakapati na ploču s EC X-GLUC agarom <strong>Kovazcev reagens</strong> i nakon 30 sek prebrojiti kolonije okružene crvenim prstenima.
+                </p>
               </div>
             </div>
+
+            <!-- 2. Usporedba titra ukupnih i fekalnih koliformnih bakterija -->
+            <div id="usporedba-titra" class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🧪</span>
+                <h3 class="text-2xl font-bold text-green-900">2. Usporedba titra ukupnih i fekalnih koliformnih bakterija u tekućoj podlozi EC-bujon</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">
+                  Nacijepiti po <strong>1,0 mL uzorka</strong> iz odgovarajuće serije decimalnog razrjeđenja u epruvete s <strong>EC-bujonom u dvije serije</strong> te inkubirati jednu seriju na <strong>35°C/48 h</strong> (ukupni koliformi), a drugu seriju na <strong>44,5°C/24 h</strong> (fekalni koliformi).
+                </p>
+                <p class="text-gray-800 text-lg leading-relaxed">
+                  Nakon razdoblja inkubacije očitati titar i usporediti broj ukupnih i fekalnih koliformnih bakterija u uzorku.
+                </p>
+              </div>
+            </div>
+
+            <!-- 3. Određivanje broja kolonija fekalnih streptokoka -->
+            <div id="fekalni-streptokoki" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 shadow-lg border border-purple-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🔍</span>
+                <h3 class="text-2xl font-bold text-purple-900">3. Određivanje broja kolonija fekalnih streptokoka</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">
+                  Profiltrirati <strong>10 i 1 mL vode</strong> kroz membranski filtar promjera pora <strong>0,45 μm</strong> i filtar položiti na Petrijevu ploču sa <strong>Slanetz-Bartleyevom podlogom</strong>.
+                </p>
+                <p class="text-gray-800 text-lg leading-relaxed">
+                  Ploče inkubirati na <strong>35°C/48 h</strong> te izračunati broj kolonija fekalnih streptokoka po 1 mL uzorka vode.
+                </p>
+              </div>
+            </div>
+
+
 
           </div>
 
@@ -213,7 +227,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
         if (bookmarkText) bookmarkText.textContent = text;
@@ -273,7 +287,7 @@ const {
 
     // Scroll Spy for TOC
     function initScrollSpy() {
-      const sections = document.querySelectorAll('[id]');
+      const sections = document.querySelectorAll('[id^="usporedba-"], [id^="fekalni-"]');
       const tocLinks = document.querySelectorAll('.toc-link');
       
       function updateActiveLink() {
