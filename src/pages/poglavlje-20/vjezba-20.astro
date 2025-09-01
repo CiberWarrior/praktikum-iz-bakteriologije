@@ -1,26 +1,19 @@
 ---
 import SubPageLayout from '../../components/SubPageLayout.astro';
 
-export interface Props {
-  title?: string;
-  description?: string;
-}
-
-const { 
-  title = 'Vježbe 21: Metoda otiska',
-  description = 'Pregled vježbi za poglavlje 21 - Metoda otiska'
-} = Astro.props;
+const title = 'Vježbe 20: Biogeokemijski ciklus fosfora';
+const description = 'Praktične vježbe s fosfat-akumulirajućim bakterijama i fosfomobilizatorima';
 ---
 
 <SubPageLayout 
-  title={title} 
+  title={title}
   description={description}
-  chapterNumber={21}
-  primaryColor="fuchsia"
-  breadcrumbPath={[
-    { name: 'Poglavlje 21', url: '/poglavlje-21/' },
-    { name: 'Vježbe 21: Metoda otiska', url: '/poglavlje-21/vjezba-21/' }
-  ]}
+  chapterNumber={20}
+  primaryColor="teal"
+  prevLink="/poglavlje-20/fosfomobilizatori/"
+  prevText="← Fosfomobilizatori"
+  nextLink="/poglavlje-21/"
+  nextText="Poglavlje 21 →"
 >
 
   <!-- Main Content with Sidebar -->
@@ -30,7 +23,7 @@ const {
     <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
       <div class="mb-6">
         <div class="flex items-center mb-6">
-          <div class="w-8 h-8 bg-fuchsia-600 rounded-lg flex items-center justify-center mr-3">
+          <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center mr-3">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
             </svg>
@@ -39,7 +32,7 @@ const {
         </div>
         
         <!-- Bookmark Button -->
-        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-fuchsia-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-fuchsia-50 w-full">
+        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-teal-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-teal-50 w-full">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
           </svg>
@@ -49,9 +42,13 @@ const {
         <!-- Table of Contents -->
         <nav class="space-y-1">
           <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#pregled-vjebi" class="toc-link group flex items-center text-sm text-gray-600 hover:text-fuchsia-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-fuchsia-50" data-target="pregled-vjebi">
+          <a href="#vjezba-1" class="toc-link group flex items-center text-sm text-gray-600 hover:text-teal-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-teal-50" data-target="vjezba-1">
+            <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 transition-all duration-300"></span>
+            Vježba 1: Fosfomobilizatori
+          </a>
+          <a href="#vjezba-2" class="toc-link group flex items-center text-sm text-gray-600 hover:text-teal-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-teal-50" data-target="vjezba-2">
             <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Pregled vježbi
+            Vježba 2: Bojanje zrnaca polifosfata
           </a>
         </nav>
       </div>
@@ -64,17 +61,42 @@ const {
           
           <!-- Content Blocks -->
           <div class="space-y-8">
-            
-            <!-- Pregled vježbi -->
-            <div id="pregled-vjebi" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
+
+            <!-- Vježba 1: Određivanje broja kolonija fiziološke skupine fosfomobilizatora -->
+            <div id="vjezba-1" class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 shadow-lg border border-orange-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📖</span>
-                <h3 class="text-2xl font-bold text-blue-900">Pregled vježbi</h3>
+                <span class="text-3xl mr-4">⚡</span>
+                <h3 class="text-2xl font-bold text-orange-900">1. Određivanje broja kolonija fiziološke skupine fosfomobilizatora</h3>
               </div>
-              <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">- <strong>[Vježba 21.1](/poglavlje-21/vjezbe/vjezba-21-1)</strong> - Određivanje temperaturnog optimuma i temperaturne valencije saprofitskih bakterija - <strong>[Vježba 21.2](/poglavlje-21/vjezbe/vjezba-21-2)</strong> - Određivanje zastupljenosti fizioloških skupina bakterija među populacijom ukupnih saprofita</p>
-        <p class="text-gray-800 text-lg leading-relaxed mb-4">---</p>
-        <p class="text-gray-800 text-lg leading-relaxed mb-4"><em>Povratak na [Poglavlje 21](/poglavlje-21)</em></p>
+              
+              <div class="bg-white rounded-lg p-4 border border-orange-200">
+                <p class="text-gray-700 leading-relaxed">
+                  Homogenizirati uzorak površinske vode u Winklerovoj boci energičnim mućkanjem. Napraviti seriju decimalnih razrjeđenja uzorka. Po 0,1 mL uzorka iz odgovarajuće serije decimalnog razrjeđenja nacijepiti metodom širenja razmaza na Petrijeve ploče s podlogama za uzgoj fosfomibilizirajućih bakterija. Nakon inkubacije 22°C/72 h na podlogama za uzgoj fosfomibilizirajućih bakterija izbrojiti kolonije s okolnim prozirnim zonama te izračunati broj kolonija fosfomobilizatora po 1 mL uzorka vode.
+                </p>
+              </div>
+              <div class="bg-orange-100 border border-orange-300 rounded-lg p-4 mt-4">
+                <p class="text-orange-800 font-semibold">
+                  🎯 Pozitivna reakcija: Kolonije s okolnim prozirnim zonama
+                </p>
+              </div>
+            </div>
+
+            <!-- Vježba 2: Bojanje zrnaca polifosfata u fosfat-akumulirajućim bakterijama -->
+            <div id="vjezba-2" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🔬</span>
+                <h3 class="text-2xl font-bold text-blue-900">2. Bojanje zrnaca polifosfata u fosfat-akumulirajućim bakterijama</h3>
+              </div>
+              
+              <div class="bg-white rounded-lg p-4 border border-blue-200">
+                <p class="text-gray-700 leading-relaxed">
+                  Uzeti uzorak aktivnog mulja iz aerobnog bazena uređaja za pročišćivanje otpadnih voda. Kapalicom uzeti uzorak i napraviti razmaz na predmetnom stakalcu. Obojiti prema uputama za bojanje po Neisseru. Mikroskopirati pod imerzijom. Nakupine polifosfata vide se kao jasno ograničena tamnoplava zrnca.
+                </p>
+              </div>
+              <div class="bg-blue-100 border border-blue-300 rounded-lg p-4 mt-4">
+                <p class="text-blue-800 font-semibold">
+                  🎨 Rezultat: Jasno ograničena tamnoplava zrnca polifosfata
+                </p>
               </div>
             </div>
 
@@ -85,9 +107,8 @@ const {
     </main>
   </div>
 
-
   <!-- Mobile TOC Toggle -->
-  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-fuchsia-600 text-white p-3 rounded-full shadow-lg z-50">
+  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-teal-600 text-white p-3 rounded-full shadow-lg z-50">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
     </svg>
@@ -107,7 +128,7 @@ const {
         </div>
         
         <!-- Bookmark Button -->
-        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-fuchsia-600 transition-colors duration-200 mb-4 w-full">
+        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-teal-600 transition-colors duration-200 mb-4 w-full">
           <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
           </svg>
@@ -116,10 +137,10 @@ const {
         
         <!-- Navigation Links -->
         <nav class="space-y-2">
-          <a href="/poglavlje-21/" class="mobile-toc-link block text-sm text-gray-600 hover:text-fuchsia-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-fuchsia-600 pl-3">
+          <a href="/poglavlje-20/" class="mobile-toc-link block text-sm text-gray-600 hover:text-teal-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-teal-600 pl-3">
             Pregled poglavlja
           </a>
-          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-fuchsia-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-fuchsia-600 pl-3">
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-teal-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-teal-600 pl-3">
             Svi sadržaji
           </a>
         </nav>
@@ -131,21 +152,29 @@ const {
   <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
     <!-- Prethodna stranica -->
     <a
-      href="/poglavlje-21/metoda-otiska/"
+      href="/poglavlje-20/fosfomobilizatori/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na prethodnu stranicu: metoda otiska"
+      aria-label="Prijeđi na prethodnu stranicu: Fosfomobilizatori"
     >
       ←
-      <span class="text-lg">metoda otiska</span>
+      <span class="text-lg">Fosfomobilizatori</span>
     </a>
     
-
+    <!-- Iduća stranica -->
+    <a
+      href="/poglavlje-21/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-teal-600 to-teal-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na sljedeću stranicu: Poglavlje 21"
+    >
+      <span class="text-lg">Poglavlje 21</span>
+      →
+    </a>
   </div>
 
   <!-- CSS Styles for Active State -->
   <style>
     .toc-link.active {
-      @apply text-fuchsia-600 bg-fuchsia-50 font-semibold;
+      @apply text-teal-600 bg-teal-50 font-semibold;
     }
     
     .toc-link.active span {
@@ -157,20 +186,25 @@ const {
   <script>
     // Bookmark functionality
     function initBookmarks() {
-      const bookmarkKey = 'bookmark-vjezba-21';
+      const bookmarkKey = 'bookmark-vjezba-20';
       const bookmarkBtn = document.getElementById('bookmark-btn');
+      const bookmarkIcon = document.getElementById('bookmark-icon');
       const bookmarkText = document.getElementById('bookmark-text');
       const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
+      const mobileBookmarkIcon = document.getElementById('mobile-bookmark-icon');
       const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
       
       // Check if bookmarked
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
+        const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
+        if (bookmarkIcon) bookmarkIcon.setAttribute('fill', fillAttribute);
         if (bookmarkText) bookmarkText.textContent = text;
+        if (mobileBookmarkIcon) mobileBookmarkIcon.setAttribute('fill', fillAttribute);
         if (mobileBookmarkText) mobileBookmarkText.textContent = text;
       }
       
@@ -227,7 +261,7 @@ const {
 
     // Scroll Spy for TOC
     function initScrollSpy() {
-      const sections = document.querySelectorAll('[id]');
+      const sections = document.querySelectorAll('[id^="vjezba-"]');
       const tocLinks = document.querySelectorAll('.toc-link');
       
       function updateActiveLink() {

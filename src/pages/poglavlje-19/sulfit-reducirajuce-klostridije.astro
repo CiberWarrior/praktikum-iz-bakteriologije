@@ -16,7 +16,7 @@ const {
   title={title} 
   description={description}
   chapterNumber={19}
-  primaryColor="rose"
+  primaryColor="orange"
   breadcrumbPath={[
     { name: 'Poglavlje 19', url: '/poglavlje-19/' },
     { name: 'Sulfit reducirajuće klostridije', url: '/poglavlje-19/sulfit-reducirajuce-klostridije/' }
@@ -30,16 +30,16 @@ const {
     <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
       <div class="mb-6">
         <div class="flex items-center mb-6">
-          <div class="w-8 h-8 bg-rose-600 rounded-lg flex items-center justify-center mr-3">
+          <div class="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 012-2h2a2 2 012 2"></path>
             </svg>
           </div>
           <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
         </div>
         
         <!-- Bookmark Button -->
-        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-rose-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-rose-50 w-full">
+        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-orange-50 w-full">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
           </svg>
@@ -49,13 +49,25 @@ const {
         <!-- Table of Contents -->
         <nav class="space-y-1">
           <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#clostridium-perfringens" class="toc-link group flex items-center text-sm text-gray-600 hover:text-rose-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-rose-50" data-target="clostridium-perfringens">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            *Clostridium perfringens*
+          <a href="#clostridium-rod" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="clostridium-rod">
+            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
+            Rod Clostridium
           </a>
-          <a href="#sastav-tripton-sulfit-neomicin-agara" class="toc-link group flex items-center text-sm text-gray-600 hover:text-rose-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-rose-50" data-target="sastav-tripton-sulfit-neomicin-agara">
+          <a href="#c-perfringens" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="c-perfringens">
+            <span class="w-2 h-2 bg-red-400 rounded-full mr-3 transition-all duration-300"></span>
+            C. perfringens
+          </a>
+          <a href="#tripton-sulfit-neomicin" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="tripton-sulfit-neomicin">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
+            Tripton-sulfit-neomicin agar
+          </a>
+          <a href="#sps-agar" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="sps-agar">
             <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
-            Sastav tripton-sulfit-neomicin agara
+            SPS agar
+          </a>
+          <a href="#crne-kolonije" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="crne-kolonije">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3 transition-all duration-300"></span>
+            Crne kolonije
           </a>
         </nav>
       </div>
@@ -69,28 +81,184 @@ const {
           <!-- Content Blocks -->
           <div class="space-y-8">
             
-            <!-- *Clostridium perfringens* -->
-            <div id="clostridium-perfringens" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
+            <!-- Rod Clostridium -->
+            <div id="clostridium-rod" class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6 shadow-lg border border-purple-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📖</span>
-                <h3 class="text-2xl font-bold text-blue-900">*Clostridium perfringens*</h3>
+                <span class="text-3xl mr-4">🦠</span>
+                <h3 class="text-2xl font-bold text-purple-900">Rod <em>Clostridium</em></h3>
               </div>
-              <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4"><em>Clostridium perfringens</em> ima kapsulu, nema bičeva, nepokretan je. Stvara subterminalne spore bez egzospora. Uzročnici su teških bolesti (plinska gangrena, sekundarne infekcije rana, enteritis, sepsa) a nastava probavni trakt životinja i ljudi te su pouzdan pokazatelj fekalnih zagađenja okoliša. Preko fekalija dolaze u vodu i tlo. U organizam se unose najčešće ozlijeđenim tkivom u kojem se stvaraju anaerobni uvjeti. Posjeduju moćne egzotoksine. <em>C. prefringens</em> selektivno se uzgaja na tripton-sulfit neomicin agaru na 46°C/18 h. Temperatura uzgoja od 46°C selektivna je temperatura koja onemogućuje rast većine druge mikroflore saprofitskih bakterija prisutnih u uzorku te će porasti samo vrste <em>C. perfringens</em>.</p>
-        <div style="max-width: 520px; background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px auto;">
-        <div style="display: flex; align-items: center; margin-bottom: 15px;">
-        <span style="font-size: 24px; margin-right: 10px;">🧫</span>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Široki rang klostridija sposoban je u anaerobnim uvjetima iz sulfita producirati H₂S i otud dolazi i naziv sulfit-reducirajuće klostridije za cijeli rod <em>Clostridium</em>. Bakterije roda <em>Clostridium</em> su Gram-pozitivni anaerobni, sporogeni štapići, koji kod sporulacije poprimaju oblik vretena zbog velikih endospora (lat. Closter, vreteno).
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Općenito su pokretni s peritrihnir bičevima, bez kapsule. Obligatni su anaerobi. Bakterije roda <em>Clostridium</em> široko su rasprostranjene u prirodi. Mnoge vrste stvaraju egzotoksine i patogene su za čovjeka i životinje zbog primarne izazvane infekcije ili potencijalne apsorpcije egzotoksina.
+              </p>
+              <div class="bg-purple-100 border border-purple-300 rounded-lg p-4">
+                <p class="text-purple-800 font-semibold">
+                  🔬 Karakteristike: Gram⁺, anaerobni, sporogeni štapići, oblik vretena
+                </p>
               </div>
             </div>
 
-            <!-- Sastav tripton-sulfit-neomicin agara -->
-            <div id="sastav-tripton-sulfit-neomicin-agara" class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 shadow-lg border border-green-200">
+            <!-- C. perfringens -->
+            <div id="c-perfringens" class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 shadow-lg border border-red-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📖</span>
-                <h3 class="text-2xl font-bold text-green-900">Sastav tripton-sulfit-neomicin agara</h3>
+                <span class="text-3xl mr-4">☠️</span>
+                <h3 class="text-2xl font-bold text-red-900"><em>Clostridium perfringens</em></h3>
               </div>
-              <div class="text-gray-700 leading-relaxed">
-                
+              <p class="text-gray-700 leading-relaxed mb-4">
+                <em>Clostridium perfringens</em> ima kapsulu, nema bičeva, nepokretan je. Stvara subterminalne spore bez egzospora. Uzročnici su teških bolesti (plinska gangrena, sekundarne infekcije rana, enteritis, sepsa) a nastava probavni trakt životinja i ljudi te su pouzdan pokazatelj fekalnih zagađenja okoliša.
+              </p>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Preko fekalija dolaze u vodu i tlo. U organizam se unose najčešće ozlijeđenim tkivom u kojem se stvaraju anaerobni uvjeti. Posjeduju moćne egzotoksine. <em>C. perfringens</em> selektivno se uzgaja na tripton-sulfit neomicin agaru na 46°C/18 h. Temperatura uzgoja od 46°C selektivna je temperatura koja onemogućuje rast većine druge mikroflore saprofitskih bakterija prisutnih u uzorku te će porasti samo vrste <em>C. perfringens</em>.
+              </p>
+              <div class="bg-red-100 border border-red-300 rounded-lg p-4">
+                <p class="text-red-800 font-semibold">
+                  ⚠️ Patogen: plinska gangrena, enteritis, sepsa - pokazatelj fekalnog zagađenja
+                </p>
+              </div>
+            </div>
+
+            <!-- Tripton-sulfit-neomicin agar -->
+            <div id="tripton-sulfit-neomicin" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🧫</span>
+                <h3 class="text-2xl font-bold text-blue-900">Tripton-sulfit-neomicin agar</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Za selektivni uzgoj <em>C. perfringens</em> koristi se tripton-sulfit neomicin agar na 46°C/18 h.
+              </p>
+              
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                <div class="flex items-center mb-4">
+                  <span class="text-2xl mr-3">🧪</span>
+                  <h5 class="text-lg font-semibold text-blue-900">Sastav tripton-sulfit-neomicin agara</h5>
+                </div>
+                <div class="bg-white rounded-lg p-4 border border-blue-200">
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Pepton iz kazeina</span>
+                      <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">15,0 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Ekstrakt kvasca</span>
+                      <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">10,0 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Na₂SO₃</span>
+                      <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">1,0 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">C₆H₁₁FeNO₇</span>
+                      <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">0,5 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Polymyxin B sulfat</span>
+                      <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">0,02 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Neomycin sulfat</span>
+                      <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">0,05 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Agar</span>
+                      <span class="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-semibold">13,5 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Destilirana voda</span>
+                      <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold">1000 mL</span>
+                    </div>
+                  </div>
+                  <div class="mt-4 pt-4 border-t border-gray-200">
+                    <div class="flex justify-center">
+                      <span class="bg-violet-500 text-white px-4 py-2 rounded-full text-sm font-semibold">pH = 7,2 ± 0,2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SPS agar -->
+            <div id="sps-agar" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🧪</span>
+                <h3 class="text-2xl font-bold text-green-900">SPS agar (Perfringens selektivni agar po Angelottiju)</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Za uzgoj širokog ranga sulfit-reducirajućih klostridija koristi se temperatura inkubacije 35°C/48 h i SPS agar (Perfringens selektivni agar po Angelottiju).
+              </p>
+              
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                <div class="flex items-center mb-4">
+                  <span class="text-2xl mr-3">🧪</span>
+                  <h5 class="text-lg font-semibold text-blue-900">Sastav SPS agara (Perfringens selektivni agar po Angelottiju)</h5>
+                </div>
+                <div class="bg-white rounded-lg p-4 border border-blue-200">
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Kazein</span>
+                      <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">15,0 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Ekstrakt kvasca</span>
+                      <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">10,0 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Na₂SO₃</span>
+                      <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">0,5 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Fe-citrat</span>
+                      <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">0,5 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Polimiksin B sulfat</span>
+                      <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">0,01 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Na-sulfadiazin</span>
+                      <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">0,12 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Agar</span>
+                      <span class="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-semibold">13,5 g</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                      <span class="font-medium text-gray-700">Destilirana voda</span>
+                      <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold">1000 mL</span>
+                    </div>
+                  </div>
+                  <div class="mt-4 pt-4 border-t border-gray-200">
+                    <div class="flex justify-center">
+                      <span class="bg-violet-500 text-white px-4 py-2 rounded-full text-sm font-semibold">pH = 7,0 ± 0,2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Crne kolonije -->
+            <div id="crne-kolonije" class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 shadow-lg border border-indigo-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">⚫</span>
+                <h3 class="text-2xl font-bold text-indigo-900">Crne kolonije klostridija</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Vrste roda <em>Clostridium</em> sposobne su u anaerobnim uvjetima iz sulfita stvarati H₂S. Stvoreni H₂S precipitirat će se sa željezom u podlozi i tvoriti crni talog željeznog sulfida (FeS). Stoga će ovalne kolonije roda <em>Clostridium</em> u epruvetama s dubokim SPS agarom biti u dubini podloge obojene crno. Dodatak neomicina i polimiksina inhibirat će razvoj ostalih sulfit reducirajućih bakterija.
+              </p>
+              
+              <figure class="image-figure bg-white rounded-lg p-4 shadow-sm mt-6">
+                <img src="/images/slika81.jpg" alt="Crne kolonije sulfit-reducirajućih klostridija izolirane u dubokom SPS agaru" class="w-2/5 h-auto rounded-lg mx-auto" />
+                <figcaption class="mt-4 text-center">
+                  <span class="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Slika 81</span>
+                  <span class="block mt-2 text-gray-700">Crne kolonije sulfit-reducirajućih klostridija izolirane u dubokom SPS agaru</span>
+                </figcaption>
+              </figure>
+              
+              <div class="bg-indigo-100 border border-indigo-300 rounded-lg p-4 mt-6">
+                <p class="text-indigo-800 font-semibold">
+                  🧪 Pozitivna reakcija: Crne ovalne kolonije zbog FeS taloga
+                </p>
               </div>
             </div>
 
@@ -101,9 +269,8 @@ const {
     </main>
   </div>
 
-
   <!-- Mobile TOC Toggle -->
-  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-rose-600 text-white p-3 rounded-full shadow-lg z-50">
+  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-orange-600 text-white p-3 rounded-full shadow-lg z-50">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
     </svg>
@@ -123,7 +290,7 @@ const {
         </div>
         
         <!-- Bookmark Button -->
-        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-rose-600 transition-colors duration-200 mb-4 w-full">
+        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 mb-4 w-full">
           <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
           </svg>
@@ -132,10 +299,10 @@ const {
         
         <!-- Navigation Links -->
         <nav class="space-y-2">
-          <a href="/poglavlje-19/" class="mobile-toc-link block text-sm text-gray-600 hover:text-rose-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-rose-600 pl-3">
+          <a href="/poglavlje-19/" class="mobile-toc-link block text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-orange-600 pl-3">
             Pregled poglavlja
           </a>
-          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-rose-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-rose-600 pl-3">
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-orange-600 pl-3">
             Svi sadržaji
           </a>
         </nav>
@@ -143,25 +310,25 @@ const {
     </div>
   </div>
 
-  <!-- Navigacijski gumbovi -->
+  <!-- Navigation buttons -->
   <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
-    <!-- Prethodna stranica -->
+    <!-- Previous page -->
     <a
-      href="/poglavlje-19/sulfat-i-tiosulfat-reducirajuce-bakterije/"
+      href="/poglavlje-19/proizvodaci-sumporovodika-iz-proteina/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na prethodnu stranicu: sulfat i tiosulfat reducirajuce bakterije"
+      aria-label="Prethodna stranica: Proizvođači sumporovodika iz proteina"
     >
       ←
-      <span class="text-lg">sulfat i tiosulfat reducirajuce bakterije</span>
+      <span class="text-lg">Proizvođači sumporovodika iz proteina</span>
     </a>
     
-    <!-- Iduća stranica -->
+    <!-- Next page -->
     <a
-      href="/poglavlje-19/vjezba-19/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-rose-600 to-rose-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sljedeću stranicu: vježba 19"
+      href="/poglavlje-19/sulfat-i-tiosulfat-reducirajuce-bakterije/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Sljedeća stranica: Sulfat/tiosulfat reducirajuće bakterije"
     >
-      <span class="text-lg">vježba 19</span>
+      <span class="text-lg">Sulfat/tiosulfat reducirajuće bakterije</span>
       →
     </a>
   </div>
@@ -169,7 +336,7 @@ const {
   <!-- CSS Styles for Active State -->
   <style>
     .toc-link.active {
-      @apply text-rose-600 bg-rose-50 font-semibold;
+      @apply text-orange-600 bg-orange-50 font-semibold;
     }
     
     .toc-link.active span {

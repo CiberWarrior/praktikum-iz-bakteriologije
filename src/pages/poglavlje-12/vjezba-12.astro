@@ -49,9 +49,9 @@ const {
         <!-- Table of Contents -->
         <nav class="space-y-1">
           <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#sadraj-vjebi" class="toc-link group flex items-center text-sm text-gray-600 hover:text-pink-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-pink-50" data-target="sadraj-vjebi">
+          <a href="#vjezba-1" class="toc-link group flex items-center text-sm text-gray-600 hover:text-pink-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-pink-50" data-target="vjezba-1">
             <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Sadržaj vježbi
+            Izolacija anaerobnih bakterija
           </a>
         </nav>
       </div>
@@ -65,15 +65,23 @@ const {
           <!-- Content Blocks -->
           <div class="space-y-8">
             
-            <!-- Sadržaj vježbi -->
-            <div id="sadraj-vjebi" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📖</span>
-                <h3 class="text-2xl font-bold text-blue-900">Sadržaj vježbi</h3>
+            <!-- Vježba 1: Izolacija anaerobnih bakterija iz površinskih voda -->
+            <div id="vjezba-1" class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-8 shadow-lg border border-pink-200">
+              <div class="flex items-center mb-6">
+                <span class="text-3xl mr-4">🦠</span>
+                <h3 class="text-2xl font-bold text-pink-900">1. Izolacija anaerobnih bakterija iz površinskih voda</h3>
               </div>
-              <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">1. [Izolacija anaerobnih bakterija iz površinskih voda](/poglavlje-12/vjezbe/vjezba-12-1)</p>
-        <p class="text-gray-800 text-lg leading-relaxed mb-4">[← Povratak na Poglavlje 12](/poglavlje-12/)</p>
+              <div class="space-y-4">
+                <p class="text-gray-700 leading-relaxed">
+                  Od uzorka površinske vode iz Winklerove boce napraviti seriju decimalnih razrjeđenja uzorka. Po 0,1 mL iz odgovarajuće serije decimalnog razrjeđenja nacijepiti metodom širenja razmaza na hranjivi agar. Za postizanje anaerobne sredine koristi se posebna posuda (slika 61). U nju se stavi komercijalni reagens koji kemijski veže kisik i stvara anaerobnu atmosferu samo s CO₂. U posudu se stave inokulirane Petrijeve zdjelice i ona se zaklopi. Pripremljena se posuda stavi u inkubator. Anaerobna se atmosfera postiže otprilike 30 min nakon zaklapanja. Nakon razdoblja inkubacije (22°C/72 h) izbrojiti kolonije (slika 62) i izračunati broj anaerobnih bakterija po 1 mL uzorka.
+                </p>
+                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm mt-6">
+                  <img src="/images/slika62.jpg" alt="Kolonije anaerobnih bakterija porasle na hranjivom agaru" class="w-3/5 h-auto rounded-lg mx-auto" />
+                  <figcaption class="mt-4 text-center">
+                    <span class="inline-block bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium">Slika 62</span>
+                    <span class="block mt-2 text-gray-700">Kolonije anaerobnih bakterija porasle na hranjivom agaru</span>
+                  </figcaption>
+                </figure>
               </div>
             </div>
 
@@ -128,9 +136,25 @@ const {
 
   <!-- Navigacijski gumbovi -->
   <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
-
+    <!-- Prethodna stranica -->
+    <a
+      href="/poglavlje-12/anaerobne-bakterije/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na prethodnu stranicu: anaerobne bakterije"
+    >
+      ←
+      <span class="text-lg">Anaerobne bakterije</span>
+    </a>
     
-
+    <!-- Iduća stranica -->
+    <a
+      href="/poglavlje-13/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-pink-600 to-pink-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na sljedeće poglavlje: poglavlje 13"
+    >
+      <span class="text-lg">Poglavlje 13</span>
+      →
+    </a>
   </div>
 
   <!-- CSS Styles for Active State -->
@@ -158,7 +182,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
         if (bookmarkText) bookmarkText.textContent = text;
