@@ -56,6 +56,12 @@ Komponenta za footer koji se koristi na svim stranicama.
 ### 4. ChapterLayout.astro
 Predložak za stranice poglavlja koji koristi sve gore navedene komponente.
 
+### 5. SubPageLayout.astro
+Layout za podstranice unutar poglavlja.
+
+### 6. EnhancedSubPageLayout.astro
+Napredni layout za podstranice s dodatnim funkcionalnostima.
+
 ## 🎨 Kako koristiti novi stil
 
 ### Za postojeće stranice poglavlja:
@@ -236,15 +242,9 @@ Za `primaryColor` parametar možete koristiti:
 - `sky` - za kvalitetu namirnica
 - `amber` - za mliječnu fermentaciju
 
-## 🔧 Automatsko ažuriranje
+## 🔧 Ručno ažuriranje
 
-Za automatsko ažuriranje svih stranica poglavlja koristite skriptu:
-
-```bash
-node scripts/update-chapters.js
-```
-
-Ova skripta će automatski ažurirati sve postojeće stranice poglavlja s novim stilom.
+Za ažuriranje postojećih stranica poglavlja, ručno primijenite nove stilove koristeći `ChapterLayout` komponentu i vodiče u ovom dokumentu.
 
 ## 📝 Napomene
 
@@ -255,9 +255,9 @@ Ova skripta će automatski ažurirati sve postojeće stranice poglavlja s novim 
 
 ## 🚀 Primjeri
 
-Pogledajte ažurirane stranice za primjere:
-- `src/pages/poglavlje-1.astro`
-- `src/pages/poglavlje-2.astro`
-- `src/pages/poglavlje-3.astro`
+Pogledajte postojeće stranice za primjere:
+- `src/pages/poglavlje-1.astro` - Osnovni layout
+- `src/pages/poglavlje-22/streptomiceti.astro` - Podstranica s SubPageLayout
+- `src/pages/poglavlje-23/purpurne-sumporne-bakterije.astro` - Napredni layout
 
-Ove stranice pokazuju kako koristiti novi stil u praksi.
+Ove stranice pokazuju kako koristiti različite layout komponente u praksi.

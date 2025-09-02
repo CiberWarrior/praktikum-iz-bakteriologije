@@ -49,7 +49,26 @@ const {
 } = Astro.props;
 
 // Koristi props direktno
-const finalConfig = {
+const finalConfig: {
+  title: string;
+  description: string;
+  primaryColor: string;
+  secondaryColor: string;
+  prevLink: string | undefined;
+  nextLink: string | undefined;
+  prevText: string;
+  nextText: string;
+  ctaTitle: string;
+  ctaDescription: string;
+  ctaPrimaryText: string;
+  ctaPrimaryLink: string;
+  ctaSecondaryText: string;
+  ctaSecondaryLink: string;
+  showBreadcrumb: boolean;
+  breadcrumbPath: Array<{ name: string; url: string }>;
+  ctaCustomBgColor: string | undefined;
+  showZapocniUcenje: boolean;
+} = {
   title: title || "Stranica",
   description: description || "Opis stranice",
   primaryColor: primaryColor || "green",
@@ -66,7 +85,8 @@ const finalConfig = {
   ctaSecondaryLink: ctaSecondaryLink || "/sadrzaj/",
   showBreadcrumb,
   breadcrumbPath,
-  ctaCustomBgColor
+  ctaCustomBgColor,
+  showZapocniUcenje
 };
 ---
 

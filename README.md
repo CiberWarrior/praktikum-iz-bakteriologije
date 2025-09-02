@@ -1,54 +1,130 @@
-# Starlight Starter Kit: Basics
+# 📚 Mrežni udžbenik iz bakteriologije
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Web aplikacija izgrađena s Astro framework-om za nastavu bakteriologije na Sveučilištu u Zagrebu.
 
-```
-npm create astro@latest -- --template starlight
-```
+## 🚀 Tehnologije
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/withastro/starlight&create_from_path=examples/basics)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
+- **[Astro](https://astro.build/)** - Moderni web framework
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[TypeScript](https://www.typescriptlang.org/)** - Tipizirani JavaScript
+- **[Vercel](https://vercel.com/)** - Deployment platforma
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## 📁 Struktura projekta
 
 ```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+src/
+├── components/          # Astro komponente
+│   ├── ChapterLayout.astro    # Glavni layout za poglavlja
+│   ├── HeroSection.astro      # Hero sekcija
+│   ├── CallToAction.astro     # CTA sekcija
+│   ├── Footer.astro          # Footer komponenta
+│   └── FeaturesSection.astro # Features sekcija
+├── pages/               # Astro stranice
+│   ├── index.astro           # Početna stranica
+│   ├── sadrzaj.astro         # Sadržaj udžbenika
+│   ├── poglavlje-*.astro     # Stranice poglavlja (1-23)
+│   └── ...                   # Ostale stranice
+├── styles/              # CSS stilovi
+│   ├── global.css            # Globalni stilovi
+│   └── tailwind.css          # Tailwind CSS
+└── config/
+    └── chapters.ts           # Konfiguracija poglavlja
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+## 🎯 Sadržaj
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+Udžbenik pokriva **23 poglavlja** bakteriologije:
 
-Static assets, like favicons, can be placed in the `public/` directory.
+- **Poglavlje 1:** Uvod u bakteriološki praktikum
+- **Poglavlje 2:** Sterilizacija
+- **Poglavlje 3:** Bojenje bakterija
+- **Poglavlje 4:** Pokretljivost bakterija
+- **Poglavlje 5:** Biokemijska svojstva bakterija
+- **Poglavlje 6:** Određivanje broja bakterija u suspenziji
+- **Poglavlje 7:** Određivanje broja bakterija direktnim metodama
+- **Poglavlje 8:** Bakterije indikatori sanitarnog stanja sredine
+- **Poglavlje 9:** Sanitarna bakteriološka analiza vode
+- **Poglavlje 10:** Termofilne bakterije
+- **Poglavlje 11:** Aerobne sporogene bakterije
+- **Poglavlje 12:** Anaerobne bakterije
+- **Poglavlje 13:** Testovi osjetljivosti na antibiotike
+- **Poglavlje 14:** Testovi osjetljivosti na bakteriofage
+- **Poglavlje 15:** Testovi za određivanje kvalitete mlijeka
+- **Poglavlje 16:** Bakterije mliječne fermentacije
+- **Poglavlje 17:** Biogeokemijski ciklus ugljika
+- **Poglavlje 18:** Biogeokemijski ciklus dušika
+- **Poglavlje 19:** Biogeokemijski ciklus sumpora
+- **Poglavlje 20:** Biogeokemijski ciklus fosfora
+- **Poglavlje 21:** Metoda otiska
+- **Poglavlje 22:** Streptomiceti
+- **Poglavlje 23:** Purpurne sumporne bakterije
 
-## 🧞 Commands
+## 🛠️ Komande
 
-All commands are run from the root of the project, from a terminal:
+```bash
+# Instalacija dependencija
+npm install
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+# Pokretanje development servera
+npm run dev
 
-## 👀 Want to learn more?
+# Production build
+npm run build
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+# Preview production build-a
+npm run preview
+
+# Astro CLI komande
+npm run astro -- --help
+```
+
+## 🌐 Deployment
+
+Projekt je konfiguriran za deployment na **Vercel**:
+
+- Automatski build i deployment
+- Optimizirane slike i assets
+- CDN distribucija
+- HTTPS i moderni web standardi
+
+## 📖 Vodiči
+
+- **[STRUCTURE_GUIDE.md](./STRUCTURE_GUIDE.md)** - Vodič za strukturu projekta
+- **[STYLING_GUIDE.md](./STYLING_GUIDE.md)** - Vodič za stilizaciju
+
+## 🔧 Razvoj
+
+### Dodavanje novog poglavlja
+
+1. Dodaj konfiguraciju u `src/config/chapters.ts`
+2. Kreiraj stranicu u `src/pages/poglavlje-X.astro`
+3. Koristi `ChapterLayout` komponentu za konzistentnost
+
+### Stilizacija
+
+- Koristi Tailwind CSS klase
+- Pratite postojeće konvencije boja
+- Koristite `ChapterLayout` komponentu
+
+## 📱 Responsivnost
+
+Sve stranice su potpuno responzivne i optimizirane za:
+- Desktop računala
+- Tablete
+- Mobilne uređaje
+
+## 🎨 Dizajn
+
+- **Moderni, čist dizajn**
+- **Gradijentne pozadine**
+- **Hover efekti**
+- **Konzistentan branding**
+- **Pristupačnost (accessibility)**
+
+## 📞 Kontakt
+
+Za pitanja o projektu ili tehničku podršku, kontaktirajte razvojni tim.
+
+---
+
+**© 2024 Sveučilište u Zagrebu - Mrežni udžbenik iz bakteriologije**

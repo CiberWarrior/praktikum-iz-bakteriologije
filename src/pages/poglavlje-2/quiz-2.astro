@@ -1,0 +1,307 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Quiz - Poglavlje 2',
+  description = 'Provjeri svoje znanje iz poglavlja o sterilizaciji i dezinfekciji'
+} = Astro.props;
+---
+
+<ChapterLayout 
+  title={title}
+  description={description}
+  chapterNumber={2}
+  primaryColor="blue"
+  prevLink="/poglavlje-2/"
+  nextLink="/poglavlje-3/" 
+  prevText="← Povratak na Poglavlje 2"
+  nextText="Poglavlje 3 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte metode bojenja bakterija." 
+  ctaPrimaryText="Poglavlje 3" 
+  ctaPrimaryLink="/poglavlje-3/" 
+  ctaSecondaryText="Povratak na sadržaj"
+  ctaSecondaryLink="/sadrzaj/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 2', url: '/poglavlje-2/' },
+    { name: 'Quiz 2', url: '/poglavlje-2/quiz-2/' }
+  ]}
+>
+
+  <!-- Quiz Header -->
+  <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border-2 border-blue-200 mb-8">
+    <div class="text-center">
+      <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <h1 class="text-3xl font-bold text-blue-900 mb-4">Quiz - Poglavlje 2</h1>
+      <p class="text-blue-700 text-xl mb-6">Sterilizacija i dezinfekcija</p>
+      <div class="bg-white rounded-lg p-4 inline-block">
+        <p class="text-blue-800 text-lg font-semibold">5 pitanja • Bez vremena • Detaljni rezultat</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Instructions -->
+  <div class="bg-blue-50 rounded-xl p-6 border border-blue-200 mb-8">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-blue-900 mb-3">Upute za quiz</h3>
+        <ul class="text-blue-800 space-y-2">
+          <li>Odgovorite na sva 5 pitanja</li>
+          <li>Svako pitanje ima 4 moguća odgovora (a, b, c, d)</li>
+          <li>Možete promijeniti odgovor prije slanja</li>
+          <li>Nakon slanja vidjet ćete svoj rezultat i postotak uspjeha</li>
+          <li>Možete pokušati ponovno ako niste zadovoljni rezultatom</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz Form -->
+  <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+    <form id="quizForm" class="space-y-8">
+      <!-- Question 1 -->
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">1. Koja je najefikasnija metoda sterilizacije za stakleno posuđe?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q1" value="a" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">a) Kuhanje</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q1" value="b" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">b) Autoklaviranje</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q1" value="c" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">c) Pasterizacija</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q1" value="d" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">d) Flambiranje</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">2. Što je glavna prednost suhe sterilizacije?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q2" value="a" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">a) Brza je</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q2" value="b" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">b) Jeftina je</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q2" value="c" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">c) Ne oštećuje stakleno posuđe</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q2" value="d" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">d) Efikasna je za sve materijale</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">3. Koja temperatura se koristi u autoklavu za sterilizaciju?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q3" value="a" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">a) 100°C</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q3" value="b" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">b) 121°C</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q3" value="c" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">c) 160°C</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q3" value="d" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">d) 180°C</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">4. Što je glavna svrha kemijske sterilizacije?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q4" value="a" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">a) Ubrzavanje rasta bakterija</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q4" value="b" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">b) Sprečavanje kontaminacije</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q4" value="c" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">c) Bojenje bakterija</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q4" value="d" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">d) Mikroskopiranje</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">5. Koja metoda se koristi za sterilizaciju termolabilnih materijala?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q5" value="a" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">a) Autoklaviranje</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q5" value="b" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">b) Suha sterilizacija</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q5" value="c" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">c) Filtracija</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q5" value="d" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">d) Flambiranje</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center pt-6">
+        <button 
+          type="submit" 
+          class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-10 py-4 rounded-xl font-semibold text-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg"
+        >
+          Provjeri rezultat
+        </button>
+      </div>
+    </form>
+
+    <!-- Results (Hidden by default) -->
+    <div id="quizResults" class="hidden mt-8 p-8 bg-gradient-to-r from-blue-50 to-green-50 rounded-xl border-2 border-blue-200">
+      <div class="text-center">
+        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Rezultat quiz-a</h3>
+        <p class="text-gray-600 text-xl mb-6">Odgovorili ste na <span id="correctAnswers" class="font-bold text-blue-600">0</span> od <span id="totalQuestions" class="font-bold">5</span> pitanja</p>
+        <div class="text-6xl font-bold text-blue-600 mb-6">
+          <span id="percentage">0</span>%
+        </div>
+        <p id="resultMessage" class="text-xl text-gray-700 mb-8"></p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button 
+            onclick="resetQuiz()" 
+            class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300"
+          >
+            Pokušaj ponovno
+          </button>
+          <a 
+            href="/poglavlje-2/"
+            class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition-colors duration-300"
+          >
+            Povratak na poglavlje
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ChapterLayout>
+
+<script>
+  // Quiz functionality
+  const correctAnswers = {
+    q1: 'b', // Autoklaviranje
+    q2: 'c', // Ne oštećuje stakleno posuđe
+    q3: 'b', // 121°C
+    q4: 'b', // Sprečavanje kontaminacije
+    q5: 'c'  // Filtracija
+  };
+
+  const totalQuestions = Object.keys(correctAnswers).length;
+
+  document.getElementById('quizForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    let correctCount = 0;
+    
+    // Check each answer
+    Object.keys(correctAnswers).forEach(question => {
+      const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+      if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+        correctCount++;
+      }
+    });
+    
+    // Calculate percentage
+    const percentage = Math.round((correctCount / totalQuestions) * 100);
+    
+    // Update results
+    document.getElementById('correctAnswers').textContent = correctCount;
+    document.getElementById('totalQuestions').textContent = totalQuestions;
+    document.getElementById('percentage').textContent = percentage;
+    
+    // Set result message
+    const resultMessage = document.getElementById('resultMessage');
+    if (percentage === 100) {
+      resultMessage.innerHTML = '🎉 <strong>Odlično!</strong><br><span class="text-lg">Odgovorili ste na sva pitanja bez greške!<br>Vaše znanje iz ovog poglavlja je <em>izvrsno</em> i možete nastaviti s učenjem sljedećeg poglavlja.</span>';
+      resultMessage.className = 'text-xl text-green-700 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 80) {
+      resultMessage.innerHTML = '👏 <strong>Izvrsno!</strong><br><span class="text-lg">Imate <em>odlično</em> znanje iz ovog poglavlja!<br>Samo malo više pažnje i bit ćete savršeni. Nastavite s učenjem!</span>';
+      resultMessage.className = 'text-xl text-green-600 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 60) {
+      resultMessage.innerHTML = '👍 <strong>Dobro!</strong><br><span class="text-lg">Imate <em>solidno</em> znanje iz ovog poglavlja.<br>Preporučujemo da ponovno pročitate gradivo za još bolje razumijevanje.</span>';
+      resultMessage.className = 'text-xl text-blue-700 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 40) {
+      resultMessage.innerHTML = '⚠️ <strong>Prosjecno</strong><br><span class="text-lg">Potrebno je <em>više učenja</em>.<br>Vratite se na gradivo, pročitajte ponovno i pokušajte quiz ponovno.</span>';
+      resultMessage.className = 'text-xl text-yellow-700 mb-8 font-semibold leading-relaxed';
+    } else {
+      resultMessage.innerHTML = '📚 <strong>Potrebno više učenja</strong><br><span class="text-lg">Preporučujemo da <em>detaljno pročitate</em> sve dijelove poglavlja.<br>Učenje je proces - ne odustajte, vratite se na gradivo!</span>';
+      resultMessage.className = 'text-xl text-red-700 mb-8 font-semibold leading-relaxed';
+    }
+    
+    // Show results
+    document.getElementById('quizResults').classList.remove('hidden');
+    
+    // Scroll to results
+    document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  function resetQuiz() {
+    // Reset form
+    document.getElementById('quizForm').reset();
+    
+    // Hide results
+    document.getElementById('quizResults').classList.add('hidden');
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>

@@ -134,10 +134,7 @@ const {
 
 ### Ažuriranje postojećih stranica
 
-Koristi skriptu `scripts/update-chapters.js` za automatsko ažuriranje:
-```bash
-node scripts/update-chapters.js
-```
+Za ažuriranje postojećih stranica, ručno primijenite nove stilove koristeći `ChapterLayout` komponentu.
 
 ## 🚨 Česti problemi i rješenja
 
@@ -167,6 +164,8 @@ node scripts/update-chapters.js
 
 ### Dostupne komponente
 - `ChapterLayout` - Glavni layout za poglavlja
+- `SubPageLayout` - Layout za podstranice
+- `EnhancedSubPageLayout` - Napredni layout za podstranice
 - `HeroSection` - Hero sekcija s naslovom
 - `CallToAction` - CTA sekcija na dnu
 - `Footer` - Footer komponenta

@@ -1,0 +1,271 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+---
+
+<ChapterLayout
+  title="Quiz - Poglavlje 11: Aerobne sporogene bakterije"
+  description="Testirajte svoje znanje iz poglavlja o aerobnim sporogenim bakterijama"
+  breadcrumbs={[
+    { name: 'Početna', url: '/' },
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 11', url: '/poglavlje-11/' },
+    { name: 'Quiz 11', url: '/poglavlje-11/quiz-11/' }
+  ]}
+  prevUrl="/poglavlje-11/"
+  nextUrl="/poglavlje-12/"
+  prevText="povratak na poglavlje 11"
+  nextText="poglavlje 12"
+>
+  <div class="max-w-4xl mx-auto">
+    <!-- Quiz Header -->
+    <div class="text-center mb-12">
+      <div class="w-24 h-24 bg-lime-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Quiz - Poglavlje 11</h1>
+      <h2 class="text-2xl font-semibold text-lime-700 mb-6">Aerobne sporogene bakterije</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Testirajte svoje znanje iz poglavlja o aerobnim sporogenim bakterijama. 
+        Odgovorite na 5 pitanja i provjerite koliko znate!
+      </p>
+    </div>
+
+    <!-- Quiz Instructions -->
+    <div class="bg-lime-50 rounded-xl p-6 mb-8 border border-lime-200">
+      <h3 class="text-xl font-bold text-lime-900 mb-3">Upute za quiz</h3>
+      <ul class="text-lime-800 space-y-2">
+        <li>Odgovorite na sva 5 pitanja</li>
+        <li>Svako pitanje ima 4 moguća odgovora (a, b, c, d)</li>
+        <li>Možete promijeniti odgovor prije slanja</li>
+        <li>Nakon slanja vidjet ćete svoj rezultat i postotak uspjeha</li>
+        <li>Možete pokušati ponovno ako niste zadovoljni rezultatom</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Form -->
+    <form id="quizForm" class="space-y-8">
+      <!-- Question 1 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">1. Što su aerobne sporogene bakterije?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="a" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">a) Bakterije koje žive bez kisika</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="b" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">b) Bakterije koje rastu u prisutnosti kisika i stvaraju endospore</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="c" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">c) Bakterije koje proizvode kisik</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="d" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">d) Bakterije koje razgrađuju kisik</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">2. Koji rod bakterija je najpoznatiji po aerobnim sporogenim vrstama?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="a" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">a) <em>Escherichia</em></span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="b" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">b) <em>Bacillus</em></span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="c" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">c) <em>Pseudomonas</em></span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="d" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">d) <em>Staphylococcus</em></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">3. Što su endospore?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="a" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">a) Vanjske membrane bakterija</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="b" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">b) Oporne strukture za preživljavanje u nepovoljnim uvjetima</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="c" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">c) Organele za proizvodnju energije</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="d" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">d) Strukture za pokretljivost</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">4. Zašto su endospore važne u mikrobiologiji?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="a" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">a) Zato što su lako vidljive</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="b" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">b) Zato što su otporne na sterilizaciju i dezinfekciju</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="c" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">c) Zato što brzo rastu</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="d" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">d) Zato što proizvode antibiotike</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">5. Koja je glavna karakteristika <em>Bacillus subtilis</em>?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="a" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">a) Proizvodi sumporovodik</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="b" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">b) Aerobna sporogena bakterija koja se koristi kao model organizam</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="c" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">c) Razgrađuje celulozu</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="d" class="w-4 h-4 text-lime-600 bg-gray-100 border-gray-300 focus:ring-lime-500">
+            <span class="text-gray-700">d) Proizvodi endospore</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="bg-lime-600 hover:bg-lime-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+          Pošalji odgovore
+        </button>
+      </div>
+    </form>
+
+    <!-- Quiz Results (Hidden by default) -->
+    <div id="quizResults" class="hidden mt-12">
+      <div class="bg-gradient-to-br from-lime-50 to-lime-100 rounded-2xl p-8 border-2 border-lime-200 shadow-lg">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-lime-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          
+          <div id="resultMessage" class="text-xl text-lime-700 mb-8 font-semibold leading-relaxed"></div>
+          
+          <div class="bg-white rounded-xl p-6 mb-6 inline-block">
+            <p class="text-lime-800 text-lg font-semibold">
+              Rezultat: <span id="correctAnswers" class="text-2xl font-bold text-lime-600"></span> od <span id="totalQuestions" class="text-2xl font-bold text-lime-600"></span> točnih odgovora
+            </p>
+            <p class="text-lime-700 text-lg mt-2">
+              Postotak uspjeha: <span id="percentage" class="text-2xl font-bold text-lime-600"></span>%
+            </p>
+          </div>
+          
+          <button onclick="resetQuiz()" class="bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Pokušaj ponovno
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ChapterLayout>
+
+<script>
+  // Quiz functionality
+  const correctAnswers = {
+    q1: 'b', // Bakterije koje rastu u prisutnosti kisika i stvaraju endospore
+    q2: 'b', // Bacillus
+    q3: 'b', // Oporne strukture za preživljavanje u nepovoljnim uvjetima
+    q4: 'b', // Zato što su otporne na sterilizaciju i dezinfekciju
+    q5: 'b'  // Aerobna sporogena bakterija koja se koristi kao model organizam
+  };
+
+  const totalQuestions = Object.keys(correctAnswers).length;
+
+  document.getElementById('quizForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let correctCount = 0;
+
+    // Check each answer
+    Object.keys(correctAnswers).forEach(question => {
+      const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+      if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+        correctCount++;
+      }
+    });
+
+    // Calculate percentage
+    const percentage = Math.round((correctCount / totalQuestions) * 100);
+
+    // Update results
+    document.getElementById('correctAnswers').textContent = correctCount;
+    document.getElementById('totalQuestions').textContent = totalQuestions;
+    document.getElementById('percentage').textContent = percentage;
+
+    // Set result message
+    const resultMessage = document.getElementById('resultMessage');
+    if (percentage === 100) {
+      resultMessage.innerHTML = '🎉 <strong>Odlično!</strong><br><span class="text-lg">Odgovorili ste na sva pitanja bez greške!<br>Vaše znanje iz ovog poglavlja je <em>izvrsno</em> i možete nastaviti s učenjem sljedećeg poglavlja.</span>';
+      resultMessage.className = 'text-xl text-lime-700 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 80) {
+      resultMessage.innerHTML = '👏 <strong>Izvrsno!</strong><br><span class="text-lg">Imate <em>odlično</em> znanje iz ovog poglavlja!<br>Samo malo više pažnje i bit ćete savršeni. Nastavite s učenjem!</span>';
+      resultMessage.className = 'text-xl text-lime-600 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 60) {
+      resultMessage.innerHTML = '👍 <strong>Dobro!</strong><br><span class="text-lg">Imate <em>solidno</em> znanje iz ovog poglavlja.<br>Preporučujemo da ponovno pročitate gradivo za još bolje razumijevanje.</span>';
+      resultMessage.className = 'text-xl text-blue-700 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 40) {
+      resultMessage.innerHTML = '⚠️ <strong>Prosjecno</strong><br><span class="text-lg">Potrebno je <em>više učenja</em>.<br>Vratite se na gradivo, pročitajte ponovno i pokušajte quiz ponovno.</span>';
+      resultMessage.className = 'text-xl text-yellow-700 mb-8 font-semibold leading-relaxed';
+    } else {
+      resultMessage.innerHTML = '📚 <strong>Potrebno više učenja</strong><br><span class="text-lg">Preporučujemo da <em>detaljno pročitate</em> sve dijelove poglavlja.<br>Učenje je proces - ne odustajte, vratite se na gradivo!</span>';
+      resultMessage.className = 'text-xl text-red-700 mb-8 font-semibold leading-relaxed';
+    }
+
+    // Show results
+    document.getElementById('quizResults').classList.remove('hidden');
+
+    // Scroll to results
+    document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  function resetQuiz() {
+    // Reset form
+    document.getElementById('quizForm').reset();
+
+    // Hide results
+    document.getElementById('quizResults').classList.add('hidden');
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>

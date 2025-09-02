@@ -1,0 +1,1308 @@
+---
+import '../styles/tailwind.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Provjeri svoje znanje',
+  description = 'Testirajte svoje znanje iz svih poglavlja bakteriologije'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="hr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="bg-page font-sans text-page">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex justify-between items-center py-4">
+          <a href="/" class="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">
+            Bakteriologija
+          </a>
+          <!-- Desktop navigacija -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/sadrzaj/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Sadržaj
+            </a>
+            <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Predgovor
+            </a>
+            <a href="/pojmovnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Pojmovnik
+            </a>
+            <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Provjeri znanje
+            </a>
+            <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Kontakt
+            </a>
+            <!-- Search -->
+            <div class="relative">
+              <a href="/pretraga/" class="inline-flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-300" title="Pretraga">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Mobilni hamburger menu -->
+          <div class="md:hidden">
+            <button 
+              id="mobile-menu-button" 
+              class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+              aria-label="Otvori navigacijski menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobilni menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200" role="navigation" aria-label="Mobilna navigacija">
+          <div class="flex flex-col space-y-4 pt-4">
+            <a href="/sadrzaj/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Sadržaj
+            </a>
+            <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Predgovor
+            </a>
+            <a href="/pojmovnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Pojmovnik
+            </a>
+            <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Provjeri znanje
+            </a>
+            <a href="/pretraga/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Pretraga
+            </a>
+            <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Kontakt
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="min-h-screen bg-gray-50">
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-6 py-16">
+          <div class="text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Provjeri svoje znanje</h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+              Pokreni kviz.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timer Section -->
+      <div class="bg-white border-b border-gray-200 py-4">
+        <div class="container mx-auto px-6">
+          <div class="text-center">
+            <div class="inline-flex items-center bg-blue-100 text-blue-800 px-6 py-3 rounded-full">
+              <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-lg font-semibold">Preostalo vrijeme: </span>
+              <span id="timer" class="text-2xl font-bold ml-2 text-blue-600">30:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Container -->
+      <div class="container mx-auto px-6 py-12">
+        <div class="max-w-6xl mx-auto">
+          <!-- Quiz Instructions -->
+          <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div class="text-center mb-8">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">Upute za test</h2>
+              <p class="text-gray-600 text-lg">
+                Test sadrži 24 pitanja iz svih poglavlja. Odgovorite na sva pitanja i na kraju vidjet ćete svoj rezultat.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+              <div class="p-4">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-semibold text-gray-900 mb-2">24 pitanja</h3>
+                <p class="text-gray-600 text-sm">Pitanja pokrivaju cijeli sadržaj kursa</p>
+              </div>
+
+              <div class="p-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-semibold text-gray-900 mb-2">30 minuta</h3>
+                <p class="text-gray-600 text-sm">Odgovarajte u vremenskom okviru</p>
+              </div>
+
+              <div class="p-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-semibold text-gray-900 mb-2">Detaljni rezultat</h3>
+                <p class="text-gray-600 text-sm">Vidite svoj postotak uspjeha</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-lg font-semibold text-gray-900">Napredak kviza</h3>
+              <span id="progressText" class="text-sm text-gray-600">0 / 24 pitanja</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+              <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- Quiz Form -->
+          <div class="bg-white rounded-xl shadow-lg p-8">
+            <form id="quizForm" class="space-y-8">
+              <!-- Question 1 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">1. Potpuna sterilizacija postiže se:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q1" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) spaljivanjem</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q1" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) suhom sterilizacijom</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q1" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) pasterizacijom</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q1" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) autoklaviranjem</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q1" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) korištenjem asepsola</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 2 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">2. Koje tvrdnje su točne za metodu bojenja bakterijskih endospora:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q2" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) to je "negativno" bojenje</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q2" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) koristi se malahitno zelenilo i safranin</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q2" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) koristi se gencijana violet i safranin</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q2" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) pod mikroskopom su spore prozirne a vegetativne stanice crvene</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q2" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) preparat obavezno treba fiksirati na plamenu prije bojanja</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 3 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">3. Označi selektivno-diferencijalne podloge za uzgoj <em>E. coli</em>:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q3" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) EC-X-GLUC agar</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q3" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) Peptonska voda</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q3" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) Hranjivi agar</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q3" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) MacConkey broth</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q3" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) Endo agar</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 4 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">4. Da bi pod mikroskopom vidjeli bakterijske kapsule moramo:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q4" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) obojiti preparat metodom po Shäffer-Fultonu</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q4" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) koristiti crni tuš</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q4" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) gledati preparat na povećanju od 200×</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q4" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) koristiti imerziono ulje</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q4" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) napraviti negativno bojenje bakterija</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 5 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">5. U analizi vode za kupanje određuje se broj:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q5" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) bakterija roda Clostridium</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q5" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) <em>Escherichia coli</em></span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q5" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) ukupnih saprofitskih bakterija</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q5" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) crijevnih enterokoka</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q5" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) bakterija roda <em>Salmonella</em></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 6 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">6. Koje tvrdnje su točne za bakterije roda Azotobacter:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q6" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) ove bakterije normalno žive u zemlji</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q6" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) producenti su antibiotika</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q6" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) uzgajaju se na Ashby agaru</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q6" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) uzgajaju se na hranjivom agaru</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q6" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) imaju debelu kapsulu</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 7 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">7. Označi temperaturu na kojoj se uzgaja <em>E. coli</em> u analizi vode za kupanje:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q7" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) 20°C</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q7" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) 26°C</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q7" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) 35°C</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q7" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) 45°C</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q7" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) 47°C</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 8 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">8. Bolesti uzrokovane bakterijama roda Clostridium su:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q8" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) tifus</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q8" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) plinska gangrena</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q8" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) botulizam</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q8" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) dizenterija</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q8" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) tetanus</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 9 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">9. Označi temperaturu na kojoj se uzgajaju crijevni enterokoki u analizi vode za kupanje:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q9" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) 20°C</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q9" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) 26°C</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q9" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) 35°C</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q9" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) 45°C</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q9" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) 47°C</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 10 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">10. Koje tvrdnje su točne za bakterije roda Clostridium:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q10" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) aerobne su</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q10" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) reduciraju sulfite</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q10" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) reduciraju elementarni sumpor</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q10" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) sporogene bakterije</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q10" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) produciraju sumporovodik</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 11 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">11. Potpuna sterilizacija ne postiže se:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q11" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) spaljivanjem</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q11" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) suhom sterilizacijom</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q11" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) pasterizacijom</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q11" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) autoklaviranjem</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q11" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) korištenjem asepsola</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 12 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">12. Označi prirodne hranjive bakteriološke podloge:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q12" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) EC-X-GLUC agar</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q12" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) mesni ekstrakt</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q12" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) kvaščev ekstrakt</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q12" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) peptonska voda</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q12" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) Ashby agar</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 13 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">13. Koje tvrdnje su točne za nesimbiotske fiksatore dušika:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q13" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) to su bakterije roda Rhyzobium</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q13" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) to su bakterije roda Azotobacter</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q13" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) uzgajaju se na Ashby agaru</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q13" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) temperatura uzgoja je 37°C</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q13" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) temperatura uzgoja je 26°C</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 14 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">14. Kojom metodom se postiže potpuna sterilizacija?</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q14" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) pasterizacijom</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q14" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) autoklaviranjem</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q14" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) korištenjem asepsola</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q14" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) kuhanjem</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q14" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) spaljivanjem</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 15 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">15. Koje tvrdnje su točne za bakterije roda Azotobacter:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q15" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) ove bakterije su prisutne u tlu</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q15" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) producenti su antibiotika</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q15" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) uzgajaju se na Ashby agaru</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q15" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) to su nesimbiotski fiksatori dušika</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q15" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) za aerobno disanje koriste nitrate</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 16 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">16. Na ploču hranjivog agara nacijepili ste 0,1 mL bakterijske suspenzije iz decimalnog razrjeđenja 10,000 puta. Nakon inkubacije naraslo je 45 kolonija. CFU je:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q16" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) 45 × 10⁶ mL⁻¹</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q16" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) 4,5 × 10⁶ mL⁻¹</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q16" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) 4,5 × 10⁶ L⁻¹</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q16" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) 45 × 10⁴ mL⁻¹</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q16" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) 4,5 × 10⁷ L⁻¹</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 17 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">17. Na ploču hranjivog agara nacijepili ste 0,1 mL bakterijske suspenzije iz decimalnog razrjeđenja 100 puta. Nakon inkubacije naraslo je 45 kolonija. CFU je:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q17" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) 45 × 10⁶ mL⁻¹</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q17" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) 4,5 × 10⁶ mL⁻¹</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q17" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) 4,5 × 10⁴ L⁻¹</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q17" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) 45 × 10⁴ mL⁻¹</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q17" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) 4,5 × 10⁷ L⁻¹</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 18 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">18. Koje su tvrdnje točne za metodu bojenja po Gramu:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q18" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) Preparat se treba fiksirati</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q18" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) Gram pozitivne bakterije su plave</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q18" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) Gram negativne bakterije su zelene</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q18" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) Spore se vide crveno</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q18" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) Kapsula se vidi prozirno</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 19 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">19. Koje su tvrdnje nisu točne za metodu bojenja po Gramu:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q19" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) Preparat se treba fiksirati</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q19" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) Gram pozitivne bakterije su plave</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q19" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) Gram negativne bakterije su crvene</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q19" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) Spore se vide crveno</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q19" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) Kapsula se vidi prozirno</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 20 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">20. KOH test služi za:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q20" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) Dokazivanje pripadnosti Gram pozitivnim ili Gram negativnim bakterijama</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q20" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) Dokazivanje kapsula</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q20" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) Dokazivanje spora</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q20" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) Odnos bakterija prema kalijevoj lužini kao indikatoru pH</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q20" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) Dokazivanje endospora</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 21 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">21. EC X-GLUC agar je:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q21" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) selektivna hranjiva podloga</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q21" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) diferencijalna hranjiva podloga</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q21" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) sadrži laktozu</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q21" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) kromogena podloga</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q21" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) ne sadrži žučne soli</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 22 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">22. Izvori dušika u hranjivom mediju su:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q22" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) peptoni</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q22" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) KNO₃</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q22" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) celuloza</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q22" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) glukoza</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q22" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) laktoza</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 23 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">23. Azotobacter chroococcum je:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q23" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) aerobna bakterija</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q23" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) anaerobna bakterija</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q23" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) ima kapsulu</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q23" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) formira spore</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q23" value="e" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">e) nalazi se u otpadnim vodama</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Question 24 -->
+              <div class="border-b border-gray-200 pb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">24. Metoda s 3% KOH:</h3>
+                <div class="space-y-3">
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q24" value="a" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">a) služi za dokazivanje kapsula bakterija</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q24" value="b" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">b) određivanje Gram pozitivnih bakterija</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q24" value="c" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">c) određivanje Gram negativnih bakterija</span>
+                  </label>
+                  <label class="flex items-center">
+                    <input type="checkbox" name="q24" value="d" class="mr-3 text-blue-600 rounded">
+                    <span class="text-gray-700">d) određivanje odnosa bakterija prema kisiku</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="text-center pt-6">
+                <button
+                  type="submit"
+                  class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  Provjeri rezultat
+                </button>
+              </div>
+            </form>
+
+            <!-- Results (Hidden by default) -->
+            <div id="quizResults" class="hidden mt-8 space-y-6">
+              <!-- Main Results -->
+              <div class="p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Rezultat testa</h3>
+                <p class="text-gray-600 mb-4">Odgovorili ste na <span id="correctAnswers">0</span> od <span id="totalQuestions">24</span> pitanja</p>
+                <div class="text-4xl font-bold text-green-600 mb-4">
+                  <span id="percentage">0</span>%
+                </div>
+                <p id="resultMessage" class="text-lg text-gray-700 mb-6"></p>
+                <button
+                  onclick="resetQuiz()"
+                  class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+                >
+                  Pokušaj ponovno
+                </button>
+              </div>
+            </div>
+            </div>
+
+            <!-- Achievement Badge -->
+            <div id="achievementBadge" class="hidden p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border border-yellow-200">
+              <div class="text-center">
+                <div id="badgeIcon" class="text-6xl mb-4">🏆</div>
+                <h3 id="badgeTitle" class="text-2xl font-bold text-gray-900 mb-2">Odličje Osvojeno!</h3>
+                <p id="badgeDescription" class="text-gray-600 mb-4">Osvojili ste novo odličje za svoj uspjeh!</p>
+              </div>
+            </div>
+
+            <!-- Detailed Analytics -->
+            <div id="detailedAnalytics" class="hidden p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+              <h3 class="text-xl font-bold text-gray-900 mb-6">📊 Detaljni pregled rezultata</h3>
+              
+              <!-- Category Performance -->
+              <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Uspješnost po kategorijama</h4>
+                <div id="categoryResults" class="space-y-3"></div>
+              </div>
+
+              <!-- Question by Question -->
+              <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Pregled po pitanjima</h4>
+                <div id="questionByQuestion" class="space-y-2 max-h-60 overflow-y-auto"></div>
+              </div>
+
+              <!-- Time Analysis -->
+              <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-4">Vremenska analiza</h4>
+                <div id="timeAnalysis" class="text-gray-600"></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="bg-white border-t border-gray-200 py-8">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/sadrzaj/"
+            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transform hover:-translate-y-1 transition-all duration-300"
+          >
+            ← Povratak na sadržaj
+          </a>
+          <a
+            href="/"
+            class="inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300"
+          >
+            Početna stranica
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Quiz functionality with categories
+      const questionCategories: Record<string, string> = {
+        q1: 'sterilizacija', q2: 'bojenje', q3: 'podloge', q4: 'mikroskopija', q5: 'voda-analiza',
+        q6: 'bakterije-azotobacter', q7: 'temperatura', q8: 'bolesti', q9: 'temperatura', q10: 'bakterije-clostridium',
+        q11: 'sterilizacija', q12: 'podloge', q13: 'fiksatori-dusika', q14: 'sterilizacija', q15: 'bakterije-azotobacter',
+        q16: 'mikrobiologija-kvantitativna', q17: 'mikrobiologija-kvantitativna', q18: 'bojenje', q19: 'bojenje', q20: 'testovi',
+        q21: 'podloge', q22: 'mediji', q23: 'bakterije-azotobacter', q24: 'testovi'
+      };
+
+      const correctAnswers: Record<string, string[]> = {
+        q1: ['a', 'b', 'd'], // spaljivanjem, suhom sterilizacijom, autoklaviranjem
+        q2: ['b', 'e'], // malahitno zelenilo i safranin, fiksiranje na plamenu
+        q3: ['a', 'e'], // EC-X-GLUC agar, Endo agar
+        q4: ['b', 'd', 'e'], // crni tuš, imerziono ulje, negativno bojenje
+        q5: ['b', 'd'], // Escherichia coli, crijevnih enterokoka
+        q6: ['c', 'e'], // uzgajaju se na Ashby agaru, imaju debelu kapsulu
+        q7: ['c'], // 35°C
+        q8: ['b', 'c', 'e'], // plinska gangrena, botulizam, tetanus
+        q9: ['c'], // 35°C
+        q10: ['b', 'd', 'e'], // reduciraju sulfite, sporogene bakterije, produciraju sumporovodik
+        q11: ['c'], // pasterizacijom
+        q12: ['b', 'c', 'd'], // mesni ekstrakt, kvaščev ekstrakt, peptonska voda
+        q13: ['b', 'c', 'e'], // Azotobacter, Ashby agar, 26°C
+        q14: ['b', 'e'], // autoklaviranjem, spaljivanjem
+        q15: ['a', 'c', 'd'], // prisutne u tlu, Ashby agar, nesimbiotski fiksatori
+        q16: ['b'], // 4,5 × 10⁶ mL⁻¹
+        q17: ['d'], // 45 × 10⁴ mL⁻¹
+        q18: ['a', 'b'], // fiksiranje, Gram pozitivne su plave
+        q19: ['c', 'd', 'e'], // Gram negativne su crvene, spore se vide crveno, kapsula se vidi prozirno
+        q20: ['a'], // dokazivanje Gram pozitivnih/negativnih
+        q21: ['a', 'b', 'c', 'd'], // selektivna, diferencijalna, laktoza, kromogena
+        q22: ['a', 'b'], // peptoni, KNO₃
+        q23: ['a', 'c'], // aerobna, ima kapsulu
+        q24: ['c'] // određivanje Gram negativnih bakterija
+      };
+
+      const totalQuestions = Object.keys(correctAnswers).length;
+      let timeLeft = 30 * 60; // 30 minutes in seconds
+      let timerInterval: NodeJS.Timeout | null = null;
+      let answeredQuestions = 0;
+      let startTime = Date.now();
+
+      // Achievement system
+      const achievements = {
+        firstTry: { icon: '🎯', title: 'Prvi pokušaj', description: 'Završili ste svoj prvi kviz!' },
+        perfectScore: { icon: '💎', title: 'Perfekcionista', description: 'Postigli ste 100% uspješnost!' },
+        speedRunner: { icon: '⚡', title: 'Brzinac', description: 'Završili ste kviz u manje od 15 minuta!' },
+        goodScore: { icon: '🥇', title: 'Odličnjak', description: 'Postigli ste preko 90% uspješnost!' },
+        improver: { icon: '📈', title: 'Naprednjak', description: 'Poboljšali ste svoj rezultat!' }
+      };
+
+      const categoryNames: Record<string, string> = {
+        'sterilizacija': 'Sterilizacija',
+        'bojenje': 'Bojenje bakterija',
+        'podloge': 'Hranjive podloge',
+        'mikroskopija': 'Mikroskopija',
+        'voda-analiza': 'Analiza vode',
+        'bakterije-azotobacter': 'Azotobacter bakterije',
+        'bakterije-clostridium': 'Clostridium bakterije',
+        'temperatura': 'Temperatura uzgoja',
+        'bolesti': 'Bakterijske bolesti',
+        'fiksatori-dusika': 'Fiksatori dušika',
+        'mikrobiologija-kvantitativna': 'Kvantitativna mikrobiologija',
+        'testovi': 'Dijagnostički testovi',
+        'mediji': 'Hranjivi mediji'
+      };
+
+      // Timer functionality
+      function startTimer() {
+        timerInterval = setInterval(() => {
+          if (timeLeft > 0) {
+            timeLeft--;
+            updateTimerDisplay();
+            
+            if (timeLeft <= 300) { // 5 minutes warning
+              const timerElement = document.getElementById('timer');
+              if (timerElement) timerElement.classList.add('text-red-600');
+            }
+          } else {
+            if (timerInterval) clearInterval(timerInterval);
+            submitQuiz();
+          }
+        }, 1000);
+      }
+
+      function updateTimerDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        const timerElement = document.getElementById('timer');
+        if (timerElement) {
+          timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+      }
+
+      // Progress tracking
+      function updateProgress() {
+        answeredQuestions = 0;
+        Object.keys(correctAnswers).forEach(question => {
+          const selectedAnswers = document.querySelectorAll(`input[name="${question}"]:checked`);
+          if (selectedAnswers.length > 0) {
+            answeredQuestions++;
+          }
+        });
+
+        const progressPercent = (answeredQuestions / totalQuestions) * 100;
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        
+        if (progressBar) progressBar.style.width = `${progressPercent}%`;
+        if (progressText) progressText.textContent = `${answeredQuestions} / ${totalQuestions} pitanja`;
+      }
+
+      // Add event listeners to all checkboxes for progress tracking
+      document.addEventListener('DOMContentLoaded', function() {
+        startTimer();
+        
+        // Add progress tracking to all checkboxes
+        const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+        allCheckboxes.forEach(checkbox => {
+          checkbox.addEventListener('change', updateProgress);
+        });
+      });
+
+      // Quiz submission
+      document.getElementById('quizForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitQuiz();
+      });
+
+      function submitQuiz() {
+        if (timerInterval) clearInterval(timerInterval);
+        
+        const endTime = Date.now();
+        const timeTaken = Math.round((endTime - startTime) / 1000); // in seconds
+        
+        let totalScore = 0;
+        let totalPossibleScore = 0;
+        const questionResults: Record<string, any> = {};
+        const categoryScores: Record<string, {correct: number, total: number}> = {};
+
+        // Calculate score for each question and category
+        Object.keys(correctAnswers).forEach(question => {
+          const selectedAnswers = Array.from(document.querySelectorAll(`input[name="${question}"]:checked`))
+            .map(input => (input as HTMLInputElement).value);
+          
+          const correctCount = correctAnswers[question].length;
+          const selectedCorrect = correctAnswers[question].filter(answer => 
+            selectedAnswers.includes(answer)
+          ).length;
+          
+          // Partial scoring: points for each correct answer, penalty for wrong answers
+          let questionScore = 0;
+          let isCorrect = false;
+          
+          if (selectedAnswers.length === 0) {
+            questionScore = 0; // No penalty for unanswered
+          } else if (selectedCorrect === correctCount && selectedAnswers.length === correctCount) {
+            questionScore = correctCount; // Full points for perfect answer
+            isCorrect = true;
+          } else {
+            questionScore = Math.max(0, selectedCorrect - (selectedAnswers.length - selectedCorrect) * 0.5);
+          }
+          
+          // Store question result
+          questionResults[question] = {
+            score: questionScore,
+            maxScore: correctCount,
+            isCorrect: isCorrect,
+            selected: selectedAnswers,
+            correct: correctAnswers[question]
+          };
+          
+          // Update category scores
+          const category = questionCategories[question];
+          if (!categoryScores[category]) {
+            categoryScores[category] = {correct: 0, total: 0};
+          }
+          categoryScores[category].total += correctCount;
+          categoryScores[category].correct += questionScore;
+          
+          totalScore += questionScore;
+          totalPossibleScore += correctCount;
+        });
+
+        // Calculate percentage
+        const percentage = totalPossibleScore > 0 ? Math.round((totalScore / totalPossibleScore) * 100) : 0;
+
+        // Update results
+        const correctAnswersElement = document.getElementById('correctAnswers');
+        const totalQuestionsElement = document.getElementById('totalQuestions');
+        const percentageElement = document.getElementById('percentage');
+        const resultMessage = document.getElementById('resultMessage');
+
+        if (correctAnswersElement) correctAnswersElement.textContent = totalScore.toFixed(1);
+        if (totalQuestionsElement) totalQuestionsElement.textContent = totalPossibleScore.toString();
+        if (percentageElement) percentageElement.textContent = percentage.toString();
+
+        // Set result message
+        if (resultMessage) {
+          if (percentage === 100) {
+            resultMessage.innerHTML = '<strong>Odlično!</strong> Savršeno ste odgovorili na sva pitanja! 🏆';
+            resultMessage.className = 'text-lg text-green-700 mb-6';
+          } else if (percentage >= 80) {
+            resultMessage.innerHTML = '<strong>Vrlo dobro!</strong> Imate odlično znanje iz bakteriologije! 🎯';
+            resultMessage.className = 'text-lg text-green-600 mb-6';
+          } else if (percentage >= 60) {
+            resultMessage.innerHTML = '<strong>Dobro!</strong> Imate solidno znanje iz bakteriologije. 📚';
+            resultMessage.className = 'text-lg text-blue-700 mb-6';
+          } else if (percentage >= 40) {
+            resultMessage.innerHTML = '<strong>Prosjecno.</strong> Preporučujemo da ponovno pročitate gradivo. 📖';
+            resultMessage.className = 'text-lg text-yellow-700 mb-6';
+          } else {
+            resultMessage.innerHTML = '<strong>Potrebno je više učenja.</strong> Vratite se na gradivo i ponovno pročitajte. 🔍';
+            resultMessage.className = 'text-lg text-red-700 mb-6';
+          }
+        }
+
+        // Show detailed analytics
+        showDetailedAnalytics(categoryScores, questionResults, timeTaken);
+        
+        // Check for achievements
+        checkAchievements(percentage, timeTaken);
+
+        // Show results
+        const quizResults = document.getElementById('quizResults');
+        if (quizResults) {
+          quizResults.classList.remove('hidden');
+          quizResults.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      function showDetailedAnalytics(categoryScores: Record<string, {correct: number, total: number}>, questionResults: Record<string, any>, timeTaken: number) {
+        // Category Results
+        const categoryResultsDiv = document.getElementById('categoryResults');
+        if (categoryResultsDiv) {
+          categoryResultsDiv.innerHTML = '';
+          Object.entries(categoryScores).forEach(([category, scores]) => {
+            const percentage = Math.round((scores.correct / scores.total) * 100);
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'flex items-center justify-between p-3 bg-gray-50 rounded-lg';
+            categoryDiv.innerHTML = `
+              <span class="font-medium text-gray-900">${categoryNames[category] || category}</span>
+              <div class="flex items-center space-x-2">
+                <span class="text-sm text-gray-600">${scores.correct.toFixed(1)}/${scores.total}</span>
+                <span class="font-semibold ${percentage >= 80 ? 'text-green-600' : percentage >= 60 ? 'text-yellow-600' : 'text-red-600'}">${percentage}%</span>
+              </div>
+            `;
+            categoryResultsDiv.appendChild(categoryDiv);
+          });
+        }
+
+        // Question by Question
+        const questionByQuestionDiv = document.getElementById('questionByQuestion');
+        if (questionByQuestionDiv) {
+          questionByQuestionDiv.innerHTML = '';
+          Object.entries(questionResults).forEach(([question, result]) => {
+            const questionNum = question.replace('q', '');
+            const questionDiv = document.createElement('div');
+            questionDiv.className = `flex items-center justify-between p-2 rounded ${result.isCorrect ? 'bg-green-50' : 'bg-red-50'}`;
+            questionDiv.innerHTML = `
+              <span class="text-sm">Pitanje ${questionNum}</span>
+              <span class="text-sm font-medium ${result.isCorrect ? 'text-green-600' : 'text-red-600'}">
+                ${result.isCorrect ? '✓ Točno' : '✗ Netočno'} (${result.score.toFixed(1)}/${result.maxScore})
+              </span>
+            `;
+            questionByQuestionDiv.appendChild(questionDiv);
+          });
+        }
+
+        // Time Analysis
+        const timeAnalysisDiv = document.getElementById('timeAnalysis');
+        if (timeAnalysisDiv) {
+          const minutes = Math.floor(timeTaken / 60);
+          const seconds = timeTaken % 60;
+          const avgTimePerQuestion = Math.round(timeTaken / totalQuestions);
+          timeAnalysisDiv.innerHTML = `
+            <p><strong>Ukupno vrijeme:</strong> ${minutes}m ${seconds}s</p>
+            <p><strong>Prosječno vrijeme po pitanju:</strong> ${avgTimePerQuestion}s</p>
+            <p><strong>Preostalo vrijeme:</strong> ${Math.floor(timeLeft / 60)}m ${timeLeft % 60}s</p>
+          `;
+        }
+
+        // Show analytics
+        const detailedAnalytics = document.getElementById('detailedAnalytics');
+        if (detailedAnalytics) {
+          detailedAnalytics.classList.remove('hidden');
+        }
+      }
+
+      function checkAchievements(percentage: number, timeTaken: number) {
+        let earnedAchievement = null;
+
+        // Check for achievements
+        if (percentage === 100) {
+          earnedAchievement = achievements.perfectScore;
+        } else if (percentage >= 90) {
+          earnedAchievement = achievements.goodScore;
+        } else if (timeTaken < 15 * 60) { // Less than 15 minutes
+          earnedAchievement = achievements.speedRunner;
+        } else {
+          // Check if this is first try
+          const hasTriedBefore = localStorage.getItem('quizAttempted');
+          if (!hasTriedBefore) {
+            localStorage.setItem('quizAttempted', 'true');
+            earnedAchievement = achievements.firstTry;
+          }
+        }
+
+        if (earnedAchievement) {
+          showAchievement(earnedAchievement);
+        }
+      }
+
+      function showAchievement(achievement: any) {
+        const badgeIcon = document.getElementById('badgeIcon');
+        const badgeTitle = document.getElementById('badgeTitle');
+        const badgeDescription = document.getElementById('badgeDescription');
+        const achievementBadge = document.getElementById('achievementBadge');
+
+        if (badgeIcon) badgeIcon.textContent = achievement.icon;
+        if (badgeTitle) badgeTitle.textContent = achievement.title;
+        if (badgeDescription) badgeDescription.textContent = achievement.description;
+        if (achievementBadge) achievementBadge.classList.remove('hidden');
+      }
+
+      function resetQuiz() {
+        // Reset form
+        const form = document.getElementById('quizForm') as HTMLFormElement;
+        if (form) form.reset();
+
+        // Hide all result sections
+        const quizResults = document.getElementById('quizResults');
+        const achievementBadge = document.getElementById('achievementBadge');
+        const detailedAnalytics = document.getElementById('detailedAnalytics');
+        
+        if (quizResults) quizResults.classList.add('hidden');
+        if (achievementBadge) achievementBadge.classList.add('hidden');
+        if (detailedAnalytics) detailedAnalytics.classList.add('hidden');
+
+        // Reset progress
+        answeredQuestions = 0;
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        if (progressBar) progressBar.style.width = '0%';
+        if (progressText) progressText.textContent = '0 / 24 pitanja';
+
+        // Reset timer
+        timeLeft = 30 * 60;
+        startTime = Date.now();
+        updateTimerDisplay();
+        const timerElement = document.getElementById('timer');
+        if (timerElement) timerElement.classList.remove('text-red-600');
+        
+        // Start timer again
+        startTimer();
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', (!isExpanded).toString());
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

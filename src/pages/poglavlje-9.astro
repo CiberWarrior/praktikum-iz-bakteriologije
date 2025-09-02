@@ -1,6 +1,5 @@
 ---
 import ChapterLayout from '../components/ChapterLayout.astro';
-import { getCollection } from 'astro:content';
 
 export interface Props {
   title?: string;
@@ -11,17 +10,6 @@ const {
   title = 'Sanitarna bakteriološka analiza vode',
   description = 'Sanitarna bakteriološka analiza vode'
 } = Astro.props;
-
-// Dohvati sve MDX datoteke iz chapters kolekcije za ovo poglavlje
-const allDocs = await getCollection('chapters');
-const poglavljeDocs = allDocs
-  .filter(entry => entry.id.startsWith('poglavlje-9/') && entry.id !== 'poglavlje-9/index')
-  .sort((a, b) => {
-    // Sortiraj po chapterNumber iz frontmattera, ako ne postoji koristi 0
-    const aOrder = (a.data as any).chapterNumber || 0;
-    const bOrder = (b.data as any).chapterNumber || 0;
-    return aOrder - bOrder;
-  });
 ---
 
 <ChapterLayout 
@@ -72,11 +60,43 @@ const poglavljeDocs = allDocs
         </svg>
       </div>
       <div>
-        <h3 class="text-xl font-bold text-xl font-bold text-red-900 mb-3 font-heading mb-3">Dobrodošli u Poglavlje 9</h3>
+        <h3 class="text-xl font-bold text-red-900 mb-3 font-heading">Dobrodošli u Poglavlje 9</h3>
         <p class="text-red-800 text-lg leading-relaxed font-body">
           Prema Uredbi o klasifi kaciji voda Republike Hrvatske (Narodne novine 77/1998.), mikrobiološka analiza vode (sanitarna analiza vode) podrazumijeva određivanje broja: ukupnih i fekalnih koliformnih bakterija te
           broja kolonja aerobnih saprofi tskih (heterotrofnih) bakterija.
         </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ciljevi učenja -->
+  <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-8 border border-pink-200 mb-8">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mr-4">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-pink-900 mb-4 font-heading">Ciljevi učenja</h3>
+        <ul class="text-pink-800 text-lg leading-relaxed font-body space-y-2">
+          <li class="flex items-start">
+            <span class="text-pink-600 mr-2">•</span>
+            Razumjeti sanitarnu analizu vode prema hrvatskim propisima
+          </li>
+          <li class="flex items-start">
+            <span class="text-pink-600 mr-2">•</span>
+            Naučiti o saprofitskim i koliformnim bakterijama kao indikatorima
+          </li>
+          <li class="flex items-start">
+            <span class="text-pink-600 mr-2">•</span>
+            Steći praktične vještine u prethodnom i potvrdnom testu
+          </li>
+          <li class="flex items-start">
+            <span class="text-pink-600 mr-2">•</span>
+            Razumjeti izračunavanje najvjerojatnijeg broja bakterija
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -201,6 +221,31 @@ const poglavljeDocs = allDocs
       </div>
     </div>
   </div>
+    </div>
+  </div>
+
+  <!-- Quiz - Provjeri svoje znanje -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Provjeri svoje znanje</h2>
+    
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-8 border-2 border-indigo-200 shadow-lg">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-indigo-900 mb-4">Quiz - Poglavlje 9</h3>
+          <p class="text-indigo-800 text-lg mb-6">Testirajte svoje znanje iz ovog poglavlja s 5 pitanja</p>
+          <a href="/poglavlje-9/quiz-9/" class="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 text-white font-bold text-lg rounded-xl hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Započni quiz
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 

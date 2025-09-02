@@ -192,8 +192,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      /** @param {boolean} bookmarked - Whether the page is currently bookmarked */
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
         if (bookmarkText) bookmarkText.textContent = text;

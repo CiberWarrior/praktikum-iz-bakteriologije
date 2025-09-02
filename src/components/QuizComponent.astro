@@ -1,0 +1,173 @@
+---
+export interface Props {
+  chapterNumber: number;
+  chapterTitle: string;
+  questions: {
+    question: string;
+    options: {
+      a: string;
+      b: string;
+      c: string;
+      d: string;
+    };
+    correctAnswer: 'a' | 'b' | 'c' | 'd';
+  }[];
+}
+
+const { chapterNumber, chapterTitle, questions } = Astro.props;
+---
+
+<div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-8 border-2 border-blue-200 mb-8">
+  <div class="text-center mb-8">
+    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+    </div>
+    <h2 class="text-2xl font-bold text-blue-900 mb-2">Provjeri svoje znanje</h2>
+    <p class="text-blue-700 text-lg">Poglavlje {chapterNumber}: {chapterTitle}</p>
+  </div>
+
+  <form class="quiz-form space-y-6" data-chapter={chapterNumber}>
+    {questions.map((q, index) => (
+      <div class="bg-white rounded-lg p-6 border border-blue-200">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">
+          {index + 1}. {q.question}
+        </h3>
+        <div class="space-y-3">
+          <label class="flex items-center cursor-pointer hover:bg-blue-50 p-2 rounded transition-colors">
+            <input type="radio" name={`q${index + 1}`} value="a" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">a) {q.options.a}</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-blue-50 p-2 rounded transition-colors">
+            <input type="radio" name={`q${index + 1}`} value="b" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">b) {q.options.b}</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-blue-50 p-2 rounded transition-colors">
+            <input type="radio" name={`q${index + 1}`} value="c" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">c) {q.options.c}</span>
+          </label>
+          <label class="flex items-center cursor-pointer hover:bg-blue-50 p-2 rounded transition-colors">
+            <input type="radio" name={`q${index + 1}`} value="d" class="mr-3 text-blue-600" required>
+            <span class="text-gray-700">d) {q.options.d}</span>
+          </label>
+        </div>
+      </div>
+    ))}
+
+    <div class="text-center pt-6">
+      <button 
+        type="submit" 
+        class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+      >
+        Provjeri rezultat
+      </button>
+    </div>
+  </form>
+
+  <!-- Results (Hidden by default) -->
+  <div class="quiz-results hidden mt-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
+    <div class="text-center">
+      <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-bold text-gray-900 mb-2">Rezultat testa</h3>
+      <p class="text-gray-600 mb-4">Odgovorili ste na <span class="correct-answers">0</span> od <span class="total-questions">{questions.length}</span> pitanja</p>
+      <div class="text-4xl font-bold text-green-600 mb-4">
+        <span class="percentage">0</span>%
+      </div>
+      <p class="result-message text-lg text-gray-700 mb-6"></p>
+      <button 
+        onclick="resetQuiz(this)" 
+        class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+      >
+        Pokušaj ponovno
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Quiz functionality for each chapter
+  document.querySelectorAll('.quiz-form').forEach(form => {
+    const chapterNumber = form.dataset.chapter;
+    const questions = JSON.parse(form.dataset.questions || '[]');
+    
+    if (!questions.length) return;
+    
+    const correctAnswers = questions.map((q, index) => ({
+      question: `q${index + 1}`,
+      answer: q.correctAnswer
+    }));
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let correctCount = 0;
+      
+      // Check each answer
+      correctAnswers.forEach(({ question, answer }) => {
+        const selectedAnswer = form.querySelector(`input[name="${question}"]:checked`);
+        if (selectedAnswer && selectedAnswer.value === answer) {
+          correctCount++;
+        }
+      });
+      
+      // Calculate percentage
+      const percentage = Math.round((correctCount / questions.length) * 100);
+      
+      // Find the results container for this form
+      const resultsContainer = form.parentElement.querySelector('.quiz-results');
+      if (!resultsContainer) return;
+      
+      // Update results
+      const correctAnswersElement = resultsContainer.querySelector('.correct-answers');
+      const totalQuestionsElement = resultsContainer.querySelector('.total-questions');
+      const percentageElement = resultsContainer.querySelector('.percentage');
+      const resultMessage = resultsContainer.querySelector('.result-message');
+      
+      if (correctAnswersElement) correctAnswersElement.textContent = correctCount.toString();
+      if (totalQuestionsElement) totalQuestionsElement.textContent = questions.length.toString();
+      if (percentageElement) percentageElement.textContent = percentage.toString();
+      
+      // Set result message
+      if (resultMessage) {
+        if (percentage === 100) {
+          resultMessage.textContent = 'Odlično! Savršeno ste odgovorili na sva pitanja!';
+          resultMessage.className = 'result-message text-lg text-green-700 mb-6';
+        } else if (percentage >= 80) {
+          resultMessage.textContent = 'Odlično! Imate vrlo dobro znanje iz ovog poglavlja.';
+          resultMessage.className = 'result-message text-lg text-green-700 mb-6';
+        } else if (percentage >= 60) {
+          resultMessage.textContent = 'Dobro! Imate solidno znanje iz ovog poglavlja.';
+          resultMessage.className = 'result-message text-lg text-blue-700 mb-6';
+        } else if (percentage >= 40) {
+          resultMessage.textContent = 'Prosjecno. Preporučujemo da ponovno pročitate gradivo.';
+          resultMessage.className = 'result-message text-lg text-yellow-700 mb-6';
+        } else {
+          resultMessage.textContent = 'Potrebno je više učenja. Vratite se na gradivo i ponovno pročitajte.';
+          resultMessage.className = 'result-message text-lg text-red-700 mb-6';
+        }
+      }
+      
+      // Show results
+      resultsContainer.classList.remove('hidden');
+      
+      // Scroll to results
+      resultsContainer.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  function resetQuiz(button) {
+    const form = button.closest('.quiz-form');
+    const resultsContainer = button.closest('.quiz-results');
+    
+    if (form) form.reset();
+    if (resultsContainer) resultsContainer.classList.add('hidden');
+    
+    // Scroll to top of quiz
+    form.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>

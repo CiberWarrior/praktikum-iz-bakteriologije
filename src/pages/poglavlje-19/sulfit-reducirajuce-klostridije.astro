@@ -358,7 +358,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
         if (bookmarkText) bookmarkText.textContent = text;

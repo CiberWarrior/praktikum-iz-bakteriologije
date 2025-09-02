@@ -1,7 +1,6 @@
 ---
 import ChapterLayout from '../components/ChapterLayout.astro';
-import { getChapterConfig } from '../config/chapters';
-import { getCollection } from 'astro:content';
+import QuizComponent from '../components/QuizComponent.astro';
 
 export interface Props {
   title?: string;
@@ -12,19 +11,6 @@ const {
   title = 'Sterilizacija',
   description = 'Tehnike sterilizacije i dezinfekcije u bakteriološkom laboratoriju'
 } = Astro.props;
-
-const chapterConfig = getChapterConfig(2);
-
-// Dohvati sve MDX datoteke iz poglavlje-2/ direktorija, osim index.mdx
-const allDocs = await getCollection('chapters');
-const poglavlje2Docs = allDocs
-  .filter(entry => entry.id.startsWith('poglavlje-2/') && entry.id !== 'poglavlje-2/index')
-  .sort((a, b) => {
-    // Sortiraj po chapterNumber iz frontmattera, ako ne postoji koristi 0
-    const aOrder = (a.data as any).chapterNumber || 0;
-    const bOrder = (b.data as any).chapterNumber || 0;
-    return aOrder - bOrder;
-  });
 ---
 
 <ChapterLayout 
@@ -74,13 +60,45 @@ const poglavlje2Docs = allDocs
 </svg>
 </div>
       <div>
-        <h3 class="text-xl font-bold text-xl font-bold text-blue-900 mb-3 font-heading mb-3">Dobrodošli u Poglavlje 3</h3>
+        <h3 class="text-xl font-bold text-blue-900 mb-3 font-heading">Dobrodošli u Poglavlje 2</h3>
         <p class="text-blue-800 text-lg leading-relaxed font-body">
           Ovo poglavlje vodi vas kroz ključne tehnike sterilizacije i dezinfekcije u bakteriološkom laboratoriju. 
           Naučit ćete o različitim metodama sterilizacije, njihovoj primjeni i važnosti za siguran rad s bakterijama.
         </p>
 </div>
 </div>
+  </div>
+
+  <!-- Ciljevi učenja -->
+  <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200 mb-8">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-blue-900 mb-4 font-heading">Ciljevi učenja</h3>
+        <ul class="text-blue-800 text-lg leading-relaxed font-body space-y-2">
+          <li class="flex items-start">
+            <span class="text-blue-600 mr-2">•</span>
+            Razumijevanje različitih metoda sterilizacije
+          </li>
+          <li class="flex items-start">
+            <span class="text-blue-600 mr-2">•</span>
+            Poznavanje primjene različitih tehnika
+          </li>
+          <li class="flex items-start">
+            <span class="text-blue-600 mr-2">•</span>
+            Praktično izvođenje sterilizacijskih postupaka
+          </li>
+          <li class="flex items-start">
+            <span class="text-blue-600 mr-2">•</span>
+            Sigurno rukovanje steriliziranim materijalom
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- Teorijski uvod o sterilizaciji -->
@@ -411,41 +429,27 @@ const poglavlje2Docs = allDocs
     </div>
   </div>
 
-  <!-- Ciljevi učenja -->
-  <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200 mb-8 hover:shadow-lg transition-all duration-300">
-    <h3 class="text-2xl font-bold text-blue-900 mb-6">Ciljevi učenja</h3>
-    <div class="grid md:grid-cols-2 gap-4">
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
+  <!-- Quiz - Provjeri svoje znanje -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Provjeri svoje znanje</h2>
+    
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200 shadow-lg">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-blue-900 mb-4">Quiz - Poglavlje 2</h3>
+          <p class="text-blue-800 text-lg mb-6">Testirajte svoje znanje iz ovog poglavlja s 5 pitanja</p>
+          <a href="/poglavlje-2/quiz-2/" class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-bold text-lg rounded-xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Započni quiz
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
-        <p class="text-blue-800">Razumijevanje različitih metoda sterilizacije</p>
-      </div>
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-blue-800">Poznavanje primjene različitih tehnika</p>
-      </div>
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-blue-800">Praktično izvođenje sterilizacijskih postupaka</p>
-      </div>
-      <div class="flex items-start space-x-3">
-        <div class="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mt-1">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <p class="text-blue-800">Sigurno rukovanje steriliziranim materijalom</p>
       </div>
     </div>
   </div>
@@ -462,9 +466,10 @@ const poglavlje2Docs = allDocs
           Posebnu pozornost obratite na sigurnosne protokole i pravilno rukovanje 
           steriliziranim materijalom.
         </p>
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
+
 
 
 

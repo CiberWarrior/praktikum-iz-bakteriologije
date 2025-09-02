@@ -58,19 +58,30 @@ const {
             Bakteriologija
           </a>
           <!-- Desktop navigacija -->
-          <div class="hidden md:flex space-x-8">
+          <div class="hidden md:flex items-center space-x-8">
             <a href="/sadrzaj/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Sadržaj
             </a>
             <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Predgovor
             </a>
-            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              O nama
+            <a href="/pojmovnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Pojmovnik
+            </a>
+            <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Provjeri znanje
             </a>
             <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Kontakt
             </a>
+            <!-- Search -->
+            <div class="relative">
+              <a href="/pretraga/" class="inline-flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-300" title="Pretraga">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </a>
+            </div>
           </div>
           
           <!-- Mobilni hamburger menu -->
@@ -98,8 +109,14 @@ const {
             <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Predgovor
             </a>
-            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              O nama
+            <a href="/pojmovnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Pojmovnik
+            </a>
+            <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Provjeri znanje
+            </a>
+            <a href="/pretraga/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Pretraga
             </a>
             <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Kontakt
@@ -219,10 +236,10 @@ const {
             </div>
             
             <div class="bg-gradient-to-br from-fuchsia-50 to-purple-50 border border-fuchsia-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
-              <h3 class="text-xl font-semibold mb-3 text-fuchsia-800 font-heading">O nama</h3>
-                              <p class="text-fuchsia-700 mb-4 font-body leading-relaxed">Upoznajte tim iza udžbenika</p>
-              <a href="/o-nama/" class="inline-flex items-center text-fuchsia-600 font-semibold hover:text-fuchsia-800">
-                Saznaj više
+              <h3 class="text-xl font-semibold mb-3 text-fuchsia-800 font-heading">Provjeri znanje</h3>
+              <p class="text-fuchsia-700 mb-4 font-body leading-relaxed">Testiraj svoje znanje iz svih 23 poglavlja</p>
+              <a href="/provjeri-znanje/" class="inline-flex items-center text-fuchsia-600 font-semibold hover:text-fuchsia-800">
+                Započni kviz
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
@@ -434,8 +451,9 @@ const {
             <ul class="space-y-2">
               <li><a href="/sadrzaj/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Sadržaj udžbenika</a></li>
               <li><a href="/predgovor/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Predgovor</a></li>
-              <li><a href="/poglavlje-1/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Prvo poglavlje</a></li>
-              <li><a href="/o-nama/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">O nama</a></li>
+              <li><a href="/pojmovnik/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Pojmovnik</a></li>
+              <li><a href="/pretraga/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Pretraga</a></li>
+              <li><a href="/provjeri-znanje/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Provjeri znanje</a></li>
             </ul>
           </div>
           
@@ -584,4 +602,4 @@ const {
     </script>
 
   </body>
-</html>
+</html>Ispuni kvix

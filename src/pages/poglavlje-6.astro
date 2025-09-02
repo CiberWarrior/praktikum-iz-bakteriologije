@@ -1,32 +1,10 @@
 ---
 import ChapterLayout from '../components/ChapterLayout.astro';
-import { getCollection } from 'astro:content';
-
-export interface Props {
-  title?: string;
-  description?: string;
-}
-
-const { 
-  title = 'Određivanje broja bakterija u suspenziji indirektnim metodama',
-  description = 'Određivanje titra bakterija.'
-} = Astro.props;
-
-// Dohvati sve MDX datoteke iz chapters kolekcije za ovo poglavlje
-const allDocs = await getCollection('chapters');
-const poglavljeDocs = allDocs
-  .filter(entry => entry.id.startsWith('poglavlje-6/') && entry.id !== 'poglavlje-6/index')
-  .sort((a, b) => {
-    // Sortiraj po chapterNumber iz frontmattera, ako ne postoji koristi 0
-    const aOrder = (a.data as any).chapterNumber || 0;
-    const bOrder = (b.data as any).chapterNumber || 0;
-    return aOrder - bOrder;
-  });
 ---
 
 <ChapterLayout 
-  title={title}
-  description={description}
+  title="Poglavlje 6: Broj kolonija i titar bakterija"
+  description="Određivanje broja bakterija u suspenziji indirektnim metodama"
   chapterNumber={6}
   primaryColor="purple"
   prevLink="/poglavlje-5/"
@@ -45,24 +23,6 @@ const poglavljeDocs = allDocs
     { name: 'Poglavlje 6', url: '/poglavlje-6/' }
   ]}
 >
-
-<style>
-  .chapter-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .chapter-links li {
-    margin-bottom: 0.75rem;
-  }
-  
-  .chapter-links a {
-    text-decoration: none;
-    color: inherit;
-  }
-</style>
-
   <!-- Uvod u poglavlje -->
   <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 border border-purple-200 mb-8 hover:shadow-lg transition-all duration-300">
     <div class="flex items-start">
@@ -72,73 +32,131 @@ const poglavljeDocs = allDocs
         </svg>
       </div>
       <div>
-        <h3 class="text-xl font-bold text-xl font-bold text-purple-900 mb-3 font-heading mb-3">Dobrodošli u Poglavlje 6</h3>
+        <h3 class="text-xl font-bold text-purple-900 mb-3 font-heading">Dobrodošli u Poglavlje 6</h3>
         <p class="text-purple-800 text-lg leading-relaxed font-body">
-          Titar bakterija
-Pod titrom bakterija označava se najmanji volumen uzorka (npr. 1,0 mL,
-0,1 mL, 0,001 mL itd.), tj. najveće razrjeđenje u kojem je prisutna tražena
-bakterija.
+          Ovo poglavlje vodi vas kroz određivanje broja bakterija u suspenziji indirektnim metodama. 
+          Naučit ćete o ključnim konceptima, metodama i praktičnim vježbama.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- Sadržaj poglavlja -->
-  <div class="mb-12">
-    <h2 class="text-3xl font-bold text-gray-900 mb-8">Sadržaj</h2>
-    
-    <div class="grid md:grid-cols-2 gap-6">
-      <!-- Titar bakterija -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Titar bakterija</h3>
-        </div>
-        
-        <a href="/poglavlje-6/titar-bakterija/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
+  <!-- Ciljevi učenja -->
+  <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8 border border-red-200 mb-8">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
       </div>
-      
-      <!-- Broj kolonija bakterija -->
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-        <div class="flex items-center mb-4">
-          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-gray-900">Broj kolonija bakterija</h3>
-        </div>
-        
-        <a href="/poglavlje-6/broj-kolonija-bakterija/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
-          Pročitaj više →
-        </a>
+      <div>
+        <h3 class="text-xl font-bold text-red-900 mb-4 font-heading">Ciljevi učenja</h3>
+        <ul class="text-red-800 text-lg leading-relaxed font-body space-y-2">
+          <li class="flex items-start">
+            <span class="text-red-600 mr-2">•</span>
+            Razumjeti koncept titar bakterija i njegovu važnost u mikrobiologiji
+          </li>
+          <li class="flex items-start">
+            <span class="text-red-600 mr-2">•</span>
+            Naučiti metode za određivanje broja kolonija bakterija
+          </li>
+          <li class="flex items-start">
+            <span class="text-red-600 mr-2">•</span>
+            Steći praktične vještine u brojanju i izračunavanju titar
+          </li>
+          <li class="flex items-start">
+            <span class="text-red-600 mr-2">•</span>
+            Razumjeti kako interpretirati rezultate brojanja kolonija
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- Laboratorijske vježbe -->
+  <!-- Sadržaj i vježbe -->
   <div class="mb-12">
-    <h2 class="text-3xl font-bold text-gray-900 mb-8">Laboratorijske vježbe</h2>
-    
-    <div class="grid md:grid-cols-2 gap-6">
-      <!-- Vježbe 6 -->
-      <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6 border-2 border-emerald-200">
-        <div class="mt-2">
-          <h3 class="text-xl font-bold text-emerald-900 mb-4 leading-tight">Titar bakterija</h3>
-          <div class="flex items-center justify-end">
-            <a href="/poglavlje-6/vjezba-6/" class="inline-flex items-center text-emerald-700 font-semibold">
-              Pročitaj više 
-              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Sadržaj poglavlja -->
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Sadržaj</h2>
+        
+        <!-- Titar bakterija -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 mb-4">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-            </a>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Titar bakterija</h3>
           </div>
+          
+          <a href="/poglavlje-6/titar-bakterija/" class="text-red-600 font-semibold hover:text-red-800 transition-colors duration-300">
+            Pročitaj više →
+          </a>
+        </div>
+        
+        <!-- Broj kolonija bakterija -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-center mb-4">
+            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900">Broj kolonija bakterija</h3>
+          </div>
+          
+          <a href="/poglavlje-6/broj-kolonija-bakterija/" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300">
+            Pročitaj više →
+          </a>
+        </div>
+      </div>
+      
+      <!-- Laboratorijske vježbe -->
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Laboratorijske vježbe</h2>
+        
+        <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6 border-2 border-emerald-200">
+          <!-- Titar bakterija -->
+          <div class="mt-2">
+            <h3 class="text-xl font-bold text-emerald-900 mb-4 leading-tight">Titar bakterija</h3>
+            <div class="flex items-center justify-end">
+              <a href="/poglavlje-6/vjezba-6/" class="inline-flex items-center text-emerald-700 font-semibold">
+                Pročitaj više 
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Quiz - Provjeri svoje znanje -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Provjeri svoje znanje</h2>
+    
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border-2 border-orange-200 shadow-lg">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-900 mb-4">Quiz - Poglavlje 6</h3>
+          <p class="text-orange-800 text-lg mb-6">Testirajte svoje znanje iz ovog poglavlja s 5 pitanja</p>
+          <a href="/poglavlje-6/quiz-6/" class="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white font-bold text-lg rounded-xl hover:bg-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Započni quiz
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>

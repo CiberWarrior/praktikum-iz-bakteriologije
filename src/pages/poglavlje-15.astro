@@ -1,6 +1,5 @@
 ---
 import ChapterLayout from '../components/ChapterLayout.astro';
-import { getCollection } from 'astro:content';
 
 export interface Props {
   title?: string;
@@ -11,17 +10,6 @@ const {
   title = 'Bakteriološko ispitivanje kvalitete namirnica',
   description = 'Brzi testovi za procjenu higijenske vrijednosti i kvalitete živežnih namirnica.'
 } = Astro.props;
-
-// Dohvati sve MDX datoteke iz chapters kolekcije za ovo poglavlje
-const allDocs = await getCollection('chapters');
-const poglavljeDocs = allDocs
-  .filter(entry => entry.id.startsWith('poglavlje-15/') && entry.id !== 'poglavlje-15/index')
-  .sort((a, b) => {
-    // Sortiraj po chapterNumber iz frontmattera, ako ne postoji koristi 0
-    const aOrder = (a.data as any).chapterNumber || 0;
-    const bOrder = (b.data as any).chapterNumber || 0;
-    return aOrder - bOrder;
-  });
 ---
 
 <ChapterLayout 
@@ -150,6 +138,31 @@ const poglavljeDocs = allDocs
               </svg>
             </a>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz - Provjeri svoje znanje -->
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Provjeri svoje znanje</h2>
+    
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-gradient-to-br from-sky-50 to-sky-100 rounded-2xl p-8 border-2 border-sky-200 shadow-lg">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-sky-900 mb-4">Quiz - Poglavlje 15</h3>
+          <p class="text-sky-800 text-lg mb-6">Testirajte svoje znanje iz ovog poglavlja s 5 pitanja</p>
+          <a href="/poglavlje-15/quiz-15/" class="inline-flex items-center justify-center px-8 py-4 bg-sky-600 text-white font-bold text-lg rounded-xl hover:bg-sky-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Započni quiz
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
