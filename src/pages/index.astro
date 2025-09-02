@@ -46,8 +46,22 @@ const {
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  </head>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Hero image styles -->
+    <style>
+      .hero-image {
+        position: relative;
+      }
+      
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border: 4px solid rgba(255, 255, 255, 0.2);
+      }
+    </style>  </head>
   <body class="bg-page font-sans text-page">
     
     <!-- Navigation -->
@@ -184,6 +198,7 @@ const {
                 height="400"
                 decoding="async"
                 fetchpriority="high"
+                style="width: 100%; height: auto; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); border: 4px solid rgba(255, 255, 255, 0.2);"
               />
             </div>
 
