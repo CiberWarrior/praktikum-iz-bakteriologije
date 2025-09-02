@@ -49,9 +49,13 @@ const {
         <!-- Table of Contents -->
         <nav class="space-y-1">
           <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#pregled-vjebi" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="pregled-vjebi">
+          <a href="#vjezba-1" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="vjezba-1">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Vježba 1: Postavljanje stupca po Vinogradskom
+          </a>
+          <a href="#vjezba-2" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="vjezba-2">
             <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Pregled vježbi
+            Vježba 2: Mikroskopiranje bakterija
           </a>
         </nav>
       </div>
@@ -65,35 +69,29 @@ const {
           <!-- Content Blocks -->
           <div class="space-y-8">
             
-            <!-- Pregled vježbi -->
-            <div id="pregled-vjebi" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
+
+
+            <!-- Vježba 1: Postavljanje stupca po Vinogradskom -->
+            <div id="vjezba-1" class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6 shadow-lg border border-green-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📖</span>
-                <h3 class="text-2xl font-bold text-blue-900">Pregled vježbi</h3>
+                <span class="inline-block bg-green-600 text-white px-3 py-1 rounded-full text-lg font-bold mr-4">1</span>
+                <h3 class="text-2xl font-bold text-green-900">Postavljanje stupca po Vinogradskom</h3>
               </div>
               <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">U ovoj vježbi ćete naučiti o izolaciji anaerobnih fototrofnih bakterija u stupcu po Vinogradskom. Vježba obuhvaća:</p>
-                
-                <div class="bg-white rounded-lg p-4 shadow-sm mb-6">
-                  <h4 class="text-lg font-semibold text-gray-800 mb-3">Sadržaj vježbe:</h4>
-                  <ul class="space-y-2 text-gray-700">
-                    <li class="flex items-start">
-                      <span class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-medium mr-3">1</span>
-                      <span>Postavljanje stupca po Vinogradskom</span>
-                    </li>
-                    <li class="flex items-start">
-                      <span class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-medium mr-3">2</span>
-                      <span>Mikroskopiranje bakterija iz stupca po Vinogradskom</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">Ove vježbe će vam omogućiti da praktično naučite o anaerobnim fototrofnim bakterijama i njihovoj izolaciji koristeći Vinogradski stupac.</p>
-                
-                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
-                  <p class="text-blue-800"><strong>Napomena:</strong> Ove vježbe se izvode u laboratoriju pod stručnim nadzorom. Pratite sve sigurnosne mjere i protokole.</p>
-                </div>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Stupac po Vinogradskom postavlja se u menzuri od 1 L. U 200 mL riječnog ili jezerskog mulja doda se 1,64 g Ca-sulfata, 1,3 g K<sub>2</sub>HPO<sub>4</sub> i 1,3 g Ca-karbonata. Sadržaj se dobro izmiješa uz dodatak malo vode iz ekosustava s kojeg je mulj uzet.</p>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">U menzuru se doda izvor celuloze u obliku komadića filter-papira težine oko 5 g. Na celulozu se doda izmiješani mulj. Na mulj u menzuri nadolije se voda iz ekosustava s kojeg je mulj uzet do volumena 1 L.</p>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Menzura se začepi aluminijskom folijom i gumicom. Stupac se drži na sobnoj temperaturi u mraku oko 2 tjedna umotan u aluminijsku foliju da bi se spriječio pretjeran razvoj ameba. Zatim se stupac izloži svjetlu jačine 60-75 W da bi se omogućio razvoj fototrofnih bakterija. Stupac se nadgleda u razmacima od dva tjedna, ukupno osam tjedana.</p>
               </div>
+            </div>
+
+            <!-- Vježba 2: Mikroskopiranje bakterija iz stupca po Vinogradskom -->
+            <div id="vjezba-2" class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-lg font-bold mr-4">2</span>
+                <h3 class="text-2xl font-bold text-blue-900">Mikroskopiranje bakterija iz stupca po Vinogradskom</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Kad se u stupcu razviju različito obojene zone, pipetom se lagano iz svakog obojenog sloja uzme uzorak. Uzorak se stavi na predmetno stakalce, oboji po Gramu i mikroskopira pod imerzijskim objektivom.</p>
               </div>
             </div>
 
@@ -164,7 +162,7 @@ const {
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
       aria-label="Povratak na Poglavlje 23"
     >
-      <span class="text-lg">povratak na poglavlje 23</span>
+      <span class="text-lg">poglavlje 23</span>
       →
     </a>
   </div>
@@ -194,6 +192,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
+      /** @param {boolean} bookmarked - Whether the page is currently bookmarked */
       function updateBookmarkUI(bookmarked) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         

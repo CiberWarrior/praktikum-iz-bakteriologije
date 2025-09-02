@@ -49,12 +49,20 @@ const {
         <!-- Table of Contents -->
         <nav class="space-y-1">
           <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#uvod" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="uvod">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3 transition-all duration-300"></span>
+            Uvod
+          </a>
+          <a href="#purpurne-sumporne-bakterije" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="purpurne-sumporne-bakterije">
+            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
+            Purpurne sumporne bakterije
+          </a>
           <a href="#zelene-sumporne-bakterije" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="zelene-sumporne-bakterije">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
             Zelene sumporne bakterije
           </a>
           <a href="#stupac-po-vinogradskom" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="stupac-po-vinogradskom">
-            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
             Stupac po Vinogradskom
           </a>
         </nav>
@@ -69,35 +77,68 @@ const {
           <!-- Content Blocks -->
           <div class="space-y-8">
             
-            <!-- Zelene sumporne bakterije -->
-            <div id="zelene-sumporne-bakterije" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
+            <!-- Uvod -->
+            <div id="uvod" class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 shadow-lg border border-indigo-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📖</span>
-                <h3 class="text-2xl font-bold text-blue-900">Zelene sumporne bakterije</h3>
+                <span class="text-3xl mr-4">🦠</span>
+                <h3 class="text-2xl font-bold text-indigo-900">Izolacija anaerobnih fototrofnih bakterija u stupcu po Vinogradskom</h3>
               </div>
               <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">Bakterije iz ove skupine su Gram-negativne, sferične do štapićaste ili zavinuti štapići. Stanice se mogu grupirati u lance kao u streptokoka. Neke su pokretne puzanjem, a neke nepokretne. Boja im može biti zelena do smeđa. Od pigmenata sadrže bakterioklorofil a c, d ili e te karotenoide. Tijekom oksidacije sulfida sumporne se kuglice izlučuju iz stanice i ne zadržavaju se u stanici, a konačni je produkt oksidacije sulfat. Neke mogu koristiti tiosulfate. Mnoge su miksotrofne, što znači da mogu asimilirati i jednostavne organske spojeve. Tipičan je predstavnik zelenih sumpornih bakterija rod <em>Chlorobium</em> s optimumom temperature 20–35°C i pH 6,8–7,0.</p>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Anaerobne fototrofne bakterije uključuju purpurne i zelene sumporne bakterije. Sadrže pigment bakterioklorofil koji je po sastavu sličan biljnom klorofilu. Koriste uglavnom sulfid (foto-lito-autotrofi) te neke organske kiseline (foto-organo-autotrofi) kao davatelj elektrona za redukciju ugljikova dioksida a uz sunčevu svjetlost kao izvor energije. Anaerobne fototrofne bakterije prisutne su u muljevima i vodama, gdje je stupac vode miran dugo vremena i izložen sunčevu svjetlu. U takvu okolišu procesima fermentacije nastaju sulfidi i organske kiseline esencijalne za njihov razvoj.</p>
+              </div>
+            </div>
+
+            <!-- Purpurne sumporne bakterije -->
+            <div id="purpurne-sumporne-bakterije" class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6 shadow-lg border border-purple-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🦠</span>
+                <h3 class="text-2xl font-bold text-purple-900">Purpurne sumporne bakterije</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Bakterije su iz ove skupine Gram-negativne, ravni ili malo zavinuti štapići, pokretnim polarnim bičevima. Boje u različitih rodova variraju od narančastosmeđe do smeđe, smeđecrvene do roza, te purpurnocrvene do purpurnoljubičaste. Različitost boja potječe od vezanja bakterioklorofila a s različitim prisutnim karotenoidima. Sve vrste sadrže intracelularno elementarni sumpor u obliku kuglica, koji se formira u prisutnosti sulfida i svjetlosti. Neke su vrste sposobne fiksirati dušik. Sulfidi su nužni kao davatelji elektrona za metabolizam. Tipičan je predstavnik purpurnih sumpornih bakterija rod <em>Chromatium</em>, s optimumom temperature 20-35°C i pH 6,8-7,5.</p>
+              </div>
+            </div>
+
+            <!-- Zelene sumporne bakterije -->
+            <div id="zelene-sumporne-bakterije" class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🦠</span>
+                <h3 class="text-2xl font-bold text-green-900">Zelene sumporne bakterije</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Bakterije iz ove skupine su Gram-negativne, sferične do štapićaste ili zavinuti štapići. Stanice se mogu grupirati u lance kao u streptokoka. Neke su pokretne puzanjem, a neke nepokretne. Boja im može biti zelena do smeđa. Od pigmenata sadrže bakterioklorofil a c, d ili e te karotenoide. Tijekom oksidacije sulfida sumporne se kuglice izlučuju iz stanice i ne zadržavaju se u stanici, a konačni je produkt oksidacije sulfat. Neke mogu koristiti tiosulfate. Mnoge su miksotrofne, što znači da mogu asimilirati i jednostavne organske spojeve. Tipičan je predstavnik zelenih sumpornih bakterija rod <em>Chlorobium</em> s optimumom temperature 20-35°C i pH 6,8-7,0.</p>
               </div>
             </div>
 
             <!-- Stupac po Vinogradskom -->
-            <div id="stupac-po-vinogradskom" class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 shadow-lg border border-green-200">
+            <div id="stupac-po-vinogradskom" class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl p-6 shadow-lg border border-blue-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📖</span>
-                <h3 class="text-2xl font-bold text-green-900">Stupac po Vinogradskom</h3>
+                <span class="text-3xl mr-4">🧪</span>
+                <h3 class="text-2xl font-bold text-blue-900">Stupac po Vinogradskom</h3>
               </div>
               <div class="text-gray-700 leading-relaxed">
                 <p class="text-gray-800 text-lg leading-relaxed mb-4">Mali ekosustav podoban za razvoj anaerobnih fototrofnih bakterija može se razviti u stupcu po Vinogradskom (slika 95). Stupac po Vinogradskom postavlja se u menzuri koja sadrži mulj, vodu, celulozu, sulfate, fosfate i karbonate. Menzura se drži u mraku oko dva tjedna i potom izloži svjetlosti. Tijekom inkubacije u menzuri će se razviti gradijent redoks potencijala i dostupnosti kisika, koji raste od dna menzure prema njenom vrhu. Na dnu menzure u anaerobnim uvjetima celulozu će fermentirati bakterije roda <em>Clostridium</em>. Produkte fermentacije i sulfate upotrijebit će sulfat reducirajuće bakterije (<em>Desulfovibrio</em>) te će nastajati H<sub>2</sub>S, koji će difundirati u gornje slojeve. Vrste zelenih sumpornih bakterija stvorit će zelenkasti idući sloj. Naredni sloj će biti obojen purpurno zbog prisutnosti purpurnih sumpornih bakterija. U mikroaerofilnim uvjetima u menzuri razvit će se druge fototrofne bakterije kao što je rod <em>Rhodospirillum</em>. U vršnom sloju bit će prisutne aerobne bakterije roda <em>Thiobacillus</em> i sumporne bakterije roda <em>Beggiatoa</em>.</p>
-        <p class="text-gray-800 text-lg leading-relaxed mb-4">Glavne kemijske reakcije koje se odvijaju u pojedinim zonama stupca po Vinogradskom (od crne zone na dnu do smeđe površinske zone):</p>
-        <p class="text-gray-800 text-lg leading-relaxed mb-4">- Smeđa zona: H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O, CH<sub>2</sub>O → CO<sub>2</sub> + H<sub>2</sub> - Rđavo obojena zona: CH<sub>2</sub>O → H<sub>2</sub>, CO<sub>2</sub> → CH<sub>2</sub>O - Purpurna zona: H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O - Zelena zona: H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O - Crna zona: SO<sub>4</sub><sup>2−</sup> → H<sub>2</sub>S, CH<sub>2</sub>O → CO<sub>2</sub>, CH<sub>2</sub>O → CO<sub>2</sub> + H<sub>2</sub></p>
-                    <!-- Slika -->
-            <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-              <img src="/images/slika95.jpg" alt="Shematski prikaz stupca po Vinogradskom" class="w-3/5 h-auto rounded-lg mx-auto" />
-              <figcaption class="mt-4 text-center">
-                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 95</span>
-                <span class="block mt-2 text-gray-700">Shematski prikaz stupca po Vinogradskom</span>
-              </figcaption>
-            </figure>
+                
+                <div class="bg-gray-50 rounded-lg p-4 mt-4 border border-gray-200">
+                  <h4 class="font-semibold text-gray-800 mb-3">Glavne kemijske reakcije koje se odvijaju u pojedinim zonama stupca po Vinogradskom (od crne zone na dnu do smeđe površinske zone):</h4>
+                  <ul class="space-y-2 text-gray-700">
+                    <li><strong>Smeđa zona:</strong> H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O, CH<sub>2</sub>O → CO<sub>2</sub> + H<sub>2</sub></li>
+                    <li><strong>Rđavo obojena zona:</strong> CH<sub>2</sub>O → H<sub>2</sub>, CO<sub>2</sub> → CH<sub>2</sub>O</li>
+                    <li><strong>Purpurna zona:</strong> H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O</li>
+                    <li><strong>Zelena zona:</strong> H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O</li>
+                    <li><strong>Crna zona:</strong> SO<sub>4</sub><sup>2−</sup> → H<sub>2</sub>S, CH<sub>2</sub>O → CO<sub>2</sub>, CH<sub>2</sub>O → CO<sub>2</sub> + H<sub>2</sub></li>
+                  </ul>
+                </div>
+
+                <!-- Slika -->
+                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm mt-6">
+                  <img src="/images/slika95.jpg" alt="Shematski prikaz stupca po Vinogradskom" class="w-3/5 h-auto rounded-lg mx-auto" />
+                  <figcaption class="mt-4 text-center">
+                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 95</span>
+                    <span class="block mt-2 text-gray-700">Shematski prikaz stupca po Vinogradskom</span>
+                  </figcaption>
+                </figure>
+              </div>
             </div>
 
           </div>
@@ -187,6 +228,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
+      /** @param {boolean} bookmarked - Whether the page is currently bookmarked */
       function updateBookmarkUI(bookmarked) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
