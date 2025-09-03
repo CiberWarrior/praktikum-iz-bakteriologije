@@ -246,8 +246,7 @@ const {
       
       // Check if bookmarked
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
-      updateBookmarkUI(isBookmarked);
-      
+      updateBookmarkUI(isBookmarked);čno uplodati slike na Git
       function updateBookmarkUI(bookmarked) {
         const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
