@@ -1,0 +1,406 @@
+---
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Prva pomoć',
+  description = ''
+} = Astro.props;
+---
+
+<SubPageLayoutWithBase chapterNumber={1} chapterNumber={1} 
+  title={title} 
+  description={description}
+  chapterNumber={1}
+  primaryColor="green"
+  breadcrumbPath={[
+    { name: 'Prva pomoć', url: '/poglavlje-1/prva-pomoc/' }
+  ]}
+>
+
+  <!-- Main Content with Sidebar -->
+  <div class="flex max-w-7xl mx-auto">
+    
+    <!-- Table of Contents Sidebar -->
+    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
+      <div class="mb-6">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-emerald-50 w-full">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Table of Contents -->
+        <nav class="space-y-1">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#sadrzaj-ormarica" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="sadrzaj-ormarica">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
+            Sadržaj ormarića
+          </a>
+          <a href="#laboratorijske-infekcije" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="laboratorijske-infekcije">
+            <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 transition-all duration-300"></span>
+            Laboratorijske infekcije
+          </a>
+          <a href="#postupci-nezgode" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="postupci-nezgode">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Postupci u slučaju nezgoda
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-none">
+          
+          <!-- Content Blocks -->
+          <div class="space-y-8">
+            
+            <!-- Sadržaj ormarića -->
+            <div id="sadrzaj-ormarica" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🚑</span>
+                <h3 class="text-2xl font-bold text-blue-900">Sadržaj ormarića za prvu pomoć</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                U svakom bakteriološkom laboratoriju (praktikumu) mora postojati na istaknutom mjestu ormarić s natpisom **„Prva pomoć kod laboratorijskih infekcija"**. Ormarić prve pomoći se koristi kod nezgoda uz prisutnost voditelja praktikuma.
+              </p>
+              <div class="bg-white rounded-lg p-4 shadow-sm">
+                <h4 class="font-semibold text-blue-800 mb-3">Obavezni sadržaj ormarića:</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                    <span class="text-lg mr-3">🧪</span>
+                    <span class="text-gray-700">10 g tinkture joda</span>
+                  </div>
+                  <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                    <span class="text-lg mr-3">🧪</span>
+                    <span class="text-gray-700">20 g otopine Lugola</span>
+                  </div>
+                  <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                    <span class="text-lg mr-3">⚗️</span>
+                    <span class="text-gray-700">1 L 0,25% otopine KMnO₄</span>
+                  </div>
+                  <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                    <span class="text-lg mr-3">⚫</span>
+                    <span class="text-gray-700">50 g <em>Carbo medicinalis</em></span>
+                  </div>
+                  <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                    <span class="text-lg mr-3">🧪</span>
+                    <span class="text-gray-700">3% otopina H₂O₂</span>
+                  </div>
+                  <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                    <span class="text-lg mr-3">💊</span>
+                    <span class="text-gray-700">Tablete acidol-pepsin</span>
+                  </div>
+                  <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                    <span class="text-lg mr-3">🥩</span>
+                    <span class="text-gray-700">Mesni ekstrakt 50 g</span>
+                  </div>
+                  <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                    <span class="text-lg mr-3">🧴</span>
+                    <span class="text-gray-700">Oksicijanat mast 10 g</span>
+                  </div>
+                  <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                    <span class="text-lg mr-3">🧪</span>
+                    <span class="text-gray-700">10% otopina (navesti tvar)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Laboratorijske infekcije -->
+            <div id="laboratorijske-infekcije" class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 shadow-lg border border-orange-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">⚠️</span>
+                <h3 class="text-2xl font-bold text-orange-900">Laboratorijske infekcije</h3>
+              </div>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Svakome se može tijekom eksperimentalnog rada s bakterijama dogoditi nezgoda, što se u bakteriološkom praktikumu mora shvatiti najozbiljnije.
+              </p>
+              <p class="text-gray-700 leading-relaxed">
+                Nisu rijetke nezgode koje završavaju zarazom sudionika, a poznate su inače u literaturi kao <strong>laboratorijske infekcije</strong>.
+              </p>
+              
+              <!-- Warning Note -->
+              <div class="mt-6 bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                <div class="flex items-start">
+                  <span class="text-2xl mr-3">🚨</span>
+                  <div>
+                    <h4 class="font-bold text-yellow-800 mb-2">Bez panike!</h4>
+                    <p class="text-yellow-700">
+                      Ako se nešto neželjeno dogodi, odmah treba obavijestiti voditelja praktikuma o nezgodi i <strong>ne napuštati praktikum</strong>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Postupci u slučaju nezgoda -->
+            <div id="postupci-nezgode" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🆘</span>
+                <h3 class="text-2xl font-bold text-green-900">Postupci u slučaju nezgoda</h3>
+              </div>
+              
+              <div class="space-y-4">
+                <!-- Nezgoda 1 -->
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-red-400">
+                  <div class="flex items-start">
+                    <span class="text-xl mr-3">🚨</span>
+                    <div>
+                      <h4 class="font-semibold text-red-800 mb-2">Ako je bakterijski materijal dospio u usta</h4>
+                      <p class="text-gray-600 text-sm mb-2"><em>(neoprezno pipetiranje)</em></p>
+                      <p class="text-gray-700">
+                        → odmah ispljunuti, isprati nekoliko puta usnu šupljinu i grgljati otopinom permanganata ili vodikova peroksida, potom ispljunuti.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Nezgoda 2 -->
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-red-400">
+                  <div class="flex items-start">
+                    <span class="text-xl mr-3">☠️</span>
+                    <div>
+                      <h4 class="font-semibold text-red-800 mb-2">Ako je bakterijski materijal progutan</h4>
+                      <p class="text-gray-700">
+                        → uzeti <em>acidol-pepsin</em> ili <em>Carbo medicinalis</em>, te odmah otići liječniku radi dobivanja odgovarajućeg antibiotika.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Nezgoda 3 -->
+                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-red-400">
+                  <div class="flex items-start">
+                    <span class="text-xl mr-3">🧽</span>
+                    <div>
+                      <h4 class="font-semibold text-red-800 mb-2">Ako se izlije bakterijska kultura</h4>
+                      <p class="text-gray-600 text-sm mb-2"><em>(na radnu površinu, odjeću i dr.)</em></p>
+                      <p class="text-gray-700">
+                        → odmah obavijestiti voditelja praktikuma radi poduzimanja potrebnih mjera dezinfekcije.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile TOC Toggle -->
+  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-emerald-600 text-white p-3 rounded-full shadow-lg z-50">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+    </svg>
+  </button>
+
+  <!-- Mobile TOC Overlay -->
+  <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
+    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
+          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 mb-4 w-full">
+          <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="mobile-bookmark-text">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <nav class="space-y-2">
+          <a href="/poglavlje-1/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
+            Pregled poglavlja
+          </a>
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
+            Svi sadržaji
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigacijski gumbovi -->
+  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
+    <!-- Prethodna stranica -->
+    <a
+      href="/poglavlje-1/dezinfekcija-i-antisepsa/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na prethodnu stranicu: dezinfekcija i antisepsa"
+    >
+      ←
+      <span class="text-lg">dezinfekcija i antisepsa</span>
+    </a>
+    
+    <!-- Iduća stranica -->
+    <a
+      href="/poglavlje-1/zbrinjavanje-materijala/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na sljedeću stranicu: zbrinjavanje materijala"
+    >
+      <span class="text-lg">zbrinjavanje materijala</span>
+      →
+    </a>
+  </div><!-- CSS Styles for Active State -->
+  <style>
+    .toc-link.active {
+      @apply text-emerald-600 bg-emerald-50 font-semibold;
+    }
+    
+    .toc-link.active span {
+      @apply w-3 h-3 scale-125;
+    }
+  </style>
+
+  <!-- JavaScript -->
+  <script>
+    // Bookmark functionality
+    function initBookmarks() {
+      const bookmarkKey = 'bookmark-prva-pomoc';
+      const bookmarkBtn = document.getElementById('bookmark-btn');
+      const bookmarkIcon = document.getElementById('bookmark-icon');
+      const bookmarkText = document.getElementById('bookmark-text');
+      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
+      const mobileBookmarkIcon = document.getElementById('mobile-bookmark-icon');
+      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
+      
+      // Check if bookmarked
+      const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+      updateBookmarkUI(isBookmarked);
+      
+      function updateBookmarkUI(bookmarked: boolean) {
+        const fillAttribute = bookmarked ? 'currentColor' : 'none';
+        const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
+        
+        if (bookmarkIcon) bookmarkIcon.setAttribute('fill', fillAttribute);
+        if (bookmarkText) bookmarkText.textContent = text;
+        if (mobileBookmarkIcon) mobileBookmarkIcon.setAttribute('fill', fillAttribute);
+        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
+      }
+      
+      function toggleBookmark() {
+        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+        const newBookmarkState = !currentlyBookmarked;
+        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
+        updateBookmarkUI(newBookmarkState);
+      }
+      
+      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
+      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
+    }
+
+    // Mobile TOC
+    function initMobileTOC() {
+      const toggleBtn = document.getElementById('mobile-toc-toggle');
+      const overlay = document.getElementById('mobile-toc-overlay');
+      const panel = document.getElementById('mobile-toc-panel');
+      const closeBtn = document.getElementById('mobile-toc-close');
+      const tocLinks = document.querySelectorAll('.mobile-toc-link');
+      
+      function openTOC() {
+        if (overlay && panel) {
+          overlay.classList.remove('hidden');
+          setTimeout(() => {
+            panel.classList.remove('translate-x-full');
+          }, 10);
+        }
+      }
+      
+      function closeTOC() {
+        if (panel && overlay) {
+          panel.classList.add('translate-x-full');
+          setTimeout(() => {
+            overlay.classList.add('hidden');
+          }, 300);
+        }
+      }
+      
+      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
+      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
+      if (overlay) {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) closeTOC();
+        });
+      }
+      
+      // Close TOC when clicking on a link
+      tocLinks.forEach(link => {
+        link.addEventListener('click', closeTOC);
+      });
+    }
+
+    // Scroll Spy for TOC
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('[id^="sadrzaj-"], [id^="laboratorijske-"], [id^="postupci-"]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      
+      function updateActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        // Remove active class from all links
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Add active class to current section link
+        if (currentSection) {
+          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      }
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', updateActiveLink);
+      
+      // Initial check
+      updateActiveLink();
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+      initBookmarks();
+      initMobileTOC();
+      initScrollSpy();
+    });
+  </script>
+
+</SubPageLayoutWithBase>

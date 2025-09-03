@@ -8,6 +8,20 @@
       "destination": "/Images/$1"
     }
   ],
+  "routes": [
+    {
+      "src": "/poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija",
+      "dest": "/poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija/index.html"
+    },
+    {
+      "src": "/poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija/",
+      "dest": "/poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
   "headers": [
     {
       "source": "/Images/(.*)",

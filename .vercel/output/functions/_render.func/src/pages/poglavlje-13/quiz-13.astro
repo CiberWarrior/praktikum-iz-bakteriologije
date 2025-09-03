@@ -1,0 +1,271 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+---
+
+<ChapterLayout
+  title="Quiz - Poglavlje 13: Antibiogram i aromatogram"
+  description="Testirajte svoje znanje iz poglavlja o antibiogramu i aromatogramu"
+  breadcrumbs={[
+    { name: 'Početna', url: '/' },
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 13', url: '/poglavlje-13/' },
+    { name: 'Quiz 13', url: '/poglavlje-13/quiz-13/' }
+  ]}
+  prevUrl="/poglavlje-13/"
+  nextUrl="/poglavlje-14/"
+  prevText="povratak na poglavlje 13"
+  nextText="poglavlje 14"
+>
+  <div class="max-w-4xl mx-auto">
+    <!-- Quiz Header -->
+    <div class="text-center mb-12">
+      <div class="w-24 h-24 bg-rose-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Quiz - Poglavlje 13</h1>
+      <h2 class="text-2xl font-semibold text-rose-700 mb-6">Antibiogram i aromatogram</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Testirajte svoje znanje iz poglavlja o antibiogramu i aromatogramu. 
+        Odgovorite na 5 pitanja i provjerite koliko znate!
+      </p>
+    </div>
+
+    <!-- Quiz Instructions -->
+    <div class="bg-rose-50 rounded-xl p-6 mb-8 border border-rose-200">
+      <h3 class="text-xl font-bold text-rose-900 mb-3">Upute za quiz</h3>
+      <ul class="text-rose-800 space-y-2">
+        <li>Odgovorite na sva 5 pitanja</li>
+        <li>Svako pitanje ima 4 moguća odgovora (a, b, c, d)</li>
+        <li>Možete promijeniti odgovor prije slanja</li>
+        <li>Nakon slanja vidjet ćete svoj rezultat i postotak uspjeha</li>
+        <li>Možete pokušati ponovno ako niste zadovoljni rezultatom</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Form -->
+    <form id="quizForm" class="space-y-8">
+      <!-- Question 1 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">1. Što je antibiogram?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="a" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">a) Test za određivanje pH vrijednosti</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="b" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">b) Test osjetljivosti bakterija na antibiotike</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="c" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">c) Test za brojanje bakterija</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="d" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">d) Test za identifikaciju bakterija</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">2. Što je aromatogram?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="a" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">a) Test za određivanje mirisa</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="b" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">b) Test osjetljivosti bakterija na aromatske spojeve</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="c" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">c) Test za proizvodnju aroma</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="d" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">d) Test za razgradnju aromatskih spojeva</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">3. Kako se interpretiraju rezultati antibiograma?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="a" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">a) Prema boji kolonija</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="b" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">b) Prema veličini zone inhibicije oko antibiotičkih diskova</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="c" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">c) Prema broju kolonija</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="d" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">d) Prema obliku bakterija</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">4. Koja je svrha antibiograma u kliničkoj praksi?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="a" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">a) Dijagnoza bolesti</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="b" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">b) Odabir najprikladnijeg antibiotika za liječenje</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="c" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">c) Prevencija infekcija</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="d" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">d) Sterilizacija opreme</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">5. Što označava "R" u antibiogramu?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="a" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">a) Rezistentnost bakterija na antibiotik</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="b" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">b) Rezultat testa</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="c" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">c) Razvoj bakterija</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="d" class="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 focus:ring-rose-500">
+            <span class="text-gray-700">d) Rast bakterija</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="bg-rose-600 hover:bg-rose-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+          Pošalji odgovore
+        </button>
+      </div>
+    </form>
+
+    <!-- Quiz Results (Hidden by default) -->
+    <div id="quizResults" class="hidden mt-12">
+      <div class="bg-gradient-to-br from-rose-50 to-rose-100 rounded-2xl p-8 border-2 border-rose-200 shadow-lg">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-rose-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          
+          <div id="resultMessage" class="text-xl text-rose-700 mb-8 font-semibold leading-relaxed"></div>
+          
+          <div class="bg-white rounded-xl p-6 mb-6 inline-block">
+            <p class="text-rose-800 text-lg font-semibold">
+              Rezultat: <span id="correctAnswers" class="text-2xl font-bold text-rose-600"></span> od <span id="totalQuestions" class="text-2xl font-bold text-rose-600"></span> točnih odgovora
+            </p>
+            <p class="text-rose-700 text-lg mt-2">
+              Postotak uspjeha: <span id="percentage" class="text-2xl font-bold text-rose-600"></span>%
+            </p>
+          </div>
+          
+          <button onclick="resetQuizGlobal()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Pokušaj ponovno
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ChapterLayout>
+
+<script>
+  // Quiz functionality
+  const correctAnswers = {
+    q1: 'b', // Test osjetljivosti bakterija na antibiotike
+    q2: 'b', // Test osjetljivosti bakterija na aromatske spojeve
+    q3: 'b', // Prema veličini zone inhibicije oko antibiotičkih diskova
+    q4: 'b', // Odabir najprikladnijeg antibiotika za liječenje
+    q5: 'a'  // Rezistentnost bakterija na antibiotik
+  };
+
+  const totalQuestions = Object.keys(correctAnswers).length;
+
+  document.getElementById('quizForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let correctCount = 0;
+
+    // Check each answer
+    Object.keys(correctAnswers).forEach(question => {
+      const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+      if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+        correctCount++;
+      }
+    });
+
+    // Calculate percentage
+    const percentage = Math.round((correctCount / totalQuestions) * 100);
+
+    // Update results
+    document.getElementById('correctAnswers').textContent = correctCount;
+    document.getElementById('totalQuestions').textContent = totalQuestions;
+    document.getElementById('percentage').textContent = percentage;
+
+    // Set result message
+    const resultMessage = document.getElementById('resultMessage');
+    if (percentage === 100) {
+      resultMessage.innerHTML = '🎉 <strong>Odlično!</strong><br><span class="text-lg">Odgovorili ste na sva pitanja bez greške!<br>Vaše znanje iz ovog poglavlja je <em>izvrsno</em> i možete nastaviti s učenjem sljedećeg poglavlja.</span>';
+      resultMessage.className = 'text-xl text-rose-700 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 80) {
+      resultMessage.innerHTML = '👏 <strong>Izvrsno!</strong><br><span class="text-lg">Imate <em>odlično</em> znanje iz ovog poglavlja!<br>Samo malo više pažnje i bit ćete savršeni. Nastavite s učenjem!</span>';
+      resultMessage.className = 'text-xl text-rose-600 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 60) {
+      resultMessage.innerHTML = '👍 <strong>Dobro!</strong><br><span class="text-lg">Imate <em>solidno</em> znanje iz ovog poglavlja.<br>Preporučujemo da ponovno pročitate gradivo za još bolje razumijevanje.</span>';
+      resultMessage.className = 'text-xl text-blue-700 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 40) {
+      resultMessage.innerHTML = '⚠️ <strong>Prosjecno</strong><br><span class="text-lg">Potrebno je <em>više učenja</em>.<br>Vratite se na gradivo, pročitajte ponovno i pokušajte quiz ponovno.</span>';
+      resultMessage.className = 'text-xl text-yellow-700 mb-8 font-semibold leading-relaxed';
+    } else {
+      resultMessage.innerHTML = '📚 <strong>Potrebno više učenja</strong><br><span class="text-lg">Preporučujemo da <em>detaljno pročitate</em> sve dijelove poglavlja.<br>Učenje je proces - ne odustajte, vratite se na gradivo!</span>';
+      resultMessage.className = 'text-xl text-red-700 mb-8 font-semibold leading-relaxed';
+    }
+
+    // Show results
+    document.getElementById('quizResults').classList.remove('hidden');
+
+    // Scroll to results
+    document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  function resetQuiz() {
+    // Reset form
+    document.getElementById('quizForm').reset();
+
+    // Hide results
+    document.getElementById('quizResults').classList.add('hidden');
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>

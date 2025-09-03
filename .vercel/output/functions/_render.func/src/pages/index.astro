@@ -1,0 +1,371 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Mrežni udžbenik iz bakteriologije',
+  description = 'Priručnik za studente s detaljnim uputama za bakteriološki praktikum'
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 text-white overflow-hidden" style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
+    <!-- Pozadinski uzorak -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Tekst sekcija -->
+        <div class="text-center lg:text-left hero-text">
+          <p class="text-green-200 font-bold uppercase tracking-wide mb-5 text-sm">
+            Praktični pristup bakteriologiji
+          </p>
+          
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight font-heading" style="letter-spacing: -0.02em;">
+            Mrežni udžbenik iz bakteriologije
+          </h1>
+          
+          <p class="text-xl text-green-200 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-body">
+            Priručnik za studente s detaljnim uputama za bakteriološki praktikum. Naučite ključne tehnike od sigurnog rada i aseptike do identifikacije i interpretacije rezultata.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <a
+              href="/sadrzaj/"
+              class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-700 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            >
+              Sadržaj udžbenika
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <a
+              href="/poglavlje-1/"
+              class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-700 transition-all duration-300"
+            >
+              Započni učenje
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Slika sekcija -->
+        <div class="relative hero-image">
+          <div class="relative z-10">
+            <img
+              src="/Images/petri.jpg"
+              alt="Petrijeva zdjelica s bakterijskim kulturama i testovima osjetljivosti"
+              class="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+              loading="eager"
+              width="600"
+              height="400"
+              decoding="async"
+              fetchpriority="high"
+              style="width: 100%; height: auto; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); border: 4px solid rgba(255, 255, 255, 0.2);"
+            />
+          </div>
+
+          <!-- Dekorativni elementi -->
+          <div class="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
+          <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-400 rounded-full opacity-20 animate-pulse delay-1000"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brzi start sekcija -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="bg-white rounded-2xl shadow-lg p-8">
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
+            <h3 class="text-xl font-semibold mb-3 text-purple-800 font-heading">Predgovor</h3>
+            <p class="text-purple-700 mb-4 font-body leading-relaxed">Uvod u udžbenik i upute za korištenje</p>
+            <a href="/predgovor/" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-800">
+              Pročitaj predgovor
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
+            <h3 class="text-xl font-semibold mb-3 text-indigo-800 font-heading">Sadržaj udžbenika</h3>
+            <p class="text-indigo-700 mb-4 font-body leading-relaxed">Pregled svih poglavlja i vježbi</p>
+            <a href="/sadrzaj/" class="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-800">
+              Pregledaj sadržaj
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="bg-gradient-to-br from-violet-50 to-purple-50 border border-violet-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
+            <h3 class="text-xl font-semibold mb-3 text-violet-800 font-heading">Započni učenje</h3>
+            <p class="text-violet-700 mb-4 font-body leading-relaxed">Prvo poglavlje - Uvod u bakteriološki praktikum</p>
+            <a href="/poglavlje-1/" class="inline-flex items-center text-violet-600 font-semibold hover:text-violet-800">
+              Započni
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="bg-gradient-to-br from-fuchsia-50 to-purple-50 border border-fuchsia-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
+            <h3 class="text-xl font-semibold mb-3 text-fuchsia-800 font-heading">Provjeri znanje</h3>
+            <p class="text-fuchsia-700 mb-4 font-body leading-relaxed">Testiraj svoje znanje iz svih 23 poglavlja</p>
+            <a href="/provjeri-znanje/" class="inline-flex items-center text-fuchsia-600 font-semibold hover:text-fuchsia-800">
+              Započni kviz
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kratki blurbovi -->
+  <section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="text-center blurb-item">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">23 Poglavlja</h3>
+          <p class="text-gray-600 text-sm">Kompletan sadržaj bakteriološkog praktikuma</p>
+        </div>
+        
+        <div class="text-center blurb-item">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Besplatno</h3>
+          <p class="text-gray-600 text-sm">Dostupno svim studentima biologije</p>
+        </div>
+        
+        <div class="text-center blurb-item">
+          <div class="w-12 h-12 bg-gradient-to-br from-violet-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">24/7 Dostupnost</h3>
+          <p class="text-gray-600 text-sm">Učite u svom tempu</p>
+        </div>
+        
+        <div class="text-center blurb-item">
+          <div class="w-12 h-12 bg-gradient-to-br from-fuchsia-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-fuchsia-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Tim stručnjaka</h3>
+          <p class="text-gray-600 text-sm">Kreirao tim s PMF-a</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <FeaturesSection
+    title="Zašto ovaj udžbenik?"
+    subtitle="Moderna platforma za efikasno učenje bakterioloških tehnika"
+    items={[
+      {
+        title: 'Fokus na praksu',
+        description: 'Sažete upute, jasno označeni koraci i fotografije očekivanih rezultata za brzo prelazak s teorije na praksu.',
+        buttonText: 'Pogledaj primjere',
+        buttonLink: '/sadrzaj/',
+      },
+      {
+        title: 'Standardizirani protokoli',
+        description: 'Sterilizacija, bojenja, brojanja i biokemijski testovi – sve na jednom mjestu s detaljnim uputama.',
+        buttonText: 'Istraži protokole',
+        buttonLink: '/poglavlje-1/',
+      },
+      {
+        title: 'Učenje po modulima',
+        description: 'Svako poglavlje je samostalna cjelina s jasnim ciljevima i provjerom znanja za efikasno učenje.',
+        buttonText: 'Započni učenje',
+        buttonLink: '/predgovor/',
+      },
+    ]}
+  />
+
+  <!-- Kako koristiti sekcija -->
+  <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 section-title tracking-tight font-heading">Kako koristiti?</h2>
+      
+      <div class="grid gap-8">
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
+            <div>
+              <p class="text-lg text-gray-700">Kreni od <a href="/sadrzaj/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">Sadržaja</a> (pregled svih poglavlja).</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
+            <div>
+              <p class="text-lg text-gray-700">Otvori <a href="/predgovor/#pregled-poglavlja" class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors duration-300">Pregled poglavlja</a> i izaberi temu.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-violet-50 to-purple-50 border border-violet-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
+            <div>
+              <p class="text-lg text-gray-700">Slijedi protokol → odradi vježbu → usporedi rezultat sa slikama.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-fuchsia-50 to-purple-50 border border-fuchsia-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-fuchsia-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
+            <div>
+              <p class="text-lg text-gray-700">Bilježi opažanja i ponovi ključne korake.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 recommendation-box">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-400 text-white rounded-full flex items-center justify-center text-2xl">💡</div>
+          <div>
+            <h3 class="text-xl font-semibold text-yellow-800 mb-3">Preporuka</h3>
+            <p class="text-yellow-700 text-lg leading-relaxed">Najbolje rezultate daje kombinacija čitanja i izvođenja vježbi u laboratoriju.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="py-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white relative overflow-hidden">
+    <!-- Pozadinski uzorak -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
+    </div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight font-heading">
+        Započni učenje?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed font-body">
+        Započnite svoj put u bakteriologiji danas. Naš tim stručnjaka spreman je pomoći vam na svakom koraku.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/sadrzaj/"
+          class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-700 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+        >
+          Pregledaj sadržaj
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        <a
+          href="/kontakt/"
+          class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-700 transition-all duration-300"
+        >
+          Kontaktirajte nas
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll Animacije JavaScript -->
+  <script>
+    // Intersection Observer za scroll animacije
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Dodaj animacije na elemente
+    document.addEventListener('DOMContentLoaded', () => {
+      // Hero sekcija
+      const heroText = document.querySelector('.hero-text');
+      const heroImage = document.querySelector('.hero-image');
+      if (heroText) heroText.classList.add('scroll-fade-left');
+      if (heroImage) heroImage.classList.add('scroll-fade-right');
+      
+      // Brzi start kartice
+      const quickStartCards = document.querySelectorAll('.quick-start-card');
+      quickStartCards.forEach(card => {
+        card.classList.add('scroll-stagger');
+        observer.observe(card);
+      });
+
+      // Features kartice
+      const featureCards = document.querySelectorAll('.feature-card');
+      featureCards.forEach(card => {
+        card.classList.add('scroll-stagger');
+        observer.observe(card);
+      });
+
+      // Kako koristiti koraci
+      const howToSteps = document.querySelectorAll('.how-to-step');
+      howToSteps.forEach(step => {
+        step.classList.add('scroll-stagger');
+        observer.observe(step);
+      });
+
+      // Blurbovi
+      const blurbs = document.querySelectorAll('.blurb-item');
+      blurbs.forEach(blurb => {
+        blurb.classList.add('scroll-fade-in');
+        observer.observe(blurb);
+      });
+
+      // Naslovi sekcija
+      const sectionTitles = document.querySelectorAll('.section-title');
+      sectionTitles.forEach(title => {
+        title.classList.add('scroll-fade-in');
+        observer.observe(title);
+      });
+
+      // Preporuka box
+      const recommendationBox = document.querySelector('.recommendation-box');
+      if (recommendationBox) {
+        recommendationBox.classList.add('scroll-scale-in');
+        observer.observe(recommendationBox);
+      }
+    });
+  </script>
+</BaseLayout>

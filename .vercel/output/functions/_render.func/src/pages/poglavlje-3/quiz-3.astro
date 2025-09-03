@@ -1,0 +1,271 @@
+---
+import ChapterLayout from '../../components/ChapterLayout.astro';
+---
+
+<ChapterLayout
+  title="Quiz - Poglavlje 3: Metode bojenja bakterija"
+  description="Testirajte svoje znanje iz poglavlja o metodama bojenja bakterija"
+  breadcrumbs={[
+    { name: 'Početna', url: '/' },
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 3', url: '/poglavlje-3/' },
+    { name: 'Quiz 3', url: '/poglavlje-3/quiz-3/' }
+  ]}
+  prevUrl="/poglavlje-3/"
+  nextUrl="/poglavlje-4/"
+  prevText="povratak na poglavlje 3"
+  nextText="poglavlje 4"
+>
+  <div class="max-w-4xl mx-auto">
+    <!-- Quiz Header -->
+    <div class="text-center mb-12">
+      <div class="w-24 h-24 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Quiz - Poglavlje 3</h1>
+      <h2 class="text-2xl font-semibold text-green-700 mb-6">Metode bojenja bakterija</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Testirajte svoje znanje iz poglavlja o metodama bojenja bakterija. 
+        Odgovorite na 5 pitanja i provjerite koliko znate!
+      </p>
+    </div>
+
+    <!-- Quiz Instructions -->
+    <div class="bg-green-50 rounded-xl p-6 mb-8 border border-green-200">
+      <h3 class="text-xl font-bold text-green-900 mb-3">Upute za quiz</h3>
+      <ul class="text-green-800 space-y-2">
+        <li>Odgovorite na sva 5 pitanja</li>
+        <li>Svako pitanje ima 4 moguća odgovora (a, b, c, d)</li>
+        <li>Možete promijeniti odgovor prije slanja</li>
+        <li>Nakon slanja vidjet ćete svoj rezultat i postotak uspjeha</li>
+        <li>Možete pokušati ponovno ako niste zadovoljni rezultatom</li>
+      </ul>
+    </div>
+
+    <!-- Quiz Form -->
+    <form id="quizForm" class="space-y-8">
+      <!-- Question 1 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">1. Koja je osnovna svrha bojenja bakterija u mikrobiologiji?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="a" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">a) Uništavanje bakterija</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="b" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">b) Poboljšanje vidljivosti i identifikacije</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="c" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">c) Ubrzavanje rasta bakterija</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q1" value="d" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">d) Sterilizacija uzorka</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">2. Koja boja se koristi za jednostavno bojenje?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="a" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">a) Samo jedna boja</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="b" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">b) Dvije ili više boja</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="c" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">c) Bez boje</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q2" value="d" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">d) Samo fluorescentne boje</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">3. Što je Gram bojenje?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="a" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">a) Jednostavno bojenje</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="b" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">b) Diferencijalno bojenje</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="c" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">c) Negativno bojenje</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q3" value="d" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">d) Vitalno bojenje</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">4. Koja boja se koristi za bojenje endospora?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="a" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">a) Safranin</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="b" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">b) Malahit zeleno</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="c" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">c) Kristal vijolet</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q4" value="d" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">d) Metilen plavo</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">5. Što je negativno bojenje?</h3>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="a" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">a) Bojenje bakterija tamnim bojama</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="b" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">b) Bojenje pozadine, bakterije ostaju neobojene</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="c" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">c) Bojenje samo gram-negativnih bakterija</span>
+          </label>
+          <label class="flex items-center space-x-3 cursor-pointer">
+            <input type="radio" name="q5" value="d" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+            <span class="text-gray-700">d) Bojenje bez korištenja boja</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+          Pošalji odgovore
+        </button>
+      </div>
+    </form>
+
+    <!-- Quiz Results (Hidden by default) -->
+    <div id="quizResults" class="hidden mt-12">
+      <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-2 border-green-200 shadow-lg">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          
+          <div id="resultMessage" class="text-xl text-green-700 mb-8 font-semibold leading-relaxed"></div>
+          
+          <div class="bg-white rounded-xl p-6 mb-6 inline-block">
+            <p class="text-green-800 text-lg font-semibold">
+              Rezultat: <span id="correctAnswers" class="text-2xl font-bold text-green-600"></span> od <span id="totalQuestions" class="text-2xl font-bold text-green-600"></span> točnih odgovora
+            </p>
+            <p class="text-green-700 text-lg mt-2">
+              Postotak uspjeha: <span id="percentage" class="text-2xl font-bold text-green-600"></span>%
+            </p>
+          </div>
+          
+          <button onclick="resetQuizGlobal()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Pokušaj ponovno
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ChapterLayout>
+
+<script>
+  // Quiz functionality
+  const correctAnswers = {
+    q1: 'b', // Poboljšanje vidljivosti i identifikacije
+    q2: 'a', // Samo jedna boja
+    q3: 'b', // Diferencijalno bojenje
+    q4: 'b', // Malahit zeleno
+    q5: 'b'  // Bojenje pozadine, bakterije ostaju neobojene
+  };
+
+  const totalQuestions = Object.keys(correctAnswers).length;
+
+  document.getElementById('quizForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let correctCount = 0;
+
+    // Check each answer
+    Object.keys(correctAnswers).forEach(question => {
+      const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+      if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+        correctCount++;
+      }
+    });
+
+    // Calculate percentage
+    const percentage = Math.round((correctCount / totalQuestions) * 100);
+
+    // Update results
+    document.getElementById('correctAnswers').textContent = correctCount;
+    document.getElementById('totalQuestions').textContent = totalQuestions;
+    document.getElementById('percentage').textContent = percentage;
+
+    // Set result message
+    const resultMessage = document.getElementById('resultMessage');
+    if (percentage === 100) {
+      resultMessage.innerHTML = '🎉 <strong>Odlično!</strong><br><span class="text-lg">Odgovorili ste na sva pitanja bez greške!<br>Vaše znanje iz ovog poglavlja je <em>izvrsno</em> i možete nastaviti s učenjem sljedećeg poglavlja.</span>';
+      resultMessage.className = 'text-xl text-green-700 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 80) {
+      resultMessage.innerHTML = '👏 <strong>Izvrsno!</strong><br><span class="text-lg">Imate <em>odlično</em> znanje iz ovog poglavlja!<br>Samo malo više pažnje i bit ćete savršeni. Nastavite s učenjem!</span>';
+      resultMessage.className = 'text-xl text-green-600 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 60) {
+      resultMessage.innerHTML = '👍 <strong>Dobro!</strong><br><span class="text-lg">Imate <em>solidno</em> znanje iz ovog poglavlja.<br>Preporučujemo da ponovno pročitate gradivo za još bolje razumijevanje.</span>';
+      resultMessage.className = 'text-xl text-blue-700 mb-8 font-semibold leading-relaxed';
+    } else if (percentage >= 40) {
+      resultMessage.innerHTML = '⚠️ <strong>Prosjecno</strong><br><span class="text-lg">Potrebno je <em>više učenja</em>.<br>Vratite se na gradivo, pročitajte ponovno i pokušajte quiz ponovno.</span>';
+      resultMessage.className = 'text-xl text-yellow-700 mb-8 font-semibold leading-relaxed';
+    } else {
+      resultMessage.innerHTML = '📚 <strong>Potrebno više učenja</strong><br><span class="text-lg">Preporučujemo da <em>detaljno pročitate</em> sve dijelove poglavlja.<br>Učenje je proces - ne odustajte, vratite se na gradivo!</span>';
+      resultMessage.className = 'text-xl text-red-700 mb-8 font-semibold leading-relaxed';
+    }
+
+    // Show results
+    document.getElementById('quizResults').classList.remove('hidden');
+
+    // Scroll to results
+    document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  function resetQuiz() {
+    // Reset form
+    document.getElementById('quizForm').reset();
+
+    // Hide results
+    document.getElementById('quizResults').classList.add('hidden');
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>

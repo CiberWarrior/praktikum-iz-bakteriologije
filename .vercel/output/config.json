@@ -1,0 +1,1193 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "^/poglavlje/poglavlje-1$",
+			"headers": {
+				"Location": "/poglavlje-1/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje/poglavlje-2$",
+			"headers": {
+				"Location": "/poglavlje-2/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje/poglavlje-3$",
+			"headers": {
+				"Location": "/poglavlje-3/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje/poglavlje-4$",
+			"headers": {
+				"Location": "/poglavlje-4/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje/poglavlje-5$",
+			"headers": {
+				"Location": "/poglavlje-5/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-1$",
+			"headers": {
+				"Location": "/poglavlje-1/vjezba-1/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-2$",
+			"headers": {
+				"Location": "/poglavlje-1/vjezba-2/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-3$",
+			"headers": {
+				"Location": "/poglavlje-1/vjezba-3/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-4$",
+			"headers": {
+				"Location": "/poglavlje-1/vjezba-4/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-5$",
+			"headers": {
+				"Location": "/poglavlje-1/vjezba-5/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-10/vjezbe-10$",
+			"headers": {
+				"Location": "/poglavlje-10/vjezba-10/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-11/vjezbe-11$",
+			"headers": {
+				"Location": "/poglavlje-11/vjezba-11/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-12/vjezbe-12$",
+			"headers": {
+				"Location": "/poglavlje-12/vjezba-12/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-13/vjezbe-13$",
+			"headers": {
+				"Location": "/poglavlje-13/vjezba-13/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-14/vjezbe-14$",
+			"headers": {
+				"Location": "/poglavlje-14/vjezba-14/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-15/vjezbe-15$",
+			"headers": {
+				"Location": "/poglavlje-15/vjezba-15/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-16/vjezbe-16$",
+			"headers": {
+				"Location": "/poglavlje-16/vjezba-16/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-18/vjezbe-18$",
+			"headers": {
+				"Location": "/poglavlje-18/vjezba-18/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-19/vjezbe-19$",
+			"headers": {
+				"Location": "/poglavlje-19/vjezba-19/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-2/vjezbe-2$",
+			"headers": {
+				"Location": "/poglavlje-2/vjezba-2/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-21/vjezbe-21$",
+			"headers": {
+				"Location": "/poglavlje-21/vjezba-21/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-22/vjezbe-22$",
+			"headers": {
+				"Location": "/poglavlje-22/vjezba-22/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-23/vjezbe-23$",
+			"headers": {
+				"Location": "/poglavlje-23/vjezba-23/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-3/vjezbe-3$",
+			"headers": {
+				"Location": "/poglavlje-3/vjezba-3/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-4/vjezbe-4$",
+			"headers": {
+				"Location": "/poglavlje-4/vjezba-4/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-5/vjezbe-5$",
+			"headers": {
+				"Location": "/poglavlje-5/vjezba-5/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-6/vjezbe-6$",
+			"headers": {
+				"Location": "/poglavlje-6/vjezba-6/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-7/vjezbe-7$",
+			"headers": {
+				"Location": "/poglavlje-7/vjezba-7/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-8/vjezbe-8$",
+			"headers": {
+				"Location": "/poglavlje-8/vjezba-8/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/poglavlje-9/vjezbe-9$",
+			"headers": {
+				"Location": "/poglavlje-9/vjezba-9/"
+			},
+			"status": 301
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/kontakt/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/o-nama/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje/poglavlje-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje/poglavlje-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje/poglavlje-3/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje/poglavlje-4/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje/poglavlje-5/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/bakterioloske-tehnike/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/dezinfekcija-i-antisepsa/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/ekstrakti/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/hranjivi-mediji/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/laboratorijski-pribor/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/opce-tehnike-rada/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/osnovni-pojmovi/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/pravila-ponasanja/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/preuzimanje-radnog-mjesta/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/prva-pomoc/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/quiz-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/uredaji-u-laboratoriju/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezba-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezba-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezba-3/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezba-4/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezba-5/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-3/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-4/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/vjezbe-5/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/zbrinjavanje-materijala/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-10/quiz-10/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-10/termofilne-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-10/vjezba-10/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-10/vjezbe-10/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-10/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-10/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-11/aerobne-sporogene-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-11/quiz-11/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-11/vjezba-11/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-11/vjezbe/vjezba-11-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-11/vjezbe-11/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-11/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-11/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-12/anaerobne-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-12/quiz-12/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-12/vjezba-12/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-12/vjezbe-12/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-12/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-12/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-13/antibiogram/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-13/aromatogram/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-13/quiz-13/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-13/vjezba-13/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-13/vjezbe-13/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-13/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-13/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-14/quiz-14/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-14/test-toksicnosti/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-14/vjezba-14/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-14/vjezbe-14/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-14/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-14/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-15/hil-test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-15/quiz-15/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-15/test-s-metilenskim-modrilom/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-15/ttc-test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-15/vjezba-15/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-15/vjezbe-15/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-15/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-15/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-16/bakterije-mlijecne-fermentacije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-16/quiz-16/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-16/vjezba-16/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-16/vjezbe-16/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-16/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-16/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-17/amiloliticke-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-17/biogeokemijski-ciklus-ugljika/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-17/oligokarbofilne-i-polikarbofilne-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-17/quiz-17/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-17/vjezba-17-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-17/vjezba-17-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-17/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-17/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/amonifikatori/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/biogeokemijski-ciklus-dusika/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/denitrifikatori/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/nesimbiotski-fiksatori-dusika/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/nitrifikatori/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/proteoliticke-zelatinolitiske-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/quiz-18/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/razgradnja-ureje/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/vjezba-18/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/vjezbe-18/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-18/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-19/biogeokemijski-ciklus-sumpora/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-19/proizvodaci-sumporovodika-iz-proteina/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-19/quiz-19/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-19/sulfat-i-tiosulfat-reducirajuce-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-19/sulfit-reducirajuce-klostridije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-19/vjezba-19/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-19/vjezbe-19/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-19/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-19/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/autoklaviranje/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/fizicka-sterilizacija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/flambiranje/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/frakciona-sterilizacija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/hladna-sterilizacija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/kemijska-sterilizacija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/kuhanje/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/opaljivanje/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/pasterizacija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/quiz-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/spaljivanje/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/sterilizacija-ultrazvukom/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/sterilizacija-zracenjem/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/suha-sterilizacija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/vjezba-2-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/vjezba-2-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/vjezba-2-3/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/vjezba-2-4/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/vjezba-2-5/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/vjezbe-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/zarenje/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-20/biogeokemijski-ciklus-fosfora/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-20/fosfat-akumulirajuce-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-20/fosfomobilizatori/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-20/quiz-20/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-20/vjezba-20/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-20/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-20/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-21/metoda-otiska/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-21/quiz-21/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-21/vjezba-21-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-21/vjezba-21-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-21/vjezbe-21/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-21/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-21/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-22/antibiotska-svojstva-streptomiceta/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-22/quiz-22/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-22/razgradnja-celuloze/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-22/streptomiceti/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-22/vjezba-22/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-22/vjezbe-22/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-22/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-22/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-23/purpurne-sumporne-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-23/quiz-23/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-23/vjezba-23/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-23/vjezbe-23/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-23/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-23/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/bojenje-acidorezistentnih-bakterija-po-ziehl-neelsenu/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/bojenje-bakterijskih-endospora-po-schaffer-fultonu/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/jednostavna-bojenja/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/metode-bojenja-bakterija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/negativna-bojenja/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/osnovne-otopine-boja/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/quiz-3/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/slozena-bojanja/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/test-s-kalijevom-luzinom/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/vjezba-3-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/vjezba-3-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/vjezba-3-3/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/vjezba-3-4/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/vjezba-3-5/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/vjezba-3-6/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/vjezba-3-7/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/vjezba-3-8/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/vjezbe-3/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-3/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-4/pokretljivost-bakterija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-4/quiz-4/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-4/vjezba-4/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-4/vjezbe-4/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-4/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-4/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/biokemijska-svojstva-bakterija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/katalaza-test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/metilno-crvenilo-i-voges-proskauerov-test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/oksidaza-test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/quiz-5/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/razgradnja-ugljikohidrata/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/razgradnja-ureje/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/redukcija-nitrata-do-nitrita/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/stvaranje-amonijaka/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/stvaranje-indola/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/stvaranje-sumporovodika/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/test-na-kliglerovu-dvostrukom-seceru/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/uporaba-citrata/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/vjezba-5-1/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/vjezba-5-2/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/vjezbe-5/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-5/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-6/broj-kolonija-bakterija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-6/quiz-6/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-6/titar-bakterija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-6/vjezba-6/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-6/vjezbe-6/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-6/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-7/odredivanje-broja-bakterija-u-suspenziji-direktnim-metodama/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-7/quiz-7/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-7/vjezba-7/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-7/vjezbe-7/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-7/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-7/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-8/fekalni-streptokoki/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-8/koliformne-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-8/quiz-8/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-8/vjezba-8/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-8/vjezbe-8/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-8/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-8/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/izracunavanje-najvjerojatnijeg-broja-ukupnih-i-fekalnih-koliformnih-bakterija/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/koliformne-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/potvrdni-test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/prethodni-test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/quiz-9/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/saprofitske-bakterije/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/vjezba-9/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/vjezbe-9/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/zavrsni-test/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/poglavlje-9/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/predgovor/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/pretraga/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/provjeri-znanje/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/rječnik/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/sadrzaj/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/video-tutorijali/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
+			"dest": "_render"
+		}
+	]
+}

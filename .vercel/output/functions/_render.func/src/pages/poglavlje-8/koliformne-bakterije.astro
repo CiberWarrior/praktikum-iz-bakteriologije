@@ -1,0 +1,521 @@
+---
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Koliformne bakterije',
+  description = 'Koliformne bakterije kao indikatori sanitarnog stanja'
+} = Astro.props;
+---
+
+<SubPageLayoutWithBase chapterNumber={8} 
+  title={title} 
+  description={description}
+  chapterNumber={8}
+  primaryColor="orange"
+  breadcrumbPath={[
+    { name: 'Poglavlje 8', url: '/poglavlje-8/' },
+    { name: 'Koliformne bakterije', url: '/poglavlje-8/koliformne-bakterije/' }
+  ]}
+>
+
+  <!-- Main Content with Sidebar -->
+  <div class="flex max-w-7xl mx-auto">
+    
+    <!-- Table of Contents Sidebar -->
+    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
+      <div class="mb-6">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-orange-50 w-full">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Table of Contents -->
+        <nav class="space-y-1">
+          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#uvod" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="uvod">
+            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3 transition-all duration-300"></span>
+            Koliformne bakterije
+          </a>
+          <a href="#znaaj-kao-indikatora" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="znaaj-kao-indikatora">
+            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
+            Značaj kao indikatora
+          </a>
+          <a href="#endo-agar" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="endo-agar">
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+            Endo agar
+          </a>
+          <a href="#ec-x-gluc-agar" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="ec-x-gluc-agar">
+            <span class="w-2 h-2 bg-yellow-400 rounded-full mr-3 transition-all duration-300"></span>
+            EC X-GLUC agar
+          </a>
+          <a href="#ec-bujon" class="toc-link group flex items-center text-sm text-gray-600 hover:text-orange-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-orange-50" data-target="ec-bujon">
+            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
+            EC-bujon
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 px-6 py-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="prose prose-lg max-w-none">
+          
+          <!-- Content Blocks -->
+          <div class="space-y-8">
+            
+            <!-- Uvod -->
+            <div id="uvod" class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6 shadow-lg border border-indigo-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🔬</span>
+                <h3 class="text-2xl font-bold text-indigo-900">Koliformne bakterije</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                  Koliformne bakterije fakultativno su anaerobne, Gram-negativne, štapićaste, nesporogene bakterije koje fermentiraju laktozu stvarajući kiselinu i plin. <strong>Ukupne koliformne bakterije</strong> razgrađuju laktozu na <strong>35±0,5°C/48 h</strong>, a <strong>fekalne koliformne bakterije</strong> na <strong>44,5±0,2°C/24 h</strong>.
+                </p>
+                <p class="mb-4">
+                  Koliformne bakterije primarno su nepatogene bakterije, koje normalno obitavaju u donjem zdravom intestinalnom traktu (debelom crijevu) čovjeka i toplokrvnih životinja. Štite crijevo od infekcija te osiguravaju sintezu skupine vitamina B. Milijarde koliformnih bakterija izlučuju se fekalijama te dospijevaju komunalnim otpadnim vodama u prirodne vode, a relativno brzo i lako dokazuju se u laboratoriju.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Značaj kao indikatora -->
+            <div id="znaaj-kao-indikatora" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">📖</span>
+                <h3 class="text-2xl font-bold text-blue-900">Značaj kao indikatora</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                  Ako fekalije potječu iz oboljelog čovjeka ili životinje, u njima će biti prisutne i <strong>patogene bakterije</strong>, koje uzrokuju crijevne infekcije i teška oboljenja poznata kao <strong>hidričke infekcije</strong> (prenose se vodom). Od patogenih bakterija mogu biti prisutni uzročnici:
+                </p>
+                <ul class="list-disc list-inside mb-4 space-y-2 text-gray-700">
+                  <li><strong>kolere</strong> (<em>Vibrio cholerae</em>)</li>
+                  <li><strong>tifusa</strong> (<em>Salmonella typhi</em>)</li>
+                  <li><strong>salmoneloza</strong> (<em>Salmonella</em> sp.)</li>
+                  <li><strong>dizenterije</strong> (<em>Shigella dysenteriae</em>)</li>
+                  <li><strong>gastroenteritisa</strong> (<em>Campylobacter jejuni</em>) i dr.</li>
+                </ul>
+                <p class="mb-4">
+                  Mnoge patogene bakterije prisutne su u okolišu u niskim brojčanim vrijednostima te je njihova detekcija teška. Stoga se u sanitarnoj analizi vode od <strong>1912. g.</strong> koriste kao <strong>indikatori fekalnog zagađenja</strong> i moguće prisutnosti patogenih crijevnih bakterija upravo koliformne bakterije. Uključuju vrstu <em>Escherichia coli</em> i srodne vrste koje normalno obitavaju u debelom crijevu kao što su vrste rodova <em>Citrobacter</em>, <em>Enterobacter</em> i <em>Klebsiella</em>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Endo agar -->
+            <div id="endo-agar" class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 shadow-lg border border-green-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🧫</span>
+                <h3 class="text-2xl font-bold text-green-900">Endo agar</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                  Koliformne se bakterije lako dokazuju uzgojem na krutim ili tekućim selektivnim podlogama. <strong>Endo agar</strong> je selektivna i diferencijalna podloga za uzgoj koliformnih bakterija. Na-sulfit i bazični (dijamant) fuksin u podlozi inhibiraju rast Gram-pozitivnih bakterija. Bakterije koje intenzivno fermentiraju laktozu kao međuprodukt stvaraju acetaldehid koji se fiksira pomoću Na-sulfita, a reakcija s bazičnim fuksinom daje <strong>metalni sjaj</strong> zbog reduciranog fuksina. Stoga na Endo agaru kolonije <em>Escherichia coli</em> budu <strong>zlatnog metalnog sjaja</strong>, a kolonije drugih koliformnih bakterija različite nijanse <strong>roza boje</strong> (slika 48).
+                </p>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 mb-4">
+                  <div class="flex items-center mb-4">
+                    <span class="text-2xl mr-3">🧪</span>
+                    <h4 class="text-lg font-semibold text-blue-900">Sastav Endo agara</h4>
+                  </div>
+                  <div class="bg-white rounded-lg p-4 border border-blue-200">
+                    <div class="space-y-3">
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Tripton</span>
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">10,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Laktoza</span>
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">10,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">KH<sub>2</sub>PO<sub>4</sub></span>
+                        <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">3,5 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Na<sub>2</sub>SO<sub>3</sub></span>
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2,5 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Bazični fuksin</span>
+                        <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">0,4 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Agar</span>
+                        <span class="bg-brown-500 text-white px-3 py-1 rounded-full text-sm font-semibold">15,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Destilirana voda</span>
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">1000 mL</span>
+                      </div>
+                      <div class="pt-3 border-t border-gray-200">
+                        <span class="font-semibold text-gray-800">pH = 7,5 ± 0,2</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/Images/slika48.jpg" alt="Kolonije Escherichia coli zlatnog metalnog sjaja i roza kolonije ostalih koliformnih bakterija porasle na Endo agaru" class="w-3/5 h-auto rounded-lg mx-auto" />
+                  <figcaption class="mt-4 text-center">
+                    <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Slika 48</span>
+                    <span class="block mt-2 text-gray-700">Kolonije <em>Escherichia coli</em> zlatnog metalnog sjaja i roza kolonije ostalih koliformnih bakterija porasle na Endo agaru</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+
+
+            <!-- EC X-GLUC agar -->
+            <div id="ec-x-gluc-agar" class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 shadow-lg border border-yellow-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🔬</span>
+                <h3 class="text-2xl font-bold text-yellow-900">EC X-GLUC agar</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                  <strong>EC X-GLUC agar</strong> visoko je selektivna i diferencijalna kromogena podloga za uzgoj koliformnih bakterija. Rast Gram-pozitivnih bakterija inhibiran je žučnim solima u sastavu podloge. Podloga sadrži <strong>X-GLUC</strong> (5-bromo-4-kloro-3-indolil β-D-glukuronid) za dokazivanje prisutnosti enzima <strong>β-glukuronidaze</strong>. Od koliformnih bakterija samo <em>Escherichia coli</em> (i neki sojevi <em>Salmonella</em> i <em>Shigella</em>) posjeduju β-glukuronidazu, te mogu razgraditi X-GLUC do <strong>plavo obojenih produkata</strong>. Stoga porasle kolonije <em>E. coli</em> budu <strong>plave boje</strong>, a kolonije drugih koliformnih bakterija (<em>Citrobacter</em>, <em>Enterobacter</em>, <em>Klebsiella</em>, <em>Proteus</em>) <strong>bijele do žućkaste boje</strong> (slika 49).
+                </p>
+                
+                <p class="mb-4">
+                  Zbog prisutnosti triptofana u podlozi direktno se mogu dokazati <strong>indol-pozitivne kolonije</strong> razvijene na ploči. Dodatkom nekoliko kapi Kovazcseva reagensa za dokazivanje indola na bakterijske kolonije, oko indol-pozitivnih kolonija <em>E. coli</em> stvori se <strong>tamnocrveni prsten</strong>, što ih razlikuje od eventualno poraslih plavih kolonija iz roda <em>Salmonella</em> i <em>Shigella</em>.
+                </p>
+                
+                <p class="mb-4">
+                  Navedene metode za dokazivanje koliformnih bakterija izvodive su i pomoću <strong>tehnike membranske filtracije</strong>.
+                </p>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 mb-4">
+                  <div class="flex items-center mb-4">
+                    <span class="text-2xl mr-3">🧪</span>
+                    <h4 class="text-lg font-semibold text-blue-900">Sastav EC X-GLUC agara</h4>
+                  </div>
+                  <div class="bg-white rounded-lg p-4 border border-blue-200">
+                    <div class="space-y-3">
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Tripton</span>
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">20,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Ekstrakt kvasca</span>
+                        <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">5,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">NaCl</span>
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">5,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Na₂HPO₄</span>
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">5,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">KH₂PO₄</span>
+                        <span class="bg-gray-600 text-white px-3 py-1 rounded-full text-sm font-semibold">1,5 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Triptofan</span>
+                        <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">1,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">X-GLUC</span>
+                        <span class="bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-semibold">0,06 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Žučne soli</span>
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">1,5 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Agar</span>
+                        <span class="bg-brown-500 text-white px-3 py-1 rounded-full text-sm font-semibold">12,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Destilirana voda</span>
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">1000 mL</span>
+                      </div>
+                      <div class="pt-3 border-t border-gray-200">
+                        <span class="font-semibold text-gray-800">pH = 7,0 ± 0,2</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
+                  <img src="/Images/slika49.jpg" alt="Plavo obojene kolonije Escherichia coli i žućkasto obojene kolonije drugih koliformnih bakterija na EC X-GLUC agaru" class="w-3/5 h-auto rounded-lg mx-auto" />
+                  <figcaption class="mt-4 text-center">
+                    <span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Slika 49</span>
+                    <span class="block mt-2 text-gray-700">Plavo obojene kolonije <em>Escherichia coli</em> i žućkasto obojene kolonije drugih koliformnih bakterija na EC X-GLUC agaru</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <!-- EC-bujon -->
+            <div id="ec-bujon" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 shadow-lg border border-purple-200">
+              <div class="flex items-center mb-4">
+                <span class="text-3xl mr-4">🧪</span>
+                <h3 class="text-2xl font-bold text-purple-900">EC-bujon</h3>
+              </div>
+              <div class="text-gray-700 leading-relaxed">
+                <p class="mb-4">
+                  <strong>EC-bujon</strong> visoko je selektivna tekuća podloga za izolaciju koliforma iz vode, otpadne vode, mlijeka i druge hrane. Sadrži laktozu, a rast Gram-pozitivnih bakterija inhibiran je žučnim solima.
+                </p>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 mb-4">
+                  <div class="flex items-center mb-4">
+                    <span class="text-2xl mr-3">🧪</span>
+                    <h4 class="text-lg font-semibold text-blue-900">Sastav EC bujona</h4>
+                  </div>
+                  <div class="bg-white rounded-lg p-4 border border-blue-200">
+                    <div class="space-y-3">
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Tripton</span>
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">20,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Laktoza</span>
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">5,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">K<sub>2</sub>HPO<sub>4</sub></span>
+                        <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">5,5 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">NaCl</span>
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">5,0 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Žučne soli</span>
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">1,5 g</span>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-700">Destilirana voda</span>
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">1000 mL</span>
+                      </div>
+                      <div class="pt-3 border-t border-gray-200">
+                        <span class="font-semibold text-gray-800">pH = 6,9 ± 0,2</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+  <!-- Mobile TOC Toggle -->
+  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-orange-600 text-white p-3 rounded-full shadow-lg z-50">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+    </svg>
+  </button>
+
+  <!-- Mobile TOC Overlay -->
+  <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
+    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
+          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Bookmark Button -->
+        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 mb-4 w-full">
+          <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+          </svg>
+          <span id="mobile-bookmark-text">Označiti kao bookmark</span>
+        </button>
+        
+        <!-- Navigation Links -->
+        <nav class="space-y-2">
+          <a href="/poglavlje-8/" class="mobile-toc-link block text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-orange-600 pl-3">
+            Pregled poglavlja
+          </a>
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-orange-600 pl-3">
+            Svi sadržaji
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigacijski gumbovi -->
+  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
+    <!-- Prethodna stranica -->
+    <a
+      href="/poglavlje-8/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na prethodnu stranicu: poglavlje 8"
+    >
+      ←
+      <span class="text-lg">poglavlje 8</span>
+    </a>
+    
+    <!-- Iduća stranica -->
+    <a
+      href="/poglavlje-8/vjezba-8/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-600 to-orange-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Prijeđi na sljedeću stranicu: vježba 8"
+    >
+      <span class="text-lg">vježba 8</span>
+      →
+    </a>
+  </div>
+
+  <!-- CSS Styles for Active State -->
+  <style>
+    .toc-link.active {
+      @apply text-orange-600 bg-orange-50 font-semibold;
+    }
+    
+    .toc-link.active span {
+      @apply w-3 h-3 scale-125;
+    }
+  </style>
+
+  <!-- JavaScript -->
+  <script>
+    // Bookmark functionality
+    function initBookmarks() {
+      const bookmarkKey = 'bookmark-koliformne-bakterije';
+      const bookmarkBtn = document.getElementById('bookmark-btn');
+      const bookmarkText = document.getElementById('bookmark-text');
+      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
+      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
+      
+      // Check if bookmarked
+      const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+      updateBookmarkUI(isBookmarked);
+      
+      function updateBookmarkUI(bookmarked: boolean) {
+        const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
+        
+        if (bookmarkText) bookmarkText.textContent = text;
+        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
+      }
+      
+      function toggleBookmark() {
+        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
+        const newBookmarkState = !currentlyBookmarked;
+        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
+        updateBookmarkUI(newBookmarkState);
+      }
+      
+      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
+      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
+    }
+
+    // Mobile TOC
+    function initMobileTOC() {
+      const toggleBtn = document.getElementById('mobile-toc-toggle');
+      const overlay = document.getElementById('mobile-toc-overlay');
+      const panel = document.getElementById('mobile-toc-panel');
+      const closeBtn = document.getElementById('mobile-toc-close');
+      const tocLinks = document.querySelectorAll('.mobile-toc-link');
+      
+      function openTOC() {
+        if (overlay && panel) {
+          overlay.classList.remove('hidden');
+          setTimeout(() => {
+            panel.classList.remove('translate-x-full');
+          }, 10);
+        }
+      }
+      
+      function closeTOC() {
+        if (panel && overlay) {
+          panel.classList.add('translate-x-full');
+          setTimeout(() => {
+            overlay.classList.add('hidden');
+          }, 300);
+        }
+      }
+      
+      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
+      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
+      if (overlay) {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) closeTOC();
+        });
+      }
+      
+      // Close TOC when clicking on a link
+      tocLinks.forEach(link => {
+        link.addEventListener('click', closeTOC);
+      });
+    }
+
+    // Scroll Spy for TOC
+    function initScrollSpy() {
+      const sections = document.querySelectorAll('[id]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+      
+      function updateActiveLink() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section.id;
+          }
+        });
+        
+        // Remove active class from all links
+        tocLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Add active class to current section link
+        if (currentSection) {
+          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      }
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', updateActiveLink);
+      
+      // Initial check
+      updateActiveLink();
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+      initBookmarks();
+      initMobileTOC();
+      initScrollSpy();
+    });
+  </script>
+
+</SubPageLayoutWithBase>
