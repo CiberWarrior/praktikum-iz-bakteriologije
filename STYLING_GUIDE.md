@@ -120,7 +120,7 @@ const chapterConfig = getChapterConfig(X); // X = broj poglavlja
 ```astro
 <div class="text-center mb-12">
   <img 
-    src="/images/slikaX.jpg" 
+    src="/Images/slikaX.jpg" 
     alt="Opis slike" 
     class="max-w-4xl w-full rounded-2xl shadow-2xl border-4 border-{color}-100"
     loading="lazy"
