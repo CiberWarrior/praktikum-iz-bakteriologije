@@ -4,13 +4,13 @@
   "framework": "astro",
   "rewrites": [
     {
-      "source": "/images/(.*)",
-      "destination": "/images/$1"
+      "source": "/Images/(.*)",
+      "destination": "/Images/$1"
     }
   ],
   "headers": [
     {
-      "source": "/images/(.*)",
+      "source": "/Images/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
