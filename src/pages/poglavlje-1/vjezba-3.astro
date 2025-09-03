@@ -1,5 +1,5 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 export interface Props {
   title?: string;
@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={1} chapterNumber={1} 
   title={title} 
   description={description}
   chapterNumber={1}
@@ -329,4 +329,4 @@ const {
     });
   </script>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

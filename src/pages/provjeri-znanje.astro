@@ -38,8 +38,8 @@ const {
             <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Predgovor
             </a>
-            <a href="/pojmovnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Pojmovnik
+            <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Rječnik
             </a>
             <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Provjeri znanje
@@ -82,8 +82,8 @@ const {
             <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Predgovor
             </a>
-            <a href="/pojmovnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Pojmovnik
+            <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Rječnik
             </a>
             <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Provjeri znanje
@@ -863,7 +863,7 @@ const {
                 </div>
                 <p id="resultMessage" class="text-lg text-gray-700 mb-6"></p>
                 <button
-                  onclick="resetQuiz()"
+                  onclick="resetQuizGlobal()"
                   class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
                 >
                   Pokušaj ponovno
@@ -1255,40 +1255,36 @@ const {
         if (achievementBadge) achievementBadge.classList.remove('hidden');
       }
 
-      function resetQuiz() {
+      function resetQuizGlobal() {
         // Reset form
         const form = document.getElementById('quizForm') as HTMLFormElement;
         if (form) form.reset();
-
-        // Hide all result sections
+        
+        // Hide results
         const quizResults = document.getElementById('quizResults');
-        const achievementBadge = document.getElementById('achievementBadge');
-        const detailedAnalytics = document.getElementById('detailedAnalytics');
-        
         if (quizResults) quizResults.classList.add('hidden');
-        if (achievementBadge) achievementBadge.classList.add('hidden');
-        if (detailedAnalytics) detailedAnalytics.classList.add('hidden');
-
-        // Reset progress
-        answeredQuestions = 0;
-        const progressBar = document.getElementById('progressBar');
-        const progressText = document.getElementById('progressText');
-        if (progressBar) progressBar.style.width = '0%';
-        if (progressText) progressText.textContent = '0 / 24 pitanja';
-
-        // Reset timer
-        timeLeft = 30 * 60;
-        startTime = Date.now();
-        updateTimerDisplay();
-        const timerElement = document.getElementById('timer');
-        if (timerElement) timerElement.classList.remove('text-red-600');
         
-        // Start timer again
-        startTimer();
-
+        // Reset all other elements
+        const achievementBadge = document.getElementById('achievementBadge');
+        if (achievementBadge) achievementBadge.classList.add('hidden');
+        
+        const detailedAnalytics = document.getElementById('detailedAnalytics');
+        if (detailedAnalytics) detailedAnalytics.classList.add('hidden');
+        
+        // Reset progress bar
+        const progressBar = document.getElementById('progressBar');
+        if (progressBar) progressBar.style.width = '0%';
+        
+        // Reset progress text
+        const progressText = document.getElementById('progressText');
+        if (progressText) progressText.textContent = '0/24';
+        
         // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+      
+      // Make function globally accessible
+      window.resetQuizGlobal = resetQuizGlobal;
 
       // Mobile menu functionality
       document.addEventListener('DOMContentLoaded', function() {

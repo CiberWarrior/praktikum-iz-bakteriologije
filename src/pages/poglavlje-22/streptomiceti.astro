@@ -1,5 +1,5 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 export interface Props {
   title?: string;
@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={22} 
   title={title} 
   description={description}
   chapterNumber={22}
@@ -51,7 +51,7 @@ const {
           <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
           <a href="#prijegled-streptomiceta" class="toc-link group flex items-center text-sm text-gray-600 hover:text-slate-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-slate-50" data-target="prijegled-streptomiceta">
             <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3 transition-all duration-300"></span>
-            Prijegled streptomiceta
+            Streptomiceti
           </a>
           <a href="#sastav-czapekovog-agara" class="toc-link group flex items-center text-sm text-gray-600 hover:text-slate-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-slate-50" data-target="sastav-czapekovog-agara">
             <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
@@ -222,22 +222,22 @@ const {
                     </figure>
                   </div>
                   
-                  <!-- Dodatne slike 91A i 91B -->
+                  <!-- Dodatne slike 91a i 91b -->
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                    <!-- Slika 91A -->
+                    <!-- Slika 91a -->
                     <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-                      <img src="/images/slika91A.jpg" alt="Zračne hife streptomiceta tipa spira" class="w-full h-auto rounded-lg" />
+                      <img src="/images/slika91a.jpg" alt="Zračne hife streptomiceta tipa spira" class="w-full h-auto rounded-lg" />
                       <figcaption class="mt-4 text-center">
-                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Slika 91A</span>
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Slika 91a</span>
                         <span class="block mt-2 text-gray-700 text-sm">Zračne hife streptomiceta tipa spira</span>
                       </figcaption>
                     </figure>
                     
-                    <!-- Slika 91B -->
+                    <!-- Slika 91b -->
                     <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-                      <img src="/images/slika91B.jpg" alt="Ravni sporofori streptomiceta" class="w-full h-auto rounded-lg" />
+                      <img src="/images/slika91b.jpg" alt="Ravni sporofori streptomiceta" class="w-full h-auto rounded-lg" />
                       <figcaption class="mt-4 text-center">
-                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Slika 91B</span>
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Slika 91b</span>
                         <span class="block mt-2 text-gray-700 text-sm">Ravni sporofori streptomiceta</span>
                       </figcaption>
                     </figure>
@@ -339,7 +339,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
         if (bookmarkText) bookmarkText.textContent = text;
@@ -441,4 +441,4 @@ const {
     });
   </script>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

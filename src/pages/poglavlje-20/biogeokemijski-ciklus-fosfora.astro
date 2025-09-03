@@ -1,11 +1,11 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 const title = 'Biogeokemijski ciklus fosfora';
 const description = 'Ciklus kruženja fosfora u prirodi i uloga mikroorganizama';
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={20} 
   title={title}
   description={description}
   chapterNumber={20}
@@ -331,4 +331,4 @@ const description = 'Ciklus kruženja fosfora u prirodi i uloga mikroorganizama'
     });
   </script>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

@@ -1,11 +1,11 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 const title = 'Fosfat-akumulirajuće bakterije';
 const description = 'Bakterije koje intracelularno akumuliraju fosfate u obliku polifosfatnih zrnaca';
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={20} 
   title={title}
   description={description}
   chapterNumber={20}
@@ -341,4 +341,4 @@ const description = 'Bakterije koje intracelularno akumuliraju fosfate u obliku 
     });
   </script>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

@@ -1,5 +1,5 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 export interface Props {
   title?: string;
@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={1} chapterNumber={1} 
   title={title} 
   description={description}
   chapterNumber={1}
@@ -84,24 +84,24 @@ const {
             <!-- Slike -->
             <div id="slike" class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 shadow-lg border border-orange-200">
               <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📸</span>
-                <h3 class="text-2xl font-bold text-orange-900">Slike</h3>
+                <span class="text-3xl mr-4">🧪</span>
+                <h3 class="text-2xl font-bold text-orange-900">Precjepljivanje bakterija</h3>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Slika 14A -->
+                <!-- Slika 14a -->
                 <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-                  <img src="/images/slika14A.jpg" alt="Slika 14A – Precjepljivanje na kosi agar" class="w-full h-auto rounded-lg" />
+                  <img src="/images/slika14a.jpg" alt="Slika 14a – Precjepljivanje bakterija s kosog na kosi agar" class="w-full h-auto rounded-lg" />
                   <figcaption class="mt-4 text-center">
-                    <span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">Slika 14A</span>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">Slika 14a</span>
                     <span class="block mt-2 text-gray-700">Precjepljivanje bakterijske kulture na sterilni kosi agar</span>
                   </figcaption>
                 </figure>
 
-                <!-- Slika 14B -->
+                <!-- Slika 14b -->
                 <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-                  <img src="/images/slika14B.jpg" alt="Slika 14B – Precjepljivanje na kosi agar" class="w-full h-auto rounded-lg" />
+                  <img src="/images/slika14b.jpg" alt="Slika 14b – Precjepljivanje na kosi agar" class="w-full h-auto rounded-lg" />
                   <figcaption class="mt-4 text-center">
-                    <span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">Slika 14B</span>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">Slika 14b</span>
                     <span class="block mt-2 text-gray-700">Precjepljivanje bakterijske kulture na sterilni kosi agar</span>
                   </figcaption>
                 </figure>
@@ -309,4 +309,4 @@ const {
     });
   </script>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

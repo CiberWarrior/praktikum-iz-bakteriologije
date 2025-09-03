@@ -1,5 +1,5 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 export interface Props {
   title?: string;
@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={3} 
   title={title} 
   description={description}
   chapterNumber={3}
@@ -151,30 +151,30 @@ const {
                 </div>
               </div>
 
-              <!-- Slike 21A i 21B -->
+              <!-- Slike 21a i 21b -->
               <div class="mt-8 grid md:grid-cols-2 gap-6">
                 <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
                   <img 
-                    src="/images/slika21A.jpg" 
-                    alt="Slika 21A – Gram-pozitivne bakterije" 
+                    src="/images/slika21a.jpg" 
+                    alt="Slika 21a – Gram-pozitivne bakterije" 
                     class="w-4/5 h-auto rounded-lg mx-auto"
                     loading="lazy"
                   />
                   <figcaption class="mt-4 text-center">
-                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 21a</span>
                     <span class="block mt-2 text-gray-700">Gram-pozitivne bakterije obojene plavo</span>
                   </figcaption>
                 </figure>
                 
                 <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
                   <img 
-                    src="/images/slika21B.jpg" 
-                    alt="Slika 21B – Gram-negativne bakterije" 
+                    src="/images/slika21b.jpg" 
+                    alt="Slika 21b – Gram-negativne bakterije" 
                     class="w-4/5 h-auto rounded-lg mx-auto"
                     loading="lazy"
                   />
                   <figcaption class="mt-4 text-center">
-                    <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Slika 21b</span>
                     <span class="block mt-2 text-gray-700">Gram-negativne bakterije obojene crveno</span>
                   </figcaption>
                 </figure>
@@ -365,4 +365,4 @@ const {
     </a>
   </div>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

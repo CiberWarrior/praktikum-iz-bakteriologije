@@ -1,5 +1,5 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 import { getEntryBySlug } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -51,7 +51,7 @@ const breadcrumbPath = (data as any).breadcrumbPath || [
 ];
 ---
 
-<SubPageLayout
+<SubPageLayoutWithBase chapterNumber={2} chapterNumber={2}
   title={(data as any).title || `Poglavlje 2 - ${slug}`}
   description={(data as any).description || ''}
   chapterNumber={chapterNumber}
@@ -68,7 +68,7 @@ const breadcrumbPath = (data as any).breadcrumbPath || [
       <Content />
     </div>
   </div>
-</SubPageLayout>
+</SubPageLayoutWithBase>
 
 <style>
   /* Dodatni stilovi za specifične elemente */

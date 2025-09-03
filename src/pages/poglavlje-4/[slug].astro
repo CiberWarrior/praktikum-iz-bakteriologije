@@ -1,5 +1,5 @@
 ---
-import EnhancedSubPageLayout from '../../components/EnhancedSubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 import { getEntryBySlug } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -95,7 +95,7 @@ const getNavigationLinks = (currentSlug: string) => {
 const { prev, next } = getNavigationLinks(slug);
 ---
 
-<EnhancedSubPageLayout
+<SubPageLayoutWithBase chapterNumber={4}
   title={(data as any).title || `Poglavlje 4 - ${slug}`}
   description={(data as any).description || ''}
   chapterNumber={chapterNumber}
@@ -118,4 +118,4 @@ const { prev, next } = getNavigationLinks(slug);
 
     </div>
   </section>
-</EnhancedSubPageLayout>
+</SubPageLayoutWithBase>

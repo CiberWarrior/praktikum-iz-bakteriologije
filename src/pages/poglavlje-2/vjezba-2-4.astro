@@ -1,5 +1,5 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 export interface Props {
   title?: string;
@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={2} chapterNumber={2} 
   title={title} 
   description={description}
   chapterNumber={2}
@@ -100,11 +100,11 @@ const {
                     </figcaption>
                   </figure>
 
-                  <!-- Slika 18B -->
+                  <!-- Slika 18b -->
                   <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-                    <img src="/images/slika18B.jpg" alt="Porasle plave kolonije Escherichia coli na membranskom filtru" class="w-3/5 h-auto rounded-lg mx-auto" />
+                    <img src="/images/slika18b.jpg" alt="Porasle plave kolonije Escherichia coli na membranskom filtru" class="w-3/5 h-auto rounded-lg mx-auto" />
                     <figcaption class="mt-4 text-center">
-                      <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Slika 18B</span>
+                      <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Slika 18b</span>
                       <span class="block mt-2 text-gray-700">Membranska filtracija - dodatna ilustracija</span>
                     </figcaption>
                   </figure>
@@ -144,7 +144,7 @@ const {
     </a>
   </div>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>
 
 <script>
   // Bookmark functionality

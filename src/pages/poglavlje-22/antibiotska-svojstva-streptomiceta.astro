@@ -1,5 +1,5 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 export interface Props {
   title?: string;
@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={22} 
   title={title} 
   description={description}
   chapterNumber={22}
@@ -76,20 +76,31 @@ const {
         <p class="text-gray-800 text-lg leading-relaxed mb-4">U metodi unakrsnog pruganja razmaže se čista kultura streptomiceta u jednom dijelu Petrijeve zdjelice s hranjivim agarom te inkubira 7 dana/26°C. Nakon inkubacije nanijeti okomito na razmaz streptomiceta paralelno sojeve testnih Gram-pozitivnih i Gram-negativnih bakterija te inkubirati još 24 h/35°C. Na osnovi dužine zone inhibicije u mm u kojoj testna bakterija ne raste prosuđuje se antibiotska aktivnost pojedinih sojeva streptomiceta (slika 93).</p>
         <p class="text-gray-800 text-lg leading-relaxed mb-4">U metodi polaganja diskova potrebno je pomoću male prethodno flambirane epruvete izrezati diskove sa strepromicetima na ploči s izoliranim čistim kulturama. Na Petrijeve ploče s hranjivim agarom bakteriološkom ušicom gusto namazati čiste kulture testnih bakterija. Na svaku ploču nacijepljenu jednom čistom kulturom bakterija ravnomjerno rasporediti sterilnom iglom diskove sa streptomicetima tako da je zračni micelij okrenut prema gore. Inkubirati ploče 24 h/35°C. Nakon inkubacije očitati zone inhibicije rasta (slika 94).</p>
         
-        <!-- Slike postavljene jedna pored druge -->
+        <!-- Slike 93a i 93b -->
         <div class="grid md:grid-cols-2 gap-6 mt-6">
-          <!-- Slika 93 -->
+          <!-- Slika 93a -->
           <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-            <img src="/images/slika93A.jpg" alt="Metoda unakrsnog pruganja" class="w-full h-auto rounded-lg" />
+            <img src="/images/slika93a.jpg" alt="Slika 93a – Metoda unakrsnog pruganja" class="w-full h-auto rounded-lg" />
             <figcaption class="mt-4 text-center">
-              <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 93</span>
+              <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 93a</span>
               <span class="block mt-2 text-gray-700">Metoda unakrsnog pruganja</span>
             </figcaption>
           </figure>
           
-          <!-- Slika 94 -->
+          <!-- Slika 93b -->
           <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-            <img src="/images/slika94.jpg" alt="Zone inhibicije rasta bakterije Micrococcus luteus oko diskova agara sa streptomicetima" class="w-full h-auto rounded-lg" />
+            <img src="/images/slika93b.jpg" alt="Slika 93b – Dodatna ilustracija metode unakrsnog pruganja" class="w-full h-auto rounded-lg" />
+            <figcaption class="mt-4 text-center">
+              <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 93b</span>
+              <span class="block mt-2 text-gray-700">Dodatna ilustracija metode unakrsnog pruganja</span>
+            </figcaption>
+          </figure>
+        </div>
+        
+        <!-- Slika 94 -->
+        <div class="mt-6">
+          <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
+            <img src="/images/slika94.jpg" alt="Zone inhibicije rasta bakterije Micrococcus luteus oko diskova agara sa streptomicetima" class="w-3/5 h-auto rounded-lg mx-auto" />
             <figcaption class="mt-4 text-center">
               <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 94</span>
               <span class="block mt-2 text-gray-700">Zone inhibicije rasta bakterije Micrococcus luteus oko diskova agara sa streptomicetima</span>
@@ -196,7 +207,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
         if (bookmarkText) bookmarkText.textContent = text;
@@ -298,4 +309,4 @@ const {
     });
   </script>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

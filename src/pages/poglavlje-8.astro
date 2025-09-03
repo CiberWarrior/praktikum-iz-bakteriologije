@@ -3,17 +3,25 @@ import ChapterLayout from '../components/ChapterLayout.astro';
 ---
 
 <ChapterLayout
-  title="Poglavlje 8: Indikatorske bakterije"
+  title="Indikatorske bakterije"
   description="Bakterije indikatori sanitarnog stanja sredine"
-  breadcrumbs={[
-    { name: 'Početna', url: '/' },
+  chapterNumber={8}
+  primaryColor="orange"
+  prevLink="/poglavlje-7/"
+  nextLink="/poglavlje-9/"
+  prevText="← Poglavlje 7"
+  nextText="Poglavlje 9 →"
+  ctaTitle="Nastavi na sljedeće poglavlje"
+  ctaDescription="Nastavite s učenjem."
+  ctaPrimaryText="Poglavlje 9"
+  ctaPrimaryLink="/poglavlje-9/"
+  ctaSecondaryText="Povratak na sadržaj"
+  ctaSecondaryLink="/sadrzaj/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
     { name: 'Sadržaj', url: '/sadrzaj/' },
     { name: 'Poglavlje 8', url: '/poglavlje-8/' }
   ]}
-  prevUrl="/poglavlje-7/"
-  nextUrl="/poglavlje-9/"
-  prevText="povratak na poglavlje 7"
-  nextText="poglavlje 9"
 >
   <!-- Uvod u poglavlje -->
   <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8 border border-orange-200 mb-8 hover:shadow-lg transition-all duration-300">

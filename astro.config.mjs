@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import icon from 'astro-icon';
 import accessibility from './src/integrations/accessibility.js';
 import tailwind from '@astrojs/tailwind';
 import path from 'path';

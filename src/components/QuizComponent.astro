@@ -170,4 +170,25 @@ const { chapterNumber, chapterTitle, questions } = Astro.props;
     // Scroll to top of quiz
     form.scrollIntoView({ behavior: 'smooth' });
   }
+
+  // Dodaj funkciju na window objekat
+  (window as any).resetQuiz = resetQuiz;
+  
+  // Globalna funkcija za resetiranje quiz-a (kompatibilnost sa starim quiz stranicama)
+  (window as any).resetQuizGlobal = function() {
+    // Pokušaj pronaći quiz form i results
+    const quizForm = document.querySelector('form[id*="quiz"], form[class*="quiz"]') as HTMLFormElement;
+    const quizResults = document.querySelector('[id*="Results"], [id*="results"]') as HTMLElement;
+    
+    if (quizForm) {
+      quizForm.reset();
+    }
+    
+    if (quizResults) {
+      quizResults.classList.add('hidden');
+    }
+    
+    // Skroliraj na vrh
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 </script>

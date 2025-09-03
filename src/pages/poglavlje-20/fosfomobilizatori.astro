@@ -1,11 +1,11 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 const title = 'Fosfomobilizatori';
 const description = 'Bakterije koje mobiliziraju kemijski fiksirani fosfor do ortofosfata';
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={20} 
   title={title}
   description={description}
   chapterNumber={20}
@@ -384,4 +384,4 @@ const description = 'Bakterije koje mobiliziraju kemijski fiksirani fosfor do or
     });
   </script>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

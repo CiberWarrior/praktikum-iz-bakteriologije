@@ -1,11 +1,11 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 const title = 'Vježba 21.1: Temperaturni optimum saprofitskih bakterija';
 const description = 'Određivanje temperaturnog optimuma i temperaturne valencije saprofitskih bakterija pomoću metode otiska';
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={21} 
   title={title}
   description={description}
   chapterNumber={21}
@@ -293,4 +293,4 @@ const description = 'Određivanje temperaturnog optimuma i temperaturne valencij
     </a>
   </div>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

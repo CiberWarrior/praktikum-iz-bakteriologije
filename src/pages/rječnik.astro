@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const {
-  title = 'Pojmovnik - Rječnik bakterioloških pojmova',
+  title = 'Rječnik - Rječnik bakterioloških pojmova',
   description = 'Kompletan rječnik bakterioloških pojmova, tehnika i termina iz svih poglavlja udžbenika'
 } = Astro.props;
 
@@ -17,52 +17,82 @@ const pojmovi = {
     {
       pojam: "Agar",
       definicija: "Gel substanca izvučena iz algi koji se koristi kao čvrsta podloga za uzgoj mikroorganizama",
-      poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/ekstrakti/#agar"
+    },
+    {
+      pojam: "Antibiogram",
+      definicija: "Laboratorijska metoda za određivanje osjetljivosti bakterijskih izolata na različite antibiotike",
+      poglavlje: "Poglavlje 13",
+      link: "/poglavlje-13/antibiogram/#definicija-antibiograma"
+    },
+    {
+      pojam: "Aromatogram",
+      definicija: "Test za određivanje antimikrobne aktivnosti eteričnih ulja i aromatskih tvari",
+      poglavlje: "Poglavlje 13",
+      link: "/poglavlje-13/aromatogram/#definicija-aromatograma"
     },
     {
       pojam: "Aseptika",
       definicija: "Postupci i metode rada koji sprječavaju kontaminaciju sterilnih materijala i prostora",
       poglavlje: "Poglavlje 1",
-      link: "/poglavlje-1/"
+      link: "/poglavlje-1/bakterioloske-tehnike/#sigurnost-sterilizacija"
     },
     {
       pojam: "Ashby agar",
       definicija: "Selektivna podloga za uzgoj bakterija koje fiksiraju atmosferski dušik, ne sadrži izvor dušika",
-      poglavlje: "Poglavlje 15",
-      link: "/poglavlje-15/"
+      poglavlje: "Poglavlje 18",
+      link: "/poglavlje-18/nesimbiotski-fiksatori-dusika/#ashby-agar"
     },
     {
       pojam: "Autoklaviranje",
       definicija: "Metoda sterilizacije vlažnom parom pod pritiskom na temperaturi 121°C",
       poglavlje: "Poglavlje 1",
-      link: "/poglavlje-1/"
+      link: "/poglavlje-1/uredaji-u-laboratoriju/#autoklav"
     },
     {
       pojam: "Azotobacter",
       definicija: "Rod aerobnih bakterija koje fiksiraju atmosferski dušik, imaju debelu kapsulu",
-      poglavlje: "Poglavlje 15",
-      link: "/poglavlje-15/"
+      poglavlje: "Poglavlje 18",
+      link: "/poglavlje-18/nesimbiotski-fiksatori-dusika/"
     }
   ],
   B: [
     {
       pojam: "Bakterijska endospora",
       definicija: "Otporna forma bakterije koja može preživjeti ekstremne uvjete (toplinu, sušu, zračenje)",
-      poglavlje: "Poglavlje 2",
-      link: "/poglavlje-2/"
+      poglavlje: "Poglavlje 3",
+      link: "/poglavlje-3/bojenje-bakterijskih-endospora-po-schaffer-fultonu/"
+    },
+    {
+      pojam: "Bakterijska kultura",
+      definicija: "Populacija bakterija nastala na hranjivim podlogama razmnožavanjem iz jedne ili više istovrsnih stanica",
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/osnovni-pojmovi/#bakterijska-kultura"
+    },
+    {
+      pojam: "Bakterijska kolonija",
+      definicija: "Nakupina bakterijskih stanica na krutoj hranjivoj podlozi nastala rastom i razmnožavanjem od jedne prvobotne bakterijske stanice",
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/osnovni-pojmovi/#bakterijska-kolonija"
+    },
+    {
+      pojam: "Bakterijska suspenzija",
+      definicija: "Raspršene bakterijske stanice u tekućem mediju",
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/osnovni-pojmovi/#bakterijska-suspenzija"
     },
     {
       pojam: "Bojenje po Gramu",
       definicija: "Osnovno diferencijalno bojenje koje dijeli bakterije na Gram pozitivne (plave) i Gram negativne (crvene)",
       poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      link: "/poglavlje-3/slozena-bojanja/"
     },
     {
       pojam: "Bojenje po Shäffer-Fultonu",
       definicija: "Metoda bojenja bakterijskih endospora pomoću malahitnog zelenila i safranina",
-      poglavlje: "Poglavlje 2",
-      link: "/poglavlje-2/"
+      poglavlje: "Poglavlje 3",
+      link: "/poglavlje-3/bojenje-bakterijskih-endospora-po-schaffer-fultonu/"
     }
   ],
   C: [
@@ -75,14 +105,20 @@ const pojmovi = {
     {
       pojam: "Clostridium",
       definicija: "Rod anaerobnih, sporogenih bakterija, uzročnici plinse gangrene, tetanusa i botulizma",
-      poglavlje: "Poglavlje 13",
-      link: "/poglavlje-13/"
+      poglavlje: "Poglavlje 19",
+      link: "/poglavlje-19/sulfit-reducirajuce-klostridije/#clostridium-rod"
+    },
+    {
+      pojam: "Čista kultura",
+      definicija: "Kultura samo jedne vrste, odnosno jednog soja bakterija",
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/osnovni-pojmovi/#cista-kultura"
     },
     {
       pojam: "Czapekova podloga",
       definicija: "Sintetska podloga za uzgoj gljiva i aktinomiceta, sadrži natrijev nitrat kao izvor dušika",
       poglavlje: "Poglavlje 22",
-      link: "/poglavlje-22/"
+      link: "/poglavlje-22/streptomiceti/#sastav-czapekovog-agara"
     }
   ],
   D: [
@@ -95,48 +131,60 @@ const pojmovi = {
     {
       pojam: "Diferencijalna podloga",
       definicija: "Podloga koja omogućava razlikovanje bakterija na osnovu njihovih metaboličkih svojstava",
-      poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/hranjivi-mediji/"
+    },
+    {
+      pojam: "Direktne metode brojenja",
+      definicija: "Metode brojenja bakterija pod mikroskopom u Petroff-Hauserovoj komorici",
+      poglavlje: "Poglavlje 7",
+      link: "/poglavlje-7/odredivanje-broja-bakterija-u-suspenziji-direktnim-metodama/#direktne-metode"
     }
   ],
   E: [
     {
       pojam: "E. coli (Escherichia coli)",
       definicija: "Gram negativna bakterija, indikator fekalnog zagađenja vode, uzgaja se na 37°C",
-      poglavlje: "Poglavlje 7",
-      link: "/poglavlje-7/"
+      poglavlje: "Poglavlje 8",
+      link: "/poglavlje-8/koliformne-bakterije/"
     },
     {
       pojam: "EC-X-GLUC agar",
       definicija: "Selektivno-diferencijalna kromogena podloga za isolaciju i identifikaciju E. coli",
-      poglavlje: "Poglavlje 7",
-      link: "/poglavlje-7/"
+      poglavlje: "Poglavlje 8",
+      link: "/poglavlje-8/koliformne-bakterije/"
     },
     {
       pojam: "Endo agar",
       definicija: "Selektivno-diferencijalna podloga za enterobakterije, sadrži laktozu i bazični fuksin",
-      poglavlje: "Poglavlje 7",
-      link: "/poglavlje-7/"
+      poglavlje: "Poglavlje 8",
+      link: "/poglavlje-8/koliformne-bakterije/"
     },
     {
       pojam: "Enterokoki",
       definicija: "Gram pozitivne bakterije, indikatori fekalnog zagađenja, otporne na žučne soli",
       poglavlje: "Poglavlje 8",
       link: "/poglavlje-8/"
+    },
+    {
+      pojam: "Eza",
+      definicija: "Bakteriološka ušica - osnovni pribor za rad s bakterijskim materijalom, prvi ju je uveo L. Pasteur",
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/bakterioloske-tehnike/#bakterioloska-usica-eza"
     }
   ],
   F: [
     {
       pojam: "Fiksacija dušika",
       definicija: "Proces pretvaranja atmosferskog dušika u amonijak koji bakterije mogu koristiti",
-      poglavlje: "Poglavlje 15",
-      link: "/poglavlje-15/"
+      poglavlje: "Poglavlje 18",
+      link: "/poglavlje-18/nesimbiotski-fiksatori-dusika/"
     },
     {
       pojam: "Fiksiranje preparata",
       definicija: "Postupak učvršćivanja bakterija na staklo toplinom prije bojenja",
-      poglavlje: "Poglavlje 2",
-      link: "/poglavlje-2/"
+      poglavlje: "Poglavlje 3",
+      link: "/poglavlje-3/metode-bojenja-bakterija/"
     }
   ],
   G: [
@@ -144,28 +192,23 @@ const pojmovi = {
       pojam: "Gram negativne bakterije",
       definicija: "Bakterije s tankim slojem peptidoglikana, boje se crveno u Gram bojenju",
       poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      link: "/poglavlje-3/slozena-bojanja/"
     },
     {
       pojam: "Gram pozitivne bakterije",
       definicija: "Bakterije s debelim slojem peptidoglikana, boje se plavo u Gram bojenju",
       poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      link: "/poglavlje-3/slozena-bojanja/"
     }
   ],
   H: [
     {
       pojam: "Hranjiva podloga",
       definicija: "Medij koji sadrži sve potrebne hranjive tvari za rast mikroorganizama",
-      poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/hranjivi-mediji/"
     },
-    {
-      pojam: "Hutchinsonov bujon",
-      definicija: "Tekuća podloga za uzgoj bakterija koje razgrađuju celulozu",
-      poglavlje: "Poglavlje 22",
-      link: "/poglavlje-22/"
-    }
+
   ],
   I: [
     {
@@ -177,28 +220,28 @@ const pojmovi = {
     {
       pojam: "Inkubacija",
       definicija: "Postupak držanja kultura bakterija na optimalnoj temperaturi za njihov rast",
-      poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/vjezba-3/#inkubacija"
     }
   ],
   K: [
     {
       pojam: "Kapsula",
       definicija: "Sluzava ovojnica oko bakterijske stanice, vidljiva negativnim bojenjem",
-      poglavlje: "Poglavlje 2",
-      link: "/poglavlje-2/"
+      poglavlje: "Poglavlje 3",
+      link: "/poglavlje-3/negativna-bojenja/"
     },
     {
       pojam: "Katalaza test",
       definicija: "Test za dokazivanje enzima katalaze koji razlaže vodikov peroksid",
-      poglavlje: "Poglavlje 11",
-      link: "/poglavlje-11/"
+      poglavlje: "Poglavlje 5",
+      link: "/poglavlje-5/katalaza-test/"
     },
     {
       pojam: "KOH test",
       definicija: "Test s 3% kalijum hidroksidom za razlikovanje Gram pozitivnih i Gram negativnih bakterija",
       poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      link: "/poglavlje-3/test-s-kalijevom-luzinom/"
     },
     {
       pojam: "Kromogena podloga",
@@ -219,14 +262,20 @@ const pojmovi = {
     {
       pojam: "MacConkey agar",
       definicija: "Selektivno-diferencijalna podloga za Gram negativne bakterije, sadrži laktozu",
-      poglavlje: "Poglavlje 7",
-      link: "/poglavlje-7/"
+      poglavlje: "Poglavlje 9",
+      link: "/poglavlje-9/potvrdni-test/"
     },
     {
       pojam: "Malahitno zelenilo",
       definicija: "Boja koja se koristi za bojenje bakterijskih endospora",
-      poglavlje: "Poglavlje 2",
-      link: "/poglavlje-2/"
+      poglavlje: "Poglavlje 3",
+      link: "/poglavlje-3/bojenje-bakterijskih-endospora-po-schaffer-fultonu/"
+    },
+    {
+      pojam: "Mješovita kultura",
+      definicija: "Kultura bakterija koja sadrži dvije ili više vrsta ili sojeva bakterija",
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/osnovni-pojmovi/#mjesovita-kultura"
     },
     {
       pojam: "MR-VP test",
@@ -239,34 +288,40 @@ const pojmovi = {
     {
       pojam: "Negativno bojenje",
       definicija: "Metoda bojenja gdje se pozadina boji a bakterije ostaju prozirne",
-      poglavlje: "Poglavlje 2",
-      link: "/poglavlje-2/"
+      poglavlje: "Poglavlje 3",
+      link: "/poglavlje-3/negativna-bojenja/"
     },
     {
       pojam: "Nesimbiotski fiksatori dušika",
       definicija: "Bakterije koje fiksiraju atmosferski dušik neovisno o biljkama (npr. Azotobacter)",
-      poglavlje: "Poglavlje 15",
-      link: "/poglavlje-15/"
+      poglavlje: "Poglavlje 18",
+      link: "/poglavlje-18/nesimbiotski-fiksatori-dusika/"
     }
   ],
   P: [
     {
       pojam: "Pasterizacija",
       definicija: "Djelomična sterilizacija zagrijavanjem na temperaturu ispod 100°C",
-      poglavlje: "Poglavlje 1",
-      link: "/poglavlje-1/"
+      poglavlje: "Poglavlje 2",
+      link: "/poglavlje-2/pasterizacija/"
     },
     {
       pojam: "Peptonska voda",
       definicija: "Osnovna tekuća podloga s peptonom kao izvorom dušika",
-      poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/ekstrakti/"
     },
     {
       pojam: "Petrijeva zdjelica",
       definicija: "Stakleška posuda s poklopcem za uzgoj bakterija na čvrstim podlogama",
-      poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/laboratorijski-pribor/"
+    },
+    {
+      pojam: "Petroff-Hauserova komorica",
+      definicija: "Komorica za brojenje bakterija pod mikroskopom, volumen 0,02 mm³",
+      poglavlje: "Poglavlje 7",
+      link: "/poglavlje-7/odredivanje-broja-bakterija-u-suspenziji-direktnim-metodama/#direktne-metode"
     }
   ],
   S: [
@@ -277,63 +332,65 @@ const pojmovi = {
       link: "/poglavlje-3/"
     },
     {
+      pojam: "Sterilizacija zračenjem",
+      definicija: "Metoda sterilizacije pomoću gama zraka ili rendgenskih zraka",
+      poglavlje: "Poglavlje 2",
+      link: "/poglavlje-2/sterilizacija-zracenjem/"
+    },
+    {
       pojam: "Selektivna podloga",
       definicija: "Podloga koja omogućava rast samo određenih vrsta bakterija",
-      poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
+      poglavlje: "Poglavlje 1",
+      link: "/poglavlje-1/hranjivi-mediji/"
     },
     {
       pojam: "SPS agar",
       definicija: "Selektivna podloga za Clostridium bakterije, sadrži natrijev sulfit",
-      poglavlje: "Poglavlje 13",
-      link: "/poglavlje-13/"
+      poglavlje: "Poglavlje 19",
+      link: "/poglavlje-19/sulfit-reducirajuce-klostridije/#sps-agar"
     },
     {
       pojam: "Staphylococcus aureus",
       definicija: "Gram pozitivna bakterija, katalaza pozitivna, uzročnik gnojnih infekcija",
-      poglavlje: "Poglavlje 11",
-      link: "/poglavlje-11/"
+      poglavlje: "Poglavlje 3",
+      link: "/poglavlje-3/slozena-bojanja/"
     },
     {
       pojam: "Sterilizacija",
       definicija: "Potpuno uništavanje svih oblika mikrobnog života uključujući spore",
       poglavlje: "Poglavlje 1",
-      link: "/poglavlje-1/"
+      link: "/poglavlje-1/bakterioloske-tehnike/#sigurnost-sterilizacija"
     },
     {
       pojam: "Streptomiceti",
       definicija: "Rod aktinobakterija, proizvođači antibiotika, imaju micelijski rast",
       poglavlje: "Poglavlje 22",
-      link: "/poglavlje-22/"
+      link: "/poglavlje-22/streptomiceti/"
     },
     {
       pojam: "Suha sterilizacija",
       definicija: "Sterilizacija suhom toplinom na visokim temperaturama (160-180°C)",
       poglavlje: "Poglavlje 1",
-      link: "/poglavlje-1/"
+      link: "/poglavlje-1/uredaji-u-laboratoriju/#suhi-sterilizator"
     }
   ],
   T: [
     {
-      pojam: "Titar",
-      definicija: "Najveće razrjeđenje uzorka u kojem se još može dokazati prisutnost tražene bakterije",
-      poglavlje: "Poglavlje 5",
-      link: "/poglavlje-5/"
+      pojam: "TTC test",
+      definicija: "Test za procjenu bakterijske aktivnosti pomoću 2,3,5-trifeniltetrazolium klorida koji se reducira do crvenog formazana",
+      poglavlje: "Poglavlje 15",
+      link: "/poglavlje-15/ttc-test/#ttc-kemikalija"
     },
     {
-      pojam: "TSA (Tryptic Soy Agar)",
-      definicija: "Univerzalna hranjiva podloga za uzgoj širokog spektra bakterija",
-      poglavlje: "Poglavlje 3",
-      link: "/poglavlje-3/"
-    }
+      pojam: "Titar",
+      definicija: "Najveće razrjeđenje uzorka u kojem se još može dokazati prisutnost tražene bakterije",
+      poglavlje: "Poglavlje 6",
+      link: "/poglavlje-6/titar-bakterija/"
+    },
+
   ],
   V: [
-    {
-      pojam: "Vegetativna stanica",
-      definicija: "Aktivna, rastuća forma bakterije (suprotno od spore)",
-      poglavlje: "Poglavlje 2",
-      link: "/poglavlje-2/"
-    }
+
   ],
   Z: [
     {
@@ -375,8 +432,8 @@ const alfabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
             <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Predgovor
             </a>
-            <a href="/pojmovnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Pojmovnik
+            <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Rječnik
             </a>
             <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Provjeri znanje
@@ -419,8 +476,8 @@ const alfabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
             <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Predgovor
             </a>
-            <a href="/pojmovnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Pojmovnik
+            <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Rječnik
             </a>
             <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Provjeri znanje
@@ -444,7 +501,7 @@ const alfabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
           </svg>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Pojmovnik</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Rječnik</h1>
         <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
           Rječnik bakterioloških pojmova, tehnika i termina iz svih poglavlja udžbenika
         </p>
@@ -602,7 +659,7 @@ const alfabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
           >
             <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
               </svg>
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-2">Početna stranica</h3>

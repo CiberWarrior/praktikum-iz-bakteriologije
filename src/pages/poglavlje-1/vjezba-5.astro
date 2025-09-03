@@ -1,5 +1,5 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 export interface Props {
   title?: string;
@@ -12,7 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={1} chapterNumber={1} 
   title={title} 
   description={description}
   chapterNumber={1}
@@ -175,11 +175,11 @@ const {
     
     <!-- Iduća stranica -->
     <a
-      href="/sadrzaj/"
+      href="/poglavlje-2/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sadržaj"
+      aria-label="Prijeđi na poglavlje 2"
     >
-      <span class="text-lg">sadržaj</span>
+      <span class="text-lg">poglavlje 2</span>
       →
     </a>
   </div><!-- CSS Styles for Active State -->
@@ -314,4 +314,4 @@ const {
     });
   </script>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

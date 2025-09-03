@@ -1,5 +1,5 @@
 ---
-import EnhancedSubPageLayout from '../../components/EnhancedSubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 export interface Props {
   title?: string;
@@ -23,7 +23,7 @@ const breadcrumbPath = [
 ];
 ---
 
-<EnhancedSubPageLayout
+<SubPageLayoutWithBase chapterNumber={4}
   title={title}
   description={description}
   chapterNumber={4}
@@ -186,4 +186,4 @@ const breadcrumbPath = [
     });
   </script>
 
-</EnhancedSubPageLayout>
+</SubPageLayoutWithBase>

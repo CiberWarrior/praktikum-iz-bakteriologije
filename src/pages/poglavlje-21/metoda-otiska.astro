@@ -1,11 +1,11 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 const title = 'Metoda otiska';
 const description = 'Replica Plate Method za izolaciju bakterijskih mutanti otpornih na antibiotike';
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={21} 
   title={title}
   description={description}
   chapterNumber={21}
@@ -373,4 +373,4 @@ const description = 'Replica Plate Method za izolaciju bakterijskih mutanti otpo
     </div>
   </div>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

@@ -1,11 +1,11 @@
 ---
-import SubPageLayout from '../../components/SubPageLayout.astro';
+import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
 
 const title = 'Vježbe 20: Biogeokemijski ciklus fosfora';
 const description = 'Praktične vježbe s fosfat-akumulirajućim bakterijama i fosfomobilizatorima';
 ---
 
-<SubPageLayout 
+<SubPageLayoutWithBase chapterNumber={20} 
   title={title}
   description={description}
   chapterNumber={20}
@@ -303,4 +303,4 @@ const description = 'Praktične vježbe s fosfat-akumulirajućim bakterijama i f
     });
   </script>
 
-</SubPageLayout>
+</SubPageLayoutWithBase>

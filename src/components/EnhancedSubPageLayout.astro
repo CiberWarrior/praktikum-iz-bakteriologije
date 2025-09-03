@@ -1,5 +1,5 @@
 ---
-import SubPageLayout from './SubPageLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import CallToAction from './CallToAction.astro';
 
 export interface Props {
@@ -53,17 +53,7 @@ const getTOCColor = (index: number) => {
 };
 ---
 
-<SubPageLayout
-  title={title}
-  description={description}
-  chapterNumber={chapterNumber}
-  primaryColor={primaryColor}
-  prevLink={prevLink}
-  nextLink={nextLink}
-  prevText={prevText}
-  nextText={nextText}
-  breadcrumbPath={breadcrumbPath}
->
+<BaseLayout title={title} description={description}>
   <!-- Main Content with Sidebar -->
   <div class="flex max-w-7xl mx-auto">
     
@@ -329,4 +319,4 @@ const getTOCColor = (index: number) => {
     });
   </script>
 
-</SubPageLayout>
+</BaseLayout>

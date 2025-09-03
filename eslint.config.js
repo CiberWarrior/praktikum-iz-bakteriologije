@@ -7,16 +7,16 @@ export default [
   js.configs.recommended,
   {
     ignores: [
-      '**/*.astro',
       'dist/**',
       '.astro/**',
       'node_modules/**',
       '*.min.js',
-      '*.bundle.js'
+      '*.bundle.js',
+      'fix-navigation-caps.js'
     ]
   },
   {
-    files: ['**/*.{js,ts,jsx,tsx}'],
+    files: ['**/*.{js,ts,jsx,tsx,mjs}'],
     languageOptions: {
       parser: tsparser,
       parserOptions: {
@@ -25,7 +25,8 @@ export default [
       },
       globals: {
         ...globals.browser,
-        ...globals.node
+        ...globals.node,
+        process: 'readonly'
       }
     },
     plugins: {
