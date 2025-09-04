@@ -150,8 +150,6 @@ const {
             <h2 class="text-3xl font-bold text-purple-900 mb-6">Pošaljite nam poruku</h2>
             
             <form 
-              action="https://formspree.io/f/xrbaokpq"
-              method="POST"
               class="space-y-6"
               id="contact-form"
             >
@@ -161,7 +159,7 @@ const {
                   <input
                     type="text"
                     id="firstName"
-                    name="name"
+                    name="firstName"
                     required
                     minlength="2"
                     autocomplete="given-name"
@@ -174,7 +172,7 @@ const {
                   <input
                     type="text"
                     id="lastName"
-                    name="surname"
+                    name="lastName"
                     required
                     minlength="2"
                     autocomplete="family-name"
@@ -189,7 +187,7 @@ const {
                 <input
                   type="email"
                   id="email"
-                  name="_replyto"
+                  name="email"
                   required
                   autocomplete="email"
                   class="w-full px-4 py-3 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
@@ -201,7 +199,7 @@ const {
                 <label for="subject" class="block text-sm font-semibold text-purple-800 mb-2">Tema *</label>
                 <select
                   id="subject"
-                  name="_subject"
+                  name="subject"
                   required
                   class="w-full px-4 py-3 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 >
@@ -227,8 +225,6 @@ const {
                 ></textarea>
               </div>
               
-              <!-- Honeypot field for spam protection (hidden) -->
-              <input type="text" name="_gotcha" style="display:none" />
               
               <button
                 type="submit"
@@ -428,26 +424,41 @@ unded-lg flex items-center justify-center">
         });
       }
 
-      // Contact form handling for Formspree
+      // Contact form handling with mailto
       const contactForm = document.getElementById('contact-form');
-      const submitBtn = document.getElementById('submit-btn');
-      const submitText = document.getElementById('submit-text');
-      const submitLoading = document.getElementById('submit-loading');
 
       if (contactForm) {
-        contactForm.addEventListener('submit', () => {
-          // Show loading state while Formspree processes
-          submitBtn.disabled = true;
-          submitText.classList.add('hidden');
-          submitLoading.classList.remove('hidden');
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
           
-          // Formspree will handle the actual submission
-        });
+          // Get form data
+          const formData = new FormData(contactForm);
+          const firstName = formData.get('firstName') || '';
+          const lastName = formData.get('lastName') || '';
+          const email = formData.get('email') || '';
+          const subject = formData.get('subject') || '';
+          const message = formData.get('message') || '';
 
-        // Reset form state on page load
-        submitBtn.disabled = false;
-        submitText.classList.remove('hidden');
-        submitLoading.classList.add('hidden');
+          // Create email content
+          const fullName = `${firstName} ${lastName}`.trim();
+          const emailSubject = subject === 'general' ? 'Opća pitanja' :
+                              subject === 'technical' ? 'Tehnička pitanja' :
+                              subject === 'content' ? 'Sadržaj udžbenika' :
+                              subject === 'feedback' ? 'Povratne informacije' : 'Kontakt';
+
+          const emailBody = `${message}
+
+---
+Ime: ${fullName}
+Email: ${email}
+Tema: ${emailSubject}`;
+
+          // Create mailto URL
+          const mailtoUrl = `mailto:bakteriologijapmf@gmail.com?subject=${encodeURIComponent(emailSubject + ' - ' + fullName)}&body=${encodeURIComponent(emailBody)}`;
+          
+          // Open email client
+          window.location.href = mailtoUrl;
+        });
       }
 
     </script>
