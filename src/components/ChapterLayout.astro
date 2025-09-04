@@ -11,8 +11,10 @@ const EXCLUDE = new Set([
 ]);
 
 // Pravilo za poglavlja 1–23, npr. /poglavlje-1/..., /poglavlje-23/... (NE na naslovnicama)
+// Ali NE prikazuj print gumb na kviz stranicama
 const isChapter = /^\/poglavlje-(?:[1-9]|1[0-9]|2[0-3])\/.+/.test(path);
-const shouldShowPrint = isChapter && !EXCLUDE.has(path);
+const isQuizPage = /^\/poglavlje-(?:[1-9]|1[0-9]|2[0-3])\/quiz-/.test(path);
+const shouldShowPrint = isChapter && !isQuizPage && !EXCLUDE.has(path);
 
 export interface Props {
   title: string;

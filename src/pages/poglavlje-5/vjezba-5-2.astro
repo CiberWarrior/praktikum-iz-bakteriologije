@@ -8,7 +8,7 @@ export interface Props {
 
 const { 
   title = 'Vježba 5.2',
-  description = 'Praktične vježbe iz identifikacije koliformnih bakterija pomoću API 20 E test sustava'
+  description = 'Identifikacija koliformnih bakterija API® 20 E testom'
 } = Astro.props;
 ---
 
@@ -54,19 +54,19 @@ const {
             API 20 E test
           </a>
           <a href="#postupak-pripreme" class="toc-link group flex items-center text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-blue-50" data-target="postupak-pripreme">
-            <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 transition-all duration-300"></span>
+            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
             Postupak pripreme
           </a>
           <a href="#ocitavanje-rezultata" class="toc-link group flex items-center text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-blue-50" data-target="ocitavanje-rezultata">
-            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
+            <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 transition-all duration-300"></span>
             Očitavanje rezultata
           </a>
           <a href="#tablica-ocitavanja" class="toc-link group flex items-center text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-blue-50" data-target="tablica-ocitavanja">
-            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3 transition-all duration-300"></span>
+            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
             Tablica očitavanja
           </a>
           <a href="#numericki-profil" class="toc-link group flex items-center text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-blue-50" data-target="numericki-profil">
-            <span class="w-2 h-2 bg-pink-400 rounded-full mr-3 transition-all duration-300"></span>
+            <span class="w-2 h-2 bg-red-400 rounded-full mr-3 transition-all duration-300"></span>
             Numerički profil
           </a>
         </nav>
@@ -82,10 +82,10 @@ const {
           <div class="space-y-8">
             
             <!-- API 20 E test -->
-            <div id="api-20-e-test" class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6 shadow-lg border border-indigo-200">
+            <div id="api-20-e-test" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 shadow-lg border border-blue-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">🧬</span>
-                <h3 class="text-2xl font-bold text-indigo-900">Identifikacija koliformnih bakterija API 20 E testom</h3>
+                <h3 class="text-2xl font-bold text-blue-900">Identifikacija koliformnih bakterija API 20 E testom</h3>
               </div>
               <div class="text-gray-700 leading-relaxed">
                 <p class="text-gray-800 text-lg leading-relaxed mb-4">API 20 E je komercijalni sustav za identifikaciju Enterobacteriaceae i drugih Gram-negativnih bakterija na osnovu biokemijskih reakcija.</p>
@@ -94,294 +94,76 @@ const {
             </div>
 
             <!-- Postupak pripreme -->
-            <div id="postupak-pripreme" class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 shadow-lg border border-orange-200">
+            <div id="postupak-pripreme" class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 shadow-lg border border-green-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">⚙️</span>
-                <h3 class="text-2xl font-bold text-orange-900">Postupak pripreme</h3>
+                <h3 class="text-2xl font-bold text-green-900">Postupak pripreme</h3>
               </div>
-              <div class="text-gray-700 leading-relaxed space-y-6">
-                
-                <!-- Inkubacijska komora -->
-                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-5 shadow-sm">
-                  <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                    🧪 <span class="ml-2">Priprema inkubacijske komore</span>
-                  </h4>
-                  <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                    <li>Pripremiti <strong>inkubacijsku komoricu</strong> (kadica i poklopac)</li>
-                    <li>Uliti otprilike <strong>5 mL destilirane vode</strong> u saćaste jažice kadice (vlažna atmosfera)</li>
-                    <li>Upisati <strong>broj uzorka</strong> na produženi dio folije poklopca</li>
-                    <li>Izvaditi <strong>strip iz pakiranja</strong></li>
-                    <li>Uložiti strip u inkubacijsku komoricu</li>
-                  </ol>
-                </div>
-
-                <!-- Bakterijska suspenzija -->
-                <div class="bg-gradient-to-br from-orange-50 to-purple-50 rounded-xl p-5 shadow-sm">
-                  <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                    🦠 <span class="ml-2">Suspenzija bakterija</span>
-                  </h4>
-                  <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                    <li>Otvoriti ampulu <strong>NaCl 0,85%</strong></li>
-                    <li>Pomoću mikrobiološke ušice prenijeti sa ploče jednu dobro izoliranu koloniju</li>
-                    <li><strong>⚠️ Važno:</strong> Kultura ne smije biti starija od 18-24 sata</li>
-                    <li>Pažljivo razmutiti koloniju → homogena bakterijska suspenzija</li>
-                    <li><strong>Suspenziju upotrijebiti odmah po pripremi</strong></li>
-                  </ol>
-                </div>
-
-                <!-- Inokulacija stripa -->
-                <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-5 shadow-sm">
-                  <h4 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                    🔬 <span class="ml-2">Punjenje testova</span>
-                  </h4>
-                  <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                    <li>Pomoću pipete napuniti bakterijskom suspenzijom <strong>cjevčice i kupole</strong> testova: <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">[CIT]</span>, <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">[VP]</span>, <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">[GEL]</span></li>
-                    <li>Za ostale testove napuniti <strong>samo cjevčice</strong> (ne i kupole)</li>
-                    <li>U kupole testova <strong>ADH, LDC, ODC, H<sub>2</sub>S i URE</strong> ukapati <strong>mineralno ulje</strong> (anaerobna atmosfera)</li>
-                    <li>Zatvoriti inkubacijsku komoricu</li>
-                    <li><strong>Inkubirati:</strong> 36 ± 2°C / 18-24 sata</li>
-                  </ol>
-                </div>
-
+              <div class="text-gray-700 leading-relaxed">
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Priprema inkubacijske komore, bakterijska suspenzija i inokulacija testova prema standardnim protokolima.</p>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4"><strong>Inkubacija:</strong> 36 ± 2°C / 18-24 sata</p>
               </div>
             </div>
 
             <!-- Očitavanje rezultata -->
-            <div id="ocitavanje-rezultata" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 shadow-lg border border-purple-200">
+            <div id="ocitavanje-rezultata" class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 shadow-lg border border-orange-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">📊</span>
-                <h3 class="text-2xl font-bold text-purple-900">Očitavanje rezultata</h3>
+                <h3 class="text-2xl font-bold text-orange-900">Očitavanje rezultata</h3>
               </div>
               <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">Nakon inkubacije (slika 40) zabilježiti rezultate svih spontanih reakcija, a potom očitati testove koji zahtijevaju dodatak reagensa:</p>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Nakon inkubacije zabilježiti rezultate svih spontanih reakcija, a potom očitati testove koji zahtijevaju dodatak reagensa.</p>
                 
-                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-4 shadow-sm">
-                  <h4 class="text-lg font-semibold text-gray-800 mb-3">🧪 Testovi s reagensima</h4>
-                  <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li><strong>TDA test:</strong> dodati 1 kap TDA reagensa → crveno-smeđa boja = pozitivno</li>
-                    <li><strong>VP test:</strong> dodati po 1 kap reagensa VP 1 i VP 2 → pričekati 10 min → ružičasta/crvena = pozitivno</li>
-                    <li><strong>IND test:</strong> dodati 1 kap reagensa JAMES → ružičasta boja u cijeloj kupoli = pozitivno</li>
-                  </ul>
-                  <div class="mt-3 p-3 bg-red-50 border-l-4 border-red-500 rounded">
-                    <p class="text-sm text-red-800"><strong>⚠️ Važno:</strong> Test produkcije indola mora se izvesti posljednji jer nastaje produkcija plina!</p>
-                  </div>
-                </div>
-
-                <figure class="mt-6">
-                  <img src="/Images/slika40.jpg" alt="Izgled testa API 20 E nakon inkubacije" class="w-full h-auto rounded-lg shadow-lg" />
-                  <figcaption class="mt-2 text-center">
-                    <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">Slika 40</span>
-                    <span class="block text-gray-600 mt-1">Izgled testa API® 20 E nakon inkubacije.</span>
+                <!-- Slika 40 -->
+                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm mt-4">
+                  <img src="/Images/slika40.jpg" alt="Izgled testa API 20 E nakon inkubacije" class="w-3/5 h-auto rounded-lg mx-auto" />
+                  <figcaption class="mt-4 text-center">
+                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 40</span>
+                    <span class="block mt-2 text-gray-700">Izgled testa API® 20 E nakon inkubacije</span>
                   </figcaption>
                 </figure>
               </div>
             </div>
 
             <!-- Tablica očitavanja -->
-            <div id="tablica-ocitavanja" class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6 shadow-lg border border-indigo-200">
+            <div id="tablica-ocitavanja" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 shadow-lg border border-purple-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">📋</span>
-                <h3 class="text-2xl font-bold text-indigo-900">Tablica očitavanja API® 20 E</h3>
+                <h3 class="text-2xl font-bold text-purple-900">Tablica očitavanja API® 20 E</h3>
               </div>
               <div class="text-gray-700 leading-relaxed">
-                <div class="max-w-6xl mx-auto bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 shadow-lg border border-blue-200">
-                  <div class="flex items-center mb-4">
-                    <span class="text-2xl mr-3">📊</span>
-                    <h4 class="text-xl font-bold text-gray-800">Tablica 2. Tablica očitavanja sustava API® 20 E</h4>
-                  </div>
-                  <div class="bg-white rounded-lg p-4 shadow-sm overflow-x-auto">
-                    <table class="min-w-full border-collapse text-sm">
-                      <thead>
-                        <tr class="bg-gray-50">
-                          <th class="px-3 py-3 border border-gray-200 text-left font-semibold text-gray-700">TEST</th>
-                          <th class="px-3 py-3 border border-gray-200 text-left font-semibold text-gray-700">AKTIVNA SUPSTANCIJA</th>
-                          <th class="px-3 py-3 border border-gray-200 text-left font-semibold text-gray-700">REAKCIJA/ENZIM</th>
-                          <th class="px-3 py-3 border border-gray-200 text-center font-semibold text-gray-700">NEGATIVNO</th>
-                          <th class="px-3 py-3 border border-gray-200 text-center font-semibold text-gray-700">POZITIVNO</th>
-                        </tr>
-                      </thead>
-                      <tbody class="divide-y divide-gray-200">
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">ONPG</td>
-                          <td class="px-3 py-2 border border-gray-200">D-galaktopiranozid</td>
-                          <td class="px-3 py-2 border border-gray-200">β-galaktozidaza</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">bezbojno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">ADH</td>
-                          <td class="px-3 py-2 border border-gray-200">L-arginin</td>
-                          <td class="px-3 py-2 border border-gray-200">arginin dihidrolaza</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">žuto</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-red-100">crveno/narančasto</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">LDC</td>
-                          <td class="px-3 py-2 border border-gray-200">L-lizin</td>
-                          <td class="px-3 py-2 border border-gray-200">lizin dekarboksilaza</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">žuto</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-red-100">crveno/narančasto</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">ODC</td>
-                          <td class="px-3 py-2 border border-gray-200">L-ornitin</td>
-                          <td class="px-3 py-2 border border-gray-200">ornitin dekarboksilaza</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">žuto</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-red-100">crveno/narančasto</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">[CIT]</td>
-                          <td class="px-3 py-2 border border-gray-200">trinatrijevsulfat</td>
-                          <td class="px-3 py-2 border border-gray-200">iskorištavanje citrata</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">svijetlo zeleno/žuto</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-blue-100">plavo zeleno/plavo</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">H<sub>2</sub>S</td>
-                          <td class="px-3 py-2 border border-gray-200">natrijevtiosulfat</td>
-                          <td class="px-3 py-2 border border-gray-200">produkcija H<sub>2</sub>S</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">bezbojno/sivkasto</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-gray-100">crni talog/tanka linija</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">URE</td>
-                          <td class="px-3 py-2 border border-gray-200">ureja</td>
-                          <td class="px-3 py-2 border border-gray-200">ureaza</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">žuto</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-red-100">crveno/narančasto</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">TDA</td>
-                          <td class="px-3 py-2 border border-gray-200">L-triptofan</td>
-                          <td class="px-3 py-2 border border-gray-200">triptofan deaminaza</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">žuto</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-orange-100">crvenkasto smeđe</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">IND</td>
-                          <td class="px-3 py-2 border border-gray-200">L-triptofan</td>
-                          <td class="px-3 py-2 border border-gray-200">produkcija indola</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">bezbojno svijetlo zeleno/žuto</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-pink-100">ružičasto</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">[VP]</td>
-                          <td class="px-3 py-2 border border-gray-200">natrijevpiruvat</td>
-                          <td class="px-3 py-2 border border-gray-200">produkcija acetoina (Voges Proskauer)</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">bezbojno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-pink-100">ružičasto/crveno</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">[GEL]</td>
-                          <td class="px-3 py-2 border border-gray-200">želatina</td>
-                          <td class="px-3 py-2 border border-gray-200">želatinoza</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">nema difuzije</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-gray-100">difuzija crnog pigmenta</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">GLU</td>
-                          <td class="px-3 py-2 border border-gray-200">D-glukoza</td>
-                          <td class="px-3 py-2 border border-gray-200">fermentacija/oksidacija</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">plavo/plavo zeleno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto/sivkasto žuto</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">MAN</td>
-                          <td class="px-3 py-2 border border-gray-200">D-manitol</td>
-                          <td class="px-3 py-2 border border-gray-200">fermentacija/oksidacija</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">plavo/plavo zeleno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">INO</td>
-                          <td class="px-3 py-2 border border-gray-200">inozitol</td>
-                          <td class="px-3 py-2 border border-gray-200">fermentacija/oksidacija</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">plavo/plavo zeleno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">SOR</td>
-                          <td class="px-3 py-2 border border-gray-200">D-sorbitol</td>
-                          <td class="px-3 py-2 border border-gray-200">fermentacija/oksidacija</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">plavo/plavo zeleno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">RHA</td>
-                          <td class="px-3 py-2 border border-gray-200">L-ramnoza</td>
-                          <td class="px-3 py-2 border border-gray-200">fermentacija/oksidacija</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">plavo/plavo zeleno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">SAC</td>
-                          <td class="px-3 py-2 border border-gray-200">D-sukroza</td>
-                          <td class="px-3 py-2 border border-gray-200">fermentacija/oksidacija</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">plavo/plavo zeleno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">MEL</td>
-                          <td class="px-3 py-2 border border-gray-200">D-melibioza</td>
-                          <td class="px-3 py-2 border border-gray-200">fermentacija/oksidacija</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">plavo/plavo zeleno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">AMY</td>
-                          <td class="px-3 py-2 border border-gray-200">amigdalin</td>
-                          <td class="px-3 py-2 border border-gray-200">fermentacija/oksidacija</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">plavo/plavo zeleno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">ARA</td>
-                          <td class="px-3 py-2 border border-gray-200">L-arabinoza</td>
-                          <td class="px-3 py-2 border border-gray-200">fermentacija/oksidacija</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center">plavo/plavo zeleno</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center bg-yellow-100">žuto</td>
-                        </tr>
-                        <tr>
-                          <td class="px-3 py-2 border border-gray-200 font-semibold">OX</td>
-                          <td class="px-3 py-2 border border-gray-200">-</td>
-                          <td class="px-3 py-2 border border-gray-200">citokrom oksidaza</td>
-                          <td class="px-3 py-2 border border-gray-200 text-center" colspan="2">vidi uputu za oksidaza test</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Detaljna tablica s opisom svih 20 testova, aktivnih supstancija i načina očitavanja rezultata.</p>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Testovi su podijeljeni u skupine s različitim vrijednostima za izračun numeričkog profila.</p>
               </div>
             </div>
 
             <!-- Numerički profil -->
-            <div id="numericki-profil" class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-6 shadow-lg border border-pink-200">
+            <div id="numericki-profil" class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 shadow-lg border border-red-200">
               <div class="flex items-center mb-4">
                 <span class="text-3xl mr-4">🔢</span>
-                <h3 class="text-2xl font-bold text-pink-900">Numerički profil i identifikacija</h3>
+                <h3 class="text-2xl font-bold text-red-900">Numerički profil i identifikacija</h3>
               </div>
               <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">Identifikacija bakterija dobiva se na osnovi <strong>numeričkog profila</strong>. Na listiću za unos rezultata testovi su podijeljeni u skupine od po <strong>tri testa</strong> s vrijednostima <strong>1, 2 ili 4</strong> (slika 41).</p>
+                <p class="text-gray-800 text-lg leading-relaxed mb-4">Identifikacija bakterija dobiva se na osnovu <strong>numeričkog profila</strong>. Na listiću za unos rezultata testovi su podijeljeni u skupine od po <strong>tri testa</strong> s vrijednostima <strong>1, 2 ili 4</strong>.</p>
                 <p class="text-gray-800 text-lg leading-relaxed mb-4">Zbrajanjem vrijednosti pozitivnih rezultata u svakoj skupini dobiva se <strong>sedmeroznamenkasti numerički profil</strong> za 20 testova API® 20 E stripa.</p>
-                <p class="text-gray-800 text-lg leading-relaxed mb-4"><strong>Reakcija oksidaze</strong> predstavlja 21. test i nosi vrijednost <strong>4 ako je pozitivna</strong>.</p>
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">Identifikacija se izvodi pomoću programa za identifikaciju (preko tipkovnice unijeti sedmeroznamenkasti numerički profil).</p>
                 
-                <figure class="mt-6">
-                  <img src="/Images/slika41.jpg" alt="Listić za očitavanje rezultata" class="w-full h-auto rounded-lg shadow-lg" />
-                  <figcaption class="mt-2 text-center">
-                    <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">Slika 41</span>
-                    <span class="block text-gray-600 mt-1">Listić za očitavanje rezultata.</span>
+                <!-- Slika 41 -->
+                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm mt-4">
+                  <img src="/Images/slika41.jpg" alt="Listić za očitavanje rezultata" class="w-3/5 h-auto rounded-lg mx-auto" />
+                  <figcaption class="mt-4 text-center">
+                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 41</span>
+                    <span class="block mt-2 text-gray-700">Listić za očitavanje rezultata</span>
                   </figcaption>
                 </figure>
               </div>
             </div>
 
-        </div>
+          </div>
 
+        </div>
       </div>
     </main>
   </div>
-
 
   <!-- Mobile TOC Toggle -->
   <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg z-50">
@@ -472,7 +254,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked: boolean) {
+      function updateBookmarkUI(bookmarked) {
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         
         if (bookmarkText) bookmarkText.textContent = text;
