@@ -13,7 +13,7 @@ const siteUrl = isVercel && process.env.VERCEL_URL
 export default defineConfig({
   site: siteUrl,
   base: '/',
-  output: 'server',
+  output: 'static',
   adapter: vercel(),
   redirects: {
     '/poglavlje/poglavlje-1/': '/poglavlje-1/',
