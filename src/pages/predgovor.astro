@@ -24,6 +24,82 @@ const {
   </head>
   <body class="bg-page font-sans text-page">
     
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex justify-between items-center py-4">
+          <a href="/" class="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">
+            Bakteriologija
+          </a>
+          <!-- Desktop navigacija -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/sadrzaj/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Sadržaj
+            </a>
+            <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Predgovor
+            </a>
+            <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Rječnik
+            </a>
+            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              O nama
+            </a>
+            <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Kontakt
+            </a>
+            <!-- Search -->
+            <div class="relative">
+              <a href="/pretraga/" class="inline-flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-300" title="Pretraga">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Mobilni hamburger menu -->
+          <div class="md:hidden">
+            <button 
+              id="mobile-menu-button" 
+              class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+              aria-label="Otvori navigacijski menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobilni menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200" role="navigation" aria-label="Mobilna navigacija">
+          <div class="flex flex-col space-y-4 pt-4">
+            <a href="/sadrzaj/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Sadržaj
+            </a>
+            <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Predgovor
+            </a>
+            <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Rječnik
+            </a>
+            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              O nama
+            </a>
+            <a href="/pretraga/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase text-sm">
+              Pretraga
+            </a>
+            <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Kontakt
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
     <!-- Hero Section -->
     <section class="relative py-20 bg-gradient-to-br from-emerald-600 to-emerald-800 text-white overflow-hidden">
       <!-- Pozadinski uzorak -->
@@ -381,64 +457,62 @@ const {
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <!-- Logo i opis -->
-          <div class="col-span-1 md:col-span-2">
-            <h3 class="text-xl font-bold text-emerald-400 mb-4">Bakteriologija</h3>
-            <p class="text-gray-300 mb-4">
-              Mrežni udžbenik iz bakteriologije za studente biologije. 
-              Kompletan vodič kroz bakteriološki praktikum s teorijom i praktičnim vježbama.
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-lg font-bold mb-4">Mrežni udžbenik iz bakteriologije</h3>
+            <p class="text-gray-300">
+              Priručnik za studente s detaljnim uputama za bakteriološki praktikum.
             </p>
-            <div class="flex space-x-4">
-              <a href="/" class="text-gray-400 hover:text-emerald-400 transition-colors duration-300">
-                <span class="sr-only">Početna</span>
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-                </svg>
-              </a>
-            </div>
           </div>
-
-          <!-- Brze veze -->
           <div>
-            <h4 class="text-lg font-semibold text-emerald-400 mb-4">Brze veze</h4>
+            <h3 class="text-lg font-bold mb-4">Brze veze</h3>
             <ul class="space-y-2">
-              <li><a href="/sadrzaj/" class="text-gray-300 hover:text-emerald-400 transition-colors duration-300">Sadržaj</a></li>
-              <li><a href="/predgovor/" class="text-gray-300 hover:text-emerald-400 transition-colors duration-300">Predgovor</a></li>
-              <li><a href="/poglavlje-1/" class="text-gray-300 hover:text-emerald-400 transition-colors duration-300">Poglavlje 1</a></li>
-              <li><a href="/o-nama/" class="text-gray-300 hover:text-emerald-400 transition-colors duration-300">O nama</a></li>
+              <li><a href="/sadrzaj/" class="text-gray-300 hover:text-white transition-colors duration-300">Sadržaj</a></li>
+              <li><a href="/rječnik/" class="text-gray-300 hover:text-white transition-colors duration-300">Rječnik</a></li>
+              <li><a href="/o-nama/" class="text-gray-300 hover:text-white transition-colors duration-300">O nama</a></li>
             </ul>
           </div>
-
-          <!-- Kontakt -->
           <div>
-            <h4 class="text-lg font-semibold text-emerald-400 mb-4">Kontakt</h4>
-            <ul class="space-y-2">
-              <li><a href="/kontakt/" class="text-gray-300 hover:text-emerald-400 transition-colors duration-300">Kontaktirajte nas</a></li>
-              <li class="text-gray-300">info@bakteriologija.hr</li>
-              <li class="text-gray-300">+385 1 234 567</li>
-            </ul>
+            <h3 class="text-lg font-bold mb-4">Kontakt</h3>
+            <p class="text-gray-300">
+              Za dodatne informacije i podršku, posjetite našu kontakt stranicu.
+            </p>
+            <a href="/kontakt/" class="inline-block mt-2 text-blue-400 hover:text-blue-300 transition-colors duration-300">
+              Kontaktirajte nas →
+            </a>
           </div>
         </div>
-
-        <!-- Donja linija -->
-        <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-400 text-sm">
-            © 2024 Bakteriologija. Sva prava pridržana.
-          </p>
-          <div class="flex space-x-6 mt-4 md:mt-0">
-            <a href="/privatnost/" class="text-gray-400 hover:text-emerald-400 text-sm transition-colors duration-300">
-              Politika privatnosti
-            </a>
-            <a href="/uvjeti/" class="text-gray-400 hover:text-emerald-400 text-sm transition-colors duration-300">
-              Uvjeti korištenja
-            </a>
-          </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <p>&copy; 2025. Mrežni udžbenik iz bakteriologije. Sva prava pridržana.</p>
         </div>
       </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', (!isHidden).toString());
+        });
+        
+        // Zatvori menu na klik izvan njega
+        document.addEventListener('click', (event) => {
+          const target = event.target;
+          if (target && target instanceof Node && !mobileMenuButton.contains(target) && !mobileMenu.contains(target)) {
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    </script>
 
   </body>
 </html>

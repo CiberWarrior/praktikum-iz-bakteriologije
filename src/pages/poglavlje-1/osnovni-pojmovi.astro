@@ -214,11 +214,11 @@ const {
     
     <!-- Iduća stranica -->
     <a
-      href="/poglavlje-1/vjezba-1/"
+      href="/poglavlje-1/bakterije-u-nastavi/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sljedeću stranicu: vježba 1"
+      aria-label="Prijeđi na sljedeću stranicu: bakterije u nastavi"
     >
-      <span class="text-lg">vježba 1</span>
+      <span class="text-lg">bakterije u nastavi</span>
       →
     </a>
   </div><!-- CSS Styles for Active State -->
@@ -248,7 +248,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         

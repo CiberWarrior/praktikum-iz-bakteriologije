@@ -226,7 +226,9 @@ const finalConfig: {
     customBgColor={finalConfig.ctaCustomBgColor}
   />
 
-  <!-- Scroll Animacije JavaScript -->
+
+
+  <!-- Scroll Animacije i Print/PDF JavaScript -->
   <script>
     // Intersection Observer za scroll animacije
     const observerOptions = {
@@ -242,6 +244,7 @@ const finalConfig: {
       });
     }, observerOptions);
 
+
     // Dodaj animacije na elemente
     document.addEventListener('DOMContentLoaded', () => {
       // Hero sekcija
@@ -251,6 +254,7 @@ const finalConfig: {
       // Hero buttons
       const heroButtons = document.querySelector('.hero-buttons');
       if (heroButtons) heroButtons.classList.add('scroll-fade-right');
+      
     });
   </script>
 </BaseLayout>

@@ -334,12 +334,12 @@ const {
   <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
     <!-- Prethodna stranica -->
     <a
-      href="/poglavlje-1/laboratorijski-pribor/"
+      href="/poglavlje-1/bakterije-u-nastavi/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na prethodnu stranicu: laboratorijski pribor"
+      aria-label="Prijeđi na prethodnu stranicu: bakterije u nastavi"
     >
       ←
-      <span class="text-lg">laboratorijski pribor</span>
+      <span class="text-lg">bakterije u nastavi</span>
     </a>
     
     <!-- Iduća stranica -->
@@ -378,7 +378,7 @@ const {
       const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
       updateBookmarkUI(isBookmarked);
       
-      function updateBookmarkUI(bookmarked) {
+      function updateBookmarkUI(bookmarked: boolean) {
         const fillAttribute = bookmarked ? 'currentColor' : 'none';
         const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
         

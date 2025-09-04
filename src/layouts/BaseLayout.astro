@@ -70,6 +70,8 @@ const canonicalUrl = canonical || Astro.url.href;
     <!-- Styles -->
     <link rel="stylesheet" href="/styles/global.css" />
     
+    
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
@@ -107,6 +109,19 @@ const canonicalUrl = canonical || Astro.url.href;
         // Skroliraj na vrh
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
+
+      // Service Worker registracija za offline funkcionalnost
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('🔧 Service Worker registriran:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('❌ Service Worker registracija neuspješna:', error);
+            });
+        });
+      }
     </script>
   </head>
   <body class="bg-page font-sans text-page antialiased">
@@ -128,8 +143,8 @@ const canonicalUrl = canonical || Astro.url.href;
             <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Rječnik
             </a>
-            <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Provjeri znanje
+            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              O nama
             </a>
             <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Kontakt
@@ -172,8 +187,8 @@ const canonicalUrl = canonical || Astro.url.href;
             <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Rječnik
             </a>
-            <a href="/provjeri-znanje/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Provjeri znanje
+            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              O nama
             </a>
             <a href="/pretraga/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
               Pretraga
@@ -206,7 +221,7 @@ const canonicalUrl = canonical || Astro.url.href;
             <ul class="space-y-2">
               <li><a href="/sadrzaj/" class="text-gray-300 hover:text-white transition-colors duration-300">Sadržaj</a></li>
               <li><a href="/rječnik/" class="text-gray-300 hover:text-white transition-colors duration-300">Rječnik</a></li>
-              <li><a href="/provjeri-znanje/" class="text-gray-300 hover:text-white transition-colors duration-300">Provjeri znanje</a></li>
+              <li><a href="/o-nama/" class="text-gray-300 hover:text-white transition-colors duration-300">O nama</a></li>
             </ul>
           </div>
           <div>
@@ -220,7 +235,7 @@ const canonicalUrl = canonical || Astro.url.href;
           </div>
         </div>
         <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Mrežni udžbenik iz bakteriologije. Sva prava pridržana.</p>
+          <p>&copy; 2025. Mrežni udžbenik iz bakteriologije. Sva prava pridržana.</p>
         </div>
       </div>
     </footer>
@@ -235,6 +250,7 @@ const canonicalUrl = canonical || Astro.url.href;
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
       </svg>
     </button>
+
 
     <!-- Mobile Menu Script -->
     <script>
@@ -277,6 +293,7 @@ const canonicalUrl = canonical || Astro.url.href;
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
+
     </script>
   </body>
 </html>
