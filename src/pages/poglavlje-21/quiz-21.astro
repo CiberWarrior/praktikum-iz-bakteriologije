@@ -24,183 +24,289 @@ import ChapterLayout from '../../components/ChapterLayout.astro';
     { name: 'Quiz 21', url: '/poglavlje-21/quiz-21/' }
   ]}
 >
-  <div class="max-w-4xl mx-auto">
-    <!-- Quiz Header -->
-    <div class="text-center mb-12">
-      <div class="w-24 h-24 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
-        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-      </div>
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Quiz - Poglavlje 21</h1>
-      <h2 class="text-2xl font-semibold text-amber-700 mb-6">Nitrifikacijske bakterije</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Testirajte svoje znanje iz poglavlja o nitrifikacijskim bakterijama. 
-        Odgovorite na 5 pitanja i provjerite koliko znate!
-      </p>
+  <!-- Quiz Header -->
+  <div class="text-center mb-12">
+    <div class="w-24 h-24 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+      <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
     </div>
+    <h1 class="text-4xl font-bold text-amber-900 mb-4">Quiz - Poglavlje 21</h1>
+    <p class="text-xl text-amber-800 max-w-2xl mx-auto">
+      Testirajte svoje znanje iz poglavlja o nitrifikacijskim bakterijama
+    </p>
+  </div>
 
-    <!-- Quiz Instructions -->
-    <div class="bg-amber-50 rounded-xl p-6 mb-8 border border-amber-200">
-      <h3 class="text-xl font-bold text-amber-900 mb-3">Upute za quiz</h3>
-      <ul class="text-amber-800 space-y-2">
-        <li>Odgovorite na sva 5 pitanja</li>
-        <li>Svako pitanje ima 4 moguća odgovora (a, b, c, d)</li>
-        <li>Možete promijeniti odgovor prije slanja</li>
-        <li>Nakon slanja vidjet ćete svoj rezultat i postotak uspjeha</li>
-        <li>Možete pokušati ponovno ako niste zadovoljni rezultatom</li>
-      </ul>
-    </div>
+  <!-- Quiz Instructions -->
+  <div class="bg-amber-50 border-2 border-amber-200 rounded-xl p-6 mb-8">
+    <h2 class="text-2xl font-bold text-amber-900 mb-4">Upute za quiz</h2>
+    <p class="text-amber-800 text-lg">
+      Odgovorite na 5 pitanja o nitrifikacijskim bakterijama. Nakon završetka dobit ćete detaljni rezultat s objašnjenjima.
+    </p>
+  </div>
 
     <!-- Quiz Form -->
     <form id="quizForm" class="space-y-8">
       <!-- Question 1 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">1. Što su nitrifikacijske bakterije?</h3>
-        <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q1" value="a" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">a) Bakterije koje razgrađuju proteine</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q1" value="b" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">b) Bakterije koje oksidiraju amonijak u nitrite i nitrate</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q1" value="c" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">c) Bakterije koje razgrađuju masti</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q1" value="d" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">d) Bakterije koje razgrađuju škrob</span>
-          </label>
+      <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="flex-shrink-0 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+            1
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Što su nitrifikacijske bakterije?</h3>
+            <div class="space-y-4">
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q1" value="a" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">a) Bakterije koje razgrađuju proteine</span>
+                  <p class="text-sm text-gray-500 mt-1">Proteolitičke bakterije razgrađuju proteine</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q1" value="b" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">b) Bakterije koje oksidiraju amonijak u nitrite i nitrate</span>
+                  <p class="text-sm text-gray-500 mt-1">Točno! To je glavna funkcija nitrifikacijskih bakterija</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q1" value="c" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">c) Bakterije koje razgrađuju masti</span>
+                  <p class="text-sm text-gray-500 mt-1">Lipolitičke bakterije razgrađuju masti</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q1" value="d" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">d) Bakterije koje razgrađuju škrob</span>
+                  <p class="text-sm text-gray-500 mt-1">Amilolitičke bakterije razgrađuju škrob</p>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Question 2 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">2. Koje su glavne vrste nitrifikacijskih bakterija?</h3>
-        <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q2" value="a" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">a) Nitrosomonas i Nitrobacter</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q2" value="b" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">b) Nitrospira i Nitrococcus</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q2" value="c" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">c) Escherichia i Salmonella</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q2" value="d" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">d) Bacillus i Clostridium</span>
-          </label>
+      <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="flex-shrink-0 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+            2
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Koje su glavne vrste nitrifikacijskih bakterija?</h3>
+            <div class="space-y-4">
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q2" value="a" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">a) Nitrosomonas i Nitrobacter</span>
+                  <p class="text-sm text-gray-500 mt-1">Točno! To su glavne vrste nitrifikacijskih bakterija</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q2" value="b" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">b) Nitrospira i Nitrococcus</span>
+                  <p class="text-sm text-gray-500 mt-1">To su također nitrifikacijske bakterije, ali ne glavne</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q2" value="c" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">c) Escherichia i Salmonella</span>
+                  <p class="text-sm text-gray-500 mt-1">To su enterobakterije, ne nitrifikacijske</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q2" value="d" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">d) Bacillus i Clostridium</span>
+                  <p class="text-sm text-gray-500 mt-1">To su sporogene bakterije, ne nitrifikacijske</p>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Question 3 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">3. Što proizvode nitrifikacijske bakterije?</h3>
-        <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q3" value="a" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">a) Metan</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q3" value="b" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">b) Nitrite (NO₂⁻) i nitrate (NO₃⁻)</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q3" value="c" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">c) Sumporovodik</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q3" value="d" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">d) Ugljični dioksid</span>
-          </label>
+      <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="flex-shrink-0 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+            3
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Što proizvode nitrifikacijske bakterije?</h3>
+            <div class="space-y-4">
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q3" value="a" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">a) Metan</span>
+                  <p class="text-sm text-gray-500 mt-1">Metan proizvode metanogene bakterije</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q3" value="b" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">b) Nitrite (NO₂⁻) i nitrate (NO₃⁻)</span>
+                  <p class="text-sm text-gray-500 mt-1">Točno! To su glavni proizvodi nitrifikacijskih bakterija</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q3" value="c" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">c) Sumporovodik</span>
+                  <p class="text-sm text-gray-500 mt-1">Sumporovodik proizvode sulfat-reducirajuće bakterije</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q3" value="d" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">d) Ugljični dioksid</span>
+                  <p class="text-sm text-gray-500 mt-1">Ugljični dioksid je supstrat, ne proizvod</p>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Question 4 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">4. Gdje se najčešće nalaze nitrifikacijske bakterije?</h3>
-        <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q4" value="a" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">a) U zraku</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q4" value="b" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">b) U tlu i vodi bogatim amonijakom</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q4" value="c" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">c) U kamenu</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q4" value="d" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">d) U metalu</span>
-          </label>
+      <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="flex-shrink-0 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+            4
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Gdje se najčešće nalaze nitrifikacijske bakterije?</h3>
+            <div class="space-y-4">
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q4" value="a" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">a) U zraku</span>
+                  <p class="text-sm text-gray-500 mt-1">Zrak nije optimalan za nitrifikacijske bakterije</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q4" value="b" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">b) U tlu i vodi bogatim amonijakom</span>
+                  <p class="text-sm text-gray-500 mt-1">Točno! Tu imaju najviše hrane za nitrifikaciju</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q4" value="c" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">c) U kamenu</span>
+                  <p class="text-sm text-gray-500 mt-1">Kamen nije optimalan za nitrifikacijske bakterije</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q4" value="d" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">d) U metalu</span>
+                  <p class="text-sm text-gray-500 mt-1">Metal nije optimalan za nitrifikacijske bakterije</p>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Question 5 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">5. Zašto su nitrifikacijske bakterije važne?</h3>
-        <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q5" value="a" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">a) Zato što su jeftine</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q5" value="b" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">b) Zato što sudjeluju u biogeokemijskom ciklusu dušika</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q5" value="c" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">c) Zato što su brze</span>
-          </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q5" value="d" class="w-4 h-4 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500">
-            <span class="text-gray-700">d) Zato što su jednostavne</span>
-          </label>
+      <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300">
+        <div class="flex items-start space-x-4 mb-6">
+          <div class="flex-shrink-0 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+            5
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Zašto su nitrifikacijske bakterije važne?</h3>
+            <div class="space-y-4">
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q5" value="a" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">a) Zato što su jeftine</span>
+                  <p class="text-sm text-gray-500 mt-1">To nije glavni razlog važnosti</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q5" value="b" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">b) Zato što sudjeluju u biogeokemijskom ciklusu dušika</span>
+                  <p class="text-sm text-gray-500 mt-1">Točno! To je glavni razlog važnosti nitrifikacijskih bakterija</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q5" value="c" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">c) Zato što su brze</span>
+                  <p class="text-sm text-gray-500 mt-1">To nije glavni razlog važnosti</p>
+                </div>
+              </label>
+              <label class="flex items-start space-x-4 cursor-pointer group p-4 rounded-xl border-2 border-transparent hover:border-amber-200 hover:bg-amber-50 transition-all duration-200">
+                <input type="radio" name="q5" value="d" class="w-5 h-5 text-amber-600 bg-gray-100 border-gray-300 focus:ring-amber-500 mt-1">
+                <div class="flex-1">
+                  <span class="text-gray-700 font-medium">d) Zato što su jednostavne</span>
+                  <p class="text-sm text-gray-500 mt-1">To nije glavni razlog važnosti</p>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Submit Button -->
-      <div class="text-center">
-        <button type="submit" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-          Pošalji odgovore
+      <div class="text-center pt-8">
+        <button type="submit" class="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-bold py-5 px-12 rounded-2xl text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl">
+          <span class="flex items-center justify-center space-x-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>Pošalji odgovore</span>
+          </span>
         </button>
       </div>
     </form>
 
     <!-- Quiz Results (Hidden by default) -->
-    <div id="quizResults" class="hidden mt-12">
-      <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8 border-2 border-amber-200 shadow-lg">
+    <div id="quizResults" class="hidden mt-16">
+      <div class="bg-gradient-to-br from-amber-50 via-white to-amber-100 rounded-3xl p-12 border-2 border-amber-200 shadow-2xl">
         <div class="text-center">
-          <div class="w-20 h-20 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-24 h-24 bg-gradient-to-br from-amber-500 to-amber-700 rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl">
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
           
-          <div id="resultMessage" class="text-xl text-amber-700 mb-8 font-semibold leading-relaxed"></div>
+          <div id="resultMessage" class="text-2xl text-amber-700 mb-10 font-semibold leading-relaxed"></div>
           
-          <div class="bg-white rounded-xl p-6 mb-6 inline-block">
-            <p class="text-amber-800 text-lg font-semibold">
-              Rezultat: <span id="correctAnswers" class="text-2xl font-bold text-amber-600"></span> od <span id="totalQuestions" class="text-2xl font-bold text-amber-600"></span> točnih odgovora
-            </p>
-            <p class="text-amber-700 text-lg mt-2">
-              Postotak uspjeha: <span id="percentage" class="text-2xl font-bold text-amber-600"></span>%
-            </p>
+          <div class="bg-white rounded-2xl p-8 mb-8 inline-block shadow-lg">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div class="text-center">
+                <p class="text-amber-800 text-lg font-semibold mb-2">Točni odgovori</p>
+                <p class="text-4xl font-bold text-amber-600">
+                  <span id="correctAnswers"></span> od <span id="totalQuestions"></span>
+                </p>
+              </div>
+              <div class="text-center">
+                <p class="text-amber-800 text-lg font-semibold mb-2">Postotak uspjeha</p>
+                <p class="text-4xl font-bold text-amber-600">
+                  <span id="percentage"></span>%
+                </p>
+              </div>
+            </div>
           </div>
           
-          <button onclick="resetQuizGlobal()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-            Pokušaj ponovno
-          </button>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onclick="resetQuizGlobal()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+              Pokušaj ponovno
+            </button>
+            <a href="/poglavlje-21/" class="bg-white hover:bg-amber-50 text-amber-700 font-bold py-4 px-8 rounded-xl border-2 border-amber-300 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              Povratak na poglavlje
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -209,9 +315,9 @@ import ChapterLayout from '../../components/ChapterLayout.astro';
 
 <script>
   // Quiz functionality
-  const correctAnswers: Record<string, string> = {
+  const correctAnswers = {
     q1: 'b', // Bakterije koje oksidiraju amonijak u nitrite i nitrate
-    q2: 'b', // Nitrosomonas i Nitrobacter
+    q2: 'a', // Nitrosomonas i Nitrobacter
     q3: 'b', // Nitrite (NO₂⁻) i nitrate (NO₃⁻)
     q4: 'b', // U tlu i vodi bogatim amonijakom
     q5: 'b'  // Zato što sudjeluju u biogeokemijskom ciklusu dušika
@@ -219,14 +325,44 @@ import ChapterLayout from '../../components/ChapterLayout.astro';
 
   const totalQuestions = Object.keys(correctAnswers).length;
 
-  document.getElementById('quizForm')?.addEventListener('submit', function(e) {
+  // Progress tracking
+  function updateProgress() {
+    let answeredCount = 0;
+    Object.keys(correctAnswers).forEach(question => {
+      const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+      if (selectedAnswer) {
+        answeredCount++;
+      }
+    });
+
+    const progressPercentage = (answeredCount / totalQuestions) * 100;
+    document.getElementById('progressBar').style.width = progressPercentage + '%';
+    document.getElementById('progressText').textContent = `${answeredCount}/${totalQuestions}`;
+
+    // Change progress bar color based on completion
+    if (progressPercentage === 100) {
+      document.getElementById('progressBar').classList.add('bg-green-600');
+    } else {
+      document.getElementById('progressBar').classList.remove('bg-green-600');
+    }
+  }
+
+  // Add progress tracking to all radio inputs
+  document.addEventListener('DOMContentLoaded', function() {
+    const radioInputs = document.querySelectorAll('input[type="radio"]');
+    radioInputs.forEach(input => {
+      input.addEventListener('change', updateProgress);
+    });
+  });
+
+  document.getElementById('quizForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     let correctCount = 0;
 
     // Check each answer
     Object.keys(correctAnswers).forEach(question => {
-      const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`) as HTMLInputElement;
+      const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
       if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
         correctCount++;
       }
@@ -236,53 +372,50 @@ import ChapterLayout from '../../components/ChapterLayout.astro';
     const percentage = Math.round((correctCount / totalQuestions) * 100);
 
     // Update results
-    const correctAnswersEl = document.getElementById('correctAnswers');
-    const totalQuestionsEl = document.getElementById('totalQuestions');
-    const percentageEl = document.getElementById('percentage');
-    
-    if (correctAnswersEl) correctAnswersEl.textContent = correctCount.toString();
-    if (totalQuestionsEl) totalQuestionsEl.textContent = totalQuestions.toString();
-    if (percentageEl) percentageEl.textContent = percentage.toString();
+    document.getElementById('correctAnswers').textContent = correctCount;
+    document.getElementById('totalQuestions').textContent = totalQuestions;
+    document.getElementById('percentage').textContent = percentage;
 
     // Set result message
     const resultMessage = document.getElementById('resultMessage');
-    if (resultMessage) {
-      if (percentage === 100) {
-        resultMessage.innerHTML = '🎉 <strong>Odlično!</strong><br><span class="text-lg">Odgovorili ste na sva pitanja bez greške!<br>Vaše znanje iz ovog poglavlja je <em>izvrsno</em> i možete nastaviti s učenjem sljedećeg poglavlja.</span>';
-        resultMessage.className = 'text-xl text-amber-700 mb-8 font-semibold leading-relaxed';
-      } else if (percentage >= 80) {
-        resultMessage.innerHTML = '👏 <strong>Izvrsno!</strong><br><span class="text-lg">Imate <em>odlično</em> znanje iz ovog poglavlja!<br>Samo malo više pažnje i bit ćete savršeni. Nastavite s učenjem!</span>';
-        resultMessage.className = 'text-xl text-amber-600 mb-8 font-semibold leading-relaxed';
-      } else if (percentage >= 60) {
-        resultMessage.innerHTML = '👍 <strong>Dobro!</strong><br><span class="text-lg">Imate <em>solidno</em> znanje iz ovog poglavlja.<br>Preporučujemo da ponovno pročitate gradivo za još bolje razumijevanje.</span>';
-        resultMessage.className = 'text-xl text-blue-700 mb-8 font-semibold leading-relaxed';
-      } else if (percentage >= 40) {
-        resultMessage.innerHTML = '⚠️ <strong>Prosjecno</strong><br><span class="text-lg">Potrebno je <em>više učenja</em>.<br>Vratite se na gradivo, pročitajte ponovno i pokušajte quiz ponovno.</span>';
-        resultMessage.className = 'text-xl text-yellow-700 mb-8 font-semibold leading-relaxed';
-      } else {
-        resultMessage.innerHTML = '📚 <strong>Potrebno više učenja</strong><br><span class="text-lg">Preporučujemo da <em>detaljno pročitate</em> sve dijelove poglavlja.<br>Učenje je proces - ne odustajte, vratite se na gradivo!</span>';
-        resultMessage.className = 'text-xl text-red-700 mb-8 font-semibold leading-relaxed';
-      }
+    if (percentage === 100) {
+      resultMessage.innerHTML = '🎉 <strong>Odlično!</strong><br><span class="text-xl">Odgovorili ste na sva pitanja bez greške!<br>Vaše znanje iz ovog poglavlja je <em>izvrsno</em> i možete nastaviti s učenjem sljedećeg poglavlja.</span>';
+      resultMessage.className = 'text-2xl text-amber-700 mb-10 font-semibold leading-relaxed';
+    } else if (percentage >= 80) {
+      resultMessage.innerHTML = '👏 <strong>Izvrsno!</strong><br><span class="text-xl">Imate <em>odlično</em> znanje iz ovog poglavlja!<br>Samo malo više pažnje i bit ćete savršeni. Nastavite s učenjem!</span>';
+      resultMessage.className = 'text-2xl text-amber-600 mb-10 font-semibold leading-relaxed';
+    } else if (percentage >= 60) {
+      resultMessage.innerHTML = '👍 <strong>Dobro!</strong><br><span class="text-xl">Imate <em>solidno</em> znanje iz ovog poglavlja.<br>Preporučujemo da ponovno pročitate gradivo za još bolje razumijevanje.</span>';
+      resultMessage.className = 'text-2xl text-blue-700 mb-10 font-semibold leading-relaxed';
+    } else if (percentage >= 40) {
+      resultMessage.innerHTML = '⚠️ <strong>Prosjecno</strong><br><span class="text-xl">Potrebno je <em>više učenja</em>.<br>Vratite se na gradivo, pročitajte ponovno i pokušajte quiz ponovno.</span>';
+      resultMessage.className = 'text-2xl text-yellow-700 mb-10 font-semibold leading-relaxed';
+    } else {
+      resultMessage.innerHTML = '📚 <strong>Potrebno više učenja</strong><br><span class="text-xl">Preporučujemo da <em>detaljno pročitate</em> sve dijelove poglavlja.<br>Učenje je proces - ne odustajte, vratite se na gradivo!</span>';
+      resultMessage.className = 'text-2xl text-red-700 mb-10 font-semibold leading-relaxed';
     }
 
     // Show results
-    const quizResults = document.getElementById('quizResults');
-    if (quizResults) {
-      quizResults.classList.remove('hidden');
-      quizResults.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('quizResults').classList.remove('hidden');
+
+    // Scroll to results
+    document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
   });
 
   function resetQuiz() {
     // Reset form
-    const form = document.getElementById('quizForm') as HTMLFormElement;
-    if (form) form.reset();
+    document.getElementById('quizForm').reset();
 
     // Hide results
-    const quizResults = document.getElementById('quizResults');
-    if (quizResults) quizResults.classList.add('hidden');
+    document.getElementById('quizResults').classList.add('hidden');
+
+    // Reset progress
+    updateProgress();
 
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // Global reset function for button onclick
+  window.resetQuizGlobal = resetQuiz;
 </script>

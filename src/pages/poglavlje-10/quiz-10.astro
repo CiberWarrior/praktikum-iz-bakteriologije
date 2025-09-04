@@ -1,202 +1,238 @@
 ---
 import ChapterLayout from '../../components/ChapterLayout.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Quiz - Poglavlje 10',
+  description = 'Provjeri svoje znanje iz poglavlja o termofilnim bakterijama'
+} = Astro.props;
 ---
 
-<ChapterLayout
-  title="Quiz - Poglavlje 10: Termofilne bakterije"
-  description="Testirajte svoje znanje iz poglavlja o termofilnim bakterijama"
-  breadcrumbs={[
-    { name: 'Početna', url: '/' },
+<ChapterLayout 
+  title={title}
+  description={description}
+  chapterNumber={10}
+  primaryColor="teal"
+  prevLink="/poglavlje-10/"
+  nextLink="/poglavlje-11/" 
+  prevText="← Povratak na Poglavlje 10"
+  nextText="Poglavlje 11 →" 
+  ctaTitle="Nastavi na sljedeće poglavlje" 
+  ctaDescription="Nastavite s učenjem i upoznajte metode identifikacije bakterija." 
+  ctaPrimaryText="Poglavlje 11" 
+  ctaPrimaryLink="/poglavlje-11/" 
+  ctaSecondaryText="Povratak na sadržaj"
+  ctaSecondaryLink="/sadrzaj/"
+  showBreadcrumb={true}
+  breadcrumbPath={[
     { name: 'Sadržaj', url: '/sadrzaj/' },
     { name: 'Poglavlje 10', url: '/poglavlje-10/' },
     { name: 'Quiz 10', url: '/poglavlje-10/quiz-10/' }
   ]}
-  prevUrl="/poglavlje-10/"
-  nextUrl="/poglavlje-11/"
-  prevText="povratak na poglavlje 10"
-  nextText="poglavlje 11"
 >
-  <div class="max-w-4xl mx-auto">
-    <!-- Quiz Header -->
-    <div class="text-center mb-12">
-      <div class="w-24 h-24 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
-        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+  <!-- Quiz Header -->
+  <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-8 border-2 border-teal-200 mb-8">
+    <div class="text-center">
+      <div class="w-20 h-20 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
       </div>
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Quiz - Poglavlje 10</h1>
-      <h2 class="text-2xl font-semibold text-teal-700 mb-6">Termofilne bakterije</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Testirajte svoje znanje iz poglavlja o termofilnim bakterijama. 
-        Odgovorite na 5 pitanja i provjerite koliko znate!
-      </p>
+      <h1 class="text-3xl font-bold text-teal-900 mb-4">Quiz - Poglavlje 10</h1>
+      <p class="text-teal-700 text-xl mb-6">Termofilne bakterije</p>
+      <div class="bg-white rounded-lg p-4 inline-block">
+        <p class="text-teal-800 text-lg font-semibold">5 pitanja • Bez vremena • Detaljni rezultat</p>
+      </div>
     </div>
+  </div>
 
-    <!-- Quiz Instructions -->
-    <div class="bg-teal-50 rounded-xl p-6 mb-8 border border-teal-200">
-      <h3 class="text-xl font-bold text-teal-900 mb-3">Upute za quiz</h3>
-      <ul class="text-teal-800 space-y-2">
-        <li>Odgovorite na sva 5 pitanja</li>
-        <li>Svako pitanje ima 4 moguća odgovora (a, b, c, d)</li>
-        <li>Možete promijeniti odgovor prije slanja</li>
-        <li>Nakon slanja vidjet ćete svoj rezultat i postotak uspjeha</li>
-        <li>Možete pokušati ponovno ako niste zadovoljni rezultatom</li>
-      </ul>
+  <!-- Quiz Instructions -->
+  <div class="bg-teal-50 rounded-xl p-6 border border-teal-200 mb-8">
+    <div class="flex items-start">
+      <div class="flex-shrink-0 w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mr-4">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-teal-900 mb-3">Upute za quiz</h3>
+        <ul class="text-teal-800 space-y-2">
+          <li>Odgovorite na sva 5 pitanja</li>
+          <li>Svako pitanje ima 4 moguća odgovora (a, b, c, d)</li>
+          <li>Možete promijeniti odgovor prije slanja</li>
+          <li>Nakon slanja vidjet ćete svoj rezultat i postotak uspjeha</li>
+          <li>Možete pokušati ponovno ako niste zadovoljni rezultatom</li>
+        </ul>
+      </div>
     </div>
+  </div>
 
-    <!-- Quiz Form -->
+  <!-- Quiz Form -->
+  <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
     <form id="quizForm" class="space-y-8">
       <!-- Question 1 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">1. Što su termofilne bakterije?</h3>
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">1. Što su termofilne bakterije?</h3>
         <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q1" value="a" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q1" value="a" class="mr-3 text-teal-600" required>
             <span class="text-gray-700">a) Bakterije koje žive u hladnim uvjetima</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q1" value="b" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q1" value="b" class="mr-3 text-teal-600" required>
             <span class="text-gray-700">b) Bakterije koje rastu na visokim temperaturama (45-80°C)</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q1" value="c" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q1" value="c" class="mr-3 text-teal-600" required>
             <span class="text-gray-700">c) Bakterije koje proizvode toplinu</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q1" value="d" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q1" value="d" class="mr-3 text-teal-600" required>
             <span class="text-gray-700">d) Bakterije koje razgrađuju termoplastike</span>
           </label>
         </div>
       </div>
 
       <!-- Question 2 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">2. Koja je optimalna temperatura za rast termofilnih bakterija?</h3>
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">2. Koja je optimalna temperatura za rast termofilnih bakterija?</h3>
         <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q2" value="a" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q2" value="a" class="mr-3 text-teal-600" required>
             <span class="text-gray-700">a) 20-30°C</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q2" value="b" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q2" value="b" class="mr-3 text-teal-600" required>
             <span class="text-gray-700">b) 55-65°C</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q2" value="c" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q2" value="c" class="mr-3 text-teal-600" required>
             <span class="text-gray-700">c) 80-90°C</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q2" value="d" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q2" value="d" class="mr-3 text-teal-600" required>
             <span class="text-gray-700">d) 100-110°C</span>
           </label>
         </div>
       </div>
 
       <!-- Question 3 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">3. Gdje se najčešće nalaze termofilne bakterije u prirodi?</h3>
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">3. Gdje se najčešće nalaze termofilne bakterije u prirodi?</h3>
         <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q3" value="a" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">a) U hladnim planinskim jezerima</span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q3" value="a" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">a) U hladnim vodenim tokovima</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q3" value="b" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">b) U toplim izvorima i geotermalnim područjima</span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q3" value="b" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">b) U toplim izvorima i gejzirima</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q3" value="c" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">c) U morskim dubinama</span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q3" value="c" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">c) U hladnim planinskim jezerima</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q3" value="d" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">d) U tlu</span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q3" value="d" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">d) U hladnim podzemnim vodama</span>
           </label>
         </div>
       </div>
 
       <!-- Question 4 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">4. Koja je glavna prednost termofilnih bakterija u industriji?</h3>
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">4. Koja je glavna prednost termofilnih bakterija?</h3>
         <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q4" value="a" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">a) Niska cijena uzgoja</span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q4" value="a" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">a) Brzina rasta</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q4" value="b" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q4" value="b" class="mr-3 text-teal-600" required>
             <span class="text-gray-700">b) Stabilnost enzima na visokim temperaturama</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q4" value="c" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">c) Brzina rasta</span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q4" value="c" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">c) Niska cijena</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q4" value="d" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">d) Jednostavnost uzgoja</span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q4" value="d" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">d) Svi navedeni</span>
           </label>
         </div>
       </div>
 
       <!-- Question 5 -->
-      <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-        <h3 class="text-lg font-bold text-gray-900 mb-4">5. Koji rod bakterija je poznat po termofilnim vrstama?</h3>
+      <div class="border-b border-gray-200 pb-6">
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">5. Kako se koriste termofilne bakterije?</h3>
         <div class="space-y-3">
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q5" value="a" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">a) <em>Escherichia</em></span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q5" value="a" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">a) Za proizvodnju antibiotika</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q5" value="b" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">b) <em>Bacillus</em></span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q5" value="b" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">b) Za proizvodnju termostabilnih enzima</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q5" value="c" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">c) <em>Pseudomonas</em></span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q5" value="c" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">c) Za razgradnju celuloze</span>
           </label>
-          <label class="flex items-center space-x-3 cursor-pointer">
-            <input type="radio" name="q5" value="d" class="w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500">
-            <span class="text-gray-700">d) <em>Staphylococcus</em></span>
+          <label class="flex items-center cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors">
+            <input type="radio" name="q5" value="d" class="mr-3 text-teal-600" required>
+            <span class="text-gray-700">d) Za proizvodnju enzima</span>
           </label>
         </div>
       </div>
 
       <!-- Submit Button -->
-      <div class="text-center">
-        <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-          Pošalji odgovore
+      <div class="text-center pt-6">
+        <button 
+          type="submit" 
+          class="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-10 py-4 rounded-xl font-semibold text-xl hover:from-teal-700 hover:to-teal-800 transition-all duration-300 transform hover:scale-105 shadow-lg"
+        >
+          Provjeri rezultat
         </button>
       </div>
     </form>
 
-    <!-- Quiz Results (Hidden by default) -->
-    <div id="quizResults" class="hidden mt-12">
-      <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8 border-2 border-teal-200 shadow-lg">
-        <div class="text-center">
-          <div class="w-20 h-20 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          
-          <div id="resultMessage" class="text-xl text-teal-700 mb-8 font-semibold leading-relaxed"></div>
-          
-          <div class="bg-white rounded-xl p-6 mb-6 inline-block">
-            <p class="text-teal-800 text-lg font-semibold">
-              Rezultat: <span id="correctAnswers" class="text-2xl font-bold text-teal-600"></span> od <span id="totalQuestions" class="text-2xl font-bold text-teal-600"></span> točnih odgovora
-            </p>
-            <p class="text-teal-700 text-lg mt-2">
-              Postotak uspjeha: <span id="percentage" class="text-2xl font-bold text-teal-600"></span>%
-            </p>
-          </div>
-          
-          <button onclick="resetQuizGlobal()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+    <!-- Results (Hidden by default) -->
+    <div id="quizResults" class="hidden mt-8 p-8 bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl border-2 border-teal-200">
+      <div class="text-center">
+        <div class="w-20 h-20 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Rezultat quiz-a</h3>
+        <p class="text-gray-600 text-xl mb-6">Odgovorili ste na <span id="correctAnswers" class="font-bold text-teal-600">0</span> od <span id="totalQuestions" class="font-bold">5</span> pitanja</p>
+        <div class="text-6xl font-bold text-teal-600 mb-6">
+          <span id="percentage">0</span>%
+        </div>
+        <p id="resultMessage" class="text-xl text-gray-700 mb-8"></p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button 
+            onclick="resetQuizGlobal()" 
+            class="bg-teal-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-teal-700 transition-colors duration-300"
+          >
             Pokušaj ponovno
           </button>
+          <a 
+            href="/poglavlje-10/"
+            class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300"
+          >
+            Povratak na poglavlje
+          </a>
         </div>
       </div>
     </div>
   </div>
+
 </ChapterLayout>
 
 <script>
@@ -204,68 +240,85 @@ import ChapterLayout from '../../components/ChapterLayout.astro';
   const correctAnswers = {
     q1: 'b', // Bakterije koje rastu na visokim temperaturama (45-80°C)
     q2: 'b', // 55-65°C
-    q3: 'b', // U toplim izvorima i geotermalnim područjima
+    q3: 'b', // U toplim izvorima i gejzirima
     q4: 'b', // Stabilnost enzima na visokim temperaturama
-    q5: 'b'  // Bacillus
+    q5: 'b'  // Za proizvodnju termostabilnih enzima
   };
 
   const totalQuestions = Object.keys(correctAnswers).length;
 
-  document.getElementById('quizForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    let correctCount = 0;
-
-    // Check each answer
-    Object.keys(correctAnswers).forEach(question => {
-      const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
-      if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
-        correctCount++;
+  const form = document.getElementById('quizForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let correctCount = 0;
+      
+      // Check each answer
+      Object.keys(correctAnswers).forEach(question => {
+        const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`) as HTMLInputElement;
+        if (selectedAnswer && selectedAnswer.value === correctAnswers[question as keyof typeof correctAnswers]) {
+          correctCount++;
+        }
+      });
+      
+      // Calculate percentage
+      const percentage = Math.round((correctCount / totalQuestions) * 100);
+      
+      // Update results
+      const correctAnswersEl = document.getElementById('correctAnswers');
+      const totalQuestionsEl = document.getElementById('totalQuestions');
+      const percentageEl = document.getElementById('percentage');
+      
+      if (correctAnswersEl) correctAnswersEl.textContent = correctCount.toString();
+      if (totalQuestionsEl) totalQuestionsEl.textContent = totalQuestions.toString();
+      if (percentageEl) percentageEl.textContent = percentage.toString();
+      
+      // Set result message
+      const resultMessage = document.getElementById('resultMessage');
+      if (resultMessage) {
+        if (percentage === 100) {
+          resultMessage.innerHTML = '🎉 <strong>Odlično!</strong><br><span class="text-lg">Odgovorili ste na sva pitanja bez greške!<br>Vaše znanje iz ovog poglavlja je <em>izvrsno</em> i možete nastaviti s učenjem sljedećeg poglavlja.</span>';
+          resultMessage.className = 'text-xl text-teal-700 mb-8 font-semibold leading-relaxed';
+        } else if (percentage >= 80) {
+          resultMessage.innerHTML = '👏 <strong>Izvrsno!</strong><br><span class="text-lg">Imate <em>odlično</em> znanje iz ovog poglavlja!<br>Samo malo više pažnje i bit ćete savršeni. Nastavite s učenjem!</span>';
+          resultMessage.className = 'text-xl text-teal-600 mb-8 font-semibold leading-relaxed';
+        } else if (percentage >= 60) {
+          resultMessage.innerHTML = '👍 <strong>Dobro!</strong><br><span class="text-lg">Imate <em>solidno</em> znanje iz ovog poglavlja.<br>Preporučujemo da ponovno pročitate gradivo za još bolje razumijevanje.</span>';
+          resultMessage.className = 'text-xl text-blue-700 mb-8 font-semibold leading-relaxed';
+        } else if (percentage >= 40) {
+          resultMessage.innerHTML = '⚠️ <strong>Prosjecno</strong><br><span class="text-lg">Potrebno je <em>više učenja</em>.<br>Vratite se na gradivo, pročitajte ponovno i pokušajte quiz ponovno.</span>';
+          resultMessage.className = 'text-xl text-yellow-700 mb-8 font-semibold leading-relaxed';
+        } else {
+          resultMessage.innerHTML = '📚 <strong>Potrebno više učenja</strong><br><span class="text-lg">Preporučujemo da <em>detaljno pročitate</em> sve dijelove poglavlja.<br>Učenje je proces - ne odustajte, vratite se na gradivo!</span>';
+          resultMessage.className = 'text-xl text-red-700 mb-8 font-semibold leading-relaxed';
+        }
+      }
+      
+      // Show results
+      const quizResults = document.getElementById('quizResults');
+      if (quizResults) {
+        quizResults.classList.remove('hidden');
+        quizResults.scrollIntoView({ behavior: 'smooth' });
       }
     });
-
-    // Calculate percentage
-    const percentage = Math.round((correctCount / totalQuestions) * 100);
-
-    // Update results
-    document.getElementById('correctAnswers').textContent = correctCount;
-    document.getElementById('totalQuestions').textContent = totalQuestions;
-    document.getElementById('percentage').textContent = percentage;
-
-    // Set result message
-    const resultMessage = document.getElementById('resultMessage');
-    if (percentage === 100) {
-      resultMessage.innerHTML = '🎉 <strong>Odlično!</strong><br><span class="text-lg">Odgovorili ste na sva pitanja bez greške!<br>Vaše znanje iz ovog poglavlja je <em>izvrsno</em> i možete nastaviti s učenjem sljedećeg poglavlja.</span>';
-      resultMessage.className = 'text-xl text-teal-700 mb-8 font-semibold leading-relaxed';
-    } else if (percentage >= 80) {
-      resultMessage.innerHTML = '👏 <strong>Izvrsno!</strong><br><span class="text-lg">Imate <em>odlično</em> znanje iz ovog poglavlja!<br>Samo malo više pažnje i bit ćete savršeni. Nastavite s učenjem!</span>';
-      resultMessage.className = 'text-xl text-teal-600 mb-8 font-semibold leading-relaxed';
-    } else if (percentage >= 60) {
-      resultMessage.innerHTML = '👍 <strong>Dobro!</strong><br><span class="text-lg">Imate <em>solidno</em> znanje iz ovog poglavlja.<br>Preporučujemo da ponovno pročitate gradivo za još bolje razumijevanje.</span>';
-      resultMessage.className = 'text-xl text-blue-700 mb-8 font-semibold leading-relaxed';
-    } else if (percentage >= 40) {
-      resultMessage.innerHTML = '⚠️ <strong>Prosjecno</strong><br><span class="text-lg">Potrebno je <em>više učenja</em>.<br>Vratite se na gradivo, pročitajte ponovno i pokušajte quiz ponovno.</span>';
-      resultMessage.className = 'text-xl text-yellow-700 mb-8 font-semibold leading-relaxed';
-    } else {
-      resultMessage.innerHTML = '📚 <strong>Potrebno više učenja</strong><br><span class="text-lg">Preporučujemo da <em>detaljno pročitate</em> sve dijelove poglavlja.<br>Učenje je proces - ne odustajte, vratite se na gradivo!</span>';
-      resultMessage.className = 'text-xl text-red-700 mb-8 font-semibold leading-relaxed';
-    }
-
-    // Show results
-    document.getElementById('quizResults').classList.remove('hidden');
-
-    // Scroll to results
-    document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
-  });
+  }
 
   function resetQuiz() {
     // Reset form
-    document.getElementById('quizForm').reset();
-
+    const form = document.getElementById('quizForm') as HTMLFormElement;
+    if (form) form.reset();
+    
     // Hide results
-    document.getElementById('quizResults').classList.add('hidden');
-
+    const results = document.getElementById('quizResults');
+    if (results) results.classList.add('hidden');
+    
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Global function for onclick
+  function resetQuizGlobal() {
+    resetQuiz();
   }
 </script>
