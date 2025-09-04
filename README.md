@@ -128,3 +128,4 @@ Za pitanja o projektu ili tehničku podršku, kontaktirajte razvojni tim.
 ---
 
 **© 2024 Sveučilište u Zagrebu - Mrežni udžbenik iz bakteriologije**
+# Force Vercel deployment Thu Sep  4 13:57:21 CEST 2025
