@@ -150,8 +150,10 @@ const {
             <h2 class="text-3xl font-bold text-purple-900 mb-6">Pošaljite nam poruku</h2>
             
             <form 
+              action="https://formspree.io/f/xrbaokpq"
+              method="POST"
               class="space-y-6"
-              id="contactForm"
+              id="contact-form"
             >
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
@@ -159,7 +161,7 @@ const {
                   <input
                     type="text"
                     id="firstName"
-                    name="firstName"
+                    name="name"
                     required
                     minlength="2"
                     autocomplete="given-name"
@@ -172,7 +174,7 @@ const {
                   <input
                     type="text"
                     id="lastName"
-                    name="lastName"
+                    name="surname"
                     required
                     minlength="2"
                     autocomplete="family-name"
@@ -187,7 +189,7 @@ const {
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="_replyto"
                   required
                   autocomplete="email"
                   class="w-full px-4 py-3 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
@@ -199,7 +201,7 @@ const {
                 <label for="subject" class="block text-sm font-semibold text-purple-800 mb-2">Tema *</label>
                 <select
                   id="subject"
-                  name="subject"
+                  name="_subject"
                   required
                   class="w-full px-4 py-3 border border-purple-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 >
@@ -225,11 +227,8 @@ const {
                 ></textarea>
               </div>
               
-              <!-- Honeypot field for spam protection -->
-              <div class="hidden">
-                <label for="website">Website</label>
-                <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" />
-              </div>
+              <!-- Honeypot field for spam protection (hidden) -->
+              <input type="text" name="_gotcha" style="display:none" />
               
               <button
                 type="submit"
@@ -242,8 +241,6 @@ const {
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                 </svg>
               </button>
-              
-              <p id="formNote" class="text-sm mt-2" aria-live="polite"></p>
             </form>
           </div>
           
@@ -431,74 +428,26 @@ unded-lg flex items-center justify-center">
         });
       }
 
-      // Contact form handling with JSON API
-      const contactForm = document.getElementById('contactForm');
+      // Contact form handling for Formspree
+      const contactForm = document.getElementById('contact-form');
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
       const submitLoading = document.getElementById('submit-loading');
-      const formNote = document.getElementById('formNote');
 
       if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          
-          // Get form data
-          const formData = new FormData(contactForm);
-          const firstName = formData.get('firstName')?.toString().trim() || '';
-          const lastName = formData.get('lastName')?.toString().trim() || '';
-          const email = formData.get('email')?.toString().trim() || '';
-          const subject = formData.get('subject')?.toString() || '';
-          const message = formData.get('message')?.toString().trim() || '';
-          const website = formData.get('website')?.toString() || '';
-
-          // Build JSON payload
-          const payload = {
-            name: `${firstName} ${lastName}`.trim(),
-            email,
-            subject,
-            message,
-            website
-          };
-
-          // Show loading state
+        contactForm.addEventListener('submit', () => {
+          // Show loading state while Formspree processes
           submitBtn.disabled = true;
           submitText.classList.add('hidden');
           submitLoading.classList.remove('hidden');
-          formNote.textContent = '';
-          formNote.className = 'text-sm mt-2';
-
-          try {
-            const response = await fetch('/api/contact', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(payload)
-            });
-
-            const result = await response.json();
-
-            if (response.ok && result.ok) {
-              // Success
-              formNote.textContent = 'Poruka je uspješno poslana. Hvala!';
-              formNote.className = 'text-sm mt-2 text-green-600';
-              contactForm.reset();
-            } else {
-              // Error
-              const errorMessage = result.error || 'Greška pri slanju poruke.';
-              formNote.textContent = errorMessage;
-              formNote.className = 'text-sm mt-2 text-red-600';
-            }
-          } catch (error) {
-            formNote.textContent = 'Greška pri slanju poruke. Molimo pokušajte ponovo.';
-            formNote.className = 'text-sm mt-2 text-red-600';
-          } finally {
-            // Reset loading state
-            submitBtn.disabled = false;
-            submitText.classList.remove('hidden');
-            submitLoading.classList.add('hidden');
-          }
+          
+          // Formspree will handle the actual submission
         });
+
+        // Reset form state on page load
+        submitBtn.disabled = false;
+        submitText.classList.remove('hidden');
+        submitLoading.classList.add('hidden');
       }
 
     </script>
