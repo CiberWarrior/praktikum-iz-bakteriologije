@@ -1,0 +1,318 @@
+---
+import '../styles/tailwind.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Napredna pretraga - Pronađite sve što trebate',
+  description = 'Pretražite kroz sav sadržaj udžbenika s naprednim filterima i autocomplete funkcionalnosti'
+} = Astro.props;
+---
+
+<div class="advanced-search-container">
+  <!-- Search Input with Autocomplete -->
+  <div class="search-input-container relative mb-6">
+    <div class="relative">
+      <input
+        type="text"
+        id="advancedSearchInput"
+        placeholder="Pretražite poglavlja, vježbe, pojmove, kvizove..."
+        class="w-full px-6 py-4 pl-14 pr-6 text-lg border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+        autocomplete="off"
+      />
+      <svg class="absolute left-5 top-5 w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+      
+      <!-- Loading indicator -->
+      <div id="searchLoading" class="absolute right-5 top-5 hidden">
+        <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
+      </div>
+    </div>
+
+    <!-- Autocomplete dropdown -->
+    <div id="autocompleteDropdown" class="absolute z-50 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-60 overflow-y-auto">
+      <!-- Autocomplete items will be inserted here -->
+    </div>
+  </div>
+
+  <!-- Advanced Filters -->
+  <div class="advanced-filters mb-8">
+    <div class="flex flex-wrap gap-4 items-center">
+      <!-- Type Filter -->
+      <div class="filter-group">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Tip sadržaja</label>
+        <select id="typeFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <option value="all">Svi tipovi</option>
+          <option value="poglavlje">Poglavlja</option>
+          <option value="vjezba">Vježbe</option>
+          <option value="pojam">Pojmovi</option>
+          <option value="kviz">Kvizovi</option>
+          <option value="stranica">Stranice</option>
+        </select>
+      </div>
+
+      <!-- Chapter Filter -->
+      <div class="filter-group">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Poglavlje</label>
+        <select id="chapterFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <option value="all">Sva poglavlja</option>
+          <option value="poglavlje-1">Poglavlje 1 - Uvod u bakteriološki praktikum</option>
+          <option value="poglavlje-2">Poglavlje 2 - Sterilizacija</option>
+          <option value="poglavlje-3">Poglavlje 3 - Bojenje bakterija</option>
+          <option value="poglavlje-4">Poglavlje 4 - Pokretljivost bakterija</option>
+          <option value="poglavlje-5">Poglavlje 5 - Biokemijska svojstva bakterija</option>
+          <option value="poglavlje-6">Poglavlje 6 - Određivanje broja bakterija u suspenziji</option>
+          <option value="poglavlje-7">Poglavlje 7 - Određivanje broja bakterija direktnim metodama</option>
+          <option value="poglavlje-8">Poglavlje 8 - Bakterije indikatori sanitarnog stanja sredine</option>
+          <option value="poglavlje-9">Poglavlje 9 - Sanitarna bakteriološka analiza vode</option>
+          <option value="poglavlje-10">Poglavlje 10 - Termofilne bakterije</option>
+          <option value="poglavlje-11">Poglavlje 11 - Aerobne sporogene bakterije</option>
+          <option value="poglavlje-12">Poglavlje 12 - Anaerobne bakterije</option>
+          <option value="poglavlje-13">Poglavlje 13 - Testovi osjetljivosti na antibiotike</option>
+          <option value="poglavlje-14">Poglavlje 14 - Testovi osjetljivosti na bakteriofage</option>
+          <option value="poglavlje-15">Poglavlje 15 - Testovi za određivanje kvalitete mlijeka</option>
+          <option value="poglavlje-16">Poglavlje 16 - Bakterije mliječne fermentacije</option>
+          <option value="poglavlje-17">Poglavlje 17 - Biogeokemijski ciklus ugljika</option>
+          <option value="poglavlje-18">Poglavlje 18 - Biogeokemijski ciklus dušika</option>
+          <option value="poglavlje-19">Poglavlje 19 - Biogeokemijski ciklus sumpora</option>
+          <option value="poglavlje-20">Poglavlje 20 - Biogeokemijski ciklus fosfora</option>
+          <option value="poglavlje-21">Poglavlje 21 - Metoda otiska</option>
+          <option value="poglavlje-22">Poglavlje 22 - Streptomiceti</option>
+          <option value="poglavlje-23">Poglavlje 23 - Purpurne sumporne bakterije</option>
+        </select>
+      </div>
+
+      <!-- Sort Filter -->
+      <div class="filter-group">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Sortiraj po</label>
+        <select id="sortFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <option value="relevance">Relevantnosti</option>
+          <option value="title">Naslovu</option>
+          <option value="type">Tipu</option>
+        </select>
+      </div>
+
+      <!-- Search Options -->
+      <div class="filter-group">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Opcije pretrage</label>
+        <div class="flex gap-3">
+          <label class="flex items-center">
+            <input type="checkbox" id="fuzzySearch" class="mr-2 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
+            <span class="text-sm text-gray-700">Fuzzy search</span>
+          </label>
+          <label class="flex items-center">
+            <input type="checkbox" id="synonymSearch" class="mr-2 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
+            <span class="text-sm text-gray-700">Sinonimi</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Results -->
+  <div id="searchResults" class="space-y-6">
+    <!-- Initial Content -->
+    <div id="initialContent">
+      <h3 class="text-xl font-semibold text-gray-900 mb-6">🔥 Popularan sadržaj</h3>
+      <div class="grid gap-4">
+        <a href="/rječnik/" class="block p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all duration-300">
+          <div class="flex items-start">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Rječnik</h4>
+              <p class="text-gray-600">Rječnik svih bakterioloških pojmova</p>
+            </div>
+          </div>
+        </a>
+        
+        <a href="/o-nama/" class="block p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all duration-300">
+          <div class="flex items-start">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+              <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">O nama</h4>
+              <p class="text-gray-600">Saznajte više o našem timu i projektu</p>
+            </div>
+          </div>
+        </a>
+        
+        <a href="/poglavlje-1/" class="block p-6 bg-gray-50 rounded-lg hover:shadow-md transition-all duration-300">
+          <div class="flex items-start">
+            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+              <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Uvod u bakteriološki praktikum</h4>
+              <p class="text-gray-600">Počnite ovdje - aseptika i osnove rada</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Results Container -->
+    <div id="resultsContainer" class="hidden">
+      <div id="resultsHeader" class="flex items-center justify-between mb-6">
+        <div>
+          <h3 id="resultsCount" class="text-xl font-semibold text-gray-900"></h3>
+          <p id="searchQuery" class="text-sm text-gray-600 mt-1"></p>
+        </div>
+        <div class="flex gap-3">
+          <button id="exportResults" class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-300">
+            <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Izvoz
+          </button>
+          <button id="clearSearch" class="px-4 py-2 text-sm bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors duration-300">
+            Obriši
+          </button>
+        </div>
+      </div>
+      
+      <!-- Results List -->
+      <div id="resultsList" class="space-y-4"></div>
+      
+      <!-- Pagination -->
+      <div id="pagination" class="mt-8 flex justify-center">
+        <!-- Pagination will be inserted here -->
+      </div>
+    </div>
+
+    <!-- No Results -->
+    <div id="noResults" class="hidden text-center py-12">
+      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-900 mb-2">Nema rezultata</h3>
+      <p class="text-gray-600 mb-4">Pokušajte s drugim pojmom ili provjerite pravopis</p>
+      <div class="text-sm text-gray-500">
+        <p>Savjeti za pretragu:</p>
+        <ul class="mt-2 space-y-1">
+          <li>• Koristite kratke ključne riječi</li>
+          <li>• Pokušajte s sinonimima</li>
+          <li>• Provjerite pravopis</li>
+          <li>• Koristite fuzzy search za tolerantnost na greške</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Statistics -->
+  <div id="searchStats" class="mt-8 p-4 bg-gray-50 rounded-lg hidden">
+    <h4 class="font-semibold text-gray-900 mb-2">Statistika pretrage</h4>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <div>
+        <span class="text-gray-600">Ukupno rezultata:</span>
+        <span id="totalResults" class="ml-2 font-semibold">0</span>
+      </div>
+      <div>
+        <span class="text-gray-600">Vrijeme pretrage:</span>
+        <span id="searchTime" class="ml-2 font-semibold">0ms</span>
+      </div>
+      <div>
+        <span class="text-gray-600">Indeksirano stavki:</span>
+        <span id="indexedItems" class="ml-2 font-semibold">0</span>
+      </div>
+      <div>
+        <span class="text-gray-600">Popularni pojmovi:</span>
+        <span id="popularTerms" class="ml-2 font-semibold">0</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .advanced-search-container {
+    @apply w-full;
+  }
+  
+  .filter-group {
+    @apply flex flex-col;
+  }
+  
+  .filter-group select,
+  .filter-group input[type="checkbox"] {
+    @apply transition-all duration-200;
+  }
+  
+  .filter-group select:focus,
+  .filter-group input[type="checkbox"]:focus {
+    @apply ring-2 ring-blue-500 border-transparent;
+  }
+  
+  #autocompleteDropdown {
+    @apply border-gray-200 bg-white shadow-lg;
+  }
+  
+  .autocomplete-item {
+    @apply px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors duration-150;
+  }
+  
+  .autocomplete-item:hover {
+    @apply bg-blue-50;
+  }
+  
+  .autocomplete-item.selected {
+    @apply bg-blue-100;
+  }
+  
+  .search-result-item {
+    @apply block p-6 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all duration-300;
+  }
+  
+  .search-result-item:hover {
+    @apply border-blue-300 shadow-lg;
+  }
+  
+  .type-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .type-badge.poglavlje {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .type-badge.vjezba {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .type-badge.pojam {
+    @apply bg-purple-100 text-purple-800;
+  }
+  
+  .type-badge.kviz {
+    @apply bg-orange-100 text-orange-800;
+  }
+  
+  .type-badge.stranica {
+    @apply bg-gray-100 text-gray-800;
+  }
+  
+  .pagination-item {
+    @apply px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 transition-colors duration-200;
+  }
+  
+  .pagination-item.active {
+    @apply bg-blue-600 text-white border-blue-600;
+  }
+  
+  .pagination-item.disabled {
+    @apply opacity-50 cursor-not-allowed hover:bg-white hover:text-gray-500;
+  }
+</style>
