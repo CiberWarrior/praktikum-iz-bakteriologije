@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import accessibility from './src/integrations/accessibility.js';
 import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel/serverless';
 import path from 'path';
 
 // Detect deploy target to set correct site/base
@@ -12,7 +13,8 @@ const siteUrl = isVercel && process.env.VERCEL_URL
 export default defineConfig({
   site: siteUrl,
   base: '/',
-  output: 'static',
+  output: 'hybrid',
+  adapter: vercel(),
   redirects: {
     '/poglavlje/poglavlje-1/': '/poglavlje-1/',
     '/poglavlje/poglavlje-2/': '/poglavlje-2/',
