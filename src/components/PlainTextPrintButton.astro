@@ -1,0 +1,103 @@
+---
+// Gumb s ikonom printera - bez teksta
+---
+
+<button
+  id="simple-export-button"
+  type="button"
+  aria-label="Preuzmi sadržaj kao TXT i otvori print dijalog (ikona printera)"
+  class="inline-flex items-center gap-3 rounded-full px-6 py-3 text-sm font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-indigo-700 transform hover:-translate-y-0.5 transition-all duration-300 border-0 focus:outline-none focus:ring-4 focus:ring-blue-300/50"
+>
+  <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" class="text-blue-100">
+    <path d="M6 9V3h12v6M6 17H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2m-12 0v4h12v-4H6Z" fill="currentColor"/>
+  </svg>
+</button>
+
+<style>
+  /* Glavni stilovi gumba */
+  #simple-export-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Hover efekti */
+  #simple-export-button:hover {
+    box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.3), 0 10px 10px -5px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Aktivni stanje */
+  #simple-export-button:active {
+    transform: translateY(0px) scale(0.98);
+  }
+
+  /* Focus stanje */
+  #simple-export-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Animacija za ikonu */
+  #simple-export-button:hover svg {
+    transform: scale(1.1) rotate(5deg);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* Responsive dizajn */
+  @media (max-width: 640px) {
+    #simple-export-button {
+      padding: 0.75rem 1.25rem;
+    }
+    
+    #simple-export-button svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  /* Dark mode podrška */
+  @media (prefers-color-scheme: dark) {
+    #simple-export-button {
+      background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%);
+    }
+    
+    #simple-export-button:hover {
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+    }
+  }
+</style>
+
+<script>
+  document.getElementById('simple-export-button')?.addEventListener('click', function() {
+    try {
+      const root = document.getElementById('content') || document.querySelector('main, article');
+      if (!root) {
+        alert('Nisam našao #content. Provjeri layout.');
+        return;
+      }
+
+      const txt = root.textContent || '';
+      const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      
+      // Preuzmi THX (.txt)
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = (document.title || 'sadrzaj') + '.txt';
+      a.click();
+      
+      // Očisti URL
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+      }, 1000);
+      
+      // Otvori print dijalog
+      setTimeout(() => {
+        window.print();
+      }, 500);
+      
+    } catch (e) {
+      console.error(e);
+      alert('Došlo je do greške pri exportu.');
+    }
+  });
+</script>

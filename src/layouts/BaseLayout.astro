@@ -70,8 +70,6 @@ const canonicalUrl = canonical || Astro.url.href;
     <!-- Styles -->
     <link rel="stylesheet" href="/styles/global.css" />
     
-    
-    
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
@@ -95,7 +93,7 @@ const canonicalUrl = canonical || Astro.url.href;
       // Globalna funkcija za resetiranje quiz-a
       window.resetQuizGlobal = function() {
         // Pokušaj pronaći quiz form i results
-        const quizForm = document.querySelector('form[id*="quiz"], form[class*="quiz"]');
+        const quizForm = document.querySelector('form[id*="quiz"], form[class*="quiz"]') as HTMLFormElement;
         const quizResults = document.querySelector('[id*="Results"], [id*="results"]');
         
         if (quizForm) {
@@ -222,6 +220,7 @@ const canonicalUrl = canonical || Astro.url.href;
               <li><a href="/sadrzaj/" class="text-gray-300 hover:text-white transition-colors duration-300">Sadržaj</a></li>
               <li><a href="/rječnik/" class="text-gray-300 hover:text-white transition-colors duration-300">Rječnik</a></li>
               <li><a href="/o-nama/" class="text-gray-300 hover:text-white transition-colors duration-300">O nama</a></li>
+              <li><a href="/pravila-privatnosti/" class="text-gray-300 hover:text-white transition-colors duration-300">Pravila privatnosti</a></li>
             </ul>
           </div>
           <div>
@@ -234,8 +233,28 @@ const canonicalUrl = canonical || Astro.url.href;
             </a>
           </div>
         </div>
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025. Mrežni udžbenik iz bakteriologije. Sva prava pridržana.</p>
+        
+        <!-- Creative Commons License Badge -->
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+          <div class="flex flex-col items-center space-y-4">
+            <p class="text-gray-400">&copy; 2025. Mrežni udžbenik iz bakteriologije. Sva prava pridržana.</p>
+            
+            <!-- CC License Badge -->
+            <a 
+              href="https://creativecommons.org/licenses/by-nc-nd/4.0/" 
+              target="_blank" 
+              rel="license noopener noreferrer"
+              class="flex items-center space-x-2 text-gray-400 hover:text-blue-300 transition-colors duration-300"
+              title="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License"
+            >
+              <svg class="w-8 h-8" viewBox="0 0 88 31" fill="currentColor">
+                <path d="M21 16h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"/>
+                <path d="M32 16h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"/>
+                <path d="M43 16h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"/>
+              </svg>
+              <span class="text-sm">CC BY-NC-ND 4.0</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -250,7 +269,6 @@ const canonicalUrl = canonical || Astro.url.href;
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
       </svg>
     </button>
-
 
     <!-- Mobile Menu Script -->
     <script>
@@ -293,7 +311,6 @@ const canonicalUrl = canonical || Astro.url.href;
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
-
     </script>
   </body>
 </html>

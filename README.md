@@ -124,8 +124,24 @@ Sve stranice su potpuno responzivne i optimizirane za:
 ## 📞 Kontakt
 
 Za pitanja o projektu ili tehničku podršku, kontaktirajte razvojni tim.
+## Licenca
+
+Ovaj projekt je licenciran pod [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+[![CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+**Dozvoljeno je:**
+- 📖 Slobodno korištenje za edukativne svrhe
+- 📤 Dijeljenje s drugima (bez modificiranja)
+
+**Uvjeti:**
+- ✅ Navesti autora (Sveučilište u Zagrebu)
+- ❌ Ne koristiti u komercijalne svrhe
+- ❌ Ne modificirati, prilagođavati ili stvarati derivat
 
 ---
 
-**© 2024 Sveučilište u Zagrebu - Mrežni udžbenik iz bakteriologije**
+
+
+**© 2025. Sveučilište u Zagrebu - Mrežni udžbenik iz bakteriologije**
 # Force Vercel deployment Thu Sep  4 13:57:21 CEST 2025

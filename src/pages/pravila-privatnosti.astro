@@ -1,0 +1,721 @@
+---
+// Pravila privatnosti stranica
+import '../styles/tailwind.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Pravila privatnosti',
+  description = 'Pravila privatnosti za mrežni udžbenik iz bakteriologije'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="hr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body class="bg-page font-sans text-page">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex justify-between items-center py-4">
+          <a href="/" class="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">
+            Bakteriologija
+          </a>
+          <!-- Desktop navigacija -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/sadrzaj/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Sadržaj
+            </a>
+            <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Predgovor
+            </a>
+            <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Rječnik
+            </a>
+            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              O nama
+            </a>
+            <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Kontakt
+            </a>
+            <!-- Search -->
+            <div class="relative">
+              <a href="/pretraga/" class="inline-flex items-center text-gray-700 hover:text-blue-600 transition-colors duration-300" title="Pretraga">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Mobilni hamburger menu -->
+          <div class="md:hidden">
+            <button 
+              id="mobile-menu-button" 
+              class="text-gray-700 hover:text-blue-600 transition-colors duration-300"
+              aria-label="Otvori navigacijski menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobilni menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200" role="navigation" aria-label="Mobilna navigacija">
+          <div class="flex flex-col space-y-4 pt-4">
+            <a href="/sadrzaj/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Sadržaj
+            </a>
+            <a href="/predgovor/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Predgovor
+            </a>
+            <a href="/rječnik/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Rječnik
+            </a>
+            <a href="/o-nama/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              O nama
+            </a>
+            <a href="/pretraga/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase text-sm">
+              Pretraga
+            </a>
+            <a href="/kontakt/" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
+              Kontakt
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
+      <!-- Header Section -->
+      <section class="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 text-white relative overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px;"></div>
+        </div>
+        
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 py-20">
+          <div class="text-center">
+            <!-- Icon -->
+            <div class="mb-6 flex justify-center">
+              <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-heading tracking-tight">
+              Pravila privatnosti
+            </h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto font-body leading-relaxed">
+              Vaša privatnost nam je važna. Ova pravila objašnjavaju kako prikupljamo, koristimo i štitimo vaše osobne podatke.
+            </p>
+            <div class="mt-8 inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3">
+              <svg class="w-5 h-5 text-blue-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-sm text-blue-100">Zadnje ažuriranje: {new Date().toLocaleDateString('hr-HR')}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Section -->
+      <section class="py-16 -mt-8 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <div class="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden transform hover:shadow-2xl transition-all duration-500">
+            
+            <!-- Table of Contents -->
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 px-8 py-6 border-b border-blue-200">
+              <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <svg class="w-6 h-6 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                Sadržaj
+              </h2>
+              <nav class="flex flex-wrap gap-3">
+                <a href="#uvod" class="text-blue-700 hover:text-white text-sm bg-white border border-blue-200 px-4 py-2 rounded-full hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+                  Uvod
+                </a>
+                <a href="#podaci" class="text-blue-700 hover:text-white text-sm bg-white border border-blue-200 px-4 py-2 rounded-full hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+                  Prikupljeni podaci
+                </a>
+                <a href="#korištenje" class="text-blue-700 hover:text-white text-sm bg-white border border-blue-200 px-4 py-2 rounded-full hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+                  Korištenje podataka
+                </a>
+                <a href="#dijeljenje" class="text-blue-700 hover:text-white text-sm bg-white border border-blue-200 px-4 py-2 rounded-full hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+                  Dijeljenje podataka
+                </a>
+                <a href="#sigurnost" class="text-blue-700 hover:text-white text-sm bg-white border border-blue-200 px-4 py-2 rounded-full hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+                  Sigurnost
+                </a>
+                <a href="#prava" class="text-blue-700 hover:text-white text-sm bg-white border border-blue-200 px-4 py-2 rounded-full hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+                  Vaša prava
+                </a>
+                <a href="#kontakt" class="text-blue-700 hover:text-white text-sm bg-white border border-blue-200 px-4 py-2 rounded-full hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-1">
+                  Kontakt
+                </a>
+              </nav>
+            </div>
+
+            <!-- Content -->
+            <div class="px-8 py-10 space-y-10">
+              
+              <!-- Uvod -->
+              <section id="uvod" class="group">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
+                    1
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 font-heading group-hover:text-blue-700 transition-colors duration-300">1. Uvod</h2>
+                    <div class="prose prose-gray max-w-none">
+                      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                        <p class="text-gray-700 mb-4 font-body leading-relaxed text-lg">
+                          Ova pravila privatnosti objašnjavaju kako prikupljamo, koristimo, čuvamo i štitimo vaše osobne podatke kada koristite našu web stranicu.
+                        </p>
+                        <p class="text-gray-700 mb-4 font-body leading-relaxed text-lg">
+                          Korištenjem naše web stranice pristajete na prikupljanje i korištenje podataka u skladu s ovim pravilima privatnosti. Ako se ne slažete s ovim pravilima, molimo vas da ne koristite našu web stranicu.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Prikupljeni podaci -->
+              <section id="podaci" class="group">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
+                    2
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 font-heading group-hover:text-green-700 transition-colors duration-300">2. Prikupljeni podaci</h2>
+                    <div class="prose prose-gray max-w-none space-y-6">
+                      
+                      <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border-l-4 border-green-500 shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                          <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                          </svg>
+                          2.1 Podaci koje prikupljamo automatski
+                        </h3>
+                        <ul class="space-y-3">
+                          <li class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                              <strong class="text-gray-800">Podaci o uređaju:</strong> 
+                              <span class="text-gray-700">IP adresa, tip uređaja, operacijski sustav, verzija preglednika</span>
+                            </div>
+                          </li>
+                          <li class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                              <strong class="text-gray-800">Podaci o korištenju:</strong> 
+                              <span class="text-gray-700">Vrijeme pristupa, stranice koje posjećujete, vrijeme provedeno na stranici</span>
+                            </div>
+                          </li>
+                          <li class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                              <strong class="text-gray-800">Tehnički podaci:</strong> 
+                              <span class="text-gray-700">Tip veze, geografska lokacija (općenito)</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                          <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                          </svg>
+                          2.2 Podaci koje vi pružate
+                        </h3>
+                        <ul class="space-y-3">
+                          <li class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                              <strong class="text-gray-800">Kontakt podaci:</strong> 
+                              <span class="text-gray-700">Ime, e-mail adresa (samo ako nas kontaktirate)</span>
+                            </div>
+                          </li>
+                          <li class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                              <strong class="text-gray-800">Povratne informacije:</strong> 
+                              <span class="text-gray-700">Komentari, sugestije, pitanja</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-500 shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                          <svg class="w-5 h-5 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                          </svg>
+                          2.3 Kolačići (Cookies)
+                        </h3>
+                        <p class="text-gray-700 font-body leading-relaxed text-lg">
+                          Koristimo kolačiće za poboljšanje funkcionalnosti stranice i analizu prometa. Možete kontrolirati kolačiće kroz postavke vašeg preglednika.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Korištenje podataka -->
+              <section id="korištenje" class="group">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
+                    3
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 font-heading group-hover:text-orange-700 transition-colors duration-300">3. Kako koristimo vaše podatke</h2>
+                    <div class="prose prose-gray max-w-none">
+                      <div class="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-xl border-l-4 border-orange-500 shadow-sm">
+                        <p class="text-gray-700 mb-6 font-body leading-relaxed text-lg">
+                          Vaše podatke koristimo za sljedeće svrhe:
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                          <div class="flex items-start space-x-3 p-3 bg-white/50 rounded-lg">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-700">Pružanje i održavanje naše web stranice</span>
+                          </div>
+                          <div class="flex items-start space-x-3 p-3 bg-white/50 rounded-lg">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-700">Poboljšanje funkcionalnosti i korisničkog iskustva</span>
+                          </div>
+                          <div class="flex items-start space-x-3 p-3 bg-white/50 rounded-lg">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-700">Analiza korištenja stranice za poboljšanje sadržaja</span>
+                          </div>
+                          <div class="flex items-start space-x-3 p-3 bg-white/50 rounded-lg">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-700">Odgovaranje na vaše upite i povratne informacije</span>
+                          </div>
+                          <div class="flex items-start space-x-3 p-3 bg-white/50 rounded-lg">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-700">Detekcija i sprječavanje zlouporabe</span>
+                          </div>
+                          <div class="flex items-start space-x-3 p-3 bg-white/50 rounded-lg">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-700">Ispunjavanje zakonskih obveza</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Dijeljenje podataka -->
+              <section id="dijeljenje" class="group">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
+                    4
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 font-heading group-hover:text-purple-700 transition-colors duration-300">4. Dijeljenje vaših podataka</h2>
+                    <div class="prose prose-gray max-w-none">
+                      <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-500 shadow-sm">
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                          <p class="text-red-800 font-semibold text-lg text-center">
+                            <svg class="w-6 h-6 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                            Ne prodajemo, ne iznajmljujemo niti ne dijelimo vaše osobne podatke s trećim stranama
+                          </p>
+                        </div>
+                        <p class="text-gray-700 mb-6 font-body leading-relaxed text-lg">
+                          Podatke dijelimo <strong>samo</strong> u sljedećim slučajevima:
+                        </p>
+                        <div class="space-y-4">
+                          <div class="flex items-start space-x-3 p-4 bg-white/50 rounded-lg border border-purple-200">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                              <strong class="text-gray-800">Uz vaš izričit pristanak</strong>
+                              <p class="text-gray-600 text-sm mt-1">Samo kada ste eksplicitno pristali na dijeljenje</p>
+                            </div>
+                          </div>
+                          <div class="flex items-start space-x-3 p-4 bg-white/50 rounded-lg border border-purple-200">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                              <strong class="text-gray-800">Kada je to potrebno za pružanje usluge</strong>
+                              <p class="text-gray-600 text-sm mt-1">Npr. hosting provajder, analitički servisi</p>
+                            </div>
+                          </div>
+                          <div class="flex items-start space-x-3 p-4 bg-white/50 rounded-lg border border-purple-200">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                              <strong class="text-gray-800">Kada to zahtijeva zakon ili sudski nalog</strong>
+                              <p class="text-gray-600 text-sm mt-1">Obvezno po zakonskim odredbama</p>
+                            </div>
+                          </div>
+                          <div class="flex items-start space-x-3 p-4 bg-white/50 rounded-lg border border-purple-200">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                              <strong class="text-gray-800">Za zaštitu naših prava, sigurnosti ili sigurnosti drugih</strong>
+                              <p class="text-gray-600 text-sm mt-1">U slučaju sigurnosnih prijetnji</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Sigurnost -->
+              <section id="sigurnost" class="group">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-600 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
+                    5
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 font-heading group-hover:text-teal-700 transition-colors duration-300">5. Sigurnost podataka</h2>
+                    <div class="prose prose-gray max-w-none">
+                      <div class="bg-gradient-to-r from-teal-50 to-cyan-50 p-6 rounded-xl border-l-4 border-teal-500 shadow-sm">
+                        <div class="grid md:grid-cols-2 gap-6">
+                          <div class="bg-white/50 p-4 rounded-lg border border-teal-200">
+                            <div class="flex items-center mb-3">
+                              <svg class="w-6 h-6 text-teal-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                              </svg>
+                              <h3 class="font-semibold text-gray-800">Tehničke mjere</h3>
+                            </div>
+                            <p class="text-gray-700 text-sm">
+                              Implementiramo odgovarajuće tehničke mjere za zaštitu vaših osobnih podataka od neovlaštenog pristupa, promjene, otkrivanja ili uništavanja.
+                            </p>
+                          </div>
+                          
+                          <div class="bg-white/50 p-4 rounded-lg border border-teal-200">
+                            <div class="flex items-center mb-3">
+                              <svg class="w-6 h-6 text-teal-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                              </svg>
+                              <h3 class="font-semibold text-gray-800">Organizacijske mjere</h3>
+                            </div>
+                            <p class="text-gray-700 text-sm">
+                              Osiguravamo da svi zaposlenici i suradnici poštuju najviše standarde sigurnosti podataka.
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                          <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-yellow-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                            <div>
+                              <p class="text-yellow-800 font-medium">
+                                <strong>Važna napomena:</strong> Trebate biti svjesni da nijedan sustav nije 100% siguran, a mi ne možemo jamčiti apsolutnu sigurnost podataka koji se prenose putem interneta.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Vaša prava -->
+              <section id="prava" class="group">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-blue-600 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
+                    6
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 font-heading group-hover:text-indigo-700 transition-colors duration-300">6. Vaša prava</h2>
+                    <div class="prose prose-gray max-w-none">
+                      <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-6 rounded-xl border-l-4 border-indigo-500 shadow-sm">
+                        <p class="text-gray-700 mb-6 font-body leading-relaxed text-lg">
+                          Imate sljedeća prava u vezi s vašim osobnim podacima:
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                          <div class="bg-white/50 p-4 rounded-lg border border-indigo-200 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex items-center mb-2">
+                              <svg class="w-5 h-5 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                              </svg>
+                              <strong class="text-gray-800">Pravo na pristup</strong>
+                            </div>
+                            <p class="text-gray-600 text-sm">Možete zatražiti kopiju vaših osobnih podataka</p>
+                          </div>
+                          
+                          <div class="bg-white/50 p-4 rounded-lg border border-indigo-200 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex items-center mb-2">
+                              <svg class="w-5 h-5 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                              </svg>
+                              <strong class="text-gray-800">Pravo na ispravak</strong>
+                            </div>
+                            <p class="text-gray-600 text-sm">Možete zatražiti ispravak netočnih podataka</p>
+                          </div>
+                          
+                          <div class="bg-white/50 p-4 rounded-lg border border-indigo-200 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex items-center mb-2">
+                              <svg class="w-5 h-5 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                              </svg>
+                              <strong class="text-gray-800">Pravo na brisanje</strong>
+                            </div>
+                            <p class="text-gray-600 text-sm">Možete zatražiti brisanje vaših podataka</p>
+                          </div>
+                          
+                          <div class="bg-white/50 p-4 rounded-lg border border-indigo-200 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex items-center mb-2">
+                              <svg class="w-5 h-5 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z"></path>
+                              </svg>
+                              <strong class="text-gray-800">Pravo na ograničenje</strong>
+                            </div>
+                            <p class="text-gray-600 text-sm">Možete zatražiti ograničenje obrade</p>
+                          </div>
+                          
+                          <div class="bg-white/50 p-4 rounded-lg border border-indigo-200 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex items-center mb-2">
+                              <svg class="w-5 h-5 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                              </svg>
+                              <strong class="text-gray-800">Pravo na prenosivost</strong>
+                            </div>
+                            <p class="text-gray-600 text-sm">Možete zatražiti prenos podataka</p>
+                          </div>
+                          
+                          <div class="bg-white/50 p-4 rounded-lg border border-indigo-200 hover:shadow-md transition-shadow duration-300">
+                            <div class="flex items-center mb-2">
+                              <svg class="w-5 h-5 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L5.636 18.364"></path>
+                              </svg>
+                              <strong class="text-gray-800">Pravo na prigovor</strong>
+                            </div>
+                            <p class="text-gray-600 text-sm">Možete se usprotiviti obradi podataka</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Kontakt -->
+              <section id="kontakt" class="group">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
+                    7
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 font-heading group-hover:text-emerald-700 transition-colors duration-300">7. Kontakt</h2>
+                    <div class="prose prose-gray max-w-none">
+                      <div class="bg-gradient-to-r from-emerald-50 to-green-50 p-6 rounded-xl border-l-4 border-emerald-500 shadow-sm">
+                        <p class="text-gray-700 mb-6 font-body leading-relaxed text-lg">
+                          Ako imate pitanja o ovim pravilima privatnosti ili želite ostvariti svoja prava, kontaktirajte nas:
+                        </p>
+                        <div class="flex justify-center">
+                          <div class="bg-white/50 p-8 rounded-lg border border-emerald-200 hover:shadow-md transition-shadow duration-300 max-w-md">
+                            <div class="flex items-center mb-6">
+                              <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                              </div>
+                              <div>
+                                <h3 class="font-semibold text-gray-800 text-lg">E-mail kontakt</h3>
+                                <p class="text-gray-600 text-sm">Direktno pošaljite e-mail</p>
+                              </div>
+                            </div>
+                            <a href="mailto:bakterijologijapmf@gmail.com" class="inline-flex items-center justify-center w-full text-emerald-600 hover:text-emerald-800 font-medium transition-colors duration-300 bg-emerald-50 hover:bg-emerald-100 px-6 py-3 rounded-lg border border-emerald-200">
+                              bakterijologijapmf@gmail.com
+                              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Dodatne informacije -->
+              <section class="group">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-rose-500 to-pink-600 text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
+                    8
+                  </div>
+                  <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6 font-heading group-hover:text-rose-700 transition-colors duration-300">8. Dodatne informacije</h2>
+                    <div class="prose prose-gray max-w-none space-y-6">
+                      
+                      <div class="bg-gradient-to-r from-rose-50 to-pink-50 p-6 rounded-xl border-l-4 border-rose-500 shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                          <svg class="w-5 h-5 text-rose-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                          </svg>
+                          8.1 Promjene pravila privatnosti
+                        </h3>
+                        <p class="text-gray-700 font-body leading-relaxed text-lg">
+                          Zadržavamo pravo promjene ovih pravila privatnosti. O svim promjenama obavijestit ćemo vas objavljivanjem novih pravila na ovoj stranici.
+                        </p>
+                      </div>
+
+                      <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border-l-4 border-amber-500 shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                          <svg class="w-5 h-5 text-amber-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                          </svg>
+                          8.2 Mladoljetne osobe
+                        </h3>
+                        <p class="text-gray-700 font-body leading-relaxed text-lg">
+                          Naša web stranica nije namijenjena osobama mlađim od 13 godina. Ne prikupljamo svjesno osobne podatke od djece mlađe od 13 godina.
+                        </p>
+                      </div>
+
+                      <div class="bg-gradient-to-r from-sky-50 to-blue-50 p-6 rounded-xl border-l-4 border-sky-500 shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                          <svg class="w-5 h-5 text-sky-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          </svg>
+                          8.3 Međunarodni prijenos podataka
+                        </h3>
+                        <p class="text-gray-700 font-body leading-relaxed text-lg">
+                          Vaši podaci se mogu prenositi i obrađivati u zemljama izvan vaše rezidencije. Osiguravamo da se takvi prijenosi odvijaju u skladu s ovim pravilima privatnosti.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+      <!-- Background pattern -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
+      </div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-16">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="col-span-2">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold">Mrežni udžbenik iz bakteriologije</h3>
+            </div>
+            <p class="text-gray-300 mb-6 text-lg leading-relaxed">
+              Priručnik za studente s detaljnim uputama za bakteriološki praktikum.
+            </p>
+            <div class="flex space-x-4">
+              <a href="/pravila-privatnosti/" class="inline-flex items-center text-blue-300 hover:text-white transition-colors duration-300 bg-blue-900/20 hover:bg-blue-900/40 px-4 py-2 rounded-lg">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+                Pravila privatnosti
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold uppercase tracking-wide mb-6 text-blue-300">Brzi linkovi</h4>
+            <ul class="space-y-3">
+              <li><a href="/sadrzaj/" class="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform">Sadržaj</a></li>
+              <li><a href="/predgovor/" class="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform">Predgovor</a></li>
+              <li><a href="/rječnik/" class="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform">Rječnik</a></li>
+              <li><a href="/pravila-privatnosti/" class="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform">Pravila privatnosti</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold uppercase tracking-wide mb-6 text-blue-300">Kontakt</h4>
+            <ul class="space-y-3">
+              <li><a href="/o-nama/" class="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform">O nama</a></li>
+              <li><a href="/kontakt/" class="text-gray-300 hover:text-white transition-colors duration-300 hover:translate-x-1 transform">Kontakt</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+          <div class="flex flex-col items-center space-y-4">
+            <p class="text-gray-400 text-lg">
+              © {new Date().getFullYear()}. Mrežni udžbenik iz bakteriologije. Sva prava pridržana.
+            </p>
+            
+            <!-- Creative Commons License Badge -->
+            <a 
+              href="https://creativecommons.org/licenses/by-nc-nd/4.0/" 
+              target="_blank" 
+              rel="license noopener noreferrer"
+              class="flex items-center space-x-2 text-gray-400 hover:text-blue-300 transition-colors duration-300"
+              title="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License"
+            >
+              <svg class="w-8 h-8" viewBox="0 0 88 31" fill="currentColor">
+                <path d="M21 16h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"/>
+                <path d="M32 16h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"/>
+                <path d="M43 16h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2zm-4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v2z"/>
+              </svg>
+              <span class="text-sm">CC BY-NC-ND 4.0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+          mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
