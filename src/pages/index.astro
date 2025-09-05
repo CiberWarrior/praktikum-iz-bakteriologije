@@ -11,11 +11,12 @@ const {
   title = 'Mrežni udžbenik iz bakteriologije',
   description = 'Priručnik za studente s detaljnim uputama za bakteriološki praktikum'
 } = Astro.props;
+
 ---
 
 <BaseLayout title={title} description={description}>
   <!-- Hero Section -->
-  <section class="relative py-20 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-900 text-white overflow-hidden" style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
+  <section class="relative py-20 bg-gradient-to-r from-purple-600 to-blue-600 text-white overflow-hidden">
     <!-- Pozadinski uzorak -->
     <div class="absolute inset-0 opacity-10">
       <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
@@ -25,7 +26,7 @@ const {
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <!-- Tekst sekcija -->
         <div class="text-center lg:text-left hero-text">
-          <p class="text-green-200 font-bold uppercase tracking-wide mb-5 text-sm">
+          <p class="text-purple-200 font-bold uppercase tracking-wide mb-5 text-sm">
             Praktični pristup bakteriologiji
           </p>
           
@@ -33,7 +34,7 @@ const {
             Mrežni udžbenik iz bakteriologije
           </h1>
           
-          <p class="text-xl text-green-200 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-body">
+          <p class="text-xl text-purple-200 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-body">
             Priručnik za studente s detaljnim uputama za bakteriološki praktikum. Naučite ključne tehnike od sigurnog rada i aseptike do identifikacije i interpretacije rezultata.
           </p>
           
@@ -84,14 +85,14 @@ const {
   </section>
 
   <!-- Brzi start sekcija -->
-  <section class="py-20 bg-gray-50">
+  <section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <div class="bg-white rounded-2xl shadow-lg p-8">
+      <div class="bg-gray-700 rounded-2xl shadow-lg p-8 border border-gray-600">
         <div class="grid md:grid-cols-4 gap-6">
-          <div class="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
-            <h3 class="text-xl font-semibold mb-3 text-purple-800 font-heading">Predgovor</h3>
-            <p class="text-purple-700 mb-4 font-body leading-relaxed">Uvod u udžbenik i upute za korištenje</p>
-            <a href="/predgovor/" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-800">
+          <div class="bg-gray-600 border border-purple-400 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
+            <h3 class="text-xl font-semibold mb-3 text-white font-heading">Predgovor</h3>
+            <p class="text-gray-300 mb-4 font-body leading-relaxed">Uvod u udžbenik i upute za korištenje</p>
+            <a href="/predgovor/" class="inline-flex items-center text-purple-400 font-semibold hover:text-purple-300">
               Pročitaj predgovor
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -99,10 +100,10 @@ const {
             </a>
           </div>
           
-          <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
-            <h3 class="text-xl font-semibold mb-3 text-indigo-800 font-heading">Sadržaj udžbenika</h3>
-            <p class="text-indigo-700 mb-4 font-body leading-relaxed">Pregled svih poglavlja i vježbi</p>
-            <a href="/sadrzaj/" class="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-800">
+          <div class="bg-gray-600 border border-indigo-400 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
+            <h3 class="text-xl font-semibold mb-3 text-white font-heading">Sadržaj udžbenika</h3>
+            <p class="text-gray-300 mb-4 font-body leading-relaxed">Pregled svih poglavlja i vježbi</p>
+            <a href="/sadrzaj/" class="inline-flex items-center text-indigo-400 font-semibold hover:text-indigo-300">
               Pregledaj sadržaj
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -110,10 +111,10 @@ const {
             </a>
           </div>
           
-          <div class="bg-gradient-to-br from-violet-50 to-purple-50 border border-violet-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
-            <h3 class="text-xl font-semibold mb-3 text-violet-800 font-heading">Započni učenje</h3>
-            <p class="text-violet-700 mb-4 font-body leading-relaxed">Prvo poglavlje - Uvod u bakteriološki praktikum</p>
-            <a href="/poglavlje-1/" class="inline-flex items-center text-violet-600 font-semibold hover:text-violet-800">
+          <div class="bg-gray-600 border border-violet-400 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
+            <h3 class="text-xl font-semibold mb-3 text-white font-heading">Započni učenje</h3>
+            <p class="text-gray-300 mb-4 font-body leading-relaxed">Prvo poglavlje - Uvod u bakteriološki praktikum</p>
+            <a href="/poglavlje-1/" class="inline-flex items-center text-violet-400 font-semibold hover:text-violet-300">
               Započni
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -121,10 +122,10 @@ const {
             </a>
           </div>
           
-          <div class="bg-gradient-to-br from-fuchsia-50 to-purple-50 border border-fuchsia-200 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
-            <h3 class="text-xl font-semibold mb-3 text-fuchsia-800 font-heading">Provjeri znanje</h3>
-            <p class="text-fuchsia-700 mb-4 font-body leading-relaxed">Testiraj svoje znanje iz svih 23 poglavlja</p>
-            <a href="/provjeri-znanje/" class="inline-flex items-center text-fuchsia-600 font-semibold hover:text-fuchsia-800">
+          <div class="bg-gray-600 border border-fuchsia-400 rounded-lg p-6 hover:shadow-lg transition-all duration-300 quick-start-card">
+            <h3 class="text-xl font-semibold mb-3 text-white font-heading">Provjeri znanje</h3>
+            <p class="text-gray-300 mb-4 font-body leading-relaxed">Testiraj svoje znanje iz svih 23 poglavlja</p>
+            <a href="/provjeri-znanje/" class="inline-flex items-center text-fuchsia-400 font-semibold hover:text-fuchsia-300">
               Započni kviz
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -137,47 +138,47 @@ const {
   </section>
 
   <!-- Kratki blurbovi -->
-  <section class="py-16 bg-white border-t border-gray-100">
+  <section class="py-16 bg-gradient-to-br from-gray-800 to-gray-900 border-t border-gray-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="grid md:grid-cols-4 gap-6">
         <div class="text-center blurb-item">
-          <div class="w-12 h-12 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
-            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">23 Poglavlja</h3>
-          <p class="text-gray-600 text-sm">Kompletan sadržaj bakteriološkog praktikuma</p>
+          <h3 class="text-lg font-semibold text-white mb-2 font-heading">23 Poglavlja</h3>
+          <p class="text-gray-300 text-sm font-body">Kompletan sadržaj bakteriološkog praktikuma</p>
         </div>
         
         <div class="text-center blurb-item">
-          <div class="w-12 h-12 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Besplatno</h3>
-          <p class="text-gray-600 text-sm">Dostupno svim studentima biologije</p>
+          <h3 class="text-lg font-semibold text-white mb-2 font-heading">Besplatno</h3>
+          <p class="text-gray-300 text-sm font-body">Dostupno svim studentima biologije</p>
         </div>
         
         <div class="text-center blurb-item">
-          <div class="w-12 h-12 bg-gradient-to-br from-violet-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-            <svg class="w-6 h-6 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-gradient-to-br from-violet-500 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">24/7 Dostupnost</h3>
-          <p class="text-gray-600 text-sm">Učite u svom tempu</p>
+          <h3 class="text-lg font-semibold text-white mb-2 font-heading">24/7 Dostupnost</h3>
+          <p class="text-gray-300 text-sm font-body">Učite u svom tempu</p>
         </div>
         
         <div class="text-center blurb-item">
-          <div class="w-12 h-12 bg-gradient-to-br from-fuchsia-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-            <svg class="w-6 h-6 text-fuchsia-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="w-12 h-12 bg-gradient-to-br from-fuchsia-500 to-fuchsia-600 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Tim stručnjaka</h3>
-          <p class="text-gray-600 text-sm">Kreirao tim s PMF-a</p>
+          <h3 class="text-lg font-semibold text-white mb-2 font-heading">Tim stručnjaka</h3>
+          <p class="text-gray-300 text-sm font-body">Kreirao tim s PMF-a</p>
         </div>
       </div>
     </div>
@@ -210,54 +211,54 @@ const {
   />
 
   <!-- Kako koristiti sekcija -->
-  <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+  <section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800 section-title tracking-tight font-heading">Kako koristiti?</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent section-title tracking-tight font-heading">Kako koristiti?</h2>
       
       <div class="grid gap-8">
-        <div class="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
+        <div class="bg-gray-700 border border-purple-400 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
             <div>
-              <p class="text-lg text-gray-700">Kreni od <a href="/sadrzaj/" class="text-purple-600 font-semibold hover:text-purple-800 transition-colors duration-300">Sadržaja</a> (pregled svih poglavlja).</p>
+              <p class="text-lg text-gray-300 font-body">Kreni od <a href="/sadrzaj/" class="text-purple-400 font-semibold hover:text-purple-300 transition-colors duration-300">Sadržaja</a> (pregled svih poglavlja).</p>
             </div>
           </div>
         </div>
         
-        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
+        <div class="bg-gray-700 border border-indigo-400 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
             <div>
-              <p class="text-lg text-gray-700">Otvori <a href="/predgovor/#pregled-poglavlja" class="text-indigo-600 font-semibold hover:text-indigo-800 transition-colors duration-300">Pregled poglavlja</a> i izaberi temu.</p>
+              <p class="text-lg text-gray-300 font-body">Otvori <a href="/predgovor/#pregled-poglavlja" class="text-indigo-400 font-semibold hover:text-indigo-300 transition-colors duration-300">Pregled poglavlja</a> i izaberi temu.</p>
             </div>
           </div>
         </div>
         
-        <div class="bg-gradient-to-br from-violet-50 to-purple-50 border border-violet-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
+        <div class="bg-gray-700 border border-violet-400 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
             <div>
-              <p class="text-lg text-gray-700">Slijedi protokol → odradi vježbu → usporedi rezultat sa slikama.</p>
+              <p class="text-lg text-gray-300 font-body">Slijedi protokol → odradi vježbu → usporedi rezultat sa slikama.</p>
             </div>
           </div>
         </div>
         
-        <div class="bg-gradient-to-br from-fuchsia-50 to-purple-50 border border-fuchsia-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
+        <div class="bg-gray-700 border border-fuchsia-400 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 how-to-step">
           <div class="flex items-start space-x-4">
             <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-fuchsia-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
             <div>
-              <p class="text-lg text-gray-700">Bilježi opažanja i ponovi ključne korake.</p>
+              <p class="text-lg text-gray-300 font-body">Bilježi opažanja i ponovi ključne korake.</p>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="mt-12 bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 recommendation-box">
+      <div class="mt-12 bg-gray-700 border border-yellow-400 rounded-xl p-8 hover:shadow-lg transition-all duration-300 recommendation-box">
         <div class="flex items-start space-x-4">
           <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-400 text-white rounded-full flex items-center justify-center text-2xl">💡</div>
           <div>
-            <h3 class="text-xl font-semibold text-yellow-800 mb-3">Preporuka</h3>
-            <p class="text-yellow-700 text-lg leading-relaxed">Najbolje rezultate daje kombinacija čitanja i izvođenja vježbi u laboratoriju.</p>
+            <h3 class="text-xl font-semibold text-white mb-3 font-heading">Preporuka</h3>
+            <p class="text-gray-300 text-lg leading-relaxed font-body">Najbolje rezultate daje kombinacija čitanja i izvođenja vježbi u laboratoriju.</p>
           </div>
         </div>
       </div>
@@ -265,17 +266,17 @@ const {
   </section>
 
   <!-- Call to Action Section -->
-  <section class="py-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white relative overflow-hidden">
+  <section class="py-20 bg-gray-800 text-white relative overflow-hidden">
     <!-- Pozadinski uzorak -->
     <div class="absolute inset-0 opacity-10">
       <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
     </div>
     
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight font-heading">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight font-heading" style="background: linear-gradient(to right, #818cf8, #a855f7); -webkit-background-clip: text; background-clip: text; color: transparent;">
         Započni učenje?
       </h2>
-      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed font-body">
+      <p class="text-xl text-purple-200 mb-8 max-w-2xl mx-auto leading-relaxed font-body">
         Započnite svoj put u bakteriologiji danas. Naš tim stručnjaka spreman je pomoći vam na svakom koraku.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">

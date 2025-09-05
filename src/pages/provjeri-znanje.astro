@@ -99,13 +99,13 @@ const {
       </div>
     </nav>
 
-    <div class="min-h-screen bg-gray-50">
+    <div class="min-h-screen bg-gradient-to-br from-slate-800 to-slate-700">
       <!-- Header -->
-      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
         <div class="container mx-auto px-6 py-16">
           <div class="text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Provjeri svoje znanje</h1>
-            <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 font-heading">Provjeri svoje znanje</h1>
+            <p class="text-xl md:text-2xl text-purple-200 max-w-3xl mx-auto font-body">
               Pokreni kviz
             </p>
           </div>
@@ -113,15 +113,15 @@ const {
       </div>
 
       <!-- Timer Section -->
-      <div class="bg-white border-b border-gray-200 py-4">
+      <div class="bg-gray-800 border-b border-gray-600 py-4">
         <div class="container mx-auto px-6">
           <div class="text-center">
-            <div class="inline-flex items-center bg-blue-100 text-blue-800 px-6 py-3 rounded-full">
+            <div class="inline-flex items-center bg-gray-700 text-white px-6 py-3 rounded-full border border-blue-500/30">
               <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <span class="text-lg font-semibold">Preostalo vrijeme: </span>
-              <span id="timer" class="text-2xl font-bold ml-2 text-blue-600">20:00</span>
+              <span class="text-lg font-semibold font-body">Preostalo vrijeme: </span>
+              <span id="timer" class="text-2xl font-bold ml-2 text-blue-400">20:00</span>
             </div>
           </div>
         </div>
@@ -131,706 +131,706 @@ const {
       <div class="container mx-auto px-6 py-12">
         <div class="max-w-6xl mx-auto">
           <!-- Quiz Instructions -->
-          <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+          <div class="bg-gray-800 rounded-xl shadow-lg p-8 mb-8 border border-gray-600">
             <div class="text-center mb-8">
-              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              <h2 class="text-2xl font-bold text-gray-900 mb-4">Upute za test</h2>
-              <p class="text-gray-600 text-lg">
+              <h2 class="text-2xl font-bold text-white mb-4 font-heading">Upute za test</h2>
+              <p class="text-gray-300 text-lg font-body">
                 Test sadrži 24 pitanja iz svih poglavlja. Odgovorite na sva pitanja i na kraju vidjet ćete svoj rezultat.
               </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6 text-center">
               <div class="p-4">
-                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
-                <h3 class="font-semibold text-gray-900 mb-2">24 pitanja</h3>
-                <p class="text-gray-600 text-sm">Pitanja pokrivaju cijeli sadržaj kursa</p>
+                <h3 class="font-semibold text-white mb-2 font-heading">24 pitanja</h3>
+                <p class="text-gray-300 text-sm font-body">Pitanja pokrivaju cijeli sadržaj kursa</p>
               </div>
 
               <div class="p-4">
-                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
-                <h3 class="font-semibold text-gray-900 mb-2">20 minuta</h3>
-                <p class="text-gray-600 text-sm">Odgovarajte u vremenskom okviru</p>
+                <h3 class="font-semibold text-white mb-2 font-heading">20 minuta</h3>
+                <p class="text-gray-300 text-sm font-body">Odgovarajte u vremenskom okviru</p>
               </div>
 
               <div class="p-4">
-                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                   </svg>
                 </div>
-                <h3 class="font-semibold text-gray-900 mb-2">Detaljni rezultat</h3>
-                <p class="text-gray-600 text-sm">Vidite svoj postotak uspjeha</p>
+                <h3 class="font-semibold text-white mb-2 font-heading">Detaljni rezultat</h3>
+                <p class="text-gray-300 text-sm font-body">Vidite svoj postotak uspjeha</p>
               </div>
             </div>
           </div>
 
           <!-- Progress Bar -->
-          <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+          <div class="bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border border-gray-600">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-lg font-semibold text-gray-900">Napredak kviza</h3>
-              <span id="progressText" class="text-sm text-gray-600">0 / 24 pitanja</span>
+              <h3 class="text-lg font-semibold text-white font-heading">Napredak kviza</h3>
+              <span id="progressText" class="text-sm text-gray-300 font-body">0 / 24 pitanja</span>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-3">
+            <div class="w-full bg-gray-600 rounded-full h-3">
               <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
             </div>
           </div>
 
           <!-- Quiz Form -->
-          <div class="bg-white rounded-xl shadow-lg p-8">
+          <div class="bg-gray-800 rounded-xl shadow-lg p-8 border border-gray-600">
             <form id="quizForm" class="space-y-8">
               <!-- Question 1 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">1. Potpuna sterilizacija postiže se:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">1. Potpuna sterilizacija postiže se:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q1" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) spaljivanjem</span>
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    <input type="checkbox" name="q1" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) spaljivanjem</span>
                   </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q1" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) suhom sterilizacijom</span>
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    <input type="checkbox" name="q1" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) suhom sterilizacijom</span>
                   </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q1" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) pasterizacijom</span>
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    <input type="checkbox" name="q1" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) pasterizacijom</span>
                   </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q1" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) autoklaviranjem</span>
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    <input type="checkbox" name="q1" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) autoklaviranjem</span>
                   </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q1" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) korištenjem asepsola</span>
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    <input type="checkbox" name="q1" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) korištenjem asepsola</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 2 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">2. Koje tvrdnje su točne za metodu bojenja bakterijskih endospora:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">2. Koje tvrdnje su točne za metodu bojenja bakterijskih endospora:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q2" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) to je "negativno" bojenje</span>
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    <input type="checkbox" name="q2" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) to je "negativno" bojenje</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q2" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) koristi se malahitno zelenilo i safranin</span>
+                    <input type="checkbox" name="q2" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) koristi se malahitno zelenilo i safranin</span>
+                  </label>
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
+                    <input type="checkbox" name="q2" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) koristi se gencijana violet i safranin</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q2" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) koristi se gencijana violet i safranin</span>
+                    <input type="checkbox" name="q2" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) pod mikroskopom su spore prozirne a vegetativne stanice crvene</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q2" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) pod mikroskopom su spore prozirne a vegetativne stanice crvene</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q2" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) preparat obavezno treba fiksirati na plamenu prije bojanja</span>
+                    <input type="checkbox" name="q2" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) preparat obavezno treba fiksirati na plamenu prije bojanja</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 3 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">3. Označi selektivno-diferencijalne podloge za uzgoj <em>E. coli</em>:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">3. Označi selektivno-diferencijalne podloge za uzgoj <em>E. coli</em>:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q3" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) EC-X-GLUC agar</span>
+                    <input type="checkbox" name="q3" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) EC-X-GLUC agar</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q3" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) Peptonska voda</span>
+                    <input type="checkbox" name="q3" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) Peptonska voda</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q3" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) Hranjivi agar</span>
+                    <input type="checkbox" name="q3" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) Hranjivi agar</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q3" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) MacConkey broth</span>
+                    <input type="checkbox" name="q3" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) MacConkey broth</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q3" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) Endo agar</span>
+                    <input type="checkbox" name="q3" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) Endo agar</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 4 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">4. Da bi pod mikroskopom vidjeli bakterijske kapsule moramo:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">4. Da bi pod mikroskopom vidjeli bakterijske kapsule moramo:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q4" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) obojiti preparat metodom po Shäffer-Fultonu</span>
+                    <input type="checkbox" name="q4" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) obojiti preparat metodom po Shäffer-Fultonu</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q4" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) koristiti crni tuš</span>
+                    <input type="checkbox" name="q4" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) koristiti crni tuš</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q4" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) gledati preparat na povećanju od 200×</span>
+                    <input type="checkbox" name="q4" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) gledati preparat na povećanju od 200×</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q4" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) koristiti imerziono ulje</span>
+                    <input type="checkbox" name="q4" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) koristiti imerziono ulje</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q4" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) napraviti negativno bojenje bakterija</span>
+                    <input type="checkbox" name="q4" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) napraviti negativno bojenje bakterija</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 5 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">5. U analizi vode za kupanje određuje se broj:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">5. U analizi vode za kupanje određuje se broj:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q5" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) bakterija roda Clostridium</span>
+                    <input type="checkbox" name="q5" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) bakterija roda Clostridium</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q5" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) <em>Escherichia coli</em></span>
+                    <input type="checkbox" name="q5" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) <em>Escherichia coli</em></span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q5" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) ukupnih saprofitskih bakterija</span>
+                    <input type="checkbox" name="q5" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) ukupnih saprofitskih bakterija</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q5" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) crijevnih enterokoka</span>
+                    <input type="checkbox" name="q5" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) crijevnih enterokoka</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q5" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) bakterija roda <em>Salmonella</em></span>
+                    <input type="checkbox" name="q5" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) bakterija roda <em>Salmonella</em></span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 6 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">6. Koje tvrdnje su točne za bakterije roda Azotobacter:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">6. Koje tvrdnje su točne za bakterije roda Azotobacter:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q6" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) ove bakterije normalno žive u zemlji</span>
+                    <input type="checkbox" name="q6" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) ove bakterije normalno žive u zemlji</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q6" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) producenti su antibiotika</span>
+                    <input type="checkbox" name="q6" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) producenti su antibiotika</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q6" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) uzgajaju se na Ashby agaru</span>
+                    <input type="checkbox" name="q6" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) uzgajaju se na Ashby agaru</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q6" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) uzgajaju se na hranjivom agaru</span>
+                    <input type="checkbox" name="q6" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) uzgajaju se na hranjivom agaru</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q6" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) imaju debelu kapsulu</span>
+                    <input type="checkbox" name="q6" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) imaju debelu kapsulu</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 7 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">7. Označi temperaturu na kojoj se uzgaja <em>E. coli</em> u analizi vode za kupanje:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">7. Označi temperaturu na kojoj se uzgaja <em>E. coli</em> u analizi vode za kupanje:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q7" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) 20°C</span>
+                    <input type="checkbox" name="q7" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) 20°C</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q7" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) 26°C</span>
+                    <input type="checkbox" name="q7" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) 26°C</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q7" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) 35°C</span>
+                    <input type="checkbox" name="q7" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) 35°C</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q7" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) 45°C</span>
+                    <input type="checkbox" name="q7" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) 45°C</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q7" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) 47°C</span>
+                    <input type="checkbox" name="q7" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) 47°C</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 8 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">8. Bolesti uzrokovane bakterijama roda Clostridium su:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">8. Bolesti uzrokovane bakterijama roda Clostridium su:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q8" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) tifus</span>
+                    <input type="checkbox" name="q8" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) tifus</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q8" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) plinska gangrena</span>
+                    <input type="checkbox" name="q8" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) plinska gangrena</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q8" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) botulizam</span>
+                    <input type="checkbox" name="q8" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) botulizam</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q8" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) dizenterija</span>
+                    <input type="checkbox" name="q8" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) dizenterija</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q8" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) tetanus</span>
+                    <input type="checkbox" name="q8" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) tetanus</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 9 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">9. Označi temperaturu na kojoj se uzgajaju crijevni enterokoki u analizi vode za kupanje:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">9. Označi temperaturu na kojoj se uzgajaju crijevni enterokoki u analizi vode za kupanje:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q9" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) 20°C</span>
+                    <input type="checkbox" name="q9" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) 20°C</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q9" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) 26°C</span>
+                    <input type="checkbox" name="q9" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) 26°C</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q9" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) 35°C</span>
+                    <input type="checkbox" name="q9" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) 35°C</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q9" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) 45°C</span>
+                    <input type="checkbox" name="q9" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) 45°C</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q9" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) 47°C</span>
+                    <input type="checkbox" name="q9" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) 47°C</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 10 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">10. Koje tvrdnje su točne za bakterije roda Clostridium:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">10. Koje tvrdnje su točne za bakterije roda Clostridium:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q10" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) aerobne su</span>
+                    <input type="checkbox" name="q10" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) aerobne su</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q10" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) reduciraju sulfite</span>
+                    <input type="checkbox" name="q10" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) reduciraju sulfite</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q10" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) reduciraju elementarni sumpor</span>
+                    <input type="checkbox" name="q10" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) reduciraju elementarni sumpor</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q10" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) sporogene bakterije</span>
+                    <input type="checkbox" name="q10" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) sporogene bakterije</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q10" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) produciraju sumporovodik</span>
+                    <input type="checkbox" name="q10" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) produciraju sumporovodik</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 11 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">11. Potpuna sterilizacija ne postiže se:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">11. Potpuna sterilizacija ne postiže se:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q11" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) spaljivanjem</span>
+                    <input type="checkbox" name="q11" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) spaljivanjem</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q11" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) suhom sterilizacijom</span>
+                    <input type="checkbox" name="q11" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) suhom sterilizacijom</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q11" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) pasterizacijom</span>
+                    <input type="checkbox" name="q11" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) pasterizacijom</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q11" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) autoklaviranjem</span>
+                    <input type="checkbox" name="q11" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) autoklaviranjem</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q11" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) korištenjem asepsola</span>
+                    <input type="checkbox" name="q11" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) korištenjem asepsola</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 12 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">12. Označi prirodne hranjive bakteriološke podloge:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">12. Označi prirodne hranjive bakteriološke podloge:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q12" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) EC-X-GLUC agar</span>
+                    <input type="checkbox" name="q12" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) EC-X-GLUC agar</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q12" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) mesni ekstrakt</span>
+                    <input type="checkbox" name="q12" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) mesni ekstrakt</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q12" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) kvaščev ekstrakt</span>
+                    <input type="checkbox" name="q12" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) kvaščev ekstrakt</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q12" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) peptonska voda</span>
+                    <input type="checkbox" name="q12" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) peptonska voda</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q12" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) Ashby agar</span>
+                    <input type="checkbox" name="q12" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) Ashby agar</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 13 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">13. Koje tvrdnje su točne za nesimbiotske fiksatore dušika:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">13. Koje tvrdnje su točne za nesimbiotske fiksatore dušika:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q13" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) to su bakterije roda Rhyzobium</span>
+                    <input type="checkbox" name="q13" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) to su bakterije roda Rhyzobium</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q13" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) to su bakterije roda Azotobacter</span>
+                    <input type="checkbox" name="q13" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) to su bakterije roda Azotobacter</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q13" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) uzgajaju se na Ashby agaru</span>
+                    <input type="checkbox" name="q13" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) uzgajaju se na Ashby agaru</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q13" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) temperatura uzgoja je 37°C</span>
+                    <input type="checkbox" name="q13" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) temperatura uzgoja je 37°C</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q13" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) temperatura uzgoja je 26°C</span>
+                    <input type="checkbox" name="q13" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) temperatura uzgoja je 26°C</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 14 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">14. Kojom metodom se postiže potpuna sterilizacija?</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">14. Kojom metodom se postiže potpuna sterilizacija?</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q14" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) pasterizacijom</span>
+                    <input type="checkbox" name="q14" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) pasterizacijom</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q14" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) autoklaviranjem</span>
+                    <input type="checkbox" name="q14" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) autoklaviranjem</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q14" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) korištenjem asepsola</span>
+                    <input type="checkbox" name="q14" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) korištenjem asepsola</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q14" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) kuhanjem</span>
+                    <input type="checkbox" name="q14" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) kuhanjem</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q14" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) spaljivanjem</span>
+                    <input type="checkbox" name="q14" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) spaljivanjem</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 15 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">15. Koje tvrdnje su točne za bakterije roda Azotobacter:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">15. Koje tvrdnje su točne za bakterije roda Azotobacter:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q15" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) ove bakterije su prisutne u tlu</span>
+                    <input type="checkbox" name="q15" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) ove bakterije su prisutne u tlu</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q15" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) producenti su antibiotika</span>
+                    <input type="checkbox" name="q15" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) producenti su antibiotika</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q15" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) uzgajaju se na Ashby agaru</span>
+                    <input type="checkbox" name="q15" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) uzgajaju se na Ashby agaru</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q15" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) to su nesimbiotski fiksatori dušika</span>
+                    <input type="checkbox" name="q15" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) to su nesimbiotski fiksatori dušika</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q15" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) za aerobno disanje koriste nitrate</span>
+                    <input type="checkbox" name="q15" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) za aerobno disanje koriste nitrate</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 16 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">16. Na ploču hranjivog agara nacijepili ste 0,1 mL bakterijske suspenzije iz decimalnog razrjeđenja 10,000 puta. Nakon inkubacije naraslo je 45 kolonija. CFU je:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">16. Na ploču hranjivog agara nacijepili ste 0,1 mL bakterijske suspenzije iz decimalnog razrjeđenja 10,000 puta. Nakon inkubacije naraslo je 45 kolonija. CFU je:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q16" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) 45 × 10⁶ mL⁻¹</span>
+                    <input type="checkbox" name="q16" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) 45 × 10⁶ mL⁻¹</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q16" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) 4,5 × 10⁶ mL⁻¹</span>
+                    <input type="checkbox" name="q16" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) 4,5 × 10⁶ mL⁻¹</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q16" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) 4,5 × 10⁶ L⁻¹</span>
+                    <input type="checkbox" name="q16" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) 4,5 × 10⁶ L⁻¹</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q16" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) 45 × 10⁴ mL⁻¹</span>
+                    <input type="checkbox" name="q16" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) 45 × 10⁴ mL⁻¹</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q16" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) 4,5 × 10⁷ L⁻¹</span>
+                    <input type="checkbox" name="q16" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) 4,5 × 10⁷ L⁻¹</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 17 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">17. Na ploču hranjivog agara nacijepili ste 0,1 mL bakterijske suspenzije iz decimalnog razrjeđenja 100 puta. Nakon inkubacije naraslo je 45 kolonija. CFU je:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">17. Na ploču hranjivog agara nacijepili ste 0,1 mL bakterijske suspenzije iz decimalnog razrjeđenja 100 puta. Nakon inkubacije naraslo je 45 kolonija. CFU je:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q17" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) 45 × 10⁶ mL⁻¹</span>
+                    <input type="checkbox" name="q17" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) 45 × 10⁶ mL⁻¹</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q17" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) 4,5 × 10⁶ mL⁻¹</span>
+                    <input type="checkbox" name="q17" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) 4,5 × 10⁶ mL⁻¹</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q17" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) 4,5 × 10⁴ L⁻¹</span>
+                    <input type="checkbox" name="q17" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) 4,5 × 10⁴ L⁻¹</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q17" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) 45 × 10⁴ mL⁻¹</span>
+                    <input type="checkbox" name="q17" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) 45 × 10⁴ mL⁻¹</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q17" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) 4,5 × 10⁷ L⁻¹</span>
+                    <input type="checkbox" name="q17" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) 4,5 × 10⁷ L⁻¹</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 18 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">18. Koje su tvrdnje točne za metodu bojenja po Gramu:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">18. Koje su tvrdnje točne za metodu bojenja po Gramu:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q18" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) Preparat se treba fiksirati</span>
+                    <input type="checkbox" name="q18" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) Preparat se treba fiksirati</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q18" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) Gram pozitivne bakterije su plave</span>
+                    <input type="checkbox" name="q18" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) Gram pozitivne bakterije su plave</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q18" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) Gram negativne bakterije su zelene</span>
+                    <input type="checkbox" name="q18" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) Gram negativne bakterije su zelene</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q18" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) Spore se vide crveno</span>
+                    <input type="checkbox" name="q18" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) Spore se vide crveno</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q18" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) Kapsula se vidi prozirno</span>
+                    <input type="checkbox" name="q18" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) Kapsula se vidi prozirno</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 19 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">19. Koje su tvrdnje nisu točne za metodu bojenja po Gramu:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">19. Koje su tvrdnje nisu točne za metodu bojenja po Gramu:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q19" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) Preparat se treba fiksirati</span>
+                    <input type="checkbox" name="q19" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) Preparat se treba fiksirati</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q19" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) Gram pozitivne bakterije su plave</span>
+                    <input type="checkbox" name="q19" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) Gram pozitivne bakterije su plave</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q19" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) Gram negativne bakterije su crvene</span>
+                    <input type="checkbox" name="q19" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) Gram negativne bakterije su crvene</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q19" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) Spore se vide crveno</span>
+                    <input type="checkbox" name="q19" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) Spore se vide crveno</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q19" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) Kapsula se vidi prozirno</span>
+                    <input type="checkbox" name="q19" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) Kapsula se vidi prozirno</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 20 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">20. KOH test služi za:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">20. KOH test služi za:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q20" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) Dokazivanje pripadnosti Gram pozitivnim ili Gram negativnim bakterijama</span>
+                    <input type="checkbox" name="q20" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) Dokazivanje pripadnosti Gram pozitivnim ili Gram negativnim bakterijama</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q20" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) Dokazivanje kapsula</span>
+                    <input type="checkbox" name="q20" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) Dokazivanje kapsula</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q20" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) Dokazivanje spora</span>
+                    <input type="checkbox" name="q20" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) Dokazivanje spora</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q20" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) Odnos bakterija prema kalijevoj lužini kao indikatoru pH</span>
+                    <input type="checkbox" name="q20" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) Odnos bakterija prema kalijevoj lužini kao indikatoru pH</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q20" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) Dokazivanje endospora</span>
+                    <input type="checkbox" name="q20" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) Dokazivanje endospora</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 21 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">21. EC X-GLUC agar je:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">21. EC X-GLUC agar je:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) selektivna hranjiva podloga</span>
+                    <input type="checkbox" name="q21" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) selektivna hranjiva podloga</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) diferencijalna hranjiva podloga</span>
+                    <input type="checkbox" name="q21" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) diferencijalna hranjiva podloga</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) sadrži laktozu</span>
+                    <input type="checkbox" name="q21" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) sadrži laktozu</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) kromogena podloga</span>
+                    <input type="checkbox" name="q21" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) kromogena podloga</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) ne sadrži žučne soli</span>
+                    <input type="checkbox" name="q21" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) ne sadrži žučne soli</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 22 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">22. Izvori dušika u hranjivom mediju su:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">22. Izvori dušika u hranjivom mediju su:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) peptoni</span>
+                    <input type="checkbox" name="q22" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) peptoni</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) KNO₃</span>
+                    <input type="checkbox" name="q22" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) KNO₃</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) celuloza</span>
+                    <input type="checkbox" name="q22" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) celuloza</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) glukoza</span>
+                    <input type="checkbox" name="q22" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) glukoza</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) laktoza</span>
+                    <input type="checkbox" name="q22" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) laktoza</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 23 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">23. Azotobacter chroococcum je:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">23. Azotobacter chroococcum je:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) aerobna bakterija</span>
+                    <input type="checkbox" name="q23" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) aerobna bakterija</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) anaerobna bakterija</span>
+                    <input type="checkbox" name="q23" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) anaerobna bakterija</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) ima kapsulu</span>
+                    <input type="checkbox" name="q23" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) ima kapsulu</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) formira spore</span>
+                    <input type="checkbox" name="q23" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) formira spore</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="e" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">e) nalazi se u otpadnim vodama</span>
+                    <input type="checkbox" name="q23" value="e" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">e) nalazi se u otpadnim vodama</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 24 -->
-              <div class="border-b border-gray-200 pb-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">24. Metoda s 3% KOH:</h3>
+              <div class="border-b border-gray-600 pb-6">
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">24. Metoda s 3% KOH:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center">
-                    <input type="checkbox" name="q24" value="a" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">a) služi za dokazivanje kapsula bakterija</span>
+                    <input type="checkbox" name="q24" value="a" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">a) služi za dokazivanje kapsula bakterija</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q24" value="b" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">b) određivanje Gram pozitivnih bakterija</span>
+                    <input type="checkbox" name="q24" value="b" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">b) određivanje Gram pozitivnih bakterija</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q24" value="c" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">c) određivanje Gram negativnih bakterija</span>
+                    <input type="checkbox" name="q24" value="c" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">c) određivanje Gram negativnih bakterija</span>
                   </label>
                   <label class="flex items-center">
-                    <input type="checkbox" name="q24" value="d" class="mr-3 text-blue-600 rounded">
-                    <span class="text-gray-700">d) određivanje odnosa bakterija prema kisiku</span>
+                    <input type="checkbox" name="q24" value="d" class="mr-3 text-blue-500 rounded">
+                    <span class="text-white font-body">d) određivanje odnosa bakterija prema kisiku</span>
                   </label>
                 </div>
               </div>
@@ -839,7 +839,7 @@ const {
               <div class="text-center pt-6">
                 <button
                   type="submit"
-                  class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg font-heading"
                 >
                   Provjeri rezultat
                 </button>
@@ -849,22 +849,22 @@ const {
             <!-- Results (Hidden by default) -->
             <div id="quizResults" class="hidden mt-8 space-y-6">
               <!-- Main Results -->
-              <div class="p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
+              <div class="p-6 bg-gray-700 rounded-xl border border-gray-600">
               <div class="text-center">
-                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">Rezultat testa</h3>
-                <p class="text-gray-600 mb-4">Odgovorili ste na <span id="correctAnswers">0</span> od <span id="totalQuestions">24</span> pitanja</p>
-                <div class="text-4xl font-bold text-green-600 mb-4">
+                <h3 class="text-2xl font-bold text-white mb-2 font-heading">Rezultat testa</h3>
+                <p class="text-gray-300 mb-4 font-body">Odgovorili ste na <span id="correctAnswers" class="font-bold text-white">0</span> od <span id="totalQuestions" class="font-bold text-white">24</span> pitanja</p>
+                <div class="text-4xl font-bold text-green-400 mb-4">
                   <span id="percentage">0</span>%
                 </div>
-                <p id="resultMessage" class="text-lg text-gray-700 mb-6"></p>
+                <p id="resultMessage" class="text-lg text-white mb-6 font-body"></p>
                 <button
                   onclick="resetQuizGlobal()"
-                  class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+                  class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-heading"
                 >
                   Pokušaj ponovno
                 </button>
@@ -873,34 +873,34 @@ const {
             </div>
 
             <!-- Achievement Badge -->
-            <div id="achievementBadge" class="hidden p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border border-yellow-200">
+            <div id="achievementBadge" class="hidden p-6 bg-gray-700 rounded-xl border border-yellow-500/30">
               <div class="text-center">
                 <div id="badgeIcon" class="text-6xl mb-4">🏆</div>
-                <h3 id="badgeTitle" class="text-2xl font-bold text-gray-900 mb-2">Odličje Osvojeno!</h3>
-                <p id="badgeDescription" class="text-gray-600 mb-4">Osvojili ste novo odličje za svoj uspjeh!</p>
+                <h3 id="badgeTitle" class="text-2xl font-bold text-white mb-2 font-heading">Odličje Osvojeno!</h3>
+                <p id="badgeDescription" class="text-gray-300 mb-4 font-body">Osvojili ste novo odličje za svoj uspjeh!</p>
               </div>
             </div>
 
             <!-- Detailed Analytics -->
-            <div id="detailedAnalytics" class="hidden p-6 bg-white rounded-xl shadow-lg border border-gray-200">
-              <h3 class="text-xl font-bold text-gray-900 mb-6">📊 Detaljni pregled rezultata</h3>
+            <div id="detailedAnalytics" class="hidden p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-600">
+              <h3 class="text-xl font-bold text-white mb-6 font-heading">📊 Detaljni pregled rezultata</h3>
               
               <!-- Category Performance -->
               <div class="mb-6">
-                <h4 class="text-lg font-semibold text-gray-800 mb-4">Uspješnost po kategorijama</h4>
+                <h4 class="text-lg font-semibold text-white mb-4 font-heading">Uspješnost po kategorijama</h4>
                 <div id="categoryResults" class="space-y-3"></div>
               </div>
 
               <!-- Question by Question -->
               <div class="mb-6">
-                <h4 class="text-lg font-semibold text-gray-800 mb-4">Pregled po pitanjima</h4>
+                <h4 class="text-lg font-semibold text-white mb-4 font-heading">Pregled po pitanjima</h4>
                 <div id="questionByQuestion" class="space-y-2 max-h-60 overflow-y-auto"></div>
               </div>
 
               <!-- Time Analysis -->
               <div>
-                <h4 class="text-lg font-semibold text-gray-800 mb-4">Vremenska analiza</h4>
-                <div id="timeAnalysis" class="text-gray-600"></div>
+                <h4 class="text-lg font-semibold text-white mb-4 font-heading">Vremenska analiza</h4>
+                <div id="timeAnalysis" class="text-gray-300 font-body"></div>
               </div>
             </div>
             </div>
@@ -910,18 +910,18 @@ const {
     </div>
 
     <!-- Navigation -->
-    <div class="bg-white border-t border-gray-200 py-8">
+    <div class="bg-gray-800 border-t border-gray-600 py-8">
       <div class="max-w-4xl mx-auto px-6 text-center">
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/sadrzaj/"
-            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transform hover:-translate-y-1 transition-all duration-300"
+            class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-full shadow-lg hover:from-blue-700 hover:to-blue-800 transform hover:-translate-y-1 transition-all duration-300 font-heading"
           >
             ← Povratak na sadržaj
           </a>
           <a
             href="/"
-            class="inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300"
+            class="inline-flex items-center justify-center px-6 py-3 border-2 border-blue-500 text-blue-400 font-bold rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 font-heading"
           >
             Početna stranica
           </a>
@@ -1131,19 +1131,19 @@ const {
         if (resultMessage) {
           if (percentage === 100) {
             resultMessage.innerHTML = '<strong>Odlično!</strong> Savršeno ste odgovorili na sva pitanja! 🏆';
-            resultMessage.className = 'text-lg text-green-700 mb-6';
+            resultMessage.className = 'text-lg text-green-300 mb-6 font-body';
           } else if (percentage >= 80) {
             resultMessage.innerHTML = '<strong>Vrlo dobro!</strong> Imate odlično znanje iz bakteriologije! 🎯';
-            resultMessage.className = 'text-lg text-green-600 mb-6';
+            resultMessage.className = 'text-lg text-green-300 mb-6 font-body';
           } else if (percentage >= 60) {
             resultMessage.innerHTML = '<strong>Dobro!</strong> Imate solidno znanje iz bakteriologije. 📚';
-            resultMessage.className = 'text-lg text-blue-700 mb-6';
+            resultMessage.className = 'text-lg text-blue-300 mb-6 font-body';
           } else if (percentage >= 40) {
             resultMessage.innerHTML = '<strong>Prosjecno.</strong> Preporučujemo da ponovno pročitate gradivo. 📖';
-            resultMessage.className = 'text-lg text-yellow-700 mb-6';
+            resultMessage.className = 'text-lg text-yellow-300 mb-6 font-body';
           } else {
             resultMessage.innerHTML = '<strong>Potrebno je više učenja.</strong> Vratite se na gradivo i ponovno pročitajte. 🔍';
-            resultMessage.className = 'text-lg text-red-700 mb-6';
+            resultMessage.className = 'text-lg text-red-300 mb-6 font-body';
           }
         }
 
@@ -1284,7 +1284,7 @@ const {
       }
       
       // Make function globally accessible
-      window.resetQuizGlobal = resetQuizGlobal;
+      (window as any).resetQuizGlobal = resetQuizGlobal;
 
       // Mobile menu functionality
       document.addEventListener('DOMContentLoaded', function() {
@@ -1306,31 +1306,31 @@ const {
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 class="text-lg font-bold mb-4">Mrežni udžbenik iz bakteriologije</h3>
-            <p class="text-gray-300">
+            <h3 class="text-lg font-bold mb-4 font-heading">Mrežni udžbenik iz bakteriologije</h3>
+            <p class="text-gray-300 font-body">
               Priručnik za studente s detaljnim uputama za bakteriološki praktikum.
             </p>
           </div>
           <div>
-            <h3 class="text-lg font-bold mb-4">Brze veze</h3>
+            <h3 class="text-lg font-bold mb-4 font-heading">Brze veze</h3>
             <ul class="space-y-2">
-              <li><a href="/sadrzaj/" class="text-gray-300 hover:text-white transition-colors duration-300">Sadržaj</a></li>
-              <li><a href="/rječnik/" class="text-gray-300 hover:text-white transition-colors duration-300">Rječnik</a></li>
-              <li><a href="/o-nama/" class="text-gray-300 hover:text-white transition-colors duration-300">O nama</a></li>
+              <li><a href="/sadrzaj/" class="text-gray-300 hover:text-white transition-colors duration-300 font-body">Sadržaj</a></li>
+              <li><a href="/rječnik/" class="text-gray-300 hover:text-white transition-colors duration-300 font-body">Rječnik</a></li>
+              <li><a href="/o-nama/" class="text-gray-300 hover:text-white transition-colors duration-300 font-body">O nama</a></li>
             </ul>
           </div>
           <div>
-            <h3 class="text-lg font-bold mb-4">Kontakt</h3>
-            <p class="text-gray-300">
+            <h3 class="text-lg font-bold mb-4 font-heading">Kontakt</h3>
+            <p class="text-gray-300 font-body">
               Za dodatne informacije i podršku, posjetite našu kontakt stranicu.
             </p>
-            <a href="/kontakt/" class="inline-block mt-2 text-blue-400 hover:text-blue-300 transition-colors duration-300">
+            <a href="/kontakt/" class="inline-block mt-2 text-blue-400 hover:text-blue-300 transition-colors duration-300 font-body">
               Kontaktirajte nas →
             </a>
           </div>
         </div>
         <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025. Mrežni udžbenik iz bakteriologije. Sva prava pridržana.</p>
+          <p class="font-body">&copy; 2025. Mrežni udžbenik iz bakteriologije. Sva prava pridržana.</p>
         </div>
       </div>
     </footer>

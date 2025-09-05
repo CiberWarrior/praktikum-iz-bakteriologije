@@ -29,7 +29,7 @@ const {
 
 
     <!-- Hero Section -->
-    <section class="relative py-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white overflow-hidden">
+    <section class="relative py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white overflow-hidden">
       <!-- Pozadinski uzorak -->
       <div class="absolute inset-0 opacity-10">
         <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 20px 20px;"></div>
@@ -37,7 +37,7 @@ const {
 
       <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center">
-          <p class="text-blue-200 font-bold uppercase tracking-wide mb-4 text-sm">
+          <p class="text-purple-200 font-bold uppercase tracking-wide mb-4 text-sm">
             Kompletni pregled
           </p>
           
@@ -45,7 +45,7 @@ const {
             Sadržaj udžbenika
           </h1>
           
-          <p class="text-xl text-blue-200 mb-8 leading-relaxed max-w-3xl mx-auto">
+          <p class="text-xl text-purple-200 mb-8 leading-relaxed max-w-3xl mx-auto">
             Pregled svih 23 poglavlja praktikuma iz bakteriologije. Od osnovnih tehnika do naprednih metoda - sve na jednom mjestu.
           </p>
           
@@ -68,14 +68,15 @@ const {
     </section>
 
     <!-- Chapters Grid Section -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-gradient-to-br from-slate-800 to-slate-700">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6">
             Pregled poglavlja
           </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Kliknite na poglavlje da započnete učenje. Svako poglavlje sadrži teoriju, praktične vježbe i provjeru znanja.
+          <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+            Kliknite na poglavlje i započnite s učenjem.<br>
+            Svako poglavlje sadrži teoriju, praktične vježbe i provjeru znanja.
           </p>
         </div>
 
@@ -83,29 +84,26 @@ const {
           
           <!-- Poglavlje 1 -->
           <a href="/poglavlje-1/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-green-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center">
                     <span class="text-white font-bold text-lg">1</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6 text-gray-400 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
                   Bakteriološki praktikum
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Uvod u sigurnost, opremu i osnovne tehnike rada u bakteriološkom laboratoriju.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 2 -->
           <a href="/poglavlje-2/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-blue-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
@@ -115,19 +113,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                   Sterilizacija
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Metode sterilizacije i dezinfekcije - ključni koraci za siguran rad u laboratoriju.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 3 -->
           <a href="/poglavlje-3/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-purple-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center">
@@ -137,19 +132,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
                   Metode bojenja bakterija
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Različite tehnike bojenja za identifikaciju i karakterizaciju bakterijskih stanica.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 4 -->
           <a href="/poglavlje-4/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-yellow-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
@@ -159,19 +151,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
                   Pokretljivost bakterija
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Ispitivanje pokretljivosti bakterija i razumijevanje mehanizama kretanja.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 5 -->
           <a href="/poglavlje-5/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-red-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-lg flex items-center justify-center">
@@ -181,19 +170,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                   Biokemijska svojstva bakterija
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Testovi za određivanje biokemijskih karakteristika i metabolizma bakterija.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 6 -->
           <a href="/poglavlje-6/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-indigo-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center">
@@ -203,19 +189,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
                   Određivanje broja bakterija - indirektne metode
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Indirektne metode brojanja bakterija u suspenziji i procjena brojnosti.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 7 -->
           <a href="/poglavlje-7/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-pink-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-lg flex items-center justify-center">
@@ -225,19 +208,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
                   Određivanje broja bakterija - direktne metode
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Direktne metode brojanja bakterija i mikroskopske tehnike analize.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 8 -->
           <a href="/poglavlje-8/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-teal-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center">
@@ -247,19 +227,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
                   Bakterije indikatori sanitarnog stanja
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Bakterije kao indikatori sanitarnog stanja sredine i sigurnosti.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 9 -->
           <a href="/poglavlje-9/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-cyan-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-lg flex items-center justify-center">
@@ -269,19 +246,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
                   Sanitarna bakteriološka analiza vode
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Metode analize kvalitete vode i određivanja sanitarnog stanja.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 10 -->
           <a href="/poglavlje-10/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-orange-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center">
@@ -291,19 +265,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
                   Termofilne bakterije
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Karakterizacija i ispitivanje bakterija koje rastu na visokim temperaturama.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 11 -->
           <a href="/poglavlje-11/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-lime-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-lime-400 to-lime-600 rounded-lg flex items-center justify-center">
@@ -313,19 +284,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-lime-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-lime-400 transition-colors">
                   Aerobne sporogene bakterije
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Ispitivanje aerobnih bakterija koje stvaraju spore i njihove karakteristike.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 12 -->
           <a href="/poglavlje-12/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-emerald-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center">
@@ -335,19 +303,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
                   Anaerobne bakterije
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Tehnike rada s anaerobnim bakterijama i posebni uvjeti kultivacije.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 13 -->
           <a href="/poglavlje-13/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-violet-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-violet-400 to-violet-600 rounded-lg flex items-center justify-center">
@@ -357,19 +322,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-violet-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">
                   Izrada antibiograma i aromatograma
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Testiranje osjetljivosti bakterija na antibiotike i aromatske spojeve.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 14 -->
           <a href="/poglavlje-14/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-rose-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-rose-400 to-rose-600 rounded-lg flex items-center justify-center">
@@ -379,19 +341,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-rose-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition-colors">
                   Test toksičnosti s kvascem
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Ispitivanje toksičnosti različitih spojeva pomoću kvasaca kao modela.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 15 -->
           <a href="/poglavlje-15/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-sky-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-sky-400 to-sky-600 rounded-lg flex items-center justify-center">
@@ -401,19 +360,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-sky-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
                   Bakteriološko ispitivanje kvalitete namirnica
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Metode analize kvalitete namirnica i sigurnosti hrane.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 16 -->
           <a href="/poglavlje-16/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-amber-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center">
@@ -423,41 +379,35 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
                   Bakterije mliječne fermentacije
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Karakterizacija bakterija mliječne fermentacije i njihove primjene.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 17 -->
           <a href="/poglavlje-17/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-green-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center">
                     <span class="text-white font-bold text-lg">17</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6 text-gray-400 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
                   Biogeokemijski ciklus ugljika
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Uloga bakterija u biogeokemijskom ciklusu ugljika i globalnim procesima.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 18 -->
           <a href="/poglavlje-18/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-blue-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
@@ -467,19 +417,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                   Biogeokemijski ciklus dušika
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Bakterije u biogeokemijskom ciklusu dušika i fiksaciji dušika.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 19 -->
           <a href="/poglavlje-19/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-purple-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center">
@@ -489,19 +436,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
                   Biogeokemijski ciklus sumpora
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Uloga bakterija u biogeokemijskom ciklusu sumpora i redukciji sulfata.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 20 -->
           <a href="/poglavlje-20/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-yellow-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
@@ -511,19 +455,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
                   Biogeokemijski ciklus fosfora
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Bakterije u biogeokemijskom ciklusu fosfora i solubilizaciji fosfata.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 21 -->
           <a href="/poglavlje-21/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-red-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-lg flex items-center justify-center">
@@ -533,19 +474,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
                   Metoda otiska
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Tehnika otiska za ispitivanje mikrobioma površina i materijala.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 22 -->
           <a href="/poglavlje-22/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-indigo-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center">
@@ -555,19 +493,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
                   Streptomiceti
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Karakterizacija streptomiceta i njihove uloge u proizvodnji antibiotika.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Poglavlje 23 -->
           <a href="/poglavlje-23/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-pink-500/30  overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-lg flex items-center justify-center">
@@ -577,19 +512,16 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
                   Izolacija anaerobnih fototrofnih bakterija
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Specijalizirane tehnike za izolaciju anaerobnih fototrofnih bakterija.
-                </p>
               </div>
             </div>
           </a>
 
           <!-- Kviz kartica -->
           <a href="/provjeri-znanje/" class="group">
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <div class="bg-gray-800 rounded-xl shadow-lg  border border-gray-700 hover:border-gray-600 overflow-hidden">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
@@ -597,16 +529,13 @@ const {
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-6 h-6 text-gray-400 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
                   Provjeri svoje znanje
                 </h3>
-                <p class="text-gray-600 text-sm">
-                  Kompletan kviz s 24 pitanja iz svih poglavlja bakteriologije.
-                </p>
               </div>
             </div>
           </a>

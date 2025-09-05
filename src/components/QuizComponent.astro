@@ -28,7 +28,7 @@ const { chapterNumber, chapterTitle, questions } = Astro.props;
     <p class="text-blue-700 text-lg">Poglavlje {chapterNumber}: {chapterTitle}</p>
   </div>
 
-  <form class="quiz-form space-y-6" data-chapter={chapterNumber}>
+  <form class="quiz-form space-y-6" data-chapter={chapterNumber} data-questions={JSON.stringify(questions)}>
     {questions.map((q, index) => (
       <div class="bg-white rounded-lg p-6 border border-blue-200">
         <h3 class="text-lg font-semibold text-gray-900 mb-4">
@@ -91,13 +91,13 @@ const { chapterNumber, chapterTitle, questions } = Astro.props;
 
 <script>
   // Quiz functionality for each chapter
-  document.querySelectorAll('.quiz-form').forEach(form => {
+  document.querySelectorAll('.quiz-form').forEach((form: HTMLFormElement) => {
     const chapterNumber = form.dataset.chapter;
     const questions = JSON.parse(form.dataset.questions || '[]');
     
     if (!questions.length) return;
     
-    const correctAnswers = questions.map((q, index) => ({
+    const correctAnswers = questions.map((q: any, index: number) => ({
       question: `q${index + 1}`,
       answer: q.correctAnswer
     }));
@@ -108,8 +108,8 @@ const { chapterNumber, chapterTitle, questions } = Astro.props;
       let correctCount = 0;
       
       // Check each answer
-      correctAnswers.forEach(({ question, answer }) => {
-        const selectedAnswer = form.querySelector(`input[name="${question}"]:checked`);
+      correctAnswers.forEach(({ question, answer }: { question: string; answer: string }) => {
+        const selectedAnswer = form.querySelector(`input[name="${question}"]:checked`) as HTMLInputElement;
         if (selectedAnswer && selectedAnswer.value === answer) {
           correctCount++;
         }
@@ -119,7 +119,7 @@ const { chapterNumber, chapterTitle, questions } = Astro.props;
       const percentage = Math.round((correctCount / questions.length) * 100);
       
       // Find the results container for this form
-      const resultsContainer = form.parentElement.querySelector('.quiz-results');
+      const resultsContainer = form.parentElement?.querySelector('.quiz-results') as HTMLElement;
       if (!resultsContainer) return;
       
       // Update results
@@ -160,15 +160,15 @@ const { chapterNumber, chapterTitle, questions } = Astro.props;
     });
   });
 
-  function resetQuiz(button) {
-    const form = button.closest('.quiz-form');
-    const resultsContainer = button.closest('.quiz-results');
+  function resetQuiz(button: HTMLElement) {
+    const form = button.closest('.quiz-form') as HTMLFormElement;
+    const resultsContainer = button.closest('.quiz-results') as HTMLElement;
     
     if (form) form.reset();
     if (resultsContainer) resultsContainer.classList.add('hidden');
     
     // Scroll to top of quiz
-    form.scrollIntoView({ behavior: 'smooth' });
+    form?.scrollIntoView({ behavior: 'smooth' });
   }
 
   // Dodaj funkciju na window objekat

@@ -1,272 +1,81 @@
 ---
-import ChapterLayout from '../../components/ChapterLayout.astro';
----
+import QuizTemplate from '../../components/QuizTemplate.astro';
 
-<ChapterLayout 
-  title="Quiz - Poglavlje 22"
-  description="Testirajte svoje znanje o streptomicetima i razgradnji celuloze"
-  chapterNumber={22}
-  primaryColor="lime"
-  prevLink="/poglavlje-21/"
-  nextLink="/poglavlje-23/" 
-  prevText="← Poglavlje 21"
-  nextText="Poglavlje 23 →" 
-  ctaTitle="Nastavi na sljedeće poglavlje" 
-  ctaDescription="Nastavite s učenjem." 
-  ctaPrimaryText="Poglavlje 23" 
-  ctaPrimaryLink="/poglavlje-23/" 
-  ctaSecondaryText="Povratak na sadržaj"
-  ctaSecondaryLink="/sadrzaj/"
-  showBreadcrumb={true}
-  breadcrumbPath={[
+const questions = [
+  {
+    "question": "Što su streptomiceti?",
+    "options": {
+      "a": "",
+      "b": "",
+      "c": "",
+      "d": ""
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Koji enzim je ključan za razgradnju celuloze?",
+    "options": {
+      "a": "",
+      "b": "",
+      "c": "",
+      "d": ""
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Koji medij se koristi za izolaciju streptomiceta?",
+    "options": {
+      "a": "",
+      "b": "",
+      "c": "",
+      "d": ""
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Što proizvode streptomiceti?",
+    "options": {
+      "a": "",
+      "b": "",
+      "c": "",
+      "d": ""
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Kako se testira antibiotska aktivnost streptomiceta?",
+    "options": {
+      "a": "",
+      "b": "",
+      "c": "",
+      "d": ""
+    },
+    "correctAnswer": "a"
+  }
+];
+
+const breadcrumbPath = [
     { name: 'Sadržaj', url: '/sadrzaj/' },
     { name: 'Poglavlje 22', url: '/poglavlje-22/' },
     { name: 'Quiz 22', url: '/poglavlje-22/quiz-22/' }
-  ]}
->
+  ];
+---
 
-  <!-- Quiz Header -->
-  <div class="text-center mb-12">
-    <div class="w-24 h-24 bg-lime-600 rounded-full flex items-center justify-center mx-auto mb-6">
-      <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-      </svg>
-    </div>
-    <h1 class="text-4xl font-bold text-lime-900 mb-4">Quiz - Poglavlje 22</h1>
-    <p class="text-xl text-lime-800 max-w-2xl mx-auto">
-      Testirajte svoje znanje o streptomicetima, razgradnji celuloze i antibiotskim svojstvima
-    </p>
-  </div>
-
-  <!-- Quiz Instructions -->
-  <div class="bg-lime-50 border-2 border-lime-200 rounded-xl p-6 mb-8">
-    <h2 class="text-2xl font-bold text-lime-900 mb-4">Upute za quiz</h2>
-    <p class="text-lime-800 text-lg">
-      Odgovorite na 5 pitanja o streptomicetima i razgradnji celuloze. Nakon završetka dobit ćete detaljni rezultat s objašnjenjima.
-    </p>
-  </div>
-
-  <!-- Quiz Form -->
-  <form id="quizForm" class="space-y-8">
-    <!-- Question 1 -->
-    <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-      <h3 class="text-xl font-bold text-gray-900 mb-4">1. Što su streptomiceti?</h3>
-      <div class="space-y-3">
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q1" value="a" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">A) Gram-negativne bakterije</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q1" value="b" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">B) Gram-pozitivne bakterije iz reda Actinomycetales</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q1" value="c" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">C) Gljivice</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q1" value="d" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">D) Protozoe</span>
-        </label>
-      </div>
-    </div>
-
-    <!-- Question 2 -->
-    <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-      <h3 class="text-xl font-bold text-gray-900 mb-4">2. Koji enzim je ključan za razgradnju celuloze?</h3>
-      <div class="space-y-3">
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q2" value="a" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">A) Amilaza</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q2" value="b" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">B) Celulaza</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q2" value="c" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">C) Lipaza</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q2" value="d" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">D) Proteaza</span>
-        </label>
-      </div>
-    </div>
-
-    <!-- Question 3 -->
-    <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-      <h3 class="text-xl font-bold text-gray-900 mb-4">3. Koji medij se koristi za izolaciju streptomiceta?</h3>
-      <div class="space-y-3">
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q3" value="a" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">A) MacConkey agar</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q3" value="b" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">B) Czapekov agar</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q3" value="c" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">C) Blood agar</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q3" value="d" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">D) Mannitol salt agar</span>
-        </label>
-      </div>
-    </div>
-
-    <!-- Question 4 -->
-    <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-      <h3 class="text-xl font-bold text-gray-900 mb-4">4. Što proizvode streptomiceti?</h3>
-      <div class="space-y-3">
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q4" value="a" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">A) Samo toksine</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q4" value="b" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">B) Samo vitamine</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q4" value="c" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">C) Antibiotike, enzime i sekundarne metabolite</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q4" value="d" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">D) Samo plinove</span>
-        </label>
-      </div>
-    </div>
-
-    <!-- Question 5 -->
-    <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-      <h3 class="text-xl font-bold text-gray-900 mb-4">5. Kako se testira antibiotska aktivnost streptomiceta?</h3>
-      <div class="space-y-3">
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q5" value="a" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">A) Samo mikroskopski</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q5" value="b" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">B) Samo biokemijskim testovima</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q5" value="c" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">C) Testom inhibicije rasta test organizama</span>
-        </label>
-        <label class="flex items-center space-x-3 cursor-pointer">
-          <input type="radio" name="q5" value="d" class="w-4 h-4 text-lime-600 border-gray-300 focus:ring-lime-500">
-          <span class="text-gray-700">D) Samo PCR metodom</span>
-        </label>
-      </div>
-    </div>
-
-    <!-- Submit Button -->
-    <div class="text-center">
-      <button type="submit" class="bg-lime-600 text-white font-bold text-xl px-12 py-4 rounded-xl hover:bg-lime-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-        Završi quiz
-      </button>
-    </div>
-  </form>
-
-  <!-- Results Section (Hidden by default) -->
-  <div id="results" class="hidden mt-12">
-    <div class="bg-gradient-to-br from-lime-50 to-lime-100 rounded-2xl p-8 border-2 border-lime-200">
-      <div class="text-center">
-        <div id="resultIcon" class="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
-          <!-- Icon will be inserted by JavaScript -->
-        </div>
-        <h2 id="resultTitle" class="text-3xl font-bold text-lime-900 mb-4"></h2>
-        <p id="resultMessage" class="text-xl text-lime-800 mb-6 leading-relaxed"></p>
-        <div id="scoreDisplay" class="text-2xl font-bold text-lime-900 mb-6"></div>
-        <button onclick="resetQuizGlobal()" class="bg-lime-600 text-white font-bold text-lg px-8 py-3 rounded-xl hover:bg-lime-700 transition-all duration-300">
-          Pokušaj ponovno
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const correctAnswers: Record<string, string> = {
-      q1: 'b',
-      q2: 'b', 
-      q3: 'b',
-      q4: 'c',
-      q5: 'c'
-    };
-
-    const form = document.getElementById('quizForm') as HTMLFormElement;
-    const results = document.getElementById('results');
-    const resultIcon = document.getElementById('resultIcon');
-    const resultTitle = document.getElementById('resultTitle');
-    const resultMessage = document.getElementById('resultMessage');
-    const scoreDisplay = document.getElementById('scoreDisplay');
-
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        let score = 0;
-        const totalQuestions = Object.keys(correctAnswers).length;
-        
-        // Check answers
-        for (let question in correctAnswers) {
-          const selected = document.querySelector(`input[name="${question}"]:checked`) as HTMLInputElement;
-          if (selected && selected.value === correctAnswers[question]) {
-            score++;
-          }
-        }
-        
-        const percentage = (score / totalQuestions) * 100;
-        
-        // Display results
-        if (resultIcon && resultTitle && resultMessage && scoreDisplay) {
-          if (percentage === 100) {
-            resultIcon.innerHTML = '<svg class="w-16 h-16 text-lime-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
-            resultTitle.textContent = 'Odlično!';
-            resultMessage.innerHTML = '<strong>Savršeno ste odgovorili na sva pitanja!</strong><br><em>Imate odlično znanje o streptomicetima i razgradnji celuloze.</em>';
-          } else if (percentage >= 80) {
-            resultIcon.innerHTML = '<svg class="w-16 h-16 text-lime-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
-            resultTitle.textContent = 'Vrlo dobro!';
-            resultMessage.innerHTML = '<strong>Odličan rezultat!</strong><br><em>Imate vrlo dobro znanje o streptomicetima.</em>';
-          } else if (percentage >= 60) {
-            resultIcon.innerHTML = '<svg class="w-16 h-16 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
-            resultTitle.textContent = 'Dobro!';
-            resultMessage.innerHTML = '<strong>Dobar rezultat!</strong><br><em>Imate dobro znanje, ali ima prostora za poboljšanje.</em>';
-          } else {
-            resultIcon.innerHTML = '<svg class="w-16 h-16 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
-            resultTitle.textContent = 'Potrebno je više učenja';
-            resultMessage.innerHTML = '<strong>Potrebno je više učenja</strong><br><em>Preporučujemo da ponovno pročitate gradivo o streptomicetima.</em>';
-          }
-          
-          scoreDisplay.textContent = `Rezultat: ${score}/${totalQuestions} (${percentage}%)`;
-        }
-        
-        // Hide form and show results
-        if (form && results) {
-          form.style.display = 'none';
-          results.classList.remove('hidden');
-        }
-      });
-    }
-
-    function resetQuiz() {
-      // Reset form
-      if (form) {
-        form.reset();
-        form.style.display = 'block';
-      }
-      
-      // Hide results
-      if (results) {
-        results.classList.add('hidden');
-      }
-      
-      // Scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
-
-</ChapterLayout>
+<QuizTemplate
+  chapterNumber={22}
+  chapterTitle="Streptomiceti i razgradnja celuloze"
+  chapterDescription="Testirajte svoje znanje o streptomicetima i razgradnji celuloze"
+  primaryColor="lime"
+  questions={questions}
+  prevLink="/poglavlje-21/"
+  nextLink="/poglavlje-23/"
+  prevText="← Poglavlje 21"
+  nextText="Poglavlje 23 →"
+  ctaTitle="Nastavi na sljedeće poglavlje"
+  ctaDescription="Nastavite s učenjem."
+  ctaPrimaryText="Poglavlje 23"
+  ctaPrimaryLink="/poglavlje-23/"
+  ctaSecondaryText="Povratak na sadržaj"
+  ctaSecondaryLink="/sadrzaj/"
+  breadcrumbPath={breadcrumbPath}
+/>
