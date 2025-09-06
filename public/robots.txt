@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Stranica je u testnoj fazi - ne indeksirati
+# Uklonite ovaj robots.txt kada budete spremni za javnost

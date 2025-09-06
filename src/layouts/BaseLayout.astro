@@ -57,8 +57,8 @@ const canonicalUrl = canonical || Astro.url.href;
     <meta name="theme-color" content="#138d75" />
     <meta name="color-scheme" content="light" />
     
-    <!-- Robots -->
-    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <!-- Robots - blokiraj indeksiranje dok je u testnoj fazi -->
+    <meta name="robots" content="noindex, nofollow" />
     
     <!-- Performance Optimizations -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
