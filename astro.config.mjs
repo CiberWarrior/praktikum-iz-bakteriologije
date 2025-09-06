@@ -19,6 +19,7 @@ export default defineConfig({
     '/poglavlje/poglavlje-3/': '/poglavlje-3/',
     '/poglavlje/poglavlje-4/': '/poglavlje-4/',
     '/poglavlje/poglavlje-5/': '/poglavlje-5/',
+    '/poglavlje/poglavlje-6/': '/poglavlje-6/',
     '/poglavlje-1/vjezbe-1/': '/poglavlje-1/vjezba-1/',
     '/poglavlje-1/vjezbe-2/': '/poglavlje-1/vjezba-2/',
     '/poglavlje-1/vjezbe-3/': '/poglavlje-1/vjezba-3/',

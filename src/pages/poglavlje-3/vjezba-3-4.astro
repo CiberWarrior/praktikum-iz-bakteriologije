@@ -1,5 +1,5 @@
 ---
-import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
+import SubPageTemplate from "../../components/SubPageTemplate.astro";
 
 export interface Props {
   title?: string;
@@ -10,10 +10,140 @@ const {
   title = 'Vježba 3.4 - Bojenje bakterija po Gramu',
   description = 'Složeno diferencijalno bojenje za razlikovanje Gram-pozitivnih i Gram-negativnih bakterija'
 } = Astro.props;
+
+const contentBlocks = [
+  {
+    id: "vjezba-3-4",
+    title: "Vježba 3.4 - Bojenje bakterija po Gramu",
+    icon: "🎯",
+    content: `
+      <div class="bg-gray-700 rounded-lg p-6 shadow-sm">
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Na osušeni preparat fiksiran na plamenu nanijeti kristal violet. Nakon 3 min odliti (ne ispirati vodom). Preliti Lugolovom otopinom (zasićena otopina joda u kalijevu jodidu), odmah odliti i ponovno preliti te ostaviti stajati 1 min. Lugol služi kao sredstvo da s kristal violetom stvara netopljivi kompleks. Taj će se kompleks vezati s komponentom magnezij-ribonukleinska kiselina u staničnoj stijenci. Nakon 1 min odliti sadržaj. Predmetno stakalce s preparatom uroniti u kadicu s 96%-tnim etanolom, pincetom izvaditi i kontrolirati prestanak izlaženja ljubičaste boje. Može se i preparat na stoliću preliti etanolom nekoliko puta do prestanka izlaženja boje. Djelovanje alkohola prekinuti ispiranjem tekućom vodom. Preparat osušiti i preliti razrijeđenim karbol fuksinom ili safraninom. Nakon 30 sek isprati tekućom vodom. Obojeni se preparat osuši između filter-papira ili na zraku. Na preparat se doda kap imerzionog ulja i mikroskopira pod imerzionim objektivom. Metodom bojenja po Gramu Gram-pozitivne bakterije oboje se plavo, a Gram-negativne bakterije crveno (slika 21).
+        </p>
+        
+        <!-- Kristal violet -->
+        <div class="bg-red-900/20 border-l-4 border-red-400 p-4 rounded-r-lg mb-4">
+          <details class="group">
+            <summary class="cursor-pointer font-semibold text-red-300 flex items-center">
+              <span class="mr-2">🧪</span>
+              Kristal violet
+              <span class="ml-auto transform group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 space-y-3 text-sm">
+              <div>
+                <strong class="text-red-300">Otopina A:</strong>
+                <ul class="ml-4 mt-1 space-y-1 text-gray-300">
+                  <li>Kristal violet: 2,0 g</li>
+                  <li>Etanol (96%): 20,0 mL</li>
+                </ul>
+              </div>
+              <div>
+                <strong class="text-red-300">Otopina B:</strong>
+                <ul class="ml-4 mt-1 space-y-1 text-gray-300">
+                  <li>Amonij-oksalat: 0,8 g</li>
+                  <li>Destilirana voda: 80,0 mL</li>
+                </ul>
+              </div>
+              <div class="bg-yellow-900/20 p-3 rounded-lg">
+                <strong class="text-red-300">Postupak priprave:</strong><br/>
+                <em class="text-gray-300">Nakon priprave, pomiješati otopine A i B.</em>
+              </div>
+            </div>
+          </details>
+        </div>
+        
+        <!-- Lugol -->
+        <div class="bg-red-900/20 border-l-4 border-red-400 p-4 rounded-r-lg mb-4">
+          <details class="group">
+            <summary class="cursor-pointer font-semibold text-red-300 flex items-center">
+              <span class="mr-2">🧪</span>
+              Lugol
+              <span class="ml-auto transform group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 space-y-3 text-sm">
+              <div>
+                <strong class="text-red-300">Sastojci:</strong>
+                <ul class="ml-4 mt-1 space-y-1 text-gray-300">
+                  <li>Jod: 1,0 g</li>
+                  <li>Kalij-jodid: 2,0 g</li>
+                  <li>Destilirana voda: 300,0 mL</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </div>
+        
+        <!-- Safranin -->
+        <div class="bg-red-900/20 border-l-4 border-red-400 p-4 rounded-r-lg mb-6">
+          <details class="group">
+            <summary class="cursor-pointer font-semibold text-red-300 flex items-center">
+              <span class="mr-2">🧪</span>
+              Safranin
+              <span class="ml-auto transform group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <div class="mt-4 space-y-3 text-sm">
+              <div>
+                <strong class="text-red-300">Sastojci:</strong>
+                <ul class="ml-4 mt-1 space-y-1 text-gray-300">
+                  <li>Safranin: 0,25 g</li>
+                  <li>Etanol (96%): 10,0 mL</li>
+                  <li>Destilirana voda: 100,0 mL</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </div>
+        
+        <!-- Slike 21a i 21b -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <figure class="image-figure">
+            <img 
+              src="/Images/slika21a.jpg" 
+              alt="Slika 21a – Gram-pozitivne bakterije" 
+              class="w-4/5 h-auto rounded-lg mx-auto"
+              loading="lazy"
+            />
+            <figcaption class="mt-4 text-center">
+              <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 21a</span>
+              <span class="block mt-2 text-gray-300">Gram-pozitivne bakterije obojene plavo</span>
+            </figcaption>
+          </figure>
+          
+          <figure class="image-figure">
+            <img 
+              src="/Images/slika21b.jpg" 
+              alt="Slika 21b – Gram-negativne bakterije" 
+              class="w-4/5 h-auto rounded-lg mx-auto"
+              loading="lazy"
+            />
+            <figcaption class="mt-4 text-center">
+              <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Slika 21b</span>
+              <span class="block mt-2 text-gray-300">Gram-negativne bakterije obojene crveno</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    `,
+    borderColor: "red-500/30",
+    iconGradient: "from-red-400 to-red-600"
+  }
+];
+
+const navigationButtons = {
+  previous: {
+    text: "vježba 3.3",
+    url: "/poglavlje-3/vjezba-3-3/"
+  },
+  next: {
+    text: "vježba 3.5",
+    url: "/poglavlje-3/vjezba-3-5/"
+  }
+};
 ---
 
-<SubPageLayoutWithBase chapterNumber={3} 
-  title={title} 
+<SubPageTemplate 
+  title={title}
   description={description}
   chapterNumber={3}
   primaryColor="red"
@@ -21,348 +151,7 @@ const {
     { name: 'Poglavlje 3', url: '/poglavlje-3/' },
     { name: 'Vježba 3.4 - Bojenje bakterija po Gramu', url: '/poglavlje-3/vjezba-3-4/' }
   ]}
->
+  contentBlocks={contentBlocks}
+  navigationButtons={navigationButtons}
+/>
 
-  <!-- Main Content with Sidebar -->
-  <div class="flex max-w-7xl mx-auto">
-    
-    <!-- Table of Contents Sidebar -->
-    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
-      <div class="mb-6">
-        <div class="flex items-center mb-6">
-          <div class="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
-        </div>
-        
-        <!-- Bookmark Button -->
-        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-red-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-red-50 w-full">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-          </svg>
-          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
-        </button>
-        
-        <!-- Table of Contents -->
-        <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#vjezba-3-4" class="toc-link group flex items-center text-sm text-gray-600 hover:text-red-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-red-50" data-target="vjezba-3-4">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Vježba 3.4 - Bojenje bakterija po Gramu
-          </a>
-        </nav>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-1 px-6 py-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="prose prose-lg max-w-none">
-          
-          <!-- Content Blocks -->
-          <div class="space-y-8">
-            
-            <!-- Vježba 3.4 -->
-            <div id="vjezba-3-4" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🎯</span>
-                <h3 class="text-2xl font-bold text-blue-900">Vježba 3.4 - Bojenje bakterija po Gramu</h3>
-              </div>
-              
-              <div class="bg-white rounded-lg p-4 shadow-sm">
-                <p class="text-gray-700 leading-relaxed">
-                  Na osušeni preparat fiksiran na plamenu nanijeti kristal violet. Nakon 3 min odliti (ne ispirati vodom). Preliti Lugolovom otopinom (zasićena otopina joda u kalijevu jodidu), odmah odliti i ponovno preliti te ostaviti stajati 1 min. Lugol služi kao sredstvo da s kristal violetom stvara netopljivi kompleks. Taj će se kompleks vezati s komponentom magnezij-ribonukleinska kiselina u staničnoj stijenci. Nakon 1 min odliti sadržaj. Predmetno stakalce s preparatom uroniti u kadicu s 96%-tnim etanolom, pincetom izvaditi i kontrolirati prestanak izlaženja ljubičaste boje. Može se i preparat na stoliću preliti etanolom nekoliko puta do prestanka izlaženja boje. Djelovanje alkohola prekinuti ispiranjem tekućom vodom. Preparat osušiti i preliti razrijeđenim karbol fuksinom ili safraninom. Nakon 30 sek isprati tekućom vodom. Obojeni se preparat osuši između filter-papira ili na zraku. Na preparat se doda kap imerzionog ulja i mikroskopira pod imerzionim objektivom. Metodom bojenja po Gramu Gram-pozitivne bakterije oboje se plavo, a Gram-negativne bakterije crveno (slika 21).
-                </p>
-                
-                <!-- Kristal violet -->
-                <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg mt-6">
-                  <details class="group">
-                    <summary class="cursor-pointer font-semibold text-red-800 flex items-center">
-                      <span class="mr-2">🧪</span>
-                      Kristal violet
-                      <span class="ml-auto transform group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="mt-4 space-y-3 text-sm">
-                      <div>
-                        <strong class="text-red-800">Otopina A:</strong>
-                        <ul class="ml-4 mt-1 space-y-1">
-                          <li>Kristal violet: 2,0 g</li>
-                          <li>Etanol (96%): 20,0 mL</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <strong class="text-red-800">Otopina B:</strong>
-                        <ul class="ml-4 mt-1 space-y-1">
-                          <li>Amonij-oksalat: 0,8 g</li>
-                          <li>Destilirana voda: 80,0 mL</li>
-                        </ul>
-                      </div>
-                      <div class="bg-yellow-50 p-3 rounded-lg">
-                        <strong class="text-red-800">Postupak priprave:</strong><br/>
-                        <em>Nakon priprave, pomiješati otopine A i B.</em>
-                      </div>
-                    </div>
-                  </details>
-                </div>
-                
-                <!-- Lugol -->
-                <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg mt-4">
-                  <details class="group">
-                    <summary class="cursor-pointer font-semibold text-red-800 flex items-center">
-                      <span class="mr-2">🧪</span>
-                      Lugol
-                      <span class="ml-auto transform group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="mt-4 space-y-3 text-sm">
-                      <div>
-                        <strong class="text-red-800">Sastojci:</strong>
-                        <ul class="ml-4 mt-1 space-y-1">
-                          <li>Jod: 1,0 g</li>
-                          <li>Kalij-jodid: 2,0 g</li>
-                          <li>Destilirana voda: 300,0 mL</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </details>
-                </div>
-                
-                <!-- Safranin -->
-                <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg mt-4">
-                  <details class="group">
-                    <summary class="cursor-pointer font-semibold text-red-800 flex items-center">
-                      <span class="mr-2">🧪</span>
-                      Safranin
-                      <span class="ml-auto transform group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div class="mt-4 space-y-3 text-sm">
-                      <div>
-                        <strong class="text-red-800">Sastojci:</strong>
-                        <ul class="ml-4 mt-1 space-y-1">
-                          <li>Safranin: 0,25 g</li>
-                          <li>Etanol (96%): 10,0 mL</li>
-                          <li>Destilirana voda: 100,0 mL</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </details>
-                </div>
-              </div>
-
-              <!-- Slike 21a i 21b -->
-              <div class="mt-8 grid md:grid-cols-2 gap-6">
-                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-                  <img 
-                    src="/Images/slika21a.jpg" 
-                    alt="Slika 21a – Gram-pozitivne bakterije" 
-                    class="w-4/5 h-auto rounded-lg mx-auto"
-                    loading="lazy"
-                  />
-                  <figcaption class="mt-4 text-center">
-                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 21a</span>
-                    <span class="block mt-2 text-gray-700">Gram-pozitivne bakterije obojene plavo</span>
-                  </figcaption>
-                </figure>
-                
-                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm">
-                  <img 
-                    src="/Images/slika21b.jpg" 
-                    alt="Slika 21b – Gram-negativne bakterije" 
-                    class="w-4/5 h-auto rounded-lg mx-auto"
-                    loading="lazy"
-                  />
-                  <figcaption class="mt-4 text-center">
-                    <span class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">Slika 21b</span>
-                    <span class="block mt-2 text-gray-700">Gram-negativne bakterije obojene crveno</span>
-                  </figcaption>
-                </figure>
-              </div>
-
-
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- Mobile TOC Toggle -->
-  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-red-600 text-white p-3 rounded-full shadow-lg z-50">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
-    </svg>
-  </button>
-
-  <!-- Mobile TOC Overlay -->
-  <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
-    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
-          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        
-        <!-- Bookmark Button -->
-        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 mb-4 w-full">
-          <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-          </svg>
-          <span id="mobile-bookmark-text">Označiti kao bookmark</span>
-        </button>
-        
-        <!-- Navigation Links -->
-        <nav class="space-y-2">
-          <a href="/poglavlje-3/" class="mobile-toc-link block text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-red-600 pl-3">
-            Pregled poglavlja
-          </a>
-          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-red-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-red-600 pl-3">
-            Svi sadržaji
-          </a>
-        </nav>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Bookmarks
-    function initBookmarks() {
-      const bookmarkKey = 'bookmark-vjezba-3-4';
-      const bookmarkBtn = document.getElementById('bookmark-btn');
-      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
-      const bookmarkText = document.getElementById('bookmark-text');
-      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
-      const bookmarkIcon = document.getElementById('mobile-bookmark-icon');
-      
-      function updateBookmarkUI(bookmarked: boolean) {
-        const text = bookmarked ? 'Ukloniti iz bookmarka' : 'Označiti kao bookmark';
-        if (bookmarkText) bookmarkText.textContent = text;
-        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
-      }
-      
-      function toggleBookmark() {
-        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
-        const newBookmarkState = !currentlyBookmarked;
-        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
-        updateBookmarkUI(newBookmarkState);
-      }
-      
-      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
-      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
-    }
-
-    // Mobile TOC
-    function initMobileTOC() {
-      const toggleBtn = document.getElementById('mobile-toc-toggle');
-      const overlay = document.getElementById('mobile-toc-overlay');
-      const panel = document.getElementById('mobile-toc-panel');
-      const closeBtn = document.getElementById('mobile-toc-close');
-      const tocLinks = document.querySelectorAll('.mobile-toc-link');
-      
-      function openTOC() {
-        if (overlay && panel) {
-          overlay.classList.remove('hidden');
-          setTimeout(() => {
-            panel.classList.remove('translate-x-full');
-          }, 10);
-        }
-      }
-      
-      function closeTOC() {
-        if (panel && overlay) {
-          panel.classList.add('translate-x-full');
-          setTimeout(() => {
-            overlay.classList.add('hidden');
-          }, 300);
-        }
-      }
-      
-      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
-      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
-      if (overlay) {
-        overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) closeTOC();
-        });
-      }
-      
-      // Close TOC when clicking on a link
-      tocLinks.forEach(link => {
-        link.addEventListener('click', closeTOC);
-      });
-    }
-
-    // Scroll Spy for TOC
-    function initScrollSpy() {
-      const sections = document.querySelectorAll('[id^="vjezba-3-4"]');
-      const tocLinks = document.querySelectorAll('.toc-link');
-      
-      function updateActiveLink() {
-        let currentSection = '';
-        
-        sections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section.id;
-          }
-        });
-        
-        // Remove active class from all links
-        tocLinks.forEach(link => {
-          link.classList.remove('active');
-        });
-        
-        // Add active class to current section link
-        if (currentSection) {
-          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
-          if (activeLink) {
-            activeLink.classList.add('active');
-          }
-        }
-      }
-      
-      // Listen for scroll events
-      window.addEventListener('scroll', updateActiveLink);
-      
-      // Initial check
-      updateActiveLink();
-    }
-
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', () => {
-      initBookmarks();
-      initMobileTOC();
-      initScrollSpy();
-    });
-  </script>
-
-  <!-- Navigacijski gumbovi -->
-  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
-    <!-- Prethodna stranica -->
-    <a
-      href="/poglavlje-3/vjezba-3-3/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na prethodnu stranicu: vježba 3.3"
-    >
-      ←
-      <span class="text-lg">vježba 3.3</span>
-    </a>
-    
-    <!-- Iduća stranica -->
-    <a
-      href="/poglavlje-3/vjezba-3-5/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sljedeću stranicu: vježba 3.5"
-    >
-      <span class="text-lg">vježba 3.5</span>
-      →
-    </a>
-  </div>
-
-</SubPageLayoutWithBase>

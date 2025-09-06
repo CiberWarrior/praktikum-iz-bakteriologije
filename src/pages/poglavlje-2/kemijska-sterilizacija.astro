@@ -1,5 +1,5 @@
 ---
-import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
+import SubPageTemplate from "../../components/SubPageTemplate.astro";
 
 export interface Props {
   title?: string;
@@ -10,167 +10,45 @@ const {
   title = 'Kemijska sterilizacija',
   description = 'Sterilizacija pomoću kemijskih sredstava za materijale osjetljive na toplinu'
 } = Astro.props;
+
+const contentBlocks = [
+  {
+    id: "opis-metode",
+    title: "Opis metode",
+    icon: "🧪",
+    content: `
+      <div class="bg-gray-700 rounded-lg p-6 shadow-sm">
+        <h4 class="text-xl font-semibold text-purple-300 mb-4">Sterilizacija kemijskim sredstvima</h4>
+        <p class="text-gray-300 leading-relaxed">
+          Od kemijskih sredstava za sterilizaciju upotrebljavaju se kemikalije kao što su: etilen oksid za sterilizaciju plastike, formaldehid, glutaraldehid, beta-propiolakton. Tim se kemikalijama uništavaju mikroorganizmi te materijal postaje sterilan.
+        </p>
+      </div>
+    `,
+    borderColor: "blue-500/30",
+    iconGradient: "from-blue-400 to-blue-600"
+  }
+];
+
+const navigationButtons = {
+  previous: {
+    text: "autoklaviranje",
+    url: "/poglavlje-2/autoklaviranje/"
+  },
+  next: {
+    text: "sterilizacija zračenjem",
+    url: "/poglavlje-2/sterilizacija-zracenjem/"
+  }
+};
 ---
 
-<SubPageLayoutWithBase chapterNumber={2} chapterNumber={2} 
-  title={title} 
+<SubPageTemplate 
+  title={title}
   description={description}
   chapterNumber={2}
   primaryColor="blue"
   breadcrumbPath={[
     { name: 'Kemijska sterilizacija', url: '/poglavlje-2/kemijska-sterilizacija/' }
   ]}
->
-
-  <!-- Main Content with Sidebar -->
-  <div class="flex max-w-7xl mx-auto">
-    
-    <!-- Table of Contents Sidebar -->
-    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
-      <div class="mb-6">
-        <div class="flex items-center mb-6">
-          <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
-        </div>
-        
-        <!-- Bookmark Button -->
-        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-blue-50 w-full">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-          </svg>
-          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
-        </button>
-        
-        <!-- Table of Contents -->
-        <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#opis-metode" class="toc-link group flex items-center text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-blue-50" data-target="opis-metode">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Opis metode
-          </a>
-          
-        </nav>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-1 px-6 py-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="prose prose-lg max-w-none">
-          
-          <!-- Content Blocks -->
-          <div class="space-y-8">
-            
-            <!-- Opis metode -->
-            <div id="opis-metode" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🧪</span>
-                <h3 class="text-2xl font-bold text-blue-900">Opis metode</h3>
-              </div>
-              <div class="bg-white rounded-lg p-6 shadow-sm">
-                <h4 class="text-xl font-semibold text-purple-800 mb-4">Sterilizacija kemijskim sredstvima</h4>
-                <p class="text-gray-700 leading-relaxed">
-                  Od kemijskih sredstava za sterilizaciju upotrebljavaju se kemikalije kao što su: etilen oksid za sterilizaciju plastike, formaldehid, glutaraldehid, beta-propiolakton. Tim se kemikalijama uništavaju mikroorganizmi te materijal postaje sterilan.
-                </p>
-              </div>
-            </div>
-
-            
-
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- Navigacijski gumbovi -->
-  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
-    <!-- Prethodna stranica -->
-    <a
-      href="/poglavlje-2/autoklaviranje/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na prethodnu stranicu: autoklaviranje"
-    >
-      ←
-      <span class="text-lg">autoklaviranje</span>
-    </a>
-    
-    <!-- Iduća stranica -->
-    <a
-      href="/poglavlje-2/sterilizacija-zracenjem/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sljedeću stranicu: sterilizacija zračenjem"
-    >
-      <span class="text-lg">sterilizacija zračenjem</span>
-      →
-    </a>
-  </div>
-
-</SubPageLayoutWithBase>
-
-<script>
-  // Bookmark functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const bookmarkBtn = document.getElementById('bookmark-btn');
-    const bookmarkIcon = document.getElementById('bookmark-icon');
-    const bookmarkText = document.getElementById('bookmark-text');
-    
-    if (bookmarkBtn && bookmarkText) {
-      bookmarkBtn.addEventListener('click', () => {
-        const isBookmarked = bookmarkBtn.classList.contains('text-blue-600');
-        
-        if (isBookmarked) {
-          bookmarkBtn.classList.remove('text-blue-600', 'bg-blue-50');
-          bookmarkBtn.classList.add('text-gray-600');
-          bookmarkText.textContent = 'Označiti kao bookmark';
-          localStorage.removeItem('bookmark-kemijska-sterilizacija');
-        } else {
-          bookmarkBtn.classList.add('text-blue-600', 'bg-blue-50');
-          bookmarkBtn.classList.remove('text-gray-600');
-          bookmarkText.textContent = 'Ukloniti bookmark';
-          localStorage.setItem('bookmark-kemijska-sterilizacija', 'true');
-        }
-      });
-      
-      // Check if already bookmarked
-      if (localStorage.getItem('bookmark-kemijska-sterilizacija')) {
-        bookmarkBtn.classList.add('text-blue-600', 'bg-blue-50');
-        bookmarkBtn.classList.remove('text-gray-600');
-        bookmarkText.textContent = 'Ukloniti bookmark';
-      }
-    }
-    
-    // TOC functionality
-    const tocLinks = document.querySelectorAll('.toc-link');
-    const sections = document.querySelectorAll('[id]');
-    
-    const observerOptions = {
-      rootMargin: '-20% 0px -80% 0px',
-      threshold: 0
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          tocLinks.forEach(link => {
-            link.classList.remove('text-blue-600', 'bg-blue-50');
-            link.classList.add('text-gray-600');
-            if (link.getAttribute('data-target') === id) {
-              link.classList.add('text-blue-600', 'bg-blue-50');
-              link.classList.remove('text-gray-600');
-            }
-          });
-        }
-      });
-    }, observerOptions);
-    
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  });
-</script>
+  contentBlocks={contentBlocks}
+  navigationButtons={navigationButtons}
+/>

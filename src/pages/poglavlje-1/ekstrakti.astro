@@ -1,5 +1,5 @@
 ---
-import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
+import SubPageTemplate from "../../components/SubPageTemplate.astro";
 
 export interface Props {
   title?: string;
@@ -10,424 +10,178 @@ const {
   title = 'Ekstrakti',
   description = 'Ekstrakti i sastojci hranjivih podloga u bakteriologiji'
 } = Astro.props;
----
 
-<SubPageLayoutWithBase chapterNumber={1} chapterNumber={1} 
-  title={title} 
-  description={description}
-  chapterNumber={1}
-  primaryColor="green"
-  breadcrumbPath={[
-    { name: 'Ekstrakti', url: '/poglavlje-1/ekstrakti/' }
-  ]}
->
-
-  <!-- Main Content with Sidebar -->
-  <div class="flex max-w-7xl mx-auto">
-    
-    <!-- Table of Contents Sidebar -->
-    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
-      <div class="mb-6">
-        <div class="flex items-center mb-6">
-          <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
-        </div>
-        
-        <!-- Bookmark Button -->
-        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-emerald-50 w-full">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-          </svg>
-          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
-        </button>
-        
-        <!-- Table of Contents -->
-        <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#mesni-ekstrakt" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="mesni-ekstrakt">
-            <span class="w-2 h-2 bg-red-400 rounded-full mr-3 transition-all duration-300"></span>
-            Mesni ekstrakt
-          </a>
-          <a href="#ekstrakt-kvasca" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="ekstrakt-kvasca">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Ekstrakt kvasca
-          </a>
-          <a href="#peptoni" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="peptoni">
-            <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 transition-all duration-300"></span>
-            Peptoni
-          </a>
-          <a href="#agar" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="agar">
-            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
-            Agar
-          </a>
-          <a href="#konzistencija" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="konzistencija">
-            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
-            Prema konzistenciji
-          </a>
-          <a href="#slozenost" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="slozenost">
-            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3 transition-all duration-300"></span>
-            Prema složenosti
-          </a>
-          <a href="#sterilizacija-ph" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="sterilizacija-ph">
-            <span class="w-2 h-2 bg-yellow-400 rounded-full mr-3 transition-all duration-300"></span>
-            Sterilizacija i pH
-          </a>
-        </nav>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-1 px-6 py-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="prose prose-lg max-w-none">
-          
-          <!-- Content Blocks -->
-          <div class="space-y-8">
-            
-            <!-- Mesni ekstrakt -->
-            <div id="mesni-ekstrakt" class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 shadow-lg border border-red-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🥩</span>
-                <h3 class="text-2xl font-bold text-red-900">Mesni ekstrakt</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed mb-4">
+const contentBlocks = [
+  {
+    id: "mesni-ekstrakt",
+    title: "Mesni ekstrakt",
+    icon: "🥩",
+    content: `
+      <p class="text-gray-300 leading-relaxed mb-4">
                 Mesni ekstrakt dobiva se vodenom ekstrakcijom nemasna mesa (govedina, junetina, konjsko meso). Budući da danas bakteriolozi rabe tvornički mesni ekstrakt u dehidriranu stanju dodajući ga hranjivim podlogama, navodimo za usporedbu recept za njegov pripravak u medicinskoj bakteriologiji prije šezdesetak godina.
               </p>
-              <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-red-500">
-                <h4 class="font-semibold text-red-800 mb-3">Spremanje bujona dvostruke jačine:</h4>
-                <p class="text-gray-700 leading-relaxed mb-3">
+      <div class="bg-gray-700 rounded-lg p-4 shadow-sm border-l-4 border-red-500">
+        <h4 class="font-semibold text-red-300 mb-3">Spremanje bujona dvostruke jačine:</h4>
+        <p class="text-gray-300 leading-relaxed mb-3">
                   "Prvo se spremi vodeni ekstrakt mesa. Najčešće se upotrebljava mršavo meso (krtina). Pola kilograma krtine je dovoljno za 1L mesnog ekstrakta. Meso se očisti od masti i isjecka na što sitnije komadiće i na 0,5 kilograma doda se 1L vode. Ostaviti smjesu 24 h u ledenici. Poslije toga procijediti smjesu kroz gazu, nakon toga smjesa je bistra, svijetlo crvena i s tankim slojem masti na površini - što se uklanja filtriranjem kroz papirnati filter. Kuhati smjesu na laganoj vatri 15 minuta. Ona će se zamutiti i postati tamnosmeđe boje (zbog zgrušavanja bjelančevina i promjene hemoglobina). Radi razbistravanja filtrirati i dopuniti vodom do prvobitne količine. Krajnji produkt treba da je bistar i žućkaste boje".
                 </p>
               </div>
-            </div>
-
-            <!-- Ekstrakt kvasca -->
-            <div id="ekstrakt-kvasca" class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 shadow-lg border border-blue-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🍞</span>
-                <h3 class="text-2xl font-bold text-blue-900">Ekstrakt kvasca</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed">
+    `,
+    borderColor: "red-500/30",
+    iconGradient: "from-red-400 to-red-600"
+  },
+  {
+    id: "ekstrakt-kvasca",
+    title: "Ekstrakt kvasca",
+    icon: "🍞",
+    content: `
+      <p class="text-gray-300 leading-relaxed">
                 Ekstrakt kvasca dobiva se dehidriranjem kulture pekarskog kvasca, a ekstrakt je izvor grupe vitamina B, te organskog ugljika i dušika. Spomenut ćemo da se ekstrakti mogu pripremati iz krumpira, riže, mrkve, tla, prema propisanim recepturama.
               </p>
-            </div>
-
-            <!-- Peptoni -->
-            <div id="peptoni" class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 shadow-lg border border-orange-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🦠</span>
-                <h3 class="text-2xl font-bold text-orange-900">Peptoni</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed">
+    `,
+    borderColor: "blue-500/30",
+    iconGradient: "from-blue-400 to-blue-600"
+  },
+  {
+    id: "peptoni",
+    title: "Peptoni",
+    icon: "🌱",
+    content: `
+      <p class="text-gray-300 leading-relaxed">
                 Peptoni su izvor organskog dušika, a dobivaju se hidrolizom s kiselinama ili proteolitičkim enzimima iz bjelančevina životinjskog ili biljnog porijekla (meso, kazein, soja). Sadrže aminokiseline, proteoze i oligopeptide.
               </p>
-            </div>
-
-            <!-- Agar -->
-            <div id="agar" class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6 shadow-lg border border-purple-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🌊</span>
-                <h3 class="text-2xl font-bold text-purple-900">Agar</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed mb-4">
+    `,
+    borderColor: "orange-500/30",
+    iconGradient: "from-orange-400 to-orange-600"
+  },
+  {
+    id: "agar",
+    title: "Agar",
+    icon: "🌊",
+    content: `
+      <p class="text-gray-300 leading-relaxed mb-4">
                 Agar, sredstvo upotrijebljeno za skrućivanje hranjivih podloga, smjesa je polisaharida agaroze i agaropektina. Dobiva se iz tihooceanskih crvenih algi rodova Gelidium i Gracilaria. Zagrijavanjem otopine kojoj je dodan agar u prahu (najčešće 10-20 g/L) na 100°C agar se rastopi, a na temperaturi oko 42oC skrućuje se vežući vodu pa nastaje konzistentna želatinozna masa, na kojoj se izvrsno razvijaju bakterijske kolonije. Takve podloge nazivamo krutim podlogama. Danas se rabe dehidrirane podloge u prahu, a uz njihov naziv uvijek stoji nastavak: „agar" za krute te: "broth, bujon ili voda" za tekuće medije. Npr. agar Slanetz-Bartley, Streptococcus selektivni bujon, peptonska voda i dr.
               </p>
-            </div>
-
-            <!-- Prema konzistenciji -->
-            <div id="konzistencija" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🧪</span>
-                <h3 class="text-2xl font-bold text-green-900">Prema konzistenciji hranjivi mediji dijele se na:</h3>
-              </div>
+    `,
+    borderColor: "purple-500/30",
+    iconGradient: "from-purple-400 to-purple-600"
+  },
+  {
+    id: "konzistencija",
+    title: "Prema konzistenciji hranjivi mediji dijele se na:",
+    icon: "🧪",
+    content: `
               <div class="space-y-3">
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-blue-500">
+        <div class="bg-gray-700 rounded-lg p-4 shadow-sm border-l-4 border-blue-500">
                   <div class="flex items-center">
                     <span class="text-2xl mr-3">💧</span>
                     <div>
-                      <strong class="text-blue-800 text-lg">Tekuće:</strong>
-                      <span class="text-gray-700 ml-2">juha, broth, bujon, voda</span>
+              <strong class="text-blue-300 text-lg">Tekuće:</strong>
+              <span class="text-gray-300 ml-2">juha, broth, bujon, voda</span>
                     </div>
                   </div>
                 </div>
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-yellow-500">
+        <div class="bg-gray-700 rounded-lg p-4 shadow-sm border-l-4 border-yellow-500">
                   <div class="flex items-center">
                     <span class="text-2xl mr-3">🥣</span>
                     <div>
-                      <strong class="text-yellow-800 text-lg">Polukrute:</strong>
-                      <span class="text-gray-700 ml-2">sadrže 0,2-0,4% agara</span>
+              <strong class="text-yellow-300 text-lg">Polukrute:</strong>
+              <span class="text-gray-300 ml-2">sadrže 0,2-0,4% agara</span>
                     </div>
                   </div>
                 </div>
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-red-500">
+        <div class="bg-gray-700 rounded-lg p-4 shadow-sm border-l-4 border-red-500">
                   <div class="flex items-center">
-                    <span class="text-3xl mr-4">🧪</span>
+                    <span class="text-3xl mr-4">🧫</span>
                     <div>
-                      <strong class="text-red-800 text-lg">Krute:</strong>
-                      <span class="text-gray-700 ml-2">sadrže 0,5-3% agara</span>
+              <strong class="text-red-300 text-lg">Krute:</strong>
+              <span class="text-gray-300 ml-2">sadrže 0,5-3% agara</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <p class="text-gray-700 leading-relaxed mt-4">
+      <p class="text-gray-300 leading-relaxed mt-4">
                 Tekuće hranjive podloge upotrebljavaju se u Erlenmeyerovim tikvicama ili epruvetama, polukrute u obliku dubokog agara u epruveti, a krute u Petrijevim zdjelicama (pločama) ili epruvetama u obliku kosog, dubokog i dubokog kosog agara.
               </p>
-            </div>
-
-            <!-- Prema složenosti -->
-            <div id="slozenost" class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 shadow-lg border border-indigo-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🔬</span>
-                <h3 class="text-2xl font-bold text-indigo-900">Prema složenosti hranjive se podloge dijele na:</h3>
-              </div>
+    `,
+    borderColor: "green-500/30",
+    iconGradient: "from-green-400 to-green-600"
+  },
+  {
+    id: "slozenost",
+    title: "Prema složenosti hranjive se podloge dijele na:",
+    icon: "🧫",
+    content: `
               <div class="space-y-4">
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-green-500">
+        <div class="bg-gray-700 rounded-lg p-4 shadow-sm border-l-4 border-green-500">
                   <div class="flex items-center mb-2">
                     <span class="text-3xl mr-4">📝</span>
-                    <strong class="text-green-800 text-lg">Jednostavne:</strong>
+            <strong class="text-green-300 text-lg">Jednostavne:</strong>
                   </div>
-                  <p class="text-gray-700 ml-11">sadrže jednu supstancu, npr. peptonska voda</p>
+          <p class="text-gray-300 ml-11">sadrže jednu supstancu, npr. peptonska voda</p>
                 </div>
-                <div class="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
+        <div class="bg-gray-700 rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
                   <div class="flex items-center mb-2">
                     <span class="text-2xl mr-3">⚗️</span>
-                    <strong class="text-purple-800 text-lg">Složene:</strong>
+            <strong class="text-purple-300 text-lg">Složene:</strong>
                   </div>
-                  <p class="text-gray-700 ml-11 mb-3">sadrže dvije ili više supstanci, a mogu biti:</p>
+          <p class="text-gray-300 ml-11 mb-3">sadrže dvije ili više supstanci, a mogu biti:</p>
                   <div class="ml-11 space-y-2">
-                    <div class="bg-gray-50 p-3 rounded-lg border-l-3 border-blue-500">
-                      <strong class="text-blue-800">Diferencijalne</strong>
-                      <p class="text-gray-700 text-sm mt-1">(omogućuju diferencijaciju ili razlikovanje jedne vrste bakterija od drugih, npr. na EC X-GLUC agaru razlikuju se plave kolonije Escherichia coli od drugih koliformnih bakterija koje su žućkaste boje)</p>
-                    </div>
-                    <div class="bg-gray-50 p-3 rounded-lg border-l-3 border-red-500">
-                      <strong class="text-red-800">Selektivne</strong>
-                      <p class="text-gray-700 text-sm mt-1">(omogućuju porast samo određenih rodova bakterija, npr. na SS agaru rastu samo bakterije rodova Salmonella i Shigella, a porast je drugih vrsta bakterija inhibiran sastavom podloge)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="bg-gray-800 p-3 rounded-lg border-l-3 border-blue-500">
+              <strong class="text-blue-300">Diferencijalne</strong>
+              <p class="text-gray-300 text-sm mt-1">(omogućuju diferencijaciju ili razlikovanje jedne vrste bakterija od drugih, npr. na EC X-GLUC agaru razlikuju se plave kolonije Escherichia coli od drugih koliformnih bakterija koje su žućkaste boje)</p>
             </div>
-
-            <!-- Sterilizacija i pH -->
-            <div id="sterilizacija-ph" class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 shadow-lg border border-yellow-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">⚗️</span>
-                <h3 class="text-2xl font-bold text-yellow-900">Sterilizacija i pH-vrijednost</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed mb-4">
-                Sve se hranjive bakteriološke podloge moraju sterilizirati, a način sterilizacije točno je opisan na tvorničkoj ambalaži u kojoj je podloga dostavljena.
-              </p>
-              <p class="text-gray-700 leading-relaxed mb-4">
-                pH-vrijednost dehidriranih podloga namještena je na optimalne vrijednosti za svaku vrstu ili skupinu bakterija.
-              </p>
-              <p class="text-gray-700 leading-relaxed">
-                U slučaju da sami prema postojećoj recepturi pripremamo hranjivu podlogu, pH-vrijednost postići ćemo dodatkom 1 M otopine NaOH ili HCl.
-              </p>
+            <div class="bg-gray-800 p-3 rounded-lg border-l-3 border-red-500">
+              <strong class="text-red-300">Selektivne</strong>
+              <p class="text-gray-300 text-sm mt-1">(omogućuju porast samo određenih rodova bakterija, npr. na SS agaru rastu samo bakterije rodova Salmonella i Shigella, a porast je drugih vrsta bakterija inhibiran sastavom podloge)</p>
             </div>
-
           </div>
-
         </div>
       </div>
-    </main>
-  </div>
+    `,
+    borderColor: "indigo-500/30",
+    iconGradient: "from-indigo-400 to-indigo-600"
+  },
+  {
+    id: "sterilizacija-ph",
+    title: "Sterilizacija i pH-vrijednost",
+    icon: "🧫",
+    content: `
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Sve se hranjive bakteriološke podloge moraju sterilizirati, a način sterilizacije točno je opisan na tvorničkoj ambalaži u kojoj je podloga dostavljena.
+      </p>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        pH-vrijednost dehidriranih podloga namještena je na optimalne vrijednosti za svaku vrstu ili skupinu bakterija.
+      </p>
+      <p class="text-gray-300 leading-relaxed">
+        U slučaju da sami prema postojećoj recepturi pripremamo hranjivu podlogu, pH-vrijednost postići ćemo dodatkom 1 M otopine NaOH ili HCl.
+      </p>
+    `,
+    borderColor: "yellow-500/30",
+    iconGradient: "from-yellow-400 to-yellow-600"
+  }
+];
 
-  <!-- Mobile TOC Toggle -->
-  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-emerald-600 text-white p-3 rounded-full shadow-lg z-50">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
-    </svg>
-  </button>
+const navigationButtons = {
+  previous: {
+    text: "hranjivi mediji",
+    url: "/poglavlje-1/hranjivi-mediji/"
+  },
+  next: {
+    text: "bakteriološke tehnike rada",
+    url: "/poglavlje-1/bakterioloske-tehnike/"
+  }
+};
+---
 
-  <!-- Mobile TOC Overlay -->
-  <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
-    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
-          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        
-        <!-- Bookmark Button -->
-        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 mb-4 w-full">
-          <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-          </svg>
-          <span id="mobile-bookmark-text">Označiti kao bookmark</span>
-        </button>
-        
-        <!-- Navigation Links -->
-        <nav class="space-y-2">
-          <a href="/poglavlje-1/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
-            Pregled poglavlja
-          </a>
-          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
-            Svi sadržaji
-          </a>
-        </nav>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigacijski gumbovi -->
-  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
-    <!-- Prethodna stranica -->
-    <a
-      href="/poglavlje-1/hranjivi-mediji/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na prethodnu stranicu: hranjivi mediji"
-    >
-      ←
-      <span class="text-lg">hranjivi mediji</span>
-    </a>
-    
-    <!-- Iduća stranica -->
-    <a
-      href="/poglavlje-1/bakterioloske-tehnike/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sljedeću stranicu: bakteriološke tehnike rada"
-    >
-      <span class="text-lg">bakteriološke tehnike rada</span>
-      →
-    </a>
-  </div><!-- CSS Styles for Active State -->
-  <style>
-    .toc-link.active {
-      @apply text-emerald-600 bg-emerald-50 font-semibold;
-    }
-    
-    .toc-link.active span {
-      @apply w-3 h-3 scale-125;
-    }
-  </style>
-
-  <!-- JavaScript -->
-  <script>
-    // Bookmark functionality
-    function initBookmarks() {
-      const bookmarkKey = 'bookmark-ekstrakti';
-      const bookmarkBtn = document.getElementById('bookmark-btn');
-      const bookmarkIcon = document.getElementById('bookmark-icon');
-      const bookmarkText = document.getElementById('bookmark-text');
-      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
-      const mobileBookmarkIcon = document.getElementById('mobile-bookmark-icon');
-      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
-      
-      // Check if bookmarked
-      const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
-      updateBookmarkUI(isBookmarked);
-      
-      function updateBookmarkUI(bookmarked: boolean) {
-        const fillAttribute = bookmarked ? 'currentColor' : 'none';
-        const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
-        
-        if (bookmarkIcon) bookmarkIcon.setAttribute('fill', fillAttribute);
-        if (bookmarkText) bookmarkText.textContent = text;
-        if (mobileBookmarkIcon) mobileBookmarkIcon.setAttribute('fill', fillAttribute);
-        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
-      }
-      
-      function toggleBookmark() {
-        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
-        const newBookmarkState = !currentlyBookmarked;
-        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
-        updateBookmarkUI(newBookmarkState);
-      }
-      
-      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
-      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
-    }
-
-    // Mobile TOC
-    function initMobileTOC() {
-      const toggleBtn = document.getElementById('mobile-toc-toggle');
-      const overlay = document.getElementById('mobile-toc-overlay');
-      const panel = document.getElementById('mobile-toc-panel');
-      const closeBtn = document.getElementById('mobile-toc-close');
-      const tocLinks = document.querySelectorAll('.mobile-toc-link');
-      
-      function openTOC() {
-        if (overlay && panel) {
-          overlay.classList.remove('hidden');
-          setTimeout(() => {
-            panel.classList.remove('translate-x-full');
-          }, 10);
-        }
-      }
-      
-      function closeTOC() {
-        if (panel && overlay) {
-          panel.classList.add('translate-x-full');
-          setTimeout(() => {
-            overlay.classList.add('hidden');
-          }, 300);
-        }
-      }
-      
-      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
-      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
-      if (overlay) {
-        overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) closeTOC();
-        });
-      }
-      
-      // Close TOC when clicking on a link
-      tocLinks.forEach(link => {
-        link.addEventListener('click', closeTOC);
-      });
-    }
-
-    // Scroll Spy for TOC
-    function initScrollSpy() {
-      const sections = document.querySelectorAll('[id^="mesni-"], [id^="ekstrakt-"], [id^="peptoni"], [id^="agar"], [id^="konzistencija"], [id^="slozenost"], [id^="sterilizacija-"]');
-      const tocLinks = document.querySelectorAll('.toc-link');
-      
-      function updateActiveLink() {
-        let currentSection = '';
-        
-        sections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section.id;
-          }
-        });
-        
-        // Remove active class from all links
-        tocLinks.forEach(link => {
-          link.classList.remove('active');
-        });
-        
-        // Add active class to current section link
-        if (currentSection) {
-          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
-          if (activeLink) {
-            activeLink.classList.add('active');
-          }
-        }
-      }
-      
-      // Listen for scroll events
-      window.addEventListener('scroll', updateActiveLink);
-      
-      // Initial check
-      updateActiveLink();
-    }
-
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', () => {
-      initBookmarks();
-      initMobileTOC();
-      initScrollSpy();
-    });
-  </script>
-
-</SubPageLayoutWithBase>
+<SubPageTemplate 
+  title={title}
+  description={description}
+  chapterNumber={1}
+  primaryColor="emerald"
+  breadcrumbPath={[
+    { name: 'Ekstrakti', url: '/poglavlje-1/ekstrakti/' }
+  ]}
+  contentBlocks={contentBlocks}
+  navigationButtons={navigationButtons}
+/>

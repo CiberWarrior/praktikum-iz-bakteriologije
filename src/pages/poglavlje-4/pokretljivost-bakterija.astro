@@ -1,5 +1,5 @@
 ---
-import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
+import SubPageTemplate from "../../components/SubPageTemplate.astro";
 
 export interface Props {
   title?: string;
@@ -11,179 +11,54 @@ const {
   description = 'Teorijski osnovi pokretljivosti bakterija, struktura flagela i tipovi pokretanja'
 } = Astro.props;
 
-// Generiraj TOC items
-const tocItems = [
-  { id: 'content', title: 'Sadržaj', level: 2 }
+const contentBlocks = [
+  {
+    id: "content",
+    title: "Pokretljivost bakterija",
+    icon: "🏃",
+    content: `
+      <div class="bg-gray-700 rounded-lg p-6 shadow-sm">
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Flagele ili bičevi filamentozne su strukture na površini bakterijskih stanica koje služe za pokretanje u većine pokretnih bakterija. Prema rasporedu i broju bičeva razlikujemo četiri tipa bakterijskih stanica:
+        </p>
+        <div class="mt-4 space-y-2">
+          <div class="text-gray-300"><strong class="text-blue-300">Atrih</strong> – bakterije bez bičeva</div>
+          <div class="text-gray-300"><strong class="text-blue-300">Monotrih</strong> – jedan bič lociran na jednom polu</div>
+          <div class="text-gray-300"><strong class="text-blue-300">Amfitrih</strong> – jedan bič lociran na svakom polu</div>
+          <div class="text-gray-300"><strong class="text-blue-300">Lofotrih</strong> – dva ili više bičeva lociranih na jednom ili oba pola</div>
+          <div class="text-gray-300"><strong class="text-blue-300">Peritrih</strong> – mnogo bičeva na cijeloj površini stanica</div>
+        </div>
+        <p class="text-gray-300 leading-relaxed mt-4">
+          Postoje specijalne metode bojenja bičeva kojima se postiže povećanje debljine bičeva, tako da se mogu uočiti i pod imerzijskim objektivom svjetlosnog mikroskopa. To su vrlo osjetljive metode, prikladne za specijalizirane laboratorije, a česta u bojenju bičeva je metoda po Leiffsonu. Ispitivanje pokretljivosti bakterija u praksi uspješno se dokazuje u dubokom polukrutom hranjivom agaru s dodatkom 2,3,5 trifeniltetrazolium klorida (TTC).
+        </p>
+      </div>
+    `,
+    borderColor: "blue-500/30",
+    iconGradient: "from-blue-400 to-blue-600"
+  }
 ];
 
-// Generiraj breadcrumb path
-const breadcrumbPath = [
-  { name: 'Poglavlje 4', url: '/poglavlje-4/' },
-  { name: 'Pokretljivost bakterija', url: '/poglavlje-4/pokretljivost-bakterija/' }
-];
+const navigationButtons = {
+  previous: {
+    text: "Poglavlje 4",
+    url: "/poglavlje-4/"
+  },
+  next: {
+    text: "Vježba 4",
+    url: "/poglavlje-4/vjezba-4/"
+  }
+};
 ---
 
-<SubPageLayoutWithBase chapterNumber={4}
+<SubPageTemplate 
   title={title}
   description={description}
   chapterNumber={4}
   primaryColor="blue"
-  prevLink="/poglavlje-4/"
-  nextLink="/poglavlje-4/vjezba-4/"
-  prevText="Poglavlje 4"
-  nextText="Vježba 4"
-  breadcrumbPath={breadcrumbPath}
-  tocItems={tocItems}
->
-  <!-- Main Content Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      
-      <!-- Content Blocks -->
-      <div class="space-y-8">
-        
-        <!-- Pokretljivost bakterija -->
-        <div id="content" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold text-blue-900">Pokretljivost bakterija</h3>
-          </div>
-          
-          <div class="bg-white rounded-lg p-4 shadow-sm">
-            <p class="text-gray-700 leading-relaxed">
-              Flagele ili bičevi filamentozne su strukture na površini bakterijskih stanica koje služe za pokretanje u većine pokretnih bakterija. Prema rasporedu i broju bičeva razlikujemo četiri tipa bakterijskih stanica:
-            </p>
-            <div class="mt-4 space-y-1">
-              <div class="text-gray-700"><strong>Atrih</strong> – bakterije bez bičeva</div>
-              <div class="text-gray-700"><strong>Monotrih</strong> – jedan bič lociran na jednom polu</div>
-              <div class="text-gray-700"><strong>Amfitrih</strong> – jedan bič lociran na svakom polu</div>
-              <div class="text-gray-700"><strong>Lofotrih</strong> – dva ili više bičeva lociranih na jednom ili oba pola</div>
-              <div class="text-gray-700"><strong>Peritrih</strong> – mnogo bičeva na cijeloj površini stanica</div>
-            </div>
-            <p class="text-gray-700 leading-relaxed mt-4">
-              Postoje specijalne metode bojenja bičeva kojima se postiže povećanje debljine bičeva, tako da se mogu uočiti i pod imerzijskim objektivom svjetlosnog mikroskopa. To su vrlo osjetljive metode, prikladne za specijalizirane laboratorije, a česta u bojenju bičeva je metoda po Leiffsonu. Ispitivanje pokretljivosti bakterija u praksi uspješno se dokazuje u dubokom polukrutom hranjivom agaru s dodatkom 2,3,5 trifeniltetrazolium klorida (TTC).
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <script>
-    // Bookmarks
-    function initBookmarks() {
-      const bookmarkKey = 'bookmark-pokretljivost-bakterija';
-      const bookmarkBtn = document.getElementById('bookmark-btn');
-      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
-      const bookmarkText = document.getElementById('bookmark-text');
-      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
-      const bookmarkIcon = document.getElementById('mobile-bookmark-icon');
-      
-      function updateBookmarkUI(bookmarked: boolean) {
-        const text = bookmarked ? 'Ukloniti iz bookmarka' : 'Označiti kao bookmark';
-        if (bookmarkText) bookmarkText.textContent = text;
-        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
-      }
-      
-      function toggleBookmark() {
-        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
-        const newBookmarkState = !currentlyBookmarked;
-        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
-        updateBookmarkUI(newBookmarkState);
-      }
-      
-      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
-      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
-    }
-
-    // Mobile TOC
-    function initMobileTOC() {
-      const toggleBtn = document.getElementById('mobile-toc-toggle');
-      const overlay = document.getElementById('mobile-toc-overlay');
-      const panel = document.getElementById('mobile-toc-panel');
-      const closeBtn = document.getElementById('mobile-toc-close');
-      const tocLinks = document.querySelectorAll('.mobile-toc-link');
-      
-      function openTOC() {
-        if (overlay && panel) {
-          overlay.classList.remove('hidden');
-          setTimeout(() => {
-            panel.classList.remove('translate-x-full');
-          }, 10);
-        }
-      }
-      
-      function closeTOC() {
-        if (panel && overlay) {
-          panel.classList.add('translate-x-full');
-          setTimeout(() => {
-            overlay.classList.add('hidden');
-          }, 300);
-        }
-      }
-      
-      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
-      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
-      if (overlay) {
-        overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) closeTOC();
-        });
-      }
-      
-      // Close TOC when clicking on a link
-      tocLinks.forEach(link => {
-        link.addEventListener('click', closeTOC);
-      });
-    }
-
-    // Scroll Spy for TOC
-    function initScrollSpy() {
-      const sections = document.querySelectorAll('[id^="content"]');
-      const tocLinks = document.querySelectorAll('.toc-link');
-      
-      function updateActiveLink() {
-        let currentSection = '';
-        
-        sections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section.id;
-          }
-        });
-        
-        // Remove active class from all links
-        tocLinks.forEach(link => {
-          link.classList.remove('active');
-        });
-        
-        // Add active class to current section link
-        if (currentSection) {
-          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
-          if (activeLink) {
-            activeLink.classList.add('active');
-          }
-        }
-      }
-      
-      // Listen for scroll events
-      window.addEventListener('scroll', updateActiveLink);
-      
-      // Initial check
-      updateActiveLink();
-    }
-
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', () => {
-      initBookmarks();
-      initMobileTOC();
-      initScrollSpy();
-    });
-  </script>
-
-</SubPageLayoutWithBase>
+  breadcrumbPath={[
+    { name: 'Poglavlje 4', url: '/poglavlje-4/' },
+    { name: 'Pokretljivost bakterija', url: '/poglavlje-4/pokretljivost-bakterija/' }
+  ]}
+  contentBlocks={contentBlocks}
+  navigationButtons={navigationButtons}
+/>

@@ -26,19 +26,19 @@ const {
   <div class="flex max-w-7xl mx-auto">
     
     <!-- Table of Contents Sidebar -->
-    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
+    <aside class="hidden lg:block w-64 p-6 bg-gray-800 border-r border-gray-700 sticky top-0 h-screen overflow-y-auto shadow-lg">
       <div class="mb-6">
         <div class="flex items-center mb-6">
-          <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center mr-3">
+          <div class="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center mr-3">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
+          <h3 class="text-xl font-bold text-white">Sadržaj stranice</h3>
         </div>
         
         <!-- Bookmark Button -->
-        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-emerald-50 w-full">
+        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-300 hover:text-teal-400 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-gray-700 w-full">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
           </svg>
@@ -47,13 +47,13 @@ const {
         
         <!-- Table of Contents -->
         <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#preuzimanje-radnog-mjesta" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="preuzimanje-radnog-mjesta">
-            <span class="w-2 h-2 bg-red-400 rounded-full mr-3 transition-all duration-300"></span>
+          <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Sadržaj stranice</div>
+          <a href="#preuzimanje-radnog-mjesta" class="toc-link group flex items-center text-sm text-gray-300 hover:text-teal-400 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-700" data-target="preuzimanje-radnog-mjesta">
+            <span class="w-2 h-2 bg-teal-400 rounded-full mr-3 transition-all duration-300"></span>
             Preuzimanje radnog mjesta
           </a>
-          <a href="#obavezna-oprema" class="toc-link group flex items-center text-sm text-gray-600 hover:text-emerald-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-emerald-50" data-target="obavezna-oprema">
-            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
+          <a href="#obavezna-oprema" class="toc-link group flex items-center text-sm text-gray-300 hover:text-teal-400 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-700" data-target="obavezna-oprema">
+            <span class="w-2 h-2 bg-emerald-400 rounded-full mr-3 transition-all duration-300"></span>
             Obavezna oprema
           </a>
         </nav>
@@ -69,65 +69,71 @@ const {
           <div class="space-y-8">
             
             <!-- Preuzimanje radnog mjesta -->
-            <div id="preuzimanje-radnog-mjesta" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🏢</span>
-                <h3 class="text-2xl font-bold text-blue-900">Preuzimanje radnog mjesta</h3>
+            <div id="preuzimanje-radnog-mjesta" class="bg-gray-800 rounded-xl p-8 shadow-lg border border-teal-500/30 animate-fade-in">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center mr-4">
+                  <span class="text-2xl">🏢</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Preuzimanje radnog mjesta</h3>
               </div>
-              <p class="text-gray-700 leading-relaxed mb-4">
+              <p class="text-gray-300 leading-relaxed mb-6 text-lg">
                 Prije početka praktične nastave iz bakteriologije svi studenti potpisuju osobno da su pročitali pravila rada i ponašanja u mikrobiološkom praktikumu (laboratoriju) te da će se toga strogo pridržavati.
               </p>
               
-              <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-lg p-4 shadow-sm border border-red-200">
-                <div class="flex items-center mb-3">
-                  <span class="text-3xl mr-4">⚠️</span>
-                  <strong class="text-red-800 text-lg">Važno</strong>
+              <div class="bg-gradient-to-br from-red-900/50 to-orange-900/50 rounded-lg p-6 shadow-lg border border-red-500/30">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-red-400 to-red-600 rounded-lg flex items-center justify-center mr-3">
+                    <span class="text-2xl">⚠️</span>
+                  </div>
+                  <strong class="text-red-300 text-xl">Važno</strong>
                 </div>
-                <p class="text-gray-800 leading-relaxed font-medium">
+                <p class="text-gray-200 leading-relaxed font-medium text-lg">
                   Sve što student na svoju ruku učini izvan propisanih pravila antisepse čini na vlastitu odgovornost.
                 </p>
               </div>
             </div>
 
             <!-- Obavezna oprema -->
-            <div id="obavezna-oprema" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🎒</span>
-                <h3 class="text-2xl font-bold text-green-900">Obavezna oprema</h3>
+            <div id="obavezna-oprema" class="bg-gray-800 rounded-xl p-8 shadow-lg border border-emerald-500/30 animate-fade-in-delay">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center mr-4">
+                  <span class="text-2xl">🥼</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Obavezna oprema</h3>
               </div>
-              <p class="text-gray-700 leading-relaxed mb-4">
+              <p class="text-gray-300 leading-relaxed mb-6 text-lg">
                 Svaki polaznik mikrobiološkog praktikuma mora obvezno imati:
               </p>
               
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
-                  <span class="text-2xl mr-3">🥼</span>
-                  <span class="text-green-800 font-medium">Čistu radnu bijelu kutu</span>
+                <div class="flex items-center bg-gray-700 p-4 rounded-lg shadow-sm border border-emerald-500/30 hover:bg-gray-600 transition-all duration-300 group">
+                  <span class="text-2xl mr-3 group-hover:scale-110 transition-transform duration-300">🥼</span>
+                  <span class="text-emerald-300 font-medium">Čistu radnu bijelu kutu</span>
                 </div>
                 
-                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
-                  <span class="text-2xl mr-3">👟</span>
-                  <span class="text-green-800 font-medium">Laboratorijske cipele</span>
+                <div class="flex items-center bg-gray-700 p-4 rounded-lg shadow-sm border border-emerald-500/30 hover:bg-gray-600 transition-all duration-300 group">
+                  <span class="text-2xl mr-3 group-hover:scale-110 transition-transform duration-300">👟</span>
+                  <span class="text-emerald-300 font-medium">Laboratorijske cipele</span>
                 </div>
                 
-                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
-                  <span class="text-2xl mr-3">🧻</span>
-                  <span class="text-green-800 font-medium">Papirnate rupčiće</span>
+                <div class="flex items-center bg-gray-700 p-4 rounded-lg shadow-sm border border-emerald-500/30 hover:bg-gray-600 transition-all duration-300 group">
+                  <span class="text-2xl mr-3 group-hover:scale-110 transition-transform duration-300">🧻</span>
+                  <span class="text-emerald-300 font-medium">Papirnate rupčiće</span>
                 </div>
                 
-                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
-                  <span class="text-2xl mr-3">🖊️</span>
-                  <span class="text-green-800 font-medium">Vodootporni pisač za staklo</span>
+                <div class="flex items-center bg-gray-700 p-4 rounded-lg shadow-sm border border-emerald-500/30 hover:bg-gray-600 transition-all duration-300 group">
+                  <span class="text-2xl mr-3 group-hover:scale-110 transition-transform duration-300">🖊️</span>
+                  <span class="text-emerald-300 font-medium">Vodootporni pisač za staklo</span>
                 </div>
                 
-                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
-                  <span class="text-2xl mr-3">📔</span>
-                  <span class="text-green-800 font-medium">Laboratorijski dnevnik</span>
+                <div class="flex items-center bg-gray-700 p-4 rounded-lg shadow-sm border border-emerald-500/30 hover:bg-gray-600 transition-all duration-300 group">
+                  <span class="text-2xl mr-3 group-hover:scale-110 transition-transform duration-300">📔</span>
+                  <span class="text-emerald-300 font-medium">Laboratorijski dnevnik</span>
                 </div>
                 
-                <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-green-200">
-                  <span class="text-2xl mr-3">🔢</span>
-                  <span class="text-green-800 font-medium">Džepno računalo</span>
+                <div class="flex items-center bg-gray-700 p-4 rounded-lg shadow-sm border border-emerald-500/30 hover:bg-gray-600 transition-all duration-300 group">
+                  <span class="text-2xl mr-3 group-hover:scale-110 transition-transform duration-300">🔢</span>
+                  <span class="text-emerald-300 font-medium">Džepno računalo</span>
                 </div>
               </div>
             </div>
@@ -140,7 +146,7 @@ const {
   </div>
 
   <!-- Mobile TOC Toggle -->
-  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-emerald-600 text-white p-3 rounded-full shadow-lg z-50">
+  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-gradient-to-br from-teal-500 to-teal-600 text-white p-3 rounded-full shadow-lg z-50 hover:shadow-xl transition-all duration-300">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
     </svg>
@@ -148,11 +154,11 @@ const {
 
   <!-- Mobile TOC Overlay -->
   <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
-    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
+    <div class="fixed right-0 top-0 h-full w-80 bg-gray-800 shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
       <div class="p-6">
         <div class="flex justify-between items-center mb-6">
-          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
-          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
+          <h3 class="text-lg font-semibold text-white">Brza navigacija</h3>
+          <button id="mobile-toc-close" class="text-gray-400 hover:text-white transition-colors duration-200">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
@@ -160,7 +166,7 @@ const {
         </div>
         
         <!-- Bookmark Button -->
-        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 mb-4 w-full">
+        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-300 hover:text-teal-400 transition-colors duration-200 mb-4 w-full p-3 rounded-lg hover:bg-gray-700">
           <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
           </svg>
@@ -169,10 +175,10 @@ const {
         
         <!-- Navigation Links -->
         <nav class="space-y-2">
-          <a href="/poglavlje-1/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
+          <a href="/poglavlje-1/" class="mobile-toc-link block text-sm text-gray-300 hover:text-teal-400 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-teal-400 pl-3 rounded-r-lg hover:bg-gray-700">
             Pregled poglavlja
           </a>
-          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-emerald-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-600 pl-3">
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-300 hover:text-teal-400 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-teal-400 pl-3 rounded-r-lg hover:bg-gray-700">
             Svi sadržaji
           </a>
         </nav>
@@ -183,23 +189,49 @@ const {
   <!-- Navigacijski gumbovi -->
   <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
     <!-- Prethodna stranica -->
+    <a
+      href="/poglavlje-1/"
+      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
+      aria-label="Povratak na pregled poglavlja"
+    >
+      ← Pregled poglavlja
+    </a>
+    
     <!-- Iduća stranica -->
     <a
       href="/poglavlje-1/pravila-ponasanja/"
       class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
       aria-label="Prijeđi na sljedeću stranicu: pravila ponašanja"
     >
-      <span class="text-lg">pravila ponašanja</span>
+      <span class="text-lg">Pravila ponašanja</span>
       →
     </a>
-  </div><!-- CSS Styles for Active State -->
+  </div><!-- CSS Styles for Active State and Animations -->
   <style>
     .toc-link.active {
-      @apply text-emerald-600 bg-emerald-50 font-semibold;
+      @apply text-teal-400 bg-gray-700 font-semibold;
     }
     
     .toc-link.active span {
       @apply w-3 h-3 scale-125;
+    }
+    
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fade-in-delay {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-fade-in {
+      animation: fade-in 0.8s ease-out;
+    }
+    
+    .animate-fade-in-delay {
+      animation: fade-in-delay 0.8s ease-out 0.2s both;
     }
   </style>
 

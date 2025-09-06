@@ -313,7 +313,7 @@ const {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
+          entry.target.classList.add('visible');
         }
       });
     }, observerOptions);
@@ -323,8 +323,14 @@ const {
       // Hero sekcija
       const heroText = document.querySelector('.hero-text');
       const heroImage = document.querySelector('.hero-image');
-      if (heroText) heroText.classList.add('scroll-fade-left');
-      if (heroImage) heroImage.classList.add('scroll-fade-right');
+      if (heroText) {
+        heroText.classList.add('scroll-fade-left');
+        heroText.classList.add('visible');
+      }
+      if (heroImage) {
+        heroImage.classList.add('scroll-fade-right');
+        heroImage.classList.add('visible');
+      }
       
       // Brzi start kartice
       const quickStartCards = document.querySelectorAll('.quick-start-card');
