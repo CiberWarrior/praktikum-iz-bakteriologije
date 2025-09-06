@@ -22,7 +22,7 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
-  <body class="bg-page font-sans text-page">
+  <body class="bg-page font-body text-page">
     
     <!-- Navigation -->
     <nav class="bg-white shadow-sm border-b border-gray-100">
@@ -191,51 +191,74 @@ const {
           </div>
         </div>
 
-        <!-- O projektu i Budućnost - Side by Side -->
+        <!-- O projektu -->
         <div class="mb-16">
-          <div class="grid md:grid-cols-2 gap-8">
-            <!-- O projektu -->
-            <div class="bg-gray-800 rounded-2xl p-8 border border-indigo-500/30 shadow-lg">
-              <h2 class="text-3xl font-bold text-white mb-6 font-heading">O projektu</h2>
+          <div class="bg-gray-800 rounded-2xl p-6 border border-indigo-500/30 shadow-lg">
+            <h2 class="text-3xl font-bold text-white mb-6 font-heading">O projektu</h2>
+            <div class="grid md:grid-cols-2 gap-8">
               <div class="prose prose-lg text-gray-300 font-body">
-                <p class="text-lg leading-relaxed mb-6">
+                <p class="text-lg leading-relaxed mb-4">
                   Mrežni udžbenik iz bakteriologije nastao je kao rezultat potrebe za modernizacijom nastave u području mikrobiologije. 
-                Prepoznavajući da studenti trebaju pristupačan i interaktivan materijal koji može pratiti njihov tempo učenja, 
+                  Prepoznavajući da studenti trebaju pristupačan i interaktivan materijal koji može pratiti njihov tempo učenja, 
                   tim stručnjaka s Prirodoslovno-matematičkog fakulteta Sveučilišta u Zagrebu kreirao je ovu platformu.
                 </p>
-                <p class="text-lg leading-relaxed mb-6">
+                <p class="text-lg leading-relaxed">
                   Udžbenik pokriva sve ključne aspekte bakteriološkog praktikuma - od osnovnih sigurnosnih mjera do naprednih 
                   tehnika identifikacije bakterija. Svako poglavlje je pažljivo strukturirano s teorijskim uvodom, 
                   praktičnim vježbama i provjerom znanja.
                 </p>
-                <p class="text-lg leading-relaxed">
-                  Projekt je kontinuirano ažuriran i poboljšavan na temelju povratnih informacija studenata i nastavnika, 
-                  osiguravajući da sadržaj ostane relevantan i koristan za sve korisnike.
-                </p>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-300 font-body">23 poglavlja s detaljnim uputama</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-300 font-body">Praktične vježbe s fotografijama</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-300 font-body">Interaktivni sadržaj 24/7</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-300 font-body">Kontinuirano ažuriranje sadržaja</p>
+                </div>
               </div>
             </div>
-
-            <!-- Budućnost projekta -->
-            <div class="bg-gray-800 rounded-2xl p-8 border border-yellow-500/30 shadow-lg">
-              <h2 class="text-3xl font-bold text-white mb-6 font-heading">Budućnost projekta</h2>
-              <div class="prose prose-lg text-gray-300 font-body">
-                <p class="text-lg leading-relaxed mb-6">
-                  Planiramo kontinuirano poboljšavanje udžbenika kroz dodavanje novih sadržaja, interaktivnih elemenata 
-                  i integraciju s najnovijim tehnologijama. Naš cilj je stvoriti sveobuhvatnu platformu za učenje 
-                  bakteriologije koja će biti dostupna zainteresiranim studentima biologije i srodnih struka.
-                </p>
-              </div>
+            <div class="mt-6 pt-6 border-t border-gray-700">
+              <p class="text-lg leading-relaxed text-gray-300 font-body">
+                Projekt je kontinuirano ažuriran i poboljšavan na temelju povratnih informacija studenata i nastavnika, 
+                osiguravajući da sadržaj ostane relevantan i koristan za sve korisnike.
+              </p>
             </div>
           </div>
         </div>
 
         <!-- Naš tim -->
         <div class="mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12 font-heading">Naš tim</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12 font-heading">O nama</h2>
           
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Član tima 1 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-indigo-500/30">
+            <div class="bg-gray-800 rounded-xl shadow-lg border border-indigo-500/30">
               <div class="p-6 text-center">
                 <div class="w-24 h-24 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -252,7 +275,7 @@ const {
             </div>
             
             <!-- Član tima 2 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-green-500/30">
+            <div class="bg-gray-800 rounded-xl shadow-lg border border-green-500/30">
               <div class="p-6 text-center">
                 <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -269,7 +292,7 @@ const {
             </div>
             
             <!-- Član tima 3 -->
-            <div class="bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-blue-500/30">
+            <div class="bg-gray-800 rounded-xl shadow-lg border border-blue-500/30">
               <div class="p-6 text-center">
                 <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -282,6 +305,59 @@ const {
                   Specijalistica za korisničko iskustvo i web dizajn. 
                   Odgovorna za vizualni izgled i funkcionalnost platforme.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Budućnost projekta -->
+        <div class="mb-16">
+          <div class="bg-gray-800 rounded-2xl p-6 border border-yellow-500/30 shadow-lg">
+            <h2 class="text-3xl font-bold text-white mb-6 font-heading">Budućnost projekta</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="prose prose-lg text-gray-300 font-body">
+                <p class="text-lg leading-relaxed mb-4">
+                  Planiramo kontinuirano poboljšavanje udžbenika kroz dodavanje novih sadržaja, interaktivnih elemenata 
+                  i integraciju s najnovijim tehnologijama.
+                </p>
+                <p class="text-lg leading-relaxed">
+                  Naš cilj je stvoriti sveobuhvatnu platformu za učenje bakteriologije koja će biti dostupna 
+                  zainteresiranim studentima biologije i srodnih struka.
+                </p>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-300 font-body">Dodavanje novih poglavlja i vježbi</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-300 font-body">Interaktivni kvizovi i testovi</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-300 font-body">3D vizualizacije i animacije</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div class="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <p class="text-gray-300 font-body">Integracija s novim tehnologijama</p>
+                </div>
               </div>
             </div>
           </div>

@@ -1,4 +1,6 @@
 ---
+import { GA_MEASUREMENT_ID } from '../config/analytics';
+
 export interface Props {
   title: string;
   description?: string;
@@ -68,7 +70,7 @@ const canonicalUrl = canonical || Astro.url.href;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -88,8 +90,24 @@ const canonicalUrl = canonical || Astro.url.href;
       }
     </script>
     
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WJS36GY4V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6WJS36GY4V');
+    </script>
+    
     <!-- Global Quiz Functions -->
     <script>
+      // TypeScript tipovi za globalne funkcije
+      declare global {
+        interface Window {
+          resetQuizGlobal: () => void;
+        }
+      }
+      
       // Globalna funkcija za resetiranje quiz-a
       window.resetQuizGlobal = function() {
         // Pokušaj pronaći quiz form i results
@@ -108,18 +126,8 @@ const canonicalUrl = canonical || Astro.url.href;
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
-      // Service Worker registracija za offline funkcionalnost
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-              console.log('🔧 Service Worker registriran:', registration.scope);
-            })
-            .catch((error) => {
-              console.log('❌ Service Worker registracija neuspješna:', error);
-            });
-        });
-      }
+      // Service Worker registracija je uklonjena za testiranje
+      // Možete je dodati kasnije ako je potrebna offline funkcionalnost
     </script>
   </head>
   <body class="bg-page font-sans text-page antialiased">
