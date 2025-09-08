@@ -1,19 +1,114 @@
 ---
-import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
+import SubPageTemplate from "../../components/SubPageTemplate.astro";
 
 export interface Props {
   title?: string;
   description?: string;
 }
 
-const { 
+const {
   title = 'Purpurne sumporne bakterije',
   description = 'Purpurne i zelene sumporne bakterije te stupac po Vinogradskom'
 } = Astro.props;
+
+const contentBlocks = [
+  {
+    id: "uvod",
+    title: "Izolacija anaerobnih fototrofnih bakterija u stupcu po Vinogradskom",
+    icon: "🦠",
+    content: `
+      <div class="space-y-4">
+        <p class="text-gray-300 leading-relaxed">
+          Anaerobne fototrofne bakterije uključuju purpurne i zelene sumporne bakterije. Sadrže pigment bakterioklorofil koji je po sastavu sličan biljnom klorofilu. Koriste uglavnom sulfid (foto-lito-autotrofi) te neke organske kiseline (foto-organo-autotrofi) kao davatelj elektrona za redukciju ugljikova dioksida a uz sunčevu svjetlost kao izvor energije. Anaerobne fototrofne bakterije prisutne su u muljevima i vodama, gdje je stupac vode miran dugo vremena i izložen sunčevu svjetlu. U takvu okolišu procesima fermentacije nastaju sulfidi i organske kiseline esencijalne za njihov razvoj.
+        </p>
+      </div>
+    `,
+    borderColor: "indigo-500/30",
+    iconGradient: "from-indigo-400 to-indigo-600"
+  },
+  {
+    id: "purpurne-sumporne-bakterije",
+    title: "Purpurne sumporne bakterije",
+    icon: "🦠",
+    content: `
+      <div class="space-y-4">
+        <p class="text-gray-300 leading-relaxed">
+          Bakterije su iz ove skupine Gram-negativne, ravni ili malo zavinuti štapići, pokretnim polarnim bičevima. Boje u različitih rodova variraju od narančastosmeđe do smeđe, smeđecrvene do roza, te purpurnocrvene do purpurnoljubičaste. Različitost boja potječe od vezanja bakterioklorofila a s različitim prisutnim karotenoidima. Sve vrste sadrže intracelularno elementarni sumpor u obliku kuglica, koji se formira u prisutnosti sulfida i svjetlosti. Neke su vrste sposobne fiksirati dušik. Sulfidi su nužni kao davatelji elektrona za metabolizam. Tipičan je predstavnik purpurnih sumpornih bakterija rod <em>Chromatium</em>, s optimumom temperature 20-35°C i pH 6,8-7,5.
+        </p>
+      </div>
+    `,
+    borderColor: "purple-500/30",
+    iconGradient: "from-purple-400 to-purple-600"
+  },
+  {
+    id: "zelene-sumporne-bakterije",
+    title: "Zelene sumporne bakterije",
+    icon: "🦠",
+    content: `
+      <div class="space-y-4">
+        <p class="text-gray-300 leading-relaxed">
+          Bakterije iz ove skupine su Gram-negativne, sferične do štapićaste ili zavinuti štapići. Stanice se mogu grupirati u lance kao u streptokoka. Neke su pokretne puzanjem, a neke nepokretne. Boja im može biti zelena do smeđa. Od pigmenata sadrže bakterioklorofil a c, d ili e te karotenoide. Tijekom oksidacije sulfida sumporne se kuglice izlučuju iz stanice i ne zadržavaju se u stanici, a konačni je produkt oksidacije sulfat. Neke mogu koristiti tiosulfate. Mnoge su miksotrofne, što znači da mogu asimilirati i jednostavne organske spojeve. Tipičan je predstavnik zelenih sumpornih bakterija rod <em>Chlorobium</em> s optimumom temperature 20-35°C i pH 6,8-7,0.
+        </p>
+      </div>
+    `,
+    borderColor: "green-500/30",
+    iconGradient: "from-green-400 to-green-600"
+  },
+  {
+    id: "stupac-po-vinogradskom",
+    title: "Stupac po Vinogradskom",
+    icon: "🧪",
+    content: `
+      <div class="space-y-4">
+        <p class="text-gray-300 leading-relaxed">
+          Mali ekosustav podoban za razvoj anaerobnih fototrofnih bakterija može se razviti u stupcu po Vinogradskom (slika 95). Stupac po Vinogradskom postavlja se u menzuri koja sadrži mulj, vodu, celulozu, sulfate, fosfate i karbonate. Menzura se drži u mraku oko dva tjedna i potom izloži svjetlosti. Tijekom inkubacije u menzuri će se razviti gradijent redoks potencijala i dostupnosti kisika, koji raste od dna menzure prema njenom vrhu. Na dnu menzure u anaerobnim uvjetima celulozu će fermentirati bakterije roda <em>Clostridium</em>. Produkte fermentacije i sulfate upotrijebit će sulfat reducirajuće bakterije (<em>Desulfovibrio</em>) te će nastajati H<sub>2</sub>S, koji će difundirati u gornje slojeve. Vrste zelenih sumpornih bakterija stvorit će zelenkasti idući sloj. Naredni sloj će biti obojen purpurno zbog prisutnosti purpurnih sumpornih bakterija. U mikroaerofilnim uvjetima u menzuri razvit će se druge fototrofne bakterije kao što je rod <em>Rhodospirillum</em>. U vršnom sloju bit će prisutne aerobne bakterije roda <em>Thiobacillus</em> i sumporne bakterije roda <em>Beggiatoa</em>.
+        </p>
+        
+        <div class="bg-gray-800 rounded-lg p-4 border border-gray-600">
+          <h4 class="font-semibold text-gray-300 mb-3">Glavne kemijske reakcije koje se odvijaju u pojedinim zonama stupca po Vinogradskom (od crne zone na dnu do smeđe površinske zone):</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><strong>Smeđa zona:</strong> H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O, CH<sub>2</sub>O → CO<sub>2</sub> + H<sub>2</sub></li>
+            <li><strong>Rđavo obojena zona:</strong> CH<sub>2</sub>O → H<sub>2</sub>, CO<sub>2</sub> → CH<sub>2</sub>O</li>
+            <li><strong>Purpurna zona:</strong> H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O</li>
+            <li><strong>Zelena zona:</strong> H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O</li>
+            <li><strong>Crna zona:</strong> SO<sub>4</sub><sup>2−</sup> → H<sub>2</sub>S, CH<sub>2</sub>O → CO<sub>2</sub>, CH<sub>2</sub>O → CO<sub>2</sub> + H<sub>2</sub></li>
+          </ul>
+        </div>
+
+        <!-- Slika -->
+        <figure class="image-figure">
+          <img
+            src="/Images/slika95.jpg"
+            alt="Shematski prikaz stupca po Vinogradskom"
+            class="w-3/5 h-auto rounded-lg mx-auto"
+            loading="lazy"
+          />
+          <figcaption class="mt-4 text-center">
+            <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 95</span>
+            <span class="block mt-2 text-gray-300">Shematski prikaz stupca po Vinogradskom</span>
+          </figcaption>
+        </figure>
+      </div>
+    `,
+    borderColor: "blue-500/30",
+    iconGradient: "from-blue-400 to-blue-600"
+  }
+];
+
+const navigationButtons = {
+  previous: {
+    text: "poglavlje 22",
+    url: "/poglavlje-22"
+  },
+  next: {
+    text: "vježba 23",
+    url: "/poglavlje-23/vjezba-23/"
+  }
+};
 ---
 
-<SubPageLayoutWithBase chapterNumber={23} 
-  title={title} 
+<SubPageTemplate 
+  title={title}
   description={description}
   chapterNumber={23}
   primaryColor="gray"
@@ -21,314 +116,6 @@ const {
     { name: 'Poglavlje 23', url: '/poglavlje-23/' },
     { name: 'Purpurne sumporne bakterije', url: '/poglavlje-23/purpurne-sumporne-bakterije/' }
   ]}
->
-
-  <!-- Main Content with Sidebar -->
-  <div class="flex max-w-7xl mx-auto">
-    
-    <!-- Table of Contents Sidebar -->
-    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
-      <div class="mb-6">
-        <div class="flex items-center mb-6">
-          <div class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
-        </div>
-        
-        <!-- Bookmark Button -->
-        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-gray-50 w-full">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-          </svg>
-          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
-        </button>
-        
-        <!-- Table of Contents -->
-        <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#uvod" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="uvod">
-            <span class="w-2 h-2 bg-indigo-400 rounded-full mr-3 transition-all duration-300"></span>
-            Uvod
-          </a>
-          <a href="#purpurne-sumporne-bakterije" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="purpurne-sumporne-bakterije">
-            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
-            Purpurne sumporne bakterije
-          </a>
-          <a href="#zelene-sumporne-bakterije" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="zelene-sumporne-bakterije">
-            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
-            Zelene sumporne bakterije
-          </a>
-          <a href="#stupac-po-vinogradskom" class="toc-link group flex items-center text-sm text-gray-600 hover:text-gray-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50" data-target="stupac-po-vinogradskom">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Stupac po Vinogradskom
-          </a>
-        </nav>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-1 px-6 py-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="prose prose-lg max-w-none">
-          
-          <!-- Content Blocks -->
-          <div class="space-y-8">
-            
-            <!-- Uvod -->
-            <div id="uvod" class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 shadow-lg border border-indigo-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🦠</span>
-                <h3 class="text-2xl font-bold text-indigo-900">Izolacija anaerobnih fototrofnih bakterija u stupcu po Vinogradskom</h3>
-              </div>
-              <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">Anaerobne fototrofne bakterije uključuju purpurne i zelene sumporne bakterije. Sadrže pigment bakterioklorofil koji je po sastavu sličan biljnom klorofilu. Koriste uglavnom sulfid (foto-lito-autotrofi) te neke organske kiseline (foto-organo-autotrofi) kao davatelj elektrona za redukciju ugljikova dioksida a uz sunčevu svjetlost kao izvor energije. Anaerobne fototrofne bakterije prisutne su u muljevima i vodama, gdje je stupac vode miran dugo vremena i izložen sunčevu svjetlu. U takvu okolišu procesima fermentacije nastaju sulfidi i organske kiseline esencijalne za njihov razvoj.</p>
-              </div>
-            </div>
-
-            <!-- Purpurne sumporne bakterije -->
-            <div id="purpurne-sumporne-bakterije" class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6 shadow-lg border border-purple-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🦠</span>
-                <h3 class="text-2xl font-bold text-purple-900">Purpurne sumporne bakterije</h3>
-              </div>
-              <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">Bakterije su iz ove skupine Gram-negativne, ravni ili malo zavinuti štapići, pokretnim polarnim bičevima. Boje u različitih rodova variraju od narančastosmeđe do smeđe, smeđecrvene do roza, te purpurnocrvene do purpurnoljubičaste. Različitost boja potječe od vezanja bakterioklorofila a s različitim prisutnim karotenoidima. Sve vrste sadrže intracelularno elementarni sumpor u obliku kuglica, koji se formira u prisutnosti sulfida i svjetlosti. Neke su vrste sposobne fiksirati dušik. Sulfidi su nužni kao davatelji elektrona za metabolizam. Tipičan je predstavnik purpurnih sumpornih bakterija rod <em>Chromatium</em>, s optimumom temperature 20-35°C i pH 6,8-7,5.</p>
-              </div>
-            </div>
-
-            <!-- Zelene sumporne bakterije -->
-            <div id="zelene-sumporne-bakterije" class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6 shadow-lg border border-green-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🦠</span>
-                <h3 class="text-2xl font-bold text-green-900">Zelene sumporne bakterije</h3>
-              </div>
-              <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">Bakterije iz ove skupine su Gram-negativne, sferične do štapićaste ili zavinuti štapići. Stanice se mogu grupirati u lance kao u streptokoka. Neke su pokretne puzanjem, a neke nepokretne. Boja im može biti zelena do smeđa. Od pigmenata sadrže bakterioklorofil a c, d ili e te karotenoide. Tijekom oksidacije sulfida sumporne se kuglice izlučuju iz stanice i ne zadržavaju se u stanici, a konačni je produkt oksidacije sulfat. Neke mogu koristiti tiosulfate. Mnoge su miksotrofne, što znači da mogu asimilirati i jednostavne organske spojeve. Tipičan je predstavnik zelenih sumpornih bakterija rod <em>Chlorobium</em> s optimumom temperature 20-35°C i pH 6,8-7,0.</p>
-              </div>
-            </div>
-
-            <!-- Stupac po Vinogradskom -->
-            <div id="stupac-po-vinogradskom" class="bg-gradient-to-br from-blue-50 to-cyan-100 rounded-xl p-6 shadow-lg border border-blue-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🧪</span>
-                <h3 class="text-2xl font-bold text-blue-900">Stupac po Vinogradskom</h3>
-              </div>
-              <div class="text-gray-700 leading-relaxed">
-                <p class="text-gray-800 text-lg leading-relaxed mb-4">Mali ekosustav podoban za razvoj anaerobnih fototrofnih bakterija može se razviti u stupcu po Vinogradskom (slika 95). Stupac po Vinogradskom postavlja se u menzuri koja sadrži mulj, vodu, celulozu, sulfate, fosfate i karbonate. Menzura se drži u mraku oko dva tjedna i potom izloži svjetlosti. Tijekom inkubacije u menzuri će se razviti gradijent redoks potencijala i dostupnosti kisika, koji raste od dna menzure prema njenom vrhu. Na dnu menzure u anaerobnim uvjetima celulozu će fermentirati bakterije roda <em>Clostridium</em>. Produkte fermentacije i sulfate upotrijebit će sulfat reducirajuće bakterije (<em>Desulfovibrio</em>) te će nastajati H<sub>2</sub>S, koji će difundirati u gornje slojeve. Vrste zelenih sumpornih bakterija stvorit će zelenkasti idući sloj. Naredni sloj će biti obojen purpurno zbog prisutnosti purpurnih sumpornih bakterija. U mikroaerofilnim uvjetima u menzuri razvit će se druge fototrofne bakterije kao što je rod <em>Rhodospirillum</em>. U vršnom sloju bit će prisutne aerobne bakterije roda <em>Thiobacillus</em> i sumporne bakterije roda <em>Beggiatoa</em>.</p>
-                
-                <div class="bg-gray-50 rounded-lg p-4 mt-4 border border-gray-200">
-                  <h4 class="font-semibold text-gray-800 mb-3">Glavne kemijske reakcije koje se odvijaju u pojedinim zonama stupca po Vinogradskom (od crne zone na dnu do smeđe površinske zone):</h4>
-                  <ul class="space-y-2 text-gray-700">
-                    <li><strong>Smeđa zona:</strong> H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O, CH<sub>2</sub>O → CO<sub>2</sub> + H<sub>2</sub></li>
-                    <li><strong>Rđavo obojena zona:</strong> CH<sub>2</sub>O → H<sub>2</sub>, CO<sub>2</sub> → CH<sub>2</sub>O</li>
-                    <li><strong>Purpurna zona:</strong> H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O</li>
-                    <li><strong>Zelena zona:</strong> H<sub>2</sub>S → S°, CO<sub>2</sub> → CH<sub>2</sub>O</li>
-                    <li><strong>Crna zona:</strong> SO<sub>4</sub><sup>2−</sup> → H<sub>2</sub>S, CH<sub>2</sub>O → CO<sub>2</sub>, CH<sub>2</sub>O → CO<sub>2</sub> + H<sub>2</sub></li>
-                  </ul>
-                </div>
-
-                <!-- Slika -->
-                <figure class="image-figure bg-white rounded-lg p-4 shadow-sm mt-6">
-                  <img src="/Images/slika95.jpg" alt="Shematski prikaz stupca po Vinogradskom" class="w-3/5 h-auto rounded-lg mx-auto" />
-                  <figcaption class="mt-4 text-center">
-                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Slika 95</span>
-                    <span class="block mt-2 text-gray-700">Shematski prikaz stupca po Vinogradskom</span>
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- Mobile TOC Toggle -->
-  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-gray-600 text-white p-3 rounded-full shadow-lg z-50">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
-    </svg>
-  </button>
-
-  <!-- Mobile TOC Overlay -->
-  <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
-    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
-          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        
-        <!-- Bookmark Button -->
-        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-600 transition-colors duration-200 mb-4 w-full">
-          <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-          </svg>
-          <span id="mobile-bookmark-text">Označiti kao bookmark</span>
-        </button>
-        
-        <!-- Navigation Links -->
-        <nav class="space-y-2">
-          <a href="/poglavlje-23/" class="mobile-toc-link block text-sm text-gray-600 hover:text-gray-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-gray-600 pl-3">
-            Pregled poglavlja
-          </a>
-          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-gray-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-gray-600 pl-3">
-            Svi sadržaji
-          </a>
-        </nav>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigacijski gumbovi -->
-  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
-
-    <!-- Iduća stranica -->
-    <a
-      href="/poglavlje-23/vjezba-23/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na sljedeću stranicu: vježba 23"
-    >
-      <span class="text-lg">vježba 23</span>
-      →
-    </a>
-  </div>
-
-  <!-- CSS Styles for Active State -->
-  <style>
-    .toc-link.active {
-      @apply text-gray-600 bg-gray-50 font-semibold;
-    }
-    
-    .toc-link.active span {
-      @apply w-3 h-3 scale-125;
-    }
-  </style>
-
-  <!-- JavaScript -->
-  <script>
-    // Bookmark functionality
-    function initBookmarks() {
-      const bookmarkKey = 'bookmark-purpurne-sumporne-bakterije';
-      const bookmarkBtn = document.getElementById('bookmark-btn');
-      const bookmarkText = document.getElementById('bookmark-text');
-      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
-      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
-      
-      // Check if bookmarked
-      const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
-      updateBookmarkUI(isBookmarked);
-      
-      /** @param {boolean} bookmarked - Whether the page is currently bookmarked */
-      function updateBookmarkUI(bookmarked) {
-        const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
-        
-        if (bookmarkText) bookmarkText.textContent = text;
-        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
-      }
-      
-      function toggleBookmark() {
-        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
-        const newBookmarkState = !currentlyBookmarked;
-        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
-        updateBookmarkUI(newBookmarkState);
-      }
-      
-      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
-      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
-    }
-
-    // Mobile TOC
-    function initMobileTOC() {
-      const toggleBtn = document.getElementById('mobile-toc-toggle');
-      const overlay = document.getElementById('mobile-toc-overlay');
-      const panel = document.getElementById('mobile-toc-panel');
-      const closeBtn = document.getElementById('mobile-toc-close');
-      const tocLinks = document.querySelectorAll('.mobile-toc-link');
-      
-      function openTOC() {
-        if (overlay && panel) {
-          overlay.classList.remove('hidden');
-          setTimeout(() => {
-            panel.classList.remove('translate-x-full');
-          }, 10);
-        }
-      }
-      
-      function closeTOC() {
-        if (panel && overlay) {
-          panel.classList.add('translate-x-full');
-          setTimeout(() => {
-            overlay.classList.add('hidden');
-          }, 300);
-        }
-      }
-      
-      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
-      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
-      if (overlay) {
-        overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) closeTOC();
-        });
-      }
-      
-      // Close TOC when clicking on a link
-      tocLinks.forEach(link => {
-        link.addEventListener('click', closeTOC);
-      });
-    }
-
-    // Scroll Spy for TOC
-    function initScrollSpy() {
-      const sections = document.querySelectorAll('[id]');
-      const tocLinks = document.querySelectorAll('.toc-link');
-      
-      function updateActiveLink() {
-        let currentSection = '';
-        
-        sections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section.id;
-          }
-        });
-        
-        // Remove active class from all links
-        tocLinks.forEach(link => {
-          link.classList.remove('active');
-        });
-        
-        // Add active class to current section link
-        if (currentSection) {
-          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
-          if (activeLink) {
-            activeLink.classList.add('active');
-          }
-        }
-      }
-      
-      // Listen for scroll events
-      window.addEventListener('scroll', updateActiveLink);
-      
-      // Initial check
-      updateActiveLink();
-    }
-
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', () => {
-      initBookmarks();
-      initMobileTOC();
-      initScrollSpy();
-    });
-  </script>
-
-</SubPageLayoutWithBase>
+  contentBlocks={contentBlocks}
+  navigationButtons={navigationButtons}
+/>

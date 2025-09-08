@@ -1,5 +1,5 @@
 ---
-import SubPageLayoutWithBase from "../../components/SubPageLayoutWithBase.astro";
+import SubPageTemplate from "../../components/SubPageTemplate.astro";
 
 export interface Props {
   title?: string;
@@ -10,10 +10,87 @@ const {
   title = 'Aromatogram',
   description = 'Aromaterapija podrazumijeva uporabu mirisnih, hlapivih tvari eteričnih ulja aromatskih biljaka za prevenciju, terapiju i suterapiju različitih bolesti.'
 } = Astro.props;
+
+const contentBlocks = [
+  {
+    id: "aromaterapija",
+    title: "Aromaterapija",
+    icon: "🌿",
+    content: `
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Aromaterapija podrazumijeva uporabu mirisnih, hlapivih tvari eteričnih ulja aromatskih biljaka za prevenciju, terapiju i suterapiju različitih bolesti. Aromaterapija je pradavno umijeće liječenja, koje danas doživljava procvat i transformaciju u suvremenoj znanosti terapije duha i tijela.
+      </p>
+    `,
+    borderColor: "blue-500/30",
+    iconGradient: "from-blue-400 to-blue-600"
+  },
+  {
+    id: "antimikrobna-svojstva",
+    title: "Antimikrobna svojstva",
+    icon: "🛡️",
+    content: `
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Mnoga eterična ulja posjeduju snažna antibakterijska, antifungalna i antivirusna svojstva.
+      </p>
+    `,
+    borderColor: "orange-500/30",
+    iconGradient: "from-orange-400 to-orange-600"
+  },
+  {
+    id: "istorija",
+    title: "Istorija istraživanja",
+    icon: "📚",
+    content: `
+      <p class="text-gray-300 leading-relaxed mb-4">
+        Prve rezultate o antimikrobnom djelovanju eteričnih ulja objavio je još <strong class="text-green-300">1881. R. Koch</strong>. Našao je da eteričnim uljem impregnirani deblji konac iznad bujona inokuliranog s bakterijama ubija bakterije.
+      </p>
+    `,
+    borderColor: "green-500/30",
+    iconGradient: "from-green-400 to-green-600"
+  },
+  {
+    id: "definicija-aromatograma",
+    title: "Aromatogram",
+    icon: "🧪",
+    content: `
+      <div class="space-y-4">
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Aromatogram (aroma-antibiogram) je postupak u aromaterapiji analogan antibiogramu, kojim se dokazuje antimikrobno djelovanje eteričnih ulja na čiste kulture patogenih bakterija izoliranih iz krvi, urina, sline, kože, upalnih procesa i nezaobilazan je postupak u kliničkoj primjeni eteričnih ulja (slika 64).
+        </p>
+        
+        <figure class="image-figure">
+          <img
+            src="/Images/slika64.jpg"
+            alt="Zone inhibicije rasta bakterije Staphylococcus aureus oko diskova natopljenih eteričnim uljima"
+            class="w-3/5 h-auto rounded-lg mx-auto"
+            loading="lazy"
+          />
+          <figcaption class="mt-4 text-center">
+            <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Slika 64</span>
+            <span class="block mt-2 text-gray-300">Zone inhibicije rasta bakterije <em class="text-green-300">Staphylococcus aureus</em> oko diskova natopljenih eteričnim uljima</span>
+          </figcaption>
+        </figure>
+      </div>
+    `,
+    borderColor: "purple-500/30",
+    iconGradient: "from-purple-400 to-purple-600"
+  }
+];
+
+const navigationButtons = {
+  previous: {
+    text: "antibiogram",
+    url: "/poglavlje-13/antibiogram/"
+  },
+  next: {
+    text: "vježbe 13",
+    url: "/poglavlje-13/vjezba-13/"
+  }
+};
 ---
 
-<SubPageLayoutWithBase chapterNumber={13} 
-  title={title} 
+<SubPageTemplate 
+  title={title}
   description={description}
   chapterNumber={13}
   primaryColor="yellow"
@@ -21,310 +98,6 @@ const {
     { name: 'Poglavlje 13', url: '/poglavlje-13/' },
     { name: 'Aromatogram', url: '/poglavlje-13/aromatogram/' }
   ]}
->
-
-  <!-- Main Content with Sidebar -->
-  <div class="flex max-w-7xl mx-auto">
-    
-    <!-- Table of Contents Sidebar -->
-    <aside class="hidden lg:block w-64 p-6 bg-gradient-to-b from-gray-50 to-gray-100 border-r border-gray-200 sticky top-0 h-screen overflow-y-auto shadow-lg">
-      <div class="mb-6">
-        <div class="flex items-center mb-6">
-          <div class="w-8 h-8 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900">Sadržaj stranice</h3>
-        </div>
-        
-        <!-- Bookmark Button -->
-        <button id="bookmark-btn" class="flex items-center space-x-3 text-sm text-gray-600 hover:text-yellow-600 transition-all duration-300 mb-6 p-3 rounded-lg hover:bg-yellow-50 w-full">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-          </svg>
-          <span id="bookmark-text" class="font-medium">Označiti kao bookmark</span>
-        </button>
-        
-        <!-- Table of Contents -->
-        <nav class="space-y-1">
-          <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Sadržaj stranice</div>
-          <a href="#aromaterapija" class="toc-link group flex items-center text-sm text-gray-600 hover:text-yellow-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-yellow-50" data-target="aromaterapija">
-            <span class="w-2 h-2 bg-blue-400 rounded-full mr-3 transition-all duration-300"></span>
-            Aromaterapija
-          </a>
-          <a href="#antimikrobna-svojstva" class="toc-link group flex items-center text-sm text-gray-600 hover:text-yellow-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-yellow-50" data-target="antimikrobna-svojstva">
-            <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 transition-all duration-300"></span>
-            Antimikrobna svojstva
-          </a>
-          <a href="#istorija" class="toc-link group flex items-center text-sm text-gray-600 hover:text-yellow-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-yellow-50" data-target="istorija">
-            <span class="w-2 h-2 bg-green-400 rounded-full mr-3 transition-all duration-300"></span>
-            Istorija istraživanja
-          </a>
-          <a href="#definicija-aromatograma" class="toc-link group flex items-center text-sm text-gray-600 hover:text-yellow-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-yellow-50" data-target="definicija-aromatograma">
-            <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 transition-all duration-300"></span>
-            Aromatogram
-          </a>
-
-        </nav>
-      </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="flex-1 px-6 py-8">
-      <div class="max-w-4xl mx-auto">
-        <div class="prose prose-lg max-w-none">
-          
-          <!-- Content Blocks -->
-          <div class="space-y-8">
-            
-            <!-- Aromaterapija -->
-            <div id="aromaterapija" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border border-blue-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🌿</span>
-                <h3 class="text-2xl font-bold text-blue-900">Aromaterapija</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed mb-4">
-                Aromaterapija podrazumijeva uporabu mirisnih, hlapivih tvari eteričnih ulja aromatskih biljaka za prevenciju, terapiju i suterapiju različitih bolesti. Aromaterapija je pradavno umijeće liječenja, koje danas doživljava procvat i transformaciju u suvremenoj znanosti terapije duha i tijela.
-              </p>
-            </div>
-
-            <!-- Antimikrobna svojstva -->
-            <div id="antimikrobna-svojstva" class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 shadow-lg border border-orange-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🛡️</span>
-                <h3 class="text-2xl font-bold text-orange-900">Antimikrobna svojstva</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed mb-4">
-                Mnoga eterična ulja posjeduju snažna antibakterijska, antifungalna i antivirusna svojstva.
-              </p>
-            </div>
-
-            <!-- Istorija istraživanja -->
-            <div id="istorija" class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">📚</span>
-                <h3 class="text-2xl font-bold text-green-900">Istorija istraživanja</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed mb-4">
-                Prve rezultate o antimikrobnom djelovanju eteričnih ulja objavio je još 1881. R. Koch. Našao je da eteričnim uljem impregnirani deblji konac iznad bujona inokuliranog s bakterijama ubija bakterije.
-              </p>
-            </div>
-
-            <!-- Aromatogram -->
-            <div id="definicija-aromatograma" class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6 shadow-lg border border-purple-200">
-              <div class="flex items-center mb-4">
-                <span class="text-3xl mr-4">🧪</span>
-                <h3 class="text-2xl font-bold text-purple-900">Aromatogram</h3>
-              </div>
-              <p class="text-gray-700 leading-relaxed mb-4">
-                Aromatogram (aroma-antibiogram) je postupak u aromaterapiji analogan antibiogramu, kojim se dokazuje antimikrobno djelovanje eteričnih ulja na čiste kulture patogenih bakterija izoliranih iz krvi, urina, sline, kože, upalnih procesa i nezaobilazan je postupak u kliničkoj primjeni eteričnih ulja (slika 64).
-              </p>
-              <figure class="image-figure bg-white rounded-lg p-4 shadow-sm mt-6">
-                <img src="/Images/slika64.jpg" alt="Zone inhibicije rasta bakterije Staphylococcus aureus oko diskova natopljenih eteričnim uljima" class="w-3/5 h-auto rounded-lg mx-auto" />
-                <figcaption class="mt-4 text-center">
-                  <span class="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Slika 64</span>
-                  <span class="block mt-2 text-gray-700">Zone inhibicije rasta bakterije <em>Staphylococcus aureus</em> oko diskova natopljenih eteričnim uljima</span>
-                </figcaption>
-              </figure>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- Mobile TOC Toggle -->
-  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-yellow-600 text-white p-3 rounded-full shadow-lg z-50">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
-    </svg>
-  </button>
-
-  <!-- Mobile TOC Overlay -->
-  <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
-    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
-          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        
-        <!-- Bookmark Button -->
-        <button id="mobile-bookmark-btn" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-yellow-600 transition-colors duration-200 mb-4 w-full">
-          <svg id="mobile-bookmark-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
-          </svg>
-          <span id="mobile-bookmark-text">Označiti kao bookmark</span>
-        </button>
-        
-        <!-- Navigation Links -->
-        <nav class="space-y-2">
-          <a href="/poglavlje-13/" class="mobile-toc-link block text-sm text-gray-600 hover:text-yellow-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-yellow-600 pl-3">
-            Pregled poglavlja
-          </a>
-          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-yellow-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-yellow-600 pl-3">
-            Svi sadržaji
-          </a>
-        </nav>
-      </div>
-    </div>
-  </div>
-
-  <!-- Navigacijski gumbovi -->
-  <div class="flex justify-between mt-16 mb-8 max-w-4xl mx-auto px-4 sm:px-6">
-    <!-- Prethodna stranica -->
-    <a
-      href="/poglavlje-13/antibiogram/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na prethodnu stranicu: antibiogram"
-    >
-      ←
-      <span class="text-lg">Antibiogram</span>
-    </a>
-    
-    <!-- Iduća stranica -->
-    <a
-      href="/poglavlje-13/vjezba-13/"
-      class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
-      aria-label="Prijeđi na vježbe 13"
-    >
-      <span class="text-lg">Vježbe 13</span>
-      →
-    </a>
-  </div>
-
-  <!-- CSS Styles for Active State -->
-  <style>
-    .toc-link.active {
-      @apply text-yellow-600 bg-yellow-50 font-semibold;
-    }
-    
-    .toc-link.active span {
-      @apply w-3 h-3 scale-125;
-    }
-  </style>
-
-  <!-- JavaScript -->
-  <script>
-    // Bookmark functionality
-    function initBookmarks() {
-      const bookmarkKey = 'bookmark-aromatogram';
-      const bookmarkBtn = document.getElementById('bookmark-btn');
-      const bookmarkText = document.getElementById('bookmark-text');
-      const mobileBookmarkBtn = document.getElementById('mobile-bookmark-btn');
-      const mobileBookmarkText = document.getElementById('mobile-bookmark-text');
-      
-      // Check if bookmarked
-      const isBookmarked = localStorage.getItem(bookmarkKey) === 'true';
-      updateBookmarkUI(isBookmarked);
-      
-      function updateBookmarkUI(bookmarked: boolean) {
-        const text = bookmarked ? 'Ukloniti bookmark' : 'Označiti kao bookmark';
-        
-        if (bookmarkText) bookmarkText.textContent = text;
-        if (mobileBookmarkText) mobileBookmarkText.textContent = text;
-      }
-      
-      function toggleBookmark() {
-        const currentlyBookmarked = localStorage.getItem(bookmarkKey) === 'true';
-        const newBookmarkState = !currentlyBookmarked;
-        localStorage.setItem(bookmarkKey, newBookmarkState.toString());
-        updateBookmarkUI(newBookmarkState);
-      }
-      
-      if (bookmarkBtn) bookmarkBtn.addEventListener('click', toggleBookmark);
-      if (mobileBookmarkBtn) mobileBookmarkBtn.addEventListener('click', toggleBookmark);
-    }
-
-    // Mobile TOC
-    function initMobileTOC() {
-      const toggleBtn = document.getElementById('mobile-toc-toggle');
-      const overlay = document.getElementById('mobile-toc-overlay');
-      const panel = document.getElementById('mobile-toc-panel');
-      const closeBtn = document.getElementById('mobile-toc-close');
-      const tocLinks = document.querySelectorAll('.mobile-toc-link');
-      
-      function openTOC() {
-        if (overlay && panel) {
-          overlay.classList.remove('hidden');
-          setTimeout(() => {
-            panel.classList.remove('translate-x-full');
-          }, 10);
-        }
-      }
-      
-      function closeTOC() {
-        if (panel && overlay) {
-          panel.classList.add('translate-x-full');
-          setTimeout(() => {
-            overlay.classList.add('hidden');
-          }, 300);
-        }
-      }
-      
-      if (toggleBtn) toggleBtn.addEventListener('click', openTOC);
-      if (closeBtn) closeBtn.addEventListener('click', closeTOC);
-      if (overlay) {
-        overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) closeTOC();
-        });
-      }
-      
-      // Close TOC when clicking on a link
-      tocLinks.forEach(link => {
-        link.addEventListener('click', closeTOC);
-      });
-    }
-
-    // Scroll Spy for TOC
-    function initScrollSpy() {
-      const sections = document.querySelectorAll('[id]');
-      const tocLinks = document.querySelectorAll('.toc-link');
-      
-      function updateActiveLink() {
-        let currentSection = '';
-        
-        sections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section.id;
-          }
-        });
-        
-        // Remove active class from all links
-        tocLinks.forEach(link => {
-          link.classList.remove('active');
-        });
-        
-        // Add active class to current section link
-        if (currentSection) {
-          const activeLink = document.querySelector(`[data-target="${currentSection}"]`);
-          if (activeLink) {
-            activeLink.classList.add('active');
-          }
-        }
-      }
-      
-      // Listen for scroll events
-      window.addEventListener('scroll', updateActiveLink);
-      
-      // Initial check
-      updateActiveLink();
-    }
-
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', () => {
-      initBookmarks();
-      initMobileTOC();
-      initScrollSpy();
-    });
-  </script>
-
-</SubPageLayoutWithBase>
+  contentBlocks={contentBlocks}
+  navigationButtons={navigationButtons}
+/>

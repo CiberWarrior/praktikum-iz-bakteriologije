@@ -99,7 +99,7 @@ const theme = colorMap[primaryColor as keyof typeof colorMap] || colorMap.red;
           {contentBlocks.map((block, index) => (
             <a href={`#${block.id}`} class="toc-link group flex items-center text-sm text-gray-300 hover:text-emerald-400 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-700" data-target={block.id}>
               <span class={`w-2 h-2 ${block.borderColor.replace('/30', '')} rounded-full mr-3 transition-all duration-300`}></span>
-              {block.title}
+              <span set:html={block.title}></span>
             </a>
           ))}
         </nav>
@@ -119,7 +119,7 @@ const theme = colorMap[primaryColor as keyof typeof colorMap] || colorMap.red;
                   <div class={`w-12 h-12 bg-gradient-to-br ${block.iconGradient} rounded-lg flex items-center justify-center mr-4`}>
                     <span class="text-2xl">{block.icon}</span>
                   </div>
-                  <h3 class="text-2xl font-bold text-white">{block.title}</h3>
+                  <h3 class="text-2xl font-bold text-white" set:html={block.title}></h3>
                 </div>
                 <div class="text-gray-300 leading-relaxed text-lg prose prose-invert max-w-none" set:html={block.content}></div>
               </div>
