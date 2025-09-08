@@ -265,8 +265,8 @@ const contentBlocks = [
 
 const navigationButtons = {
   previous: {
-    text: "vježba 5",
-    url: "/poglavlje-1/vjezba-5/"
+    text: "poglavlje 1",
+    url: "/poglavlje-1/"
   },
   next: {
     text: "poglavlje 2",
@@ -281,6 +281,8 @@ const navigationButtons = {
   chapterNumber={1}
   primaryColor="emerald"
   breadcrumbPath={[
+    { name: 'Sadržaj', url: '/sadrzaj/' },
+    { name: 'Poglavlje 1', url: '/poglavlje-1/' },
     { name: 'Bakterije u nastavi', url: '/poglavlje-1/bakterije-u-nastavi/' }
   ]}
   contentBlocks={contentBlocks}

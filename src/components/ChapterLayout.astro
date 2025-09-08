@@ -105,22 +105,22 @@ const finalConfig: {
 <BaseLayout title={finalConfig.title} description={finalConfig.description}>
   <!-- Breadcrumb -->
   {finalConfig.showBreadcrumb && finalConfig.breadcrumbPath.length > 0 && (
-    <div class="bg-gray-50 border-b border-gray-200">
+    <div class="bg-gray-900 border-b border-gray-700">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2">
         <nav class="flex items-center justify-between" aria-label="Breadcrumb">
           <ol class="flex items-center space-x-2">
             <li>
-              <a href="/" class="text-gray-500 hover:text-gray-700 transition-colors duration-300">
+              <a href="/" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
                 Početna
               </a>
             </li>
             {finalConfig.breadcrumbPath.map((item, index) => (
               <li class="flex items-center">
-                <span class="text-gray-400 mx-2">/</span>
+                <span class="text-gray-600 mx-2">/</span>
                 {index === finalConfig.breadcrumbPath.length - 1 ? (
-                  <span class="text-gray-900 font-medium">{item.name}</span>
+                  <span class="text-purple-400 font-medium">{item.name}</span>
                 ) : (
-                  <a href={item.url} class="text-gray-500 hover:text-gray-700 transition-colors duration-300">
+                  <a href={item.url} class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
                     {item.name}
                   </a>
                 )}

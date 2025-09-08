@@ -39,13 +39,13 @@ const {
 
 <BaseLayout title={title} description={description}>
   <!-- Sticky Breadcrumb -->
-  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+  <nav class="sticky top-0 z-40 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between py-3">
         <div class="flex items-center space-x-1 text-sm">
         <a 
           href="/" 
-          class="flex items-center text-gray-500 hover:text-purple-600 transition-colors duration-200 group"
+          class="flex items-center text-gray-400 hover:text-purple-400 transition-colors duration-200 group"
           aria-label="Početna stranica"
         >
           <svg class="w-4 h-4 mr-1 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
@@ -54,37 +54,24 @@ const {
           <span class="hidden sm:inline font-medium">Početna</span>
         </a>
         
-        <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-        </svg>
-        
-        <a 
-          href="/sadrzaj/" 
-          class="text-gray-500 hover:text-purple-600 transition-colors duration-200 font-medium"
-        >
-          Sadržaj
-        </a>
-        
-        <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-        </svg>
-        
-        <a 
-          href={`/poglavlje-${chapterNumber}/`} 
-          class="text-gray-500 hover:text-purple-600 transition-colors duration-200 font-medium"
-        >
-          Poglavlje {chapterNumber}
-        </a>
-        
-        {breadcrumbPath.length > 0 && (
+        {breadcrumbPath.map((item, index) => (
           <>
-            <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
             </svg>
             
-            <span class="text-purple-600 font-semibold">{breadcrumbPath[breadcrumbPath.length - 1]?.name || title}</span>
+            {index === breadcrumbPath.length - 1 ? (
+              <span class="text-purple-400 font-semibold">{item.name}</span>
+            ) : (
+              <a 
+                href={item.url} 
+                class="text-gray-400 hover:text-purple-400 transition-colors duration-200 font-medium"
+              >
+                {item.name}
+              </a>
+            )}
           </>
-        )}
+        ))}
         </div>
         
                   <!-- THX gumb -->
