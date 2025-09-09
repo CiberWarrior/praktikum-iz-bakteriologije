@@ -107,7 +107,7 @@ const getTOCColor = (index: number) => {
   </div>
 
   <!-- Mobile TOC Toggle -->
-  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg z-50" style="outline: none !important; box-shadow: none !important;">
+  <button id="mobile-toc-toggle" class="lg:hidden fixed bottom-4 right-4 bg-gradient-to-br from-emerald-500 to-emerald-600 text-white p-3 rounded-full shadow-lg z-50 hover:shadow-xl transition-all duration-300" style="outline: none !important; box-shadow: none !important;">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
     </svg>
@@ -115,11 +115,11 @@ const getTOCColor = (index: number) => {
 
   <!-- Mobile TOC Overlay -->
   <div id="mobile-toc-overlay" class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden">
-    <div class="fixed right-0 top-0 h-full w-80 bg-white shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
+    <div class="fixed right-0 top-0 h-full w-80 bg-gray-800 shadow-xl transform translate-x-full transition-transform duration-300" id="mobile-toc-panel">
       <div class="p-6">
         <div class="flex justify-between items-center mb-6">
-          <h3 class="text-lg font-semibold text-gray-900">Brza navigacija</h3>
-          <button id="mobile-toc-close" class="text-gray-500 hover:text-gray-700" style="outline: none !important; box-shadow: none !important;">
+          <h3 class="text-lg font-semibold text-white">Brza navigacija</h3>
+          <button id="mobile-toc-close" class="text-gray-400 hover:text-white" style="outline: none !important; box-shadow: none !important;">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
@@ -136,10 +136,10 @@ const getTOCColor = (index: number) => {
         
         <!-- Navigation Links -->
         <nav class="space-y-2">
-          <a href={`/poglavlje-${chapterNumber}/`} class="mobile-toc-link block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-blue-600 pl-3" style="outline: none !important; box-shadow: none !important;">
+          <a href={`/poglavlje-${chapterNumber}/`} class="mobile-toc-link block text-sm text-gray-300 hover:text-emerald-400 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-400 pl-3 rounded-r-lg hover:bg-gray-700" style="outline: none !important; box-shadow: none !important;">
             Pregled poglavlja
           </a>
-          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-blue-600 pl-3" style="outline: none !important; box-shadow: none !important;">
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-300 hover:text-emerald-400 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-emerald-400 pl-3 rounded-r-lg hover:bg-gray-700" style="outline: none !important; box-shadow: none !important;">
             Svi sadržaji
           </a>
         </nav>
@@ -190,7 +190,7 @@ const getTOCColor = (index: number) => {
   <!-- CSS Styles for Active State -->
   <style>
     .toc-link.active {
-      @apply text-blue-600 bg-blue-50 font-semibold;
+      @apply text-emerald-400 bg-gray-700 font-semibold;
     }
     
     .toc-link.active span {
