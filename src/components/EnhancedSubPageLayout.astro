@@ -85,6 +85,7 @@ const getTOCColor = (index: number) => {
               href={`#${item.id}`} 
               class="toc-link group flex items-center text-sm text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 px-3 rounded-lg hover:bg-blue-50" 
               data-target={item.id}
+              style="outline: none !important; box-shadow: none !important;"
               style={`padding-left: ${item.level === 3 ? '1.5rem' : '0.75rem'}`}
             >
               <span class={`w-2 h-2 bg-${getTOCColor(index)}-400 rounded-full mr-3 transition-all duration-300`}></span>
@@ -135,10 +136,10 @@ const getTOCColor = (index: number) => {
         
         <!-- Navigation Links -->
         <nav class="space-y-2">
-          <a href={`/poglavlje-${chapterNumber}/`} class="mobile-toc-link block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-blue-600 pl-3">
+          <a href={`/poglavlje-${chapterNumber}/`} class="mobile-toc-link block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-blue-600 pl-3" style="outline: none !important; box-shadow: none !important;">
             Pregled poglavlja
           </a>
-          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-blue-600 pl-3">
+          <a href="/sadrzaj/" class="mobile-toc-link block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-2 border-l-2 border-transparent hover:border-blue-600 pl-3" style="outline: none !important; box-shadow: none !important;">
             Svi sadržaji
           </a>
         </nav>
@@ -154,6 +155,7 @@ const getTOCColor = (index: number) => {
         href={prevLink}
         class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
         aria-label={`Prijeđi na ${prevText}`}
+        style="outline: none !important; box-shadow: none !important;"
       >
         ←
         <span class="text-lg">{prevText}</span>
@@ -166,6 +168,7 @@ const getTOCColor = (index: number) => {
         href={nextLink}
         class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 no-underline transform hover:-translate-y-1"
         aria-label={`Prijeđi na ${nextText}`}
+        style="outline: none !important; box-shadow: none !important;"
       >
         <span class="text-lg">{nextText}</span>
         →

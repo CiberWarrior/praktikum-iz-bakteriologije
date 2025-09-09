@@ -110,7 +110,7 @@ const finalConfig: {
         <nav class="flex items-center justify-between" aria-label="Breadcrumb">
           <ol class="flex items-center space-x-2">
             <li>
-              <a href="/" class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+              <a href="/" class="text-gray-400 hover:text-purple-400 transition-colors duration-300" style="outline: none !important; box-shadow: none !important;">
                 Početna
               </a>
             </li>
@@ -120,7 +120,7 @@ const finalConfig: {
                 {index === finalConfig.breadcrumbPath.length - 1 ? (
                   <span class="text-purple-400 font-medium">{item.name}</span>
                 ) : (
-                  <a href={item.url} class="text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                  <a href={item.url} class="text-gray-400 hover:text-purple-400 transition-colors duration-300" style="outline: none !important; box-shadow: none !important;">
                     {item.name}
                   </a>
                 )}
@@ -164,6 +164,7 @@ const finalConfig: {
             <a
               href={finalConfig.prevLink}
               class="inline-flex items-center justify-center px-6 py-3 bg-white text-purple-700 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              style="outline: none !important; box-shadow: none !important;"
             >
               {finalConfig.prevText}
             </a>
@@ -172,6 +173,7 @@ const finalConfig: {
             <a
               href={finalConfig.nextLink}
               class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-purple-700 transition-all duration-300"
+              style="outline: none !important; box-shadow: none !important;"
             >
               {finalConfig.nextText}
             </a>
@@ -223,6 +225,7 @@ const finalConfig: {
           <a
             href="/sadrzaj/"
             class="inline-flex items-center justify-center px-8 py-4 bg-white text-red-700 font-bold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 no-underline text-lg"
+            style="outline: none !important; box-shadow: none !important;"
           >
             <span>Sadržaj</span>
             <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -233,6 +236,7 @@ const finalConfig: {
           <a
             href="/"
             class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-red-700 transition-all duration-300 transform hover:-translate-y-1 no-underline text-lg"
+            style="outline: none !important; box-shadow: none !important;"
           >
             Povratak na početnu
           </a>

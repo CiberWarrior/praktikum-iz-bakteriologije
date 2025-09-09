@@ -1,0 +1,490 @@
+---
+// Enhanced UI Components
+// Napredne UI komponente za bolje korisničko iskustvo
+
+export interface Props {
+  type?: 'loading' | 'error' | 'success' | 'info';
+  message?: string;
+  showAnimation?: boolean;
+}
+
+const { 
+  type = 'info',
+  message = '',
+  showAnimation = true
+} = Astro.props;
+---
+
+<!-- Loading Spinner -->
+<div id="loading-spinner" class="fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg p-6 flex items-center space-x-4">
+    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+    <span class="text-gray-700">Učitavanje...</span>
+  </div>
+</div>
+
+<!-- Toast Notifications -->
+<div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+<!-- Progress Bar -->
+<div id="progress-bar" class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50 hidden">
+  <div class="h-full bg-blue-600 transition-all duration-300 ease-out" style="width: 0%"></div>
+</div>
+
+<!-- Enhanced Tooltip -->
+<div id="tooltip" class="absolute z-50 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-200">
+  <div class="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
+  <span id="tooltip-text"></span>
+</div>
+
+<!-- Modal Overlay -->
+<div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+  <div id="modal-content" class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 transform scale-95 transition-transform duration-200">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-4">
+        <h3 id="modal-title" class="text-lg font-semibold text-gray-900"></h3>
+        <button id="modal-close" class="text-gray-400 hover:text-gray-600 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="modal-body" class="text-gray-600"></div>
+      <div id="modal-actions" class="flex justify-end space-x-3 mt-6"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Enhanced Button Component -->
+<button class="enhanced-button group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300">
+  <span class="relative z-10">Klikni me</span>
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+</button>
+
+<!-- Enhanced Card Component -->
+<div class="enhanced-card group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-4">
+      <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+      </div>
+      <span class="text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded-full">NOVO</span>
+    </div>
+    <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">Naslov kartice</h3>
+    <p class="text-gray-600 leading-relaxed mb-4">Opis sadržaja kartice koji objašnjava što korisnik može očekivati.</p>
+    <a href="#" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300">
+      Saznaj više
+      <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+  <div class="h-1 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+</div>
+
+<!-- Enhanced Input Component -->
+<div class="enhanced-input-group relative">
+  <input 
+    type="text" 
+    placeholder="Upišite tekst..." 
+    class="w-full px-4 py-3 pl-12 pr-4 text-gray-900 bg-white border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-300 placeholder-gray-400"
+  />
+  <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+    </svg>
+  </div>
+  <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
+    <div class="w-2 h-2 bg-blue-500 rounded-full opacity-0 transition-opacity duration-300"></div>
+  </div>
+</div>
+
+<!-- Enhanced Search Results -->
+<div class="enhanced-search-results space-y-4">
+  <div class="search-result-item bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 p-6 group">
+    <div class="flex items-start space-x-4">
+      <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+      </div>
+      <div class="flex-1">
+        <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">Rezultat pretrage</h3>
+        <p class="text-gray-600 mb-3 leading-relaxed">Opis rezultata pretrage koji objašnjava sadržaj i relevantnost.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex space-x-2">
+            <span class="px-2 py-1 text-xs font-semibold text-blue-600 bg-blue-100 rounded-full">Poglavlje</span>
+            <span class="px-2 py-1 text-xs font-semibold text-green-600 bg-green-100 rounded-full">Vježba</span>
+          </div>
+          <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300 flex items-center">
+            Pogledaj
+            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Enhanced Quiz Component -->
+<div class="enhanced-quiz bg-white rounded-xl shadow-lg p-6">
+  <div class="mb-6">
+    <h3 class="text-xl font-bold text-gray-900 mb-2">Pitanje kviza</h3>
+    <p class="text-gray-600">Odaberite točan odgovor:</p>
+  </div>
+  
+  <div class="space-y-3">
+    <label class="quiz-option flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 cursor-pointer group">
+      <input type="radio" name="quiz-answer" value="a" class="sr-only">
+      <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center group-hover:border-blue-500 transition-colors duration-300">
+        <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+      <span class="text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Opcija A</span>
+    </label>
+    
+    <label class="quiz-option flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 cursor-pointer group">
+      <input type="radio" name="quiz-answer" value="b" class="sr-only">
+      <div class="w-6 h-6 border-2 border-gray-300 rounded-full mr-4 flex items-center justify-center group-hover:border-blue-500 transition-colors duration-300">
+        <div class="w-3 h-3 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+      <span class="text-gray-700 group-hover:text-gray-900 transition-colors duration-300">Opcija B</span>
+    </label>
+  </div>
+  
+  <div class="mt-6 flex justify-end">
+    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-blue-200">
+      Potvrdi odgovor
+    </button>
+  </div>
+</div>
+
+<style>
+  /* Enhanced animations */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Enhanced hover effects */
+  .enhanced-card:hover {
+    animation: slideInUp 0.3s ease-out;
+  }
+  
+  .enhanced-button:hover {
+    animation: fadeInScale 0.2s ease-out;
+  }
+  
+  /* Smooth transitions */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  
+  /* Enhanced focus states */
+  .enhanced-input-group input:focus + div {
+    color: #3b82f6;
+  }
+  
+  .enhanced-input-group input:focus ~ div {
+    opacity: 1;
+  }
+  
+  /* Loading states */
+  .loading {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: loading 1.5s infinite;
+  }
+  
+  @keyframes loading {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Enhanced UI JavaScript functionality
+  class EnhancedUI {
+    constructor() {
+      this.init();
+    }
+    
+    init() {
+      this.setupTooltips();
+      this.setupModals();
+      this.setupToastNotifications();
+      this.setupProgressBar();
+      this.setupLoadingStates();
+      this.setupQuizEnhancements();
+    }
+    
+    setupTooltips() {
+      const tooltipElements = document.querySelectorAll('[data-tooltip]');
+      
+      tooltipElements.forEach(element => {
+        element.addEventListener('mouseenter', (e) => {
+          const target = e.target as HTMLElement;
+          if (target && target.dataset.tooltip) {
+            this.showTooltip(target, target.dataset.tooltip);
+          }
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          this.hideTooltip();
+        });
+      });
+    }
+    
+    showTooltip(element: HTMLElement, text: string) {
+      const tooltip = document.getElementById('tooltip');
+      const tooltipText = document.getElementById('tooltip-text');
+      
+      if (tooltip && tooltipText) {
+        tooltipText.textContent = text;
+        
+        const rect = element.getBoundingClientRect();
+        tooltip.style.left = rect.left + rect.width / 2 + 'px';
+        tooltip.style.top = rect.top - 10 + 'px';
+        tooltip.style.transform = 'translateX(-50%)';
+        tooltip.style.opacity = '1';
+      }
+    }
+    
+    hideTooltip() {
+      const tooltip = document.getElementById('tooltip');
+      if (tooltip) {
+        tooltip.style.opacity = '0';
+      }
+    }
+    
+    setupModals() {
+      const modalOverlay = document.getElementById('modal-overlay');
+      const modalClose = document.getElementById('modal-close');
+      
+      if (modalClose) {
+        modalClose.addEventListener('click', () => {
+          this.hideModal();
+        });
+      }
+      
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+          if (e.target === modalOverlay) {
+            this.hideModal();
+          }
+        });
+      }
+    }
+    
+    showModal(title: string, body: string, actions: Array<{text: string, className?: string, handler: () => void}> = []) {
+      const modalOverlay = document.getElementById('modal-overlay');
+      const modalTitle = document.getElementById('modal-title');
+      const modalBody = document.getElementById('modal-body');
+      const modalActions = document.getElementById('modal-actions');
+      const modalContent = document.getElementById('modal-content');
+      
+      if (modalOverlay && modalTitle && modalBody && modalActions && modalContent) {
+        modalTitle.textContent = title;
+        modalBody.innerHTML = body;
+        
+        modalActions.innerHTML = '';
+        actions.forEach(action => {
+          const button = document.createElement('button');
+          button.textContent = action.text;
+          button.className = action.className || 'bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors';
+          button.addEventListener('click', action.handler);
+          modalActions.appendChild(button);
+        });
+        
+        modalOverlay.classList.remove('hidden');
+        modalOverlay.classList.add('flex');
+        setTimeout(() => {
+          modalContent.style.transform = 'scale(1)';
+        }, 10);
+      }
+    }
+    
+    hideModal() {
+      const modalOverlay = document.getElementById('modal-overlay');
+      const modalContent = document.getElementById('modal-content');
+      
+      if (modalOverlay && modalContent) {
+        modalContent.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          modalOverlay.classList.add('hidden');
+          modalOverlay.classList.remove('flex');
+        }, 200);
+      }
+    }
+    
+    setupToastNotifications() {
+      // Toast notifications will be handled by the showToast method
+    }
+    
+    showToast(message: string, type: 'success' | 'error' | 'warning' | 'info' = 'info', duration: number = 3000) {
+      const toastContainer = document.getElementById('toast-container');
+      
+      if (toastContainer) {
+        const toast = document.createElement('div');
+        toast.className = `toast bg-white rounded-lg shadow-lg p-4 flex items-center space-x-3 transform translate-x-full transition-transform duration-300`;
+        
+        const icon = this.getToastIcon(type);
+        const colors = this.getToastColors(type);
+        
+        toast.innerHTML = `
+          <div class="${colors.icon}">
+            ${icon}
+          </div>
+          <span class="text-gray-700">${message}</span>
+        `;
+        
+        toastContainer.appendChild(toast);
+        
+        setTimeout(() => {
+          toast.style.transform = 'translateX(0)';
+        }, 10);
+        
+        setTimeout(() => {
+          toast.style.transform = 'translateX(full)';
+          setTimeout(() => {
+            toast.remove();
+          }, 300);
+        }, duration);
+      }
+    }
+    
+    getToastIcon(type: 'success' | 'error' | 'warning' | 'info') {
+      const icons: Record<string, string> = {
+        success: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>',
+        error: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>',
+        warning: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path></svg>',
+        info: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
+      };
+      return icons[type] || icons.info;
+    }
+    
+    getToastColors(type: 'success' | 'error' | 'warning' | 'info') {
+      const colors: Record<string, { icon: string }> = {
+        success: { icon: 'text-green-500' },
+        error: { icon: 'text-red-500' },
+        warning: { icon: 'text-yellow-500' },
+        info: { icon: 'text-blue-500' }
+      };
+      return colors[type] || colors.info;
+    }
+    
+    setupProgressBar() {
+      // Progress bar will be handled by the updateProgress method
+    }
+    
+    updateProgress(percentage: number) {
+      const progressBar = document.getElementById('progress-bar');
+      const progressFill = progressBar?.querySelector('div') as HTMLElement;
+      
+      if (progressBar && progressFill) {
+        progressBar.classList.remove('hidden');
+        progressFill.style.width = percentage + '%';
+        
+        if (percentage >= 100) {
+          setTimeout(() => {
+            progressBar.classList.add('hidden');
+          }, 500);
+        }
+      }
+    }
+    
+    setupLoadingStates() {
+      // Loading states will be handled by the showLoading and hideLoading methods
+    }
+    
+    showLoading(message: string = 'Učitavanje...') {
+      const loadingSpinner = document.getElementById('loading-spinner');
+      const span = loadingSpinner?.querySelector('span') as HTMLElement;
+      if (loadingSpinner && span) {
+        span.textContent = message;
+        loadingSpinner.classList.remove('hidden');
+        loadingSpinner.classList.add('flex');
+      }
+    }
+    
+    hideLoading() {
+      const loadingSpinner = document.getElementById('loading-spinner');
+      if (loadingSpinner) {
+        loadingSpinner.classList.add('hidden');
+        loadingSpinner.classList.remove('flex');
+      }
+    }
+    
+    setupQuizEnhancements() {
+      const quizOptions = document.querySelectorAll('.quiz-option');
+      
+      quizOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          // Remove selected class from all options
+          quizOptions.forEach(opt => opt.classList.remove('selected'));
+          
+          // Add selected class to clicked option
+          option.classList.add('selected');
+          
+          // Update radio button
+          const radio = option.querySelector('input[type="radio"]') as HTMLInputElement;
+          if (radio) {
+            radio.checked = true;
+          }
+        });
+      });
+    }
+  }
+  
+  // Initialize Enhanced UI when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    window.enhancedUI = new EnhancedUI();
+  });
+</script>

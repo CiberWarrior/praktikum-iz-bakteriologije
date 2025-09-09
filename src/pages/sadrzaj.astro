@@ -1,5 +1,5 @@
 ---
-import '../styles/tailwind.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 export interface Props {
   title?: string;
@@ -12,95 +12,7 @@ const {
 } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="hr" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    
-
-  </head>
-  <body class="bg-page font-sans text-page">
-    <!-- Navigation -->
-    <nav class="bg-gray-800 shadow-sm border-b border-gray-700">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="flex justify-between items-center py-4">
-          <a href="/" class="text-xl font-bold text-white hover:text-blue-400 transition-colors duration-300">
-            Bakteriologija
-          </a>
-          <!-- Desktop navigacija -->
-          <div class="hidden md:flex items-center space-x-8">
-            <a href="/sadrzaj/" class="text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Sadržaj
-            </a>
-            <a href="/predgovor/" class="text-gray-300 hover:text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Predgovor
-            </a>
-            <a href="/rječnik/" class="text-gray-300 hover:text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Rječnik
-            </a>
-            <a href="/o-nama/" class="text-gray-300 hover:text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              O nama
-            </a>
-            <a href="/kontakt/" class="text-gray-300 hover:text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Kontakt
-            </a>
-            <!-- Search -->
-            <div class="relative">
-              <a href="/pretraga/" class="inline-flex items-center text-gray-300 hover:text-white transition-colors duration-300" title="Pretraga">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          
-          <!-- Mobilni hamburger menu -->
-          <div class="md:hidden">
-            <button 
-              id="mobile-menu-button" 
-              class="text-gray-300 hover:text-white transition-colors duration-300"
-              aria-label="Otvori navigacijski menu"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-            >
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        
-        <!-- Mobilni menu -->
-        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700" role="navigation" aria-label="Mobilna navigacija">
-          <div class="flex flex-col space-y-4 pt-4">
-            <a href="/sadrzaj/" class="text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Sadržaj
-            </a>
-            <a href="/predgovor/" class="text-gray-300 hover:text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Predgovor
-            </a>
-            <a href="/rječnik/" class="text-gray-300 hover:text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Rječnik
-            </a>
-            <a href="/o-nama/" class="text-gray-300 hover:text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              O nama
-            </a>
-            <a href="/pretraga/" class="text-gray-300 hover:text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Pretraga
-            </a>
-            <a href="/kontakt/" class="text-gray-300 hover:text-white transition-colors duration-300 font-bold uppercase tracking-wide text-sm">
-              Kontakt
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-
+<BaseLayout title={title} description={description}>
     <!-- Hero Section -->
     <section class="relative py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white overflow-hidden">
       <!-- Pozadinski uzorak -->
@@ -126,12 +38,14 @@ const {
             <a
               href="/"
               class="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-700 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              style="outline: none !important; box-shadow: none !important;"
             >
               ← Povratak na početnu
             </a>
             <a
               href="/poglavlje-1/"
               class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-700 transition-all duration-300"
+              style="outline: none !important; box-shadow: none !important;"
             >
               Započni učenje →
             </a>
@@ -156,18 +70,18 @@ const {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
           <!-- Poglavlje 1 -->
-          <a href="/poglavlje-1/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-green-500/30  overflow-hidden">
+          <a href="/poglavlje-1/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-emerald-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">1</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">1</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Bakteriološki praktikum
                 </h3>
               </div>
@@ -175,18 +89,18 @@ const {
           </a>
 
           <!-- Poglavlje 2 -->
-          <a href="/poglavlje-2/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-blue-500/30  overflow-hidden">
+          <a href="/poglavlje-2/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-blue-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">2</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">2</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Sterilizacija
                 </h3>
               </div>
@@ -194,18 +108,18 @@ const {
           </a>
 
           <!-- Poglavlje 3 -->
-          <a href="/poglavlje-3/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-purple-500/30  overflow-hidden">
+          <a href="/poglavlje-3/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-purple-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">3</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">3</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-purple-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Metode bojenja bakterija
                 </h3>
               </div>
@@ -213,18 +127,18 @@ const {
           </a>
 
           <!-- Poglavlje 4 -->
-          <a href="/poglavlje-4/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-yellow-500/30  overflow-hidden">
+          <a href="/poglavlje-4/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-yellow-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">4</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">4</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-yellow-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Pokretljivost bakterija
                 </h3>
               </div>
@@ -232,18 +146,18 @@ const {
           </a>
 
           <!-- Poglavlje 5 -->
-          <a href="/poglavlje-5/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-red-500/30  overflow-hidden">
+          <a href="/poglavlje-5/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-red-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">5</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-red-400 via-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">5</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-red-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Biokemijska svojstva bakterija
                 </h3>
               </div>
@@ -251,18 +165,18 @@ const {
           </a>
 
           <!-- Poglavlje 6 -->
-          <a href="/poglavlje-6/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-indigo-500/30  overflow-hidden">
+          <a href="/poglavlje-6/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-indigo-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">6</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-indigo-400 via-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">6</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-indigo-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Određivanje broja bakterija - indirektne metode
                 </h3>
               </div>
@@ -270,18 +184,18 @@ const {
           </a>
 
           <!-- Poglavlje 7 -->
-          <a href="/poglavlje-7/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-pink-500/30  overflow-hidden">
+          <a href="/poglavlje-7/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-pink-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">7</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-pink-400 via-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">7</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-pink-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Određivanje broja bakterija - direktne metode
                 </h3>
               </div>
@@ -289,18 +203,18 @@ const {
           </a>
 
           <!-- Poglavlje 8 -->
-          <a href="/poglavlje-8/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-teal-500/30  overflow-hidden">
+          <a href="/poglavlje-8/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-teal-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">8</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-teal-400 via-teal-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">8</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-teal-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Bakterije indikatori sanitarnog stanja
                 </h3>
               </div>
@@ -308,18 +222,18 @@ const {
           </a>
 
           <!-- Poglavlje 9 -->
-          <a href="/poglavlje-9/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-cyan-500/30  overflow-hidden">
+          <a href="/poglavlje-9/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-cyan-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">9</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">9</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-cyan-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Sanitarna bakteriološka analiza vode
                 </h3>
               </div>
@@ -327,18 +241,18 @@ const {
           </a>
 
           <!-- Poglavlje 10 -->
-          <a href="/poglavlje-10/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-orange-500/30  overflow-hidden">
+          <a href="/poglavlje-10/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-orange-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">10</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">10</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-orange-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Termofilne bakterije
                 </h3>
               </div>
@@ -346,18 +260,18 @@ const {
           </a>
 
           <!-- Poglavlje 11 -->
-          <a href="/poglavlje-11/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-lime-500/30  overflow-hidden">
+          <a href="/poglavlje-11/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-lime-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-lime-400 to-lime-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">11</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-lime-400 via-lime-500 to-lime-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">11</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-lime-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-lime-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-lime-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Aerobne sporogene bakterije
                 </h3>
               </div>
@@ -365,18 +279,18 @@ const {
           </a>
 
           <!-- Poglavlje 12 -->
-          <a href="/poglavlje-12/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-emerald-500/30  overflow-hidden">
+          <a href="/poglavlje-12/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-emerald-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">12</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">12</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-emerald-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Anaerobne bakterije
                 </h3>
               </div>
@@ -384,18 +298,18 @@ const {
           </a>
 
           <!-- Poglavlje 13 -->
-          <a href="/poglavlje-13/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-violet-500/30  overflow-hidden">
+          <a href="/poglavlje-13/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-violet-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-violet-400 to-violet-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">13</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-violet-400 via-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">13</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-violet-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-violet-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Izrada antibiograma i aromatograma
                 </h3>
               </div>
@@ -403,18 +317,18 @@ const {
           </a>
 
           <!-- Poglavlje 14 -->
-          <a href="/poglavlje-14/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-rose-500/30  overflow-hidden">
+          <a href="/poglavlje-14/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-rose-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-rose-400 to-rose-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">14</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">14</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-rose-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-rose-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Test toksičnosti s kvascem
                 </h3>
               </div>
@@ -422,18 +336,18 @@ const {
           </a>
 
           <!-- Poglavlje 15 -->
-          <a href="/poglavlje-15/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-sky-500/30  overflow-hidden">
+          <a href="/poglavlje-15/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-sky-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-sky-400 to-sky-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">15</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-sky-400 via-sky-500 to-sky-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">15</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-sky-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-sky-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Bakteriološko ispitivanje kvalitete namirnica
                 </h3>
               </div>
@@ -441,18 +355,18 @@ const {
           </a>
 
           <!-- Poglavlje 16 -->
-          <a href="/poglavlje-16/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-amber-500/30  overflow-hidden">
+          <a href="/poglavlje-16/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-amber-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">16</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">16</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-amber-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Bakterije mliječne fermentacije
                 </h3>
               </div>
@@ -460,18 +374,18 @@ const {
           </a>
 
           <!-- Poglavlje 17 -->
-          <a href="/poglavlje-17/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-green-500/30  overflow-hidden">
+          <a href="/poglavlje-17/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-green-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">17</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-green-400 via-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">17</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Biogeokemijski ciklus ugljika
                 </h3>
               </div>
@@ -479,18 +393,18 @@ const {
           </a>
 
           <!-- Poglavlje 18 -->
-          <a href="/poglavlje-18/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-blue-500/30  overflow-hidden">
+          <a href="/poglavlje-18/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-blue-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">18</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">18</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Biogeokemijski ciklus dušika
                 </h3>
               </div>
@@ -498,18 +412,18 @@ const {
           </a>
 
           <!-- Poglavlje 19 -->
-          <a href="/poglavlje-19/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-purple-500/30  overflow-hidden">
+          <a href="/poglavlje-19/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-purple-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">19</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">19</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-purple-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Biogeokemijski ciklus sumpora
                 </h3>
               </div>
@@ -517,18 +431,18 @@ const {
           </a>
 
           <!-- Poglavlje 20 -->
-          <a href="/poglavlje-20/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-yellow-500/30  overflow-hidden">
+          <a href="/poglavlje-20/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-yellow-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">20</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">20</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-yellow-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Biogeokemijski ciklus fosfora
                 </h3>
               </div>
@@ -536,18 +450,18 @@ const {
           </a>
 
           <!-- Poglavlje 21 -->
-          <a href="/poglavlje-21/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-red-500/30  overflow-hidden">
+          <a href="/poglavlje-21/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-red-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-red-400 to-red-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">21</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-red-400 via-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">21</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-red-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Metoda otiska
                 </h3>
               </div>
@@ -555,18 +469,18 @@ const {
           </a>
 
           <!-- Poglavlje 22 -->
-          <a href="/poglavlje-22/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-indigo-500/30  overflow-hidden">
+          <a href="/poglavlje-22/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-indigo-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">22</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-indigo-400 via-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">22</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-indigo-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Streptomiceti
                 </h3>
               </div>
@@ -574,18 +488,18 @@ const {
           </a>
 
           <!-- Poglavlje 23 -->
-          <a href="/poglavlje-23/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-pink-500/30  overflow-hidden">
+          <a href="/poglavlje-23/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-pink-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-lg flex items-center justify-center">
-                    <span class="text-white font-bold text-lg">23</span>
+                  <div class="w-14 h-14 bg-gradient-to-br from-pink-400 via-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <span class="text-white font-bold text-xl">23</span>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 group-hover:text-pink-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Izolacija anaerobnih fototrofnih bakterija
                 </h3>
               </div>
@@ -593,20 +507,20 @@ const {
           </a>
 
           <!-- Kviz kartica -->
-          <a href="/provjeri-znanje/" class="group">
-            <div class="bg-gray-800 rounded-xl shadow-lg  border border-gray-700 hover:border-gray-600 overflow-hidden">
+          <a href="/provjeri-znanje/" class="group" style="outline: none !important; box-shadow: none !important;">
+            <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl shadow-2xl border-2 border-cyan-400/40 overflow-hidden backdrop-blur-sm">
               <div class="p-6">
                 <div class="flex items-center justify-between mb-4">
-                  <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="w-14 h-14 bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   </div>
-                  <svg class="w-6 h-6 text-gray-400 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-7 h-7 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">
+                <h3 class="text-xl font-bold text-white mb-2">
                   Provjeri svoje znanje
                 </h3>
               </div>
@@ -614,113 +528,101 @@ const {
           </a>
 
         </div>
+      </div>
+    </section>
+
+    <!-- Modern Call to Action Section -->
+    <section class="relative py-20 overflow-hidden">
+      <!-- Animated background -->
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
+        <!-- Floating elements -->
+        <div class="absolute top-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl animate-pulse"></div>
+        <div class="absolute top-32 right-20 w-24 h-24 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div class="absolute bottom-20 left-1/4 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div class="absolute bottom-10 right-10 w-28 h-28 bg-indigo-500/10 rounded-full blur-2xl animate-pulse delay-700"></div>
+      </div>
+      
+      <!-- Grid pattern overlay -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 30px 30px;"></div>
+      </div>
+      
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center">
+          <!-- Main heading with gradient text -->
+          <div class="mb-8">
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <span class="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+                Započni učenje
+              </span>
+            </h2>
+          </div>
+          
+          <!-- Description with better typography -->
+          <div class="mb-12 max-w-3xl mx-auto">
+            <p class="text-xl md:text-2xl text-blue-100 leading-relaxed mb-6">
+              Započni svoj put u bakteriologiji danas. Svako poglavlje je samostalna cjelina s teorijom, praktičnim vježbama i provjerom znanja.
+            </p>
+            <div class="flex items-center justify-center space-x-4 text-blue-200">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm font-medium">23 poglavlja</span>
               </div>
-      </section>
-
-
-
-      <!-- Call to Action Section -->
-    <section class="py-16 bg-gradient-to-br from-purple-600 via-blue-700 to-blue-900 text-white" style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-          Započni učenje?
-        </h2>
-        <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-          Započni svoj put u bakteriologiji danas. Svako poglavlje je samostalna cjelina s teorijom, praktičnim vježbama i provjerom znanja.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/poglavlje-1/"
-            class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-700 font-bold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-          >
-            Započni s prvim poglavljem
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-          <a
-            href="/"
-            class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-blue-700 transition-all duration-300"
-          >
-            Povratak na početnu
-          </a>
+              <div class="w-1 h-1 bg-blue-300 rounded-full"></div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm font-medium">Praktične vježbe</span>
+              </div>
+              <div class="w-1 h-1 bg-blue-300 rounded-full"></div>
+              <div class="flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm font-medium">Provjera znanja</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Modern buttons -->
+          <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <a
+              href="/poglavlje-1/"
+              class="group relative inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-white to-blue-50 text-blue-900 font-bold text-lg rounded-2xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-2 transition-all duration-500 overflow-hidden"
+              style="outline: none !important; box-shadow: none !important;"
+            >
+              <!-- Button background animation -->
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div class="absolute inset-0 bg-white/20 backdrop-blur-sm"></div>
+              
+              <span class="relative z-10 flex items-center">
+                Započni s prvim poglavljem
+                <svg class="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </span>
+            </a>
+            
+            <a
+              href="/"
+              class="group relative inline-flex items-center justify-center px-10 py-5 border-2 border-white/30 text-white font-bold text-lg rounded-2xl backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-500 transform hover:-translate-y-1"
+              style="outline: none !important; box-shadow: none !important;"
+            >
+              <span class="flex items-center">
+                <svg class="w-5 h-5 mr-3 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Povratak na početnu
+              </span>
+            </a>
+          </div>
+          
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid md:grid-cols-4 gap-8">
-          <!-- Logo i opis -->
-          <div class="md:col-span-2">
-            <h3 class="text-2xl font-bold text-blue-400 mb-4">Bakteriologija</h3>
-            <p class="text-gray-300 mb-6 leading-relaxed">
-              Mrežni udžbenik iz bakteriologije namijenjen studentima biologije. 
-              Pružamo kvalitetno obrazovanje dostupno svim studentima.
-            </p>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300" aria-label="Twitter">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                </svg>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300" aria-label="GitHub">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                </svg>
-              </a>
-              <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300" aria-label="LinkedIn">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-          
-          <!-- Brzi linkovi -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Brzi linkovi</h4>
-            <ul class="space-y-2">
-              <li><a href="/sadrzaj/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Sadržaj udžbenika</a></li>
-              <li><a href="/predgovor/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Predgovor</a></li>
-
-              <li><a href="/o-nama/" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">O nama</a></li>
-            </ul>
-          </div>
-          
-          <!-- Kontakt -->
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Kontakt</h4>
-            <ul class="space-y-2">
-              <li class="text-gray-300">Sveučilište u Zagrebu</li>
-              <li class="text-gray-300">Prirodoslovno-matematički fakultet</li>
-              <li class="text-gray-300">Biološki odsjek</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p class="text-gray-400">
-            © 2025. Mrežni udžbenik iz bakteriologije. Sva prava pridržana.
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- JavaScript for mobile menu -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (mobileMenuButton && mobileMenu) {
-          mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-          });
-        }
-      });
-    </script>
-
-  </body>
-</html>
+</BaseLayout>
