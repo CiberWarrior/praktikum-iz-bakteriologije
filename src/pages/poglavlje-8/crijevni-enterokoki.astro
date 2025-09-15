@@ -7,19 +7,19 @@ export interface Props {
 }
 
 const { 
-  title = 'Fekalni streptokoki',
-  description = 'Fekalni streptokoki kao indikatori fekalnog zagađenja'
+  title = 'Crijevni enterokoki',
+  description = 'Crijevni enterokoki kao indikatori fekalnog zagađenja'
 } = Astro.props;
 
 const contentBlocks = [
   {
     id: "uvod",
-    title: "Fekalni streptokoki",
+    title: "Crijevni enterokoki",
     icon: "🔬",
     content: `
       <div class="bg-gray-700 rounded-lg p-6 shadow-sm">
         <p class="text-gray-300 leading-relaxed mb-4">
-          Fekalni streptokoki ili <strong class="text-blue-300">enterokoki</strong> skupina su crijevnih bakterija indikatora fekalnih zagađenja vode, tla i namirnica. To su <strong class="text-blue-300">Gram-pozitivni</strong>, jajoliko izduženi koki, raspoređeni u <strong class="text-blue-300">parove i kratke lance</strong>. Posjeduju grupno-specifični polisaharid i spadaju u <strong class="text-blue-300">Lancefieldovu skupinu D</strong>. Na krvnom agaru ne stvaraju zone hemolize te ih nazivamo i <strong class="text-blue-300">nehemolitički streptokoki</strong> ili <strong class="text-blue-300">γ-streptokoki</strong>.
+          Crijevni enterokoki ili <strong class="text-blue-300">enterokoki</strong> skupina su crijevnih bakterija indikatora fekalnih zagađenja vode, tla i namirnica. To su <strong class="text-blue-300">Gram-pozitivni</strong>, jajoliko izduženi koki, raspoređeni u <strong class="text-blue-300">parove i kratke lance</strong>. Posjeduju grupno-specifični polisaharid i spadaju u <strong class="text-blue-300">Lancefieldovu skupinu D</strong>. Na krvnom agaru ne stvaraju zone hemolize te ih nazivamo i <strong class="text-blue-300">nehemolitički streptokoki</strong> ili <strong class="text-blue-300">γ-streptokoki</strong>.
         </p>
       </div>
     `,
@@ -37,7 +37,7 @@ const contentBlocks = [
         </p>
         
         <p class="text-gray-300 leading-relaxed mb-4">
-          Broj fekalnih streptokoka u pravilu pozitivno kolerira s brojnošću fekalnih i ukupnih koliformnih bakterija, ali ako koliformne bakterije nisu dokazane u uzorku, i sam nalaz enterokoka <strong class="text-blue-300">pouzdan je znak fekalnih zagađenja sredine</strong>.
+          Broj crijevnih enterokoka u pravilu pozitivno kolerira s brojnošću fekalnih i ukupnih koliformnih bakterija, ali ako koliformne bakterije nisu dokazane u uzorku, i sam nalaz enterokoka <strong class="text-blue-300">pouzdan je znak fekalnih zagađenja sredine</strong>.
         </p>
       </div>
     `,
@@ -51,7 +51,7 @@ const contentBlocks = [
     content: `
       <div class="bg-gray-700 rounded-lg p-6 shadow-sm">
         <p class="text-gray-300 leading-relaxed mb-4">
-          Fekalni se streptokoki uzgajaju na visoko selektivnoj podlozi <strong class="text-green-300">Slanetz-Bartley</strong> na <strong class="text-green-300">35°C/48 h</strong>.
+          Crijevni se enterokoki uzgajaju na visoko selektivnoj podlozi <strong class="text-green-300">Slanetz-Bartley</strong> na <strong class="text-green-300">35°C/48 h</strong>.
         </p>
         
         <div class="bg-gray-700 rounded-xl p-6 border border-green-500/30 mb-4">
@@ -99,19 +99,19 @@ const contentBlocks = [
         </div>
         
         <p class="text-gray-300 leading-relaxed mb-4">
-          Na Slanetz-Bartleyevom agaru kolonije fekalnih streptokoka budu <strong class="text-green-300">crvene boje</strong> zbog redukcije 2,3,5-trifeniltetrazolium klorida u crveni formazan. Rast Gram-negativnih bakterija inhibiran je natrijevim azidom.
+          Na Slanetz-Bartleyevom agaru kolonije crijevnih enterokoka budu <strong class="text-green-300">crvene boje</strong> zbog redukcije 2,3,5-trifeniltetrazolium klorida u crveni formazan. Rast Gram-negativnih bakterija inhibiran je natrijevim azidom.
         </p>
         
         <figure class="image-figure mt-6">
           <img
             src="/Images/slika50.jpg"
-            alt="Crvene kolonije fekalnih streptokoka porasle na Slanetz-Bartleyevu agaru"
+            alt="Crvene kolonije crijevnih enterokoka porasle na Slanetz-Bartleyevu agaru"
             class="w-3/5 h-auto rounded-lg mx-auto"
             loading="lazy"
           />
           <figcaption class="mt-4 text-center">
             <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Slika 50</span>
-            <span class="block mt-2 text-gray-300">Crvene kolonije fekalnih streptokoka porasle na Slanetz-Bartleyevu agaru</span>
+            <span class="block mt-2 text-gray-300">Crvene kolonije crijevnih enterokoka porasle na Slanetz-Bartleyevu agaru</span>
           </figcaption>
         </figure>
       </div>
@@ -140,7 +140,7 @@ const navigationButtons = {
   primaryColor="orange"
   breadcrumbPath={[
     { name: 'Poglavlje 8', url: '/poglavlje-8/' },
-    { name: 'Fekalni streptokoki', url: '/poglavlje-8/fekalni-streptokoki/' }
+    { name: 'Crijevni enterokoki', url: '/poglavlje-8/crijevni-enterokoki/' }
   ]}
   contentBlocks={contentBlocks}
   navigationButtons={navigationButtons}
