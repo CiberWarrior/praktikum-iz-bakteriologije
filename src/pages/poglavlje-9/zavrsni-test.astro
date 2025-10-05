@@ -77,40 +77,57 @@ const contentBlocks = [
           </table>
         </div>
         
-        <div class="bg-green-500/20 border-l-4 border-green-400 p-4 mb-6">
-          <div class="flex">
-            <div class="flex-shrink-0">
-              <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-              </svg>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Da bismo prikazali što pojedina vrsta voda znači, dolje je naveden kratki opis pojedine vrste voda:
+        </p>
+        
+        <div class="space-y-3 mb-6">
+          <div class="bg-gray-600 rounded-lg p-4 border-l-4 border-green-400">
+            <div class="flex items-start">
+              <span class="inline-flex items-center justify-center w-6 h-6 bg-green-500 text-white text-sm font-bold rounded-full mr-3 mt-0.5">I</span>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Podzemne i površinske vode koje se u svom prirodnom stanju ili nakon dezinfekcije mogu upotrijebiti za piće ili u prehrambenoj industriji te površinske vode koje mogu poslužiti za uzgoj plemenitih vrsta riba (pastrve).
+              </p>
             </div>
-            <div class="ml-3">
-              <h4 class="text-sm font-medium text-green-300">Legenda kvalitete vode:</h4>
-              <div class="mt-2 grid grid-cols-2 gap-2 text-sm text-green-200">
-                <div class="flex items-center">
-                  <div class="w-4 h-4 bg-green-500/30 border border-green-400 rounded mr-2"></div>
-                  <span>I vrsta - Izvrsna kvaliteta</span>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-4 h-4 bg-blue-500/30 border border-blue-400 rounded mr-2"></div>
-                  <span>II vrsta - Dobra kvaliteta</span>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-4 h-4 bg-yellow-500/30 border border-yellow-400 rounded mr-2"></div>
-                  <span>III vrsta - Prihvatljiva kvaliteta</span>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-4 h-4 bg-orange-500/30 border border-orange-400 rounded mr-2"></div>
-                  <span>IV vrsta - Nezadovoljavajuća kvaliteta</span>
-                </div>
-                <div class="flex items-center">
-                  <div class="w-4 h-4 bg-red-500/30 border border-red-400 rounded mr-2"></div>
-                  <span>V vrsta - Loša kvaliteta</span>
-                </div>
-              </div>
+          </div>
+          
+          <div class="bg-gray-600 rounded-lg p-4 border-l-4 border-blue-400">
+            <div class="flex items-start">
+              <span class="inline-flex items-center justify-center w-6 h-6 bg-blue-500 text-white text-sm font-bold rounded-full mr-3 mt-0.5">II</span>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Vode koje se u prirodnom stanju mogu koristiti za kupanje i rekreaciju, za sportove na vodi, za uzgoj drugih vrsta riba (ciprinida) ili koje se nakon odgovarajućeg pročišćivanja mogu upotrijebiti za piće i druge namjene u industriji i sl.
+              </p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-600 rounded-lg p-4 border-l-4 border-yellow-400">
+            <div class="flex items-start">
+              <span class="inline-flex items-center justify-center w-6 h-6 bg-yellow-500 text-white text-sm font-bold rounded-full mr-3 mt-0.5">III</span>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Vode koje se mogu upotrijebiti u industrijama koje nemaju posebne zahtjeve za kakvoćom vode te u poljoprivredi. To su vode koje se pročišćuju da bi se upotrijebile za određene namjene.
+              </p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-600 rounded-lg p-4 border-l-4 border-orange-400">
+            <div class="flex items-start">
+              <span class="inline-flex items-center justify-center w-6 h-6 bg-orange-500 text-white text-sm font-bold rounded-full mr-3 mt-0.5">IV</span>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Vode koje se mogu upotrijebiti isključivo uz pročišćivanje na područjima na kojima je velik nedostatak vode.
+              </p>
+            </div>
+          </div>
+          
+          <div class="bg-gray-600 rounded-lg p-4 border-l-4 border-red-400">
+            <div class="flex items-start">
+              <span class="inline-flex items-center justify-center w-6 h-6 bg-red-500 text-white text-sm font-bold rounded-full mr-3 mt-0.5">V</span>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Vode koje se ne mogu koristiti ni za kakve namjene jer ne zadovoljavaju kriterije za namjene.
+              </p>
             </div>
           </div>
         </div>
+        
       </div>
     `,
     borderColor: "green-500/30",
@@ -124,8 +141,8 @@ const navigationButtons = {
     url: "/poglavlje-9/potvrdni-test/"
   },
   next: {
-    text: "Izračunavanje najvjerojatnijeg broja",
-    url: "/poglavlje-9/izracunavanje-najvjerojatnijeg-broja-ukupnih-i-fekalnih-koliformnih-bakterija/"
+    text: "Vježbe 9",
+    url: "/poglavlje-9/vjezba-9/"
   }
 };
 ---

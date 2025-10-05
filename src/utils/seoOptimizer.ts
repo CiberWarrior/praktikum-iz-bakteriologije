@@ -8,6 +8,7 @@ export interface SEOData {
   canonical?: string;
   ogImage?: string;
   ogType?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   structuredData?: any;
   breadcrumbs?: Array<{ name: string; url: string }>;
 }
@@ -72,6 +73,7 @@ export class SEOOptimizer {
   /**
    * Generira structured data za poglavlje
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   generateChapterStructuredData(data: ChapterSEOData): any {
     return {
       "@context": "https://schema.org",
@@ -109,6 +111,7 @@ export class SEOOptimizer {
   /**
    * Generira structured data za vježbu
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   generateExerciseStructuredData(data: SEOData & { exerciseType: string; duration: number }): any {
     return {
       "@context": "https://schema.org",
@@ -131,6 +134,7 @@ export class SEOOptimizer {
   /**
    * Generira breadcrumb structured data
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   generateBreadcrumbStructuredData(breadcrumbs: Array<{ name: string; url: string }>): any {
     return {
       "@context": "https://schema.org",
@@ -147,6 +151,7 @@ export class SEOOptimizer {
   /**
    * Generira FAQ structured data
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   generateFAQStructuredData(faqs: Array<{ question: string; answer: string }>): any {
     return {
       "@context": "https://schema.org",

@@ -151,7 +151,7 @@ export class PerformanceMonitor {
     });
 
     // Scroll events (throttled)
-    let scrollTimeout: NodeJS.Timeout;
+    let scrollTimeout: ReturnType<typeof setTimeout>;
     document.addEventListener('scroll', () => {
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
@@ -404,8 +404,9 @@ export class PerformanceMonitor {
    */
   private reportMetric(name: string, value: number): void {
     // Send to analytics
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'performance_metric', {
+    if (typeof window !== 'undefined' && typeof (window as any).gtag !== 'undefined') {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).gtag('event', 'performance_metric', {
         metric_name: name,
         metric_value: value,
         page_url: window.location.href
@@ -421,10 +422,12 @@ export class PerformanceMonitor {
   /**
    * Prijavljuje event
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private reportEvent(eventName: string, parameters: any): void {
     // Send to analytics
-    if (typeof gtag !== 'undefined') {
-      gtag('event', eventName, {
+    if (typeof window !== 'undefined' && typeof (window as any).gtag !== 'undefined') {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).gtag('event', eventName, {
         ...parameters,
         page_url: window.location.href
       });

@@ -39,7 +39,7 @@ const {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <span class="text-lg font-semibold font-body">Preostalo vrijeme: </span>
-              <span id="timer" class="text-2xl font-bold ml-2 text-blue-400">20:00</span>
+              <span id="timer" class="text-2xl font-bold ml-2 text-blue-400">30:00</span>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@ const {
               </div>
               <h2 class="text-2xl font-bold text-white mb-4 font-heading">Upute za test</h2>
               <p class="text-gray-300 text-lg font-body">
-                Test sadrži 24 pitanja iz svih poglavlja. Odgovorite na sva pitanja i na kraju vidjet ćete svoj rezultat.
+                Test sadrži 20 pitanja iz svih poglavlja. Odgovorite na sva pitanja i na kraju vidjet ćete svoj rezultat.
               </p>
             </div>
 
@@ -69,7 +69,7 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
-                <h3 class="font-semibold text-white mb-2 font-heading">24 pitanja</h3>
+                <h3 class="font-semibold text-white mb-2 font-heading">20 pitanja</h3>
                 <p class="text-gray-300 text-sm font-body">Pitanja pokrivaju cijeli sadržaj kursa</p>
               </div>
 
@@ -79,7 +79,7 @@ const {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
-                <h3 class="font-semibold text-white mb-2 font-heading">20 minuta</h3>
+                <h3 class="font-semibold text-white mb-2 font-heading">30 minuta</h3>
                 <p class="text-gray-300 text-sm font-body">Odgovarajte u vremenskom okviru</p>
               </div>
 
@@ -99,7 +99,7 @@ const {
           <div class="bg-gray-800 rounded-xl shadow-lg p-6 mb-8 border border-gray-600">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-lg font-semibold text-white font-heading">Napredak kviza</h3>
-              <span id="progressText" class="text-sm text-gray-300 font-body">0 / 24 pitanja</span>
+              <span id="progressText" class="text-sm text-gray-300 font-body">0 / 20 pitanja</span>
             </div>
             <div class="w-full bg-gray-600 rounded-full h-3">
               <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
@@ -111,644 +111,488 @@ const {
             <form id="quizForm" class="space-y-8">
               <!-- Question 1 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">1. Potpuna sterilizacija postiže se:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">1. Uobičajena sterilizacija hranjivih medija provodi se:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q1" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) spaljivanjem</span>
+                    <span class="text-white font-body">a) autoklaviranjem na 121°C/10min</span>
                   </label>
                   <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q1" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) suhom sterilizacijom</span>
+                    <span class="text-white font-body">b) autoklaviranjem na 121°C/20min</span>
                   </label>
                   <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q1" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) pasterizacijom</span>
+                    <span class="text-white font-body">c) autoklaviranjem 100°C/30min</span>
                   </label>
                   <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q1" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) autoklaviranjem</span>
-                  </label>
-                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
-                    <input type="checkbox" name="q1" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) korištenjem asepsola</span>
+                    <span class="text-white font-body">d) suhom sterilizacijom na 170°C/1h</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 2 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">2. Koje tvrdnje su točne za metodu bojenja bakterijskih endospora:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">2. Uobičajena sterilizacija metalnog laboratorijskog posuđa provodi se:</h3>
                 <div class="space-y-3">
                   <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q2" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) to je "negativno" bojenje</span>
+                    <span class="text-white font-body">a) autoklaviranjem na 121°C/10min</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q2" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) koristi se malahitno zelenilo i safranin</span>
+                    <span class="text-white font-body">b) autoklaviranjem na 121°C/20min</span>
                   </label>
                   <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q2" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) koristi se gencijana violet i safranin</span>
+                    <span class="text-white font-body">c) autoklaviranjem 100°C/30min</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q2" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) pod mikroskopom su spore prozirne a vegetativne stanice crvene</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q2" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) preparat obavezno treba fiksirati na plamenu prije bojanja</span>
+                    <span class="text-white font-body">d) suhom sterilizacijom na 170°C/1h</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 3 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">3. Označi selektivno-diferencijalne podloge za uzgoj <em>E. coli</em>:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">3. Postupkom sterilizacije uništavaju se:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q3" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) EC-X-GLUC agar</span>
+                    <span class="text-white font-body">a) svi mikroorganizmi</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q3" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) Peptonska voda</span>
+                    <span class="text-white font-body">b) svi mikroorganizmi osim spora</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q3" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) Hranjivi agar</span>
+                    <span class="text-white font-body">c) svi mikroorganizmi osim virusa</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q3" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) MacConkey broth</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q3" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) Endo agar</span>
+                    <span class="text-white font-body">d) vegetativni oblici i spore mikroorganizama</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 4 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">4. Da bi pod mikroskopom vidjeli bakterijske kapsule moramo:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">4. Dezifekcija je:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q4" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) obojiti preparat metodom po Shäffer-Fultonu</span>
+                    <span class="text-white font-body">a) postupak smanjivanja broja bakterija na živom tkivu</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q4" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) koristiti crni tuš</span>
+                    <span class="text-white font-body">b) postupak smanjivanja broja bakterija na neživim površinama</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q4" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) gledati preparat na povećanju od 200×</span>
+                    <span class="text-white font-body">c) oblik sterilizacije</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q4" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) koristiti imerziono ulje</span>
+                    <span class="text-white font-body">d) provodi se 70% etanolom</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q4" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) napraviti negativno bojenje bakterija</span>
+                    <span class="text-white font-body">e) provodi se razrijeđenom HCl</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 5 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">5. U analizi vode za kupanje određuje se broj:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">5. Antisepsa je:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q5" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) bakterija roda Clostridium</span>
+                    <span class="text-white font-body">a) postupak smanjivanja broja bakterija na živom tkivu</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q5" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) <em>Escherichia coli</em></span>
+                    <span class="text-white font-body">b) postupak smanjivanja broja bakterija na neživim površinama</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q5" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) ukupnih saprofitskih bakterija</span>
+                    <span class="text-white font-body">c) oblik sterilizacije</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q5" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) crijevnih enterokoka</span>
+                    <span class="text-white font-body">d) provodi se 70% etanolom</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q5" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) bakterija roda <em>Salmonella</em></span>
+                    <span class="text-white font-body">e) provodi se razrijeđenom HCl</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 6 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">6. Koje tvrdnje su točne za bakterije roda Azotobacter:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">6. EC X-GLUC agar je:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q6" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) ove bakterije normalno žive u zemlji</span>
+                    <span class="text-white font-body">a) selektivna i diferencijalna hranjiva mikrobiološka podloga</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q6" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) producenti su antibiotika</span>
+                    <span class="text-white font-body">b) neselektivna hranjiva mikrobiološka podloga</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q6" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) uzgajaju se na Ashby agaru</span>
+                    <span class="text-white font-body">c) čvrsta podloga</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q6" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) uzgajaju se na hranjivom agaru</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q6" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) imaju debelu kapsulu</span>
+                    <span class="text-white font-body">d) tekuća podloga</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 7 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">7. Označi temperaturu na kojoj se uzgaja <em>E. coli</em> u analizi vode za kupanje:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">7. Hranjivi agar je:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q7" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) 20°C</span>
+                    <span class="text-white font-body">a) selektivna i diferencijalna hranjiva mikrobiološka podloga</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q7" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) 26°C</span>
+                    <span class="text-white font-body">b) neselektivna hranjiva mikrobiološka podloga</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q7" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) 35°C</span>
+                    <span class="text-white font-body">c) čvrsta podloga</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q7" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) 45°C</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q7" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) 47°C</span>
+                    <span class="text-white font-body">d) tekuća podloga</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 8 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">8. Bolesti uzrokovane bakterijama roda Clostridium su:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">8. Mac Conkey broth je:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q8" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) tifus</span>
+                    <span class="text-white font-body">a) Čvrsta podloga</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q8" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) plinska gangrena</span>
+                    <span class="text-white font-body">b) Tekuća podloga</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q8" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) botulizam</span>
+                    <span class="text-white font-body">c) Diferencijalna</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q8" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) dizenterija</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q8" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) tetanus</span>
+                    <span class="text-white font-body">d) Selektivna</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 9 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">9. Označi temperaturu na kojoj se uzgajaju crijevni enterokoki u analizi vode za kupanje:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">9. Slanetz-Bartley agar služi za:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q9" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) 20°C</span>
+                    <span class="text-white font-body">a) izolaciju koliformnih bakterija</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q9" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) 26°C</span>
+                    <span class="text-white font-body">b) izolaciju crijevnih enterokoka</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q9" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) 35°C</span>
+                    <span class="text-white font-body">c) potvrdu hidrolize eskulina</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q9" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) 45°C</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q9" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) 47°C</span>
+                    <span class="text-white font-body">d) uzgoj bakterija iz roda Enterococcus</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 10 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">10. Koje tvrdnje su točne za bakterije roda Clostridium:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">10. Koliformne bakterije su:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q10" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) aerobne su</span>
+                    <span class="text-white font-body">a) Gram negativne bakterije</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q10" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) reduciraju sulfite</span>
+                    <span class="text-white font-body">b) Gram pozitivne bakterije</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q10" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) reduciraju elementarni sumpor</span>
+                    <span class="text-white font-body">c) kuglaste bakterije (koki)</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q10" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) sporogene bakterije</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q10" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) produciraju sumporovodik</span>
+                    <span class="text-white font-body">d) Štapićaste bakterije</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 11 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">11. Potpuna sterilizacija ne postiže se:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">11. Za Simmonsov citratni agar vrijedi:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q11" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) spaljivanjem</span>
+                    <span class="text-white font-body">a) jedini izvor ugljika je laktoza</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q11" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) suhom sterilizacijom</span>
+                    <span class="text-white font-body">b) koristi se u potvrdnom testu kolimetrije</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q11" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) pasterizacijom</span>
+                    <span class="text-white font-body">c) koristi se u završnom testu kolimetrije</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q11" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) autoklaviranjem</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q11" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) korištenjem asepsola</span>
+                    <span class="text-white font-body">d) plava boja označava pozitivnu reakciju</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 12 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">12. Označi prirodne hranjive bakteriološke podloge:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">12. Koje tvrdnje su točne za bakterije roda <em>Clostridium</em>:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q12" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) EC-X-GLUC agar</span>
+                    <span class="text-white font-body">a) fakultativno anaerobne</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q12" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) mesni ekstrakt</span>
+                    <span class="text-white font-body">b) reduciraju sulfite</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q12" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) kvaščev ekstrakt</span>
+                    <span class="text-white font-body">c) reduciraju sulfate</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q12" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) peptonska voda</span>
+                    <span class="text-white font-body">d) sporogene bakterije</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q12" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) Ashby agar</span>
+                    <span class="text-white font-body">e) produciraju sumporovodik</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 13 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">13. Koje tvrdnje su točne za nesimbiotske fiksatore dušika:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">13. Za acidorezistentne bakterije vrijedi:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q13" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) to su bakterije roda Rhyzobium</span>
+                    <span class="text-white font-body">a) plave su nakon bojanja po Gramu</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q13" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) to su bakterije roda Azotobacter</span>
+                    <span class="text-white font-body">b) boje se po Ziehl-Neelsenu</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q13" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) uzgajaju se na Ashby agaru</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q13" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) temperatura uzgoja je 37°C</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q13" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) temperatura uzgoja je 26°C</span>
+                    <span class="text-white font-body">c) otporne su na kiseline</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 14 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">14. Kojom metodom se postiže potpuna sterilizacija?</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">14. <em>Escherichia coli</em>:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q14" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) pasterizacijom</span>
+                    <span class="text-white font-body">a) ne raste uz dodatak žučnih soli</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q14" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) autoklaviranjem</span>
+                    <span class="text-white font-body">b) potvrđuju se testom hidrolize eskulina</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q14" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) korištenjem asepsola</span>
+                    <span class="text-white font-body">c) je štapićasta bakterija</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q14" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) kuhanjem</span>
+                    <span class="text-white font-body">d) je indikator fekalnog zagađenja</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q14" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) spaljivanjem</span>
+                    <span class="text-white font-body">e) je Gram negativna bakterija</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 15 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">15. Koje tvrdnje su točne za bakterije roda Azotobacter:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">15. Označi temperaturu na kojoj se uzgajaju fekalne koliformne bakterije:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q15" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) ove bakterije su prisutne u tlu</span>
+                    <span class="text-white font-body">a) 22°C</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q15" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) producenti su antibiotika</span>
+                    <span class="text-white font-body">b) 26°C</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q15" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) uzgajaju se na Ashby agaru</span>
+                    <span class="text-white font-body">c) 35°C</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q15" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) to su nesimbiotski fiksatori dušika</span>
+                    <span class="text-white font-body">d) 42°C</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q15" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) za aerobno disanje koriste nitrate</span>
+                    <span class="text-white font-body">e) 44,5°C</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 16 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">16. Na ploču hranjivog agara nacijepili ste 0,1 mL bakterijske suspenzije iz decimalnog razrjeđenja 10,000 puta. Nakon inkubacije naraslo je 45 kolonija. CFU je:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">16. Na ploču hranjivog agara nacijepili ste 0,1 mL bakterijske suspenzije iz decimalnog razrjeđenja 10000 puta. Nakon inkubacije naraslo je 76 kolonija. CFU je:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q16" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) 45 × 10⁶ mL⁻¹</span>
+                    <span class="text-white font-body">a) 76 × 10⁶ / mL</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q16" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) 4,5 × 10⁶ mL⁻¹</span>
+                    <span class="text-white font-body">b) 7,6 × 10⁶ / mL</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q16" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) 4,5 × 10⁶ L⁻¹</span>
+                    <span class="text-white font-body">c) 7,6 × 10⁶ / L</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q16" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) 45 × 10⁴ mL⁻¹</span>
+                    <span class="text-white font-body">d) 76 × 10⁴ / mL</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q16" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) 4,5 × 10⁷ L⁻¹</span>
+                    <span class="text-white font-body">e) 7,6 × 10⁷ / L</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 17 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">17. Na ploču hranjivog agara nacijepili ste 0,1 mL bakterijske suspenzije iz decimalnog razrjeđenja 100 puta. Nakon inkubacije naraslo je 45 kolonija. CFU je:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">17. Koje tvrdnje su točne za test katalaze?</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q17" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) 45 × 10⁶ mL⁻¹</span>
+                    <span class="text-white font-body">a) može se odrediti je li bakterija striktno aerobna</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q17" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) 4,5 × 10⁶ mL⁻¹</span>
+                    <span class="text-white font-body">b) može se odrediti je li bakterija striktno anaerobna</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q17" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) 4,5 × 10⁴ L⁻¹</span>
+                    <span class="text-white font-body">c) temelji se na produkciji enzima citokrom oksidaze</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q17" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) 45 × 10⁴ mL⁻¹</span>
+                    <span class="text-white font-body">d) u testu dolazi do stvaranja mjehurića kisika</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q17" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) 4,5 × 10⁷ L⁻¹</span>
+                    <span class="text-white font-body">e) rezultat testa može se odrediti makroskopski</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 18 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">18. Koje su tvrdnje točne za metodu bojenja po Gramu:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">18. Označi selektivno-diferencijalne podloge za uzgoj bakterija:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q18" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) Preparat se treba fiksirati</span>
+                    <span class="text-white font-body">a) EC X-Gluc agar</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q18" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) Gram pozitivne bakterije su plave</span>
+                    <span class="text-white font-body">b) Peptonska voda</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q18" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) Gram negativne bakterije su zelene</span>
+                    <span class="text-white font-body">c) Hranjivi agar</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q18" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) Spore se vide crveno</span>
+                    <span class="text-white font-body">d) Slanetz-Bartley agar</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q18" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) Kapsula se vidi prozirno</span>
+                    <span class="text-white font-body">e) Bile aesculin azide agar</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 19 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">19. Koje su tvrdnje nisu točne za metodu bojenja po Gramu:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">19. Metilen plavo boji:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q19" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) Preparat se treba fiksirati</span>
+                    <span class="text-white font-body">a) Mrtve stanice kvasca bezbojno</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q19" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) Gram pozitivne bakterije su plave</span>
+                    <span class="text-white font-body">b) Mrtve stanice kvasca plavo</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q19" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) Gram negativne bakterije su crvene</span>
+                    <span class="text-white font-body">c) Žive stanice kvasca plavo</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q19" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) Spore se vide crveno</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q19" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) Kapsula se vidi prozirno</span>
+                    <span class="text-white font-body">d) Žive stanice kvasca bezbojno</span>
                   </label>
                 </div>
               </div>
 
               <!-- Question 20 -->
               <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">20. KOH test služi za:</h3>
+                <h3 class="text-lg font-semibold text-white mb-4 font-heading">20. Crijevni enterokoki:</h3>
                 <div class="space-y-3">
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q20" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) Dokazivanje pripadnosti Gram pozitivnim ili Gram negativnim bakterijama</span>
+                    <span class="text-white font-body">a) ne rastu uz dodatak žučnih soli</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q20" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) Dokazivanje kapsula</span>
+                    <span class="text-white font-body">b) potvrđuju se testom hidrolize eskulina</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q20" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) Dokazivanje spora</span>
+                    <span class="text-white font-body">c) su štapićaste bakterije</span>
                   </label>
-                  <label class="flex items-center">
+                  <label class="flex items-center hover:bg-gray-700 p-2 rounded transition-colors duration-200">
                     <input type="checkbox" name="q20" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) Odnos bakterija prema kalijevoj lužini kao indikatoru pH</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q20" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) Dokazivanje endospora</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Question 21 -->
-              <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">21. EC X-GLUC agar je:</h3>
-                <div class="space-y-3">
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) selektivna hranjiva podloga</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) diferencijalna hranjiva podloga</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) sadrži laktozu</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) kromogena podloga</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q21" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) ne sadrži žučne soli</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Question 22 -->
-              <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">22. Izvori dušika u hranjivom mediju su:</h3>
-                <div class="space-y-3">
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) peptoni</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) KNO₃</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) celuloza</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) glukoza</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q22" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) laktoza</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Question 23 -->
-              <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">23. Azotobacter chroococcum je:</h3>
-                <div class="space-y-3">
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) aerobna bakterija</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) anaerobna bakterija</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) ima kapsulu</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) formira spore</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q23" value="e" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">e) nalazi se u otpadnim vodama</span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Question 24 -->
-              <div class="border-b border-gray-600 pb-6">
-                <h3 class="text-lg font-semibold text-white mb-4 font-heading">24. Metoda s 3% KOH:</h3>
-                <div class="space-y-3">
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q24" value="a" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">a) služi za dokazivanje kapsula bakterija</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q24" value="b" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">b) određivanje Gram pozitivnih bakterija</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q24" value="c" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">c) određivanje Gram negativnih bakterija</span>
-                  </label>
-                  <label class="flex items-center">
-                    <input type="checkbox" name="q24" value="d" class="mr-3 text-blue-500 rounded">
-                    <span class="text-white font-body">d) određivanje odnosa bakterija prema kisiku</span>
+                    <span class="text-white font-body">d) su indikatori fekalnog zagađenja</span>
                   </label>
                 </div>
               </div>
@@ -776,7 +620,7 @@ const {
                   </svg>
                 </div>
                 <h3 class="text-2xl font-bold text-white mb-2 font-heading">Rezultat testa</h3>
-                <p class="text-gray-300 mb-4 font-body">Odgovorili ste na <span id="correctAnswers" class="font-bold text-white">0</span> od <span id="totalQuestions" class="font-bold text-white">24</span> pitanja</p>
+                <p class="text-gray-300 mb-4 font-body">Odgovorili ste na <span id="correctAnswers" class="font-bold text-white">0</span> od <span id="totalQuestions" class="font-bold text-white">20</span> pitanja</p>
                 <div class="text-4xl font-bold text-green-400 mb-4">
                   <span id="percentage">0</span>%
                 </div>
@@ -854,38 +698,33 @@ const {
     <script>
       // Quiz functionality with categories
       const questionCategories: Record<string, string> = {
-        q1: 'sterilizacija', q2: 'bojenje', q3: 'podloge', q4: 'mikroskopija', q5: 'voda-analiza',
-        q6: 'bakterije-azotobacter', q7: 'temperatura', q8: 'bolesti', q9: 'temperatura', q10: 'bakterije-clostridium',
-        q11: 'sterilizacija', q12: 'podloge', q13: 'fiksatori-dusika', q14: 'sterilizacija', q15: 'bakterije-azotobacter',
-        q16: 'mikrobiologija-kvantitativna', q17: 'mikrobiologija-kvantitativna', q18: 'bojenje', q19: 'bojenje', q20: 'testovi',
-        q21: 'podloge', q22: 'mediji', q23: 'bakterije-azotobacter', q24: 'testovi'
+        q1: 'sterilizacija', q2: 'sterilizacija', q3: 'sterilizacija', q4: 'dezifekcija', q5: 'antisepsa',
+        q6: 'podloge', q7: 'podloge', q8: 'podloge', q9: 'bakterije-enterokoki', q10: 'bakterije-koliformne',
+        q11: 'testovi', q12: 'bakterije-clostridium', q13: 'bojenje', q14: 'bakterije-ecoli', q15: 'temperatura',
+        q16: 'mikrobiologija-kvantitativna', q17: 'testovi', q18: 'podloge', q19: 'bojenje', q20: 'bakterije-enterokoki'
       };
 
       const correctAnswers: Record<string, string[]> = {
-        q1: ['a', 'b', 'd'], // spaljivanjem, suhom sterilizacijom, autoklaviranjem
-        q2: ['b', 'e'], // malahitno zelenilo i safranin, fiksiranje na plamenu
-        q3: ['a', 'e'], // EC-X-GLUC agar, Endo agar
-        q4: ['b', 'd', 'e'], // crni tuš, imerziono ulje, negativno bojenje
-        q5: ['b', 'd'], // Escherichia coli, crijevnih enterokoka
-        q6: ['c', 'e'], // uzgajaju se na Ashby agaru, imaju debelu kapsulu
-        q7: ['c'], // 35°C
-        q8: ['b', 'c', 'e'], // plinska gangrena, botulizam, tetanus
-        q9: ['c'], // 35°C
-        q10: ['b', 'd', 'e'], // reduciraju sulfite, sporogene bakterije, produciraju sumporovodik
-        q11: ['c'], // pasterizacijom
-        q12: ['b', 'c', 'd'], // mesni ekstrakt, kvaščev ekstrakt, peptonska voda
-        q13: ['b', 'c', 'e'], // Azotobacter, Ashby agar, 26°C
-        q14: ['b', 'e'], // autoklaviranjem, spaljivanjem
-        q15: ['a', 'c', 'd'], // prisutne u tlu, Ashby agar, nesimbiotski fiksatori
-        q16: ['b'], // 4,5 × 10⁶ mL⁻¹
-        q17: ['d'], // 45 × 10⁴ mL⁻¹
-        q18: ['a', 'b'], // fiksiranje, Gram pozitivne su plave
-        q19: ['c', 'd', 'e'], // Gram negativne su crvene, spore se vide crveno, kapsula se vidi prozirno
-        q20: ['a'], // dokazivanje Gram pozitivnih/negativnih
-        q21: ['a', 'b', 'c', 'd'], // selektivna, diferencijalna, laktoza, kromogena
-        q22: ['a', 'b'], // peptoni, KNO₃
-        q23: ['a', 'c'], // aerobna, ima kapsulu
-        q24: ['c'] // određivanje Gram negativnih bakterija
+        q1: ['b'], // autoklaviranjem na 121°C/20min
+        q2: ['d'], // suhom sterilizacijom na 170°C/1h
+        q3: ['a', 'd'], // svi mikroorganizmi, vegetativni oblici i spore mikroorganizama
+        q4: ['b', 'd', 'e'], // postupak smanjivanja broja bakterija na neživim površinama, provodi se 70% etanolom, provodi se razrijeđenom HCl
+        q5: ['a', 'd'], // postupak smanjivanja broja bakterija na živom tkivu, provodi se 70% etanolom
+        q6: ['a', 'c'], // selektivna i diferencijalna hranjiva mikrobiološka podloga, čvrsta podloga
+        q7: ['b', 'c'], // neselektivna hranjiva mikrobiološka podloga, čvrsta podloga
+        q8: ['b', 'd'], // Tekuća podloga, Selektivna
+        q9: ['b', 'd'], // izolaciju crijevnih enterokoka, uzgoj bakterija iz roda Enterococcus
+        q10: ['a', 'd'], // Gram negativne bakterije, Štapićaste bakterije
+        q11: ['c', 'd'], // koristi se u završnom testu kolimetrije, plava boja označava pozitivnu reakciju
+        q12: ['b', 'd', 'e'], // reduciraju sulfite, sporogene bakterije, produciraju sumporovodik
+        q13: ['b'], // boje se po Ziehl-Neelsenu
+        q14: ['c', 'd', 'e'], // je štapićasta bakterija, je indikator fekalnog zagađenja, je Gram negativna bakterija
+        q15: ['e'], // 44,5°C
+        q16: ['b'], // 7,6 × 10⁶ / mL
+        q17: ['d', 'e'], // u testu dolazi do stvaranja mjehurića kisika, rezultat testa može se odrediti makroskopski
+        q18: ['a'], // EC X-Gluc agar
+        q19: ['b', 'd'], // Mrtve stanice kvasca plavo, Žive stanice kvasca bezbojno
+        q20: ['b', 'd'] // potvrđuju se testom hidrolize eskulina, su indikatori fekalnog zagađenja
       };
 
       const totalQuestions = Object.keys(correctAnswers).length;
@@ -1002,23 +841,19 @@ const {
             selectedAnswers.includes(answer)
           ).length;
           
-          // Partial scoring: points for each correct answer, penalty for wrong answers
-          let questionScore = 0;
+          // Check if question is completely correct
           let isCorrect = false;
+          let questionScore = 0;
           
-          if (selectedAnswers.length === 0) {
-            questionScore = 0; // No penalty for unanswered
-          } else if (selectedCorrect === correctCount && selectedAnswers.length === correctCount) {
-            questionScore = correctCount; // Full points for perfect answer
+          if (selectedCorrect === correctCount && selectedAnswers.length === correctCount) {
             isCorrect = true;
-          } else {
-            questionScore = Math.max(0, selectedCorrect - (selectedAnswers.length - selectedCorrect) * 0.5);
+            questionScore = 1; // 1 point per correct question
           }
           
           // Store question result
           questionResults[question] = {
             score: questionScore,
-            maxScore: correctCount,
+            maxScore: 1,
             isCorrect: isCorrect,
             selected: selectedAnswers,
             correct: correctAnswers[question]
@@ -1029,11 +864,11 @@ const {
           if (!categoryScores[category]) {
             categoryScores[category] = {correct: 0, total: 0};
           }
-          categoryScores[category].total += correctCount;
+          categoryScores[category].total += 1;
           categoryScores[category].correct += questionScore;
           
           totalScore += questionScore;
-          totalPossibleScore += correctCount;
+          totalPossibleScore += 1;
         });
 
         // Calculate percentage
@@ -1045,7 +880,7 @@ const {
         const percentageElement = document.getElementById('percentage');
         const resultMessage = document.getElementById('resultMessage');
 
-        if (correctAnswersElement) correctAnswersElement.textContent = totalScore.toFixed(1);
+        if (correctAnswersElement) correctAnswersElement.textContent = totalScore.toString();
         if (totalQuestionsElement) totalQuestionsElement.textContent = totalPossibleScore.toString();
         if (percentageElement) percentageElement.textContent = percentage.toString();
 
@@ -1095,7 +930,7 @@ const {
             categoryDiv.innerHTML = `
               <span class="font-medium text-gray-900">${categoryNames[category] || category}</span>
               <div class="flex items-center space-x-2">
-                <span class="text-sm text-gray-600">${scores.correct.toFixed(1)}/${scores.total}</span>
+                <span class="text-sm text-gray-600">${scores.correct}/${scores.total}</span>
                 <span class="font-semibold ${percentage >= 80 ? 'text-green-600' : percentage >= 60 ? 'text-yellow-600' : 'text-red-600'}">${percentage}%</span>
               </div>
             `;
@@ -1114,7 +949,7 @@ const {
             questionDiv.innerHTML = `
               <span class="text-sm">Pitanje ${questionNum}</span>
               <span class="text-sm font-medium ${result.isCorrect ? 'text-green-600' : 'text-red-600'}">
-                ${result.isCorrect ? '✓ Točno' : '✗ Netočno'} (${result.score.toFixed(1)}/${result.maxScore})
+                ${result.isCorrect ? '✓ Točno' : '✗ Netočno'} (${result.score}/${result.maxScore})
               </span>
             `;
             questionByQuestionDiv.appendChild(questionDiv);
@@ -1199,7 +1034,7 @@ const {
         
         // Reset progress text
         const progressText = document.getElementById('progressText');
-        if (progressText) progressText.textContent = '0/24';
+        if (progressText) progressText.textContent = '0 / 20 pitanja';
         
         // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });

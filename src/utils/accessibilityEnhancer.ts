@@ -276,7 +276,7 @@ export class AccessibilityEnhancer {
     // Dodaj error handling za forme
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', () => {
         this.validateFormAccessibility(form as HTMLFormElement);
       });
     });
@@ -373,7 +373,7 @@ export class AccessibilityEnhancer {
   private enhanceTabNavigation(): void {
     // Dodaj tabindex za custom komponente
     const customElements = document.querySelectorAll('.quiz-option, .chapter-card, .search-result');
-    customElements.forEach((element, index) => {
+    customElements.forEach((element) => {
       if (!element.getAttribute('tabindex')) {
         element.setAttribute('tabindex', '0');
       }
