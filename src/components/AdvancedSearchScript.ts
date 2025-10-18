@@ -1,5 +1,6 @@
 // Napredna pretraga - TypeScript modul
 import type { SearchResult, SearchFilters } from '../utils/searchIndexer';
+import { logger } from '../utils/logger.js';
 
 // Interface za autocomplete item
 interface AutocompleteItem {
@@ -48,7 +49,7 @@ export class AdvancedSearch {
 
     if (!this.searchInput || !this.autocompleteDropdown || !this.resultsContainer || 
         !this.initialContent || !this.noResults || !this.searchStats) {
-      console.error('Nedostaju potrebni DOM elementi za pretragu');
+      logger.error('Nedostaju potrebni DOM elementi za pretragu');
       return;
     }
   }
@@ -90,7 +91,7 @@ export class AdvancedSearch {
       this.showPopularTerms();
       
     } catch (error) {
-      console.error('Greška tijekom inicijalizacije pretrage:', error);
+      logger.logError(error as Error, { context: 'AdvancedSearch.initializeSearch' });
     }
   }
 
@@ -202,7 +203,7 @@ export class AdvancedSearch {
       this.displayResults(results, query, searchTime);
       
     } catch (error) {
-      console.error('Greška tijekom pretrage:', error);
+      logger.logError(error as Error, { context: 'AdvancedSearch.performSearch' });
       this.showError('Greška tijekom pretrage. Pokušajte ponovno.');
     }
   }
@@ -240,7 +241,7 @@ export class AdvancedSearch {
       }
       
     } catch (error) {
-      console.error('Greška tijekom autocomplete-a:', error);
+      logger.logError(error as Error, { context: 'AdvancedSearch.updateAutocomplete' });
     }
   }
 
@@ -477,7 +478,7 @@ export class AdvancedSearch {
         popularTerms: stats.popularTerms
       };
     } catch (error) {
-      console.error('Greška tijekom dohvaćanja statistike:', error);
+      logger.logError(error as Error, { context: 'AdvancedSearch.getSearchStats' });
       return { totalItems: 0, popularTerms: [] };
     }
   }
@@ -488,10 +489,10 @@ export class AdvancedSearch {
       const stats = await this.getIndexStats();
       if (stats.popularTerms.length > 0) {
         // Možete implementirati prikaz popularnih pojmova kao tagove
-        console.log('Popularni pojmovi:', stats.popularTerms);
+        logger.debug('Popularni pojmovi:', stats.popularTerms);
       }
     } catch (error) {
-      console.error('Greška tijekom dohvaćanja popularnih pojmova:', error);
+      logger.logError(error as Error, { context: 'AdvancedSearch.showPopularTerms' });
     }
   }
 
@@ -506,7 +507,7 @@ export class AdvancedSearch {
   // Prikaz greške
   private showError(message: string): void {
     // Implementirajte prikaz greške (toast, alert, itd.)
-    console.error(message);
+    logger.error(message);
   }
 
   // Očisti pretragu

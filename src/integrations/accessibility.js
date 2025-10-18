@@ -31,7 +31,7 @@ export default function accessibility() {
       },
       
       'astro:build:done': () => {
-        console.log('🔍 Accessibility: Build completed. Consider running accessibility audits.');
+        // Build completed - accessibility features enabled
       }
     }
   };

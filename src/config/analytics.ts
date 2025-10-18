@@ -47,9 +47,9 @@ export function trackQuizComplete(chapterNumber: number, score: number, totalQue
     
     window.gtag('event', 'quiz_complete', {
       chapter_number: chapterNumber,
-      score: score,
+      score,
       total_questions: totalQuestions,
-      percentage: percentage,
+      percentage,
       time_spent: timeSpent,
       page_title: `Kviz završen - Poglavlje ${chapterNumber}`,
       page_location: window.location.href
@@ -96,7 +96,6 @@ export function trackTimeOnPage(pageTitle: string, timeSpent: number) {
 // TypeScript tipovi za gtag
 declare global {
   interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    gtag: (...args: any[]) => void;
+    gtag: (command: 'config' | 'event', ...args: unknown[]) => void;
   }
 }

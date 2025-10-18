@@ -1,5 +1,6 @@
 // Performance Monitoring Utility
 // Praćenje performansi e-udžbenika
+import { logger } from './logger.js';
 
 export interface PerformanceMetrics {
   pageLoadTime: number;
@@ -62,11 +63,15 @@ export class PerformanceMonitor {
   initialize(): void {
     if (typeof window === 'undefined') return;
 
-    this.measureCoreWebVitals();
-    this.trackUserInteractions();
-    this.monitorResourceLoading();
-    this.trackPageVisibility();
-    this.setupPerformanceObserver();
+    try {
+      this.measureCoreWebVitals();
+      this.trackUserInteractions();
+      this.monitorResourceLoading();
+      this.trackPageVisibility();
+      this.setupPerformanceObserver();
+    } catch (error) {
+      logger.logError(error as Error, { context: 'performanceMonitor.initialize' });
+    }
   }
 
   /**
@@ -361,7 +366,7 @@ export class PerformanceMonitor {
    * Prati scroll event
    */
   private trackScrollEvent(): void {
-    const scrollY = window.scrollY;
+    const {scrollY} = window;
     const scrollPercent = (scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
     
     this.reportEvent('Scroll', {
@@ -403,39 +408,21 @@ export class PerformanceMonitor {
    * Prijavljuje metrik
    */
   private reportMetric(name: string, value: number): void {
-    // Send to analytics
-    if (typeof window !== 'undefined' && typeof (window as any).gtag !== 'undefined') {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).gtag('event', 'performance_metric', {
-        metric_name: name,
-        metric_value: value,
-        page_url: window.location.href
-      });
-    }
-    
-    // Log to console in development
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`Performance Metric: ${name} = ${value}ms`);
-    }
+    // Use proper logger instead of console.log
+    logger.performance(name, value, {
+      page_url: typeof window !== 'undefined' ? window.location.href : undefined
+    });
   }
 
   /**
    * Prijavljuje event
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private reportEvent(eventName: string, parameters: any): void {
-    // Send to analytics
-    if (typeof window !== 'undefined' && typeof (window as any).gtag !== 'undefined') {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).gtag('event', eventName, {
-        ...parameters,
-        page_url: window.location.href
-      });
-    }
-    
-    // Log to console in development
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`Event: ${eventName}`, parameters);
+  private reportEvent(eventName: string, parameters: Record<string, unknown>): void {
+    try {
+      // Use proper logger instead of console.log
+      logger.event(eventName, parameters);
+    } catch (error) {
+      logger.logError(error as Error, { context: 'performanceMonitor.reportEvent' });
     }
   }
 

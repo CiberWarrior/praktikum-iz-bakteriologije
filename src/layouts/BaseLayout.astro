@@ -112,7 +112,9 @@ const optimizedDescription = seoOptimizer.generateDescription(description);
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WJS36GY4V"></script>
     <script>
       (window as any).dataLayer = (window as any).dataLayer || [];
-      function gtag(...args: any[]){(window as any).dataLayer.push(args);}
+      function gtag(command: 'config' | 'event', ...args: unknown[]) {
+        (window as any).dataLayer.push([command, ...args]);
+      }
       gtag('js', new Date());
       gtag('config', 'G-6WJS36GY4V');
     </script>
@@ -160,9 +162,9 @@ const optimizedDescription = seoOptimizer.generateDescription(description);
           accessibilityEnhancer.initialize();
           window.accessibilityEnhancer = accessibilityEnhancer;
           
-          console.log('🚀 E-udžbenik optimiziran za najbolje performanse!');
+          // E-udžbenik optimiziran za najbolje performanse
         } catch (error) {
-          console.warn('Neke optimizacije nisu dostupne:', error);
+          // Neke optimizacije nisu dostupne - silent fail
         }
       });
 

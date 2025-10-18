@@ -1,4 +1,5 @@
 import { searchIndexer } from './searchIndexer';
+import { logger } from './logger.js';
 
 // Content Scanner - TypeScript modul
 
@@ -19,11 +20,11 @@ export class ContentScanner {
   // Glavna metoda za indeksiranje cijelog sadržaja
   async indexAllContent(): Promise<void> {
     if (this.isIndexed) {
-      console.log('Sadržaj je već indeksiran');
+      logger.debug('Sadržaj je već indeksiran');
       return;
     }
 
-    console.log('Započinjem indeksiranje sadržaja...');
+    logger.info('Započinjem indeksiranje sadržaja...');
     
     try {
       // 1. Indeksiraj poglavlja
@@ -42,10 +43,10 @@ export class ContentScanner {
       await this.indexOstaleStranice();
       
       this.isIndexed = true;
-      console.log(`Indeksiranje završeno. Ukupno indeksirano: ${searchIndexer.getIndexSize()} stavki`);
+      logger.info(`Indeksiranje završeno. Ukupno indeksirano: ${searchIndexer.getIndexSize()} stavki`);
       
     } catch (error) {
-      console.error('Greška tijekom indeksiranja:', error);
+      logger.logError(error as Error, { context: 'contentScanner.indexAllContent' });
     }
   }
 
@@ -467,7 +468,7 @@ export class ContentScanner {
 
   // Osvježavanje indeksa
   async refreshIndex(): Promise<void> {
-    console.log('Osvježavam indeks...');
+    logger.info('Osvježavam indeks...');
     searchIndexer.clearIndex();
     this.isIndexed = false;
     await this.indexAllContent();

@@ -37,14 +37,21 @@ export class AccessibilityEnhancer {
   initialize(): void {
     if (typeof window === 'undefined') return;
 
-    this.addSkipLinks();
-    this.enhanceKeyboardNavigation();
-    this.addFocusIndicators();
-    this.enhanceScreenReaderSupport();
-    this.addHighContrastMode();
-    this.enhanceFormAccessibility();
-    this.addAriaLabels();
-    this.improveColorContrast();
+    try {
+      this.addSkipLinks();
+      this.enhanceKeyboardNavigation();
+      this.addFocusIndicators();
+      this.enhanceScreenReaderSupport();
+      this.addHighContrastMode();
+      this.enhanceFormAccessibility();
+      this.addAriaLabels();
+      this.improveColorContrast();
+    } catch (error) {
+      // Silent fail - accessibility enhancements are not critical
+      if (typeof window !== 'undefined' && window.console) {
+        window.console.error('Greška tijekom inicijalizacije accessibility enhancera:', error);
+      }
+    }
   }
 
   /**

@@ -33,7 +33,19 @@ export default [
       '@typescript-eslint': tseslint
     },
     rules: {
-      ...tseslint.configs.recommended.rules
+      ...tseslint.configs.recommended.rules,
+      // Stricter rules for better code quality
+      'no-console': 'warn',
+      '@typescript-eslint/no-unused-vars': 'error',
+      'prefer-const': 'error',
+      'no-var': 'error',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-non-null-assertion': 'warn',
+      'no-duplicate-imports': 'error',
+      'no-unused-expressions': 'error',
+      'prefer-template': 'error',
+      'object-shorthand': 'error',
+      'prefer-destructuring': ['error', { 'object': true, 'array': false }]
     }
   }
 ];

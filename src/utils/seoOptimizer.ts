@@ -46,7 +46,7 @@ export class SEOOptimizer {
     }
     
     const availableLength = maxLength - separator.length - siteName.length;
-    const truncatedTitle = title.substring(0, availableLength - 3) + '...';
+    const truncatedTitle = `${title.substring(0, availableLength - 3)  }...`;
     
     return `${truncatedTitle}${separator}${siteName}`;
   }
@@ -64,10 +64,10 @@ export class SEOOptimizer {
     const lastSpace = truncated.lastIndexOf(' ');
     
     if (lastSpace > maxLength * 0.8) {
-      return content.substring(0, lastSpace) + '...';
+      return `${content.substring(0, lastSpace)  }...`;
     }
     
-    return truncated + '...';
+    return `${truncated  }...`;
   }
 
   /**
@@ -225,7 +225,7 @@ Disallow: /node_modules/`;
       };
     }
 
-    const title = document.title;
+    const {title} = document;
     const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
     
     const headings = {

@@ -7,7 +7,7 @@ const createPath = (...params: string[]) => {
     .map((el) => trimSlash(el))
     .filter((el) => !!el)
     .join('/');
-  return '/' + paths;
+  return `/${  paths}`;
 };
 
 export const cleanSlug = (text = '') =>
@@ -38,5 +38,5 @@ export const getPermalink = (slug = '', type = 'page'): string => {
 
 export const getAsset = (path: string): string => {
   if (path.startsWith('http')) return path;
-  return '/' + trimSlash(path);
+  return `/${  trimSlash(path)}`;
 };

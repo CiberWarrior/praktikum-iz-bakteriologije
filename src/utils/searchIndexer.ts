@@ -61,7 +61,7 @@ export class SearchIndexer {
     this.searchIndex.set(item.id, item);
     
     // Dodaj u fuzzy indeks
-    const words = this.extractWords(item.title + ' ' + item.content);
+    const words = this.extractWords(`${item.title  } ${  item.content}`);
     words.forEach(word => {
       if (!this.fuzzyIndex.has(word)) {
         this.fuzzyIndex.set(word, []);
@@ -222,7 +222,7 @@ export class SearchIndexer {
   // Pronalazi najbolje fuzzy poklapanje
   private findBestFuzzyMatch(searchWord: string, item: SearchableItem): { word: string; distance: number } {
     let bestMatch = { word: '', distance: Infinity };
-    const allWords = this.extractWords(item.title + ' ' + item.content);
+    const allWords = this.extractWords(`${item.title  } ${  item.content}`);
 
     allWords.forEach(word => {
       const distance = this.levenshteinDistance(searchWord, word);
@@ -336,7 +336,7 @@ export class SearchIndexer {
     const termFrequency = new Map<string, number>();
 
     this.searchIndex.forEach(item => {
-      const words = this.extractWords(item.title + ' ' + item.content);
+      const words = this.extractWords(`${item.title  } ${  item.content}`);
       words.forEach(word => {
         termFrequency.set(word, (termFrequency.get(word) || 0) + 1);
       });

@@ -363,7 +363,6 @@ const {
       document.addEventListener('DOMContentLoaded', async function() {
 
         // Initialize simple search immediately
-        console.log('Initializing search...');
         
         // Initialize search with the search input
         const searchInput = document.getElementById('searchInput');
@@ -544,12 +543,10 @@ const {
         ];
 
         if (searchInput) {
-          console.log('Search input found, adding event listener...');
           
           // Connect search input to simple search
           searchInput.addEventListener('input', function() {
             const query = (this as HTMLInputElement).value.trim();
-            console.log('Search query:', query);
             
             if (query.length < 2) {
               hideAllResults();
@@ -580,7 +577,6 @@ const {
               results.sort((a: any, b: any) => a.title.localeCompare(b.title));
             }
 
-            console.log('Search results:', results);
             displaySimpleResults(results, query);
           });
 
@@ -617,8 +613,7 @@ const {
           });
 
           // Helper functions
-          function displaySimpleResults(results: any[], query: string) {
-            console.log('Displaying results:', results);
+          function displaySimpleResults(results: Array<{title: string, url: string, content: string}>, query: string) {
             
             if (results.length === 0) {
               showNoResults();

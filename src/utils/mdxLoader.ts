@@ -43,7 +43,7 @@ const CHAPTER_CONFIG = {
 // Funkcija za parsiranje MDX frontmatter-a
 function parseFrontmatter(content: string): { frontmatter: Record<string, unknown>; body: string } {
   const lines = content.split('\n');
-  let frontmatter: Record<string, unknown> = {};
+  const frontmatter: Record<string, unknown> = {};
   let bodyStart = 0;
   
   if (lines[0].trim() === '---') {
