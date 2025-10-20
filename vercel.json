@@ -10,13 +10,6 @@
       "destination": "/Images/$1"
     }
   ],
-  "redirects": [
-    {
-      "source": "/poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija",
-      "destination": "/poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija/",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/Images/(.*)",
