@@ -1,5 +1,8 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-# Stranica je u testnoj fazi - ne indeksirati
-# Uklonite ovaj robots.txt kada budete spremni za javnost
+# Produkcijska stranica - omogućeno indeksiranje
+Sitemap: https://bakteriologija.biol.pmf.hr/sitemap.xml
+
+# Crawler-friendly settings
+Crawl-delay: 1
