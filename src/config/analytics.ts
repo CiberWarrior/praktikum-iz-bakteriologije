@@ -7,7 +7,7 @@
  * Format: G-XXXXXXXXXX
  */
 
-export const GA_MEASUREMENT_ID = 'G-6WJS36GY4V'; // Vaš Google Analytics Measurement ID - ažurirajte ako se promijeni
+export const GA_MEASUREMENT_ID = 'G-W56ZY2SD2F'; // Vaš Google Analytics Measurement ID - ažurirajte ako se promijeni
 
 /**
  * Google Analytics 4 Event Tracking

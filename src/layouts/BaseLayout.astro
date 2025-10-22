@@ -69,6 +69,9 @@ const optimizedDescription = seoOptimizer.generateDescription(description);
     <meta name="color-scheme" content="light dark" />
     <meta name="format-detection" content="telephone=no" />
     
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="VELrpj_z7zyD2AWYe8O8XUP4JPkdJXSUxcNuQabAgD8" />
+    
     <!-- Robots - blokiraj indeksiranje dok je u testnoj fazi -->
     <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
     
@@ -82,7 +85,7 @@ const optimizedDescription = seoOptimizer.generateDescription(description);
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    <!-- CSS je automatski injektiran od strane Astro-a -->
     
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData || {
@@ -109,14 +112,14 @@ const optimizedDescription = seoOptimizer.generateDescription(description);
     )}
     
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WJS36GY4V"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W56ZY2SD2F"></script>
     <script>
       (window as any).dataLayer = (window as any).dataLayer || [];
       function gtag(command: 'config' | 'event', ...args: unknown[]) {
         (window as any).dataLayer.push([command, ...args]);
       }
       gtag('js', new Date());
-      gtag('config', 'G-6WJS36GY4V');
+      gtag('config', 'G-W56ZY2SD2F');
     </script>
     
     <!-- Global Quiz Functions -->
