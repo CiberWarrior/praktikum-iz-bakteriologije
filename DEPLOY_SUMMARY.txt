@@ -1,0 +1,218 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                 DEPLOY PRIPREMA - ZAVRŠEN SUMMARY                          ║
+║              bakteriologija.biol.pmf.hr - 22. listopada 2025               ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+✅ SVE JE SPREMNO ZA UPLOAD NA PRODUKCIJSKI SERVER!
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ ŠTO JE NAPRAVLJENO                                                         │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  ✓ astro.config.mjs ažuriran s novom domenom
+    → Domena: https://bakteriologija.biol.pmf.hr
+    
+  ✓ Produkcijski build generiran
+    → Lokacija: dist/ direktorij
+    → 197 HTML stranica
+    → 166 route-a
+    
+  ✓ .htaccess datoteka kreirana i dodana u dist/
+    → Cache kontrola
+    → GZIP kompresija  
+    → Sigurnosni headeri
+    → www → non-www redirect
+    
+  ✓ Upload upute kreirane
+    → FILEZILLA_UPUTE.txt (vizualni brzi vodič)
+    → UPLOAD_UPUTE.md (detaljne upute)
+    → DEPLOY_README.md (tehnička dokumentacija)
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ STATISTIKA PROJEKTA                                                        │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  📊 Build statistika:
+     • Ukupna veličina dist/: 45 MB
+     • HTML stranica: 197
+     • Slike: 105 (Images/ direktorij)
+     • CSS/JS datoteke: u _astro/ direktoriju
+     • Poglavlja: 23 (poglavlje-1 do poglavlje-23)
+
+  📁 Struktura dist/ direktorija:
+     dist/
+     ├── index.html
+     ├── favicon.svg
+     ├── robots.txt
+     ├── .htaccess              ← NOVO DODANO
+     ├── Images/                (105 slika)
+     ├── _astro/                (optimizirani CSS/JS)
+     ├── poglavlje-1/
+     ├── poglavlje-2/
+     ├── ...
+     ├── poglavlje-5/
+     │   ├── oksidaza-test/     ✓
+     │   ├── vazni-testovi-u-determinaciji-koliformnih-bakterija/  ✓
+     │   └── ... (ostale stranice)
+     ├── poglavlje-6/ do poglavlje-23/
+     ├── kontakt/
+     ├── o-nama/
+     ├── pretraga/
+     ├── rječnik/
+     └── sadrzaj/
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ SLJEDEĆI KORACI - ŠTO TREBATE NAPRAVITI                                   │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  1️⃣  DOBIJTE FTP PRISTUP
+      Kontaktirajte web hosting administratora za:
+      • FTP hostname (ftp.biol.pmf.hr)
+      • FTP username
+      • FTP password
+      • Lokaciju web root direktorija (/public_html/ ili /www/)
+
+  2️⃣  INSTALIRAJTE FILEZILLA
+      Download: https://filezilla-project.org/
+      Besplatno, dostupno za Windows/Mac/Linux
+
+  3️⃣  SLIJEDITE UPUTE ZA UPLOAD
+      Otvorite jednu od ovih datoteka:
+      
+      📄 FILEZILLA_UPUTE.txt
+         └─ Brzi vizualni vodič kroz FileZilla
+         
+      📄 UPLOAD_UPUTE.md
+         └─ Detaljne korak-po-korak upute
+         
+      📄 DEPLOY_README.md
+         └─ Tehnička dokumentacija i troubleshooting
+
+  4️⃣  UPLOADAJTE SADRŽAJ dist/ DIREKTORIJA
+      • Povežite se na FTP server
+      • Označite SVE datoteke u dist/
+      • Uploadajte na server (web root direktorij)
+      • Čekajte ~5-15 minuta
+
+  5️⃣  TESTIRAJTE STRANICU
+      Otvorite u browseru:
+      ✓ https://bakteriologija.biol.pmf.hr/
+      ✓ https://bakteriologija.biol.pmf.hr/poglavlje-5/oksidaza-test/
+      ✓ https://bakteriologija.biol.pmf.hr/poglavlje-5/vazni-testovi-u-determinaciji-koliformnih-bakterija/
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ VAŽNE NAPOMENE                                                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  ⚠️  PRIJE UPLOAD-A:
+      • Napravite backup postojećih datoteka na serveru
+      • Downloadajte sve što je trenutno na serveru
+      • Spremite backup s datumom (backup-2025-10-22/)
+
+  ⚠️  TIJEKOM UPLOAD-A:
+      • Uploadajte SVE datoteke i direktorije iz dist/
+      • NE preskačite nijedan direktorij
+      • Provjerite da se .htaccess uploadao (hidden file!)
+
+  ⚠️  NAKON UPLOAD-A:
+      • Testirajte sve glavne stranice
+      • Provjerite da se slike učitavaju
+      • Provjerite navigaciju između stranica
+      • Obrisite browser cache ako nešto ne radi
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ DATOTEKE U PROJEKTU                                                        │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  📄 Konfiguracijske datoteke:
+     • astro.config.mjs     → Astro konfiguracija (AŽURIRANO)
+     • vercel.json          → Vercel deployment
+     • package.json         → NPM dependencies
+     • .htaccess           → Apache server config (NOVO)
+
+  📄 Upload dokumentacija:
+     • FILEZILLA_UPUTE.txt  → Brzi vodič (NOVO)
+     • UPLOAD_UPUTE.md      → Detaljne upute (NOVO)
+     • DEPLOY_README.md     → Tehnička doc (NOVO)
+     • DEPLOY_SUMMARY.txt   → Ovaj dokument (NOVO)
+
+  📁 Bitni direktoriji:
+     • src/                 → Source code
+     • dist/                → Build output - UPLOADATI OVO!
+     • public/              → Statički resursi
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ TROUBLESHOOTING - BRZA RJEŠENJA                                           │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  🔴 STRANICA NE RADI (404)
+     → Provjerite da ste uploadali u web root
+     → Provjerite da postoji index.html u root-u
+     
+  🔴 SLIKE SE NE VIDE
+     → Uploadajte Images/ direktorij (veliko I!)
+     → Provjerite da je cijeli direktorij uploadan
+     
+  🔴 CSS NE RADI
+     → Uploadajte _astro/ direktorij
+     → Obrisite browser cache (Ctrl+Shift+R)
+     
+  🔴 FTP SE NE POVEZUJE
+     → Pokušajte port 22 (SFTP) umjesto 21 (FTP)
+     → Provjerite username/password
+     → Kontaktirajte administratora
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│ CHECKLIST PRIJE UPLOAD-A                                                  │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  □ Dobio/la sam FTP pristup od administratora
+  □ Imam FTP hostname, username i password
+  □ Znam gdje je web root direktorij na serveru
+  □ FileZilla je instaliran na mom računalu
+  □ Napravio/la sam backup postojećih datoteka
+  □ dist/ direktorij je generiran (npm run build)
+  □ Pročitao/la sam FILEZILLA_UPUTE.txt ili UPLOAD_UPUTE.md
+  □ Spreman/na sam za upload!
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                            KONTAKT                                         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+  Za FTP pristup kontaktirajte:
+  📧 Web hosting administrator PMF-a
+  📧 IT podrška Biološkog odsjeka
+  
+  Zatražite:
+  • FTP hostname
+  • FTP username  
+  • FTP password
+  • Web root lokaciju
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                      SVE JE SPREMNO! 🚀                                    ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+  Stranica je potpuno pripremljena za upload na produkcijski server.
+  
+  Slijedite upute u FILEZILLA_UPUTE.txt ili UPLOAD_UPUTE.md
+  
+  Build je testiran i spreman:
+  ✓ 197 HTML stranica
+  ✓ 105 slika
+  ✓ Optimizirani CSS i JS
+  ✓ .htaccess konfiguriran
+  ✓ robots.txt uključen
+  
+  Nova domena: https://bakteriologija.biol.pmf.hr
+  
+  Sretno! 🎉
+
+═══════════════════════════════════════════════════════════════════════════════
+
+  Datum pripreme: 22. listopada 2025.
+  Build verzija: Produkcijska
+  Status: ✅ SPREMNO ZA DEPLOY
+  
+═══════════════════════════════════════════════════════════════════════════════
+

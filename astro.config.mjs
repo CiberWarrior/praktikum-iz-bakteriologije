@@ -7,7 +7,7 @@ import path from 'path';
 const isVercel = !!process.env.VERCEL;
 const siteUrl = isVercel && process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : 'https://ciberwarrior.github.io';
+  : 'https://bakteriologija.biol.pmf.hr';
 
 export default defineConfig({
   site: siteUrl,
