@@ -285,9 +285,12 @@ export class AdvancedSearch {
     
     if (selectedIndex >= 0 && selectedIndex < this.autocompleteItems.length) {
       const selectedItem = this.autocompleteItems[selectedIndex];
+      if (!selectedItem || !selectedItem.text) {
+        return;
+      }
       this.searchInput.value = selectedItem.text;
       this.hideAutocomplete();
-      this.performSearch(selectedItem.text);
+      void this.performSearch(selectedItem.text);
     }
   }
 
